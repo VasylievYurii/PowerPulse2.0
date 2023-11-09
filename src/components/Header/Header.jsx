@@ -10,18 +10,16 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Navigation>
-        <StyledLink to="/first">
+        <StyledLink to="/diary">Diary</StyledLink>
+        <StyledLink to="/products">Products</StyledLink>
+        <StyledLink to="/exercises">Exercises</StyledLink>
+        <StyledLink to="/profile">
           <IconWrapper>
-            <use href={`${sprite}#icon-logo`} />
+            <use href={`${sprite}#icon-settings`} />
           </IconWrapper>
-          First
         </StyledLink>
-        <StyledLink to="/second">
-          <IconWrapper>
-            <use href={`${sprite}#icon-logo`} />
-          </IconWrapper>
-          Second
-        </StyledLink>
+        <StyledLink to="/signin">SignIn</StyledLink>
+        <StyledLink to="/signup">SignUp</StyledLink>
       </Navigation>
     </HeaderContainer>
   );

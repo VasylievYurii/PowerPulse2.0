@@ -1,7 +1,10 @@
-import React from 'react';
-
+import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
 const Welcome = () => {
-  return <div></div>;
+  return (
+    <SectionTemplate>
+      <p>Welcome page</p>
+    </SectionTemplate>
+  );
 };
 
 export default Welcome;

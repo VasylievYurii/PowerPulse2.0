@@ -1,11 +1,11 @@
 import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
 
-const SignIn = () => {
+const Exercises = () => {
   return (
     <SectionTemplate>
-      <p>SignIn page</p>
+      <p>Exercises page</p>
     </SectionTemplate>
   );
 };
 
-export default SignIn;
+export default Exercises;
