@@ -1,8 +1,8 @@
 import { Field } from 'formik';
-import './useForm.css';
+import '../useForm.css';
 import styled from 'styled-components';
 
-export const InputUseForm = () => {
+const InputUseForm = () => {
   return (
     <div className="contant-useForm">
       <p className="text-info">Basic info</p>
@@ -57,3 +57,5 @@ const Input = styled(Field)`
   background-color: #000;
   color: #efede8;
 `;
+
+export default InputUseForm;
