@@ -1,19 +1,19 @@
 // import React from 'react';
 import { Formik, Form } from 'formik';
 import './useForm.css';
-import { RadioUseForm } from './RadioUseForm';
-import { InputUseForm } from './InputUseForm';
+import RadioUseForm from './RadioUseForm/RadioUseForm';
 import { object, string, number, date } from 'yup';
+import InputUseForm from './InputUseForm/InputUseForm';
 
 let userSchema = object({
   login: string().required(),
   email: string().email(),
   sex: string().required(),
   blood: number().required().positive().integer(),
-  height: number().min(150).required().positive().integer(),
+  height: number().required().positive().integer().min(150),
   levelActivity: number().required().positive().integer(),
-  currentWeight: number().min(35).required().positive().integer(),
-  desiredWeight: number().min(35).required().positive().integer(),
+  currentWeight: number().required().positive().integer().min(35),
+  desiredWeight: number().required().positive().integer().min(35),
   birthday: date().default(() => new Date()),
 });
 const initialValues = {

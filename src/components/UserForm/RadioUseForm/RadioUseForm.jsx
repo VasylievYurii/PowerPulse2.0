@@ -1,6 +1,6 @@
-import './useForm.css';
-import RadioBtn from './RadioBtn';
-export const RadioUseForm = () => {
+import '../useForm.css';
+import RadioBtn from '../RadioBtn/RadioBtn';
+const RadioUseForm = () => {
   return (
     <div>
       <p className="text-blood">Blood</p>
@@ -46,3 +46,5 @@ export const RadioUseForm = () => {
     </div>
   );
 };
+
+export default RadioUseForm;
