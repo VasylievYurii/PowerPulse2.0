@@ -3,6 +3,11 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../redux/auth/operations';
 import { ButtonSubmitStyled } from './SignInForm.styled';
+import {
+  InputStyled,
+  WrapFormStyled,
+  ErrorDivStyled,
+} from '../SignUpForm/SignUpForm.styled';
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -43,18 +48,25 @@ const SignInForm = () => {
     >
       {({ errors, touched }) => (
         <Form autoComplete="off">
-          <div>
-            <label htmlFor="email">Email </label>
-            <Field type="text" name="email" validate={validateEmail} />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
-          </div>
-          <div>
-            <label htmlFor="password">Password </label>
-            <Field type="text" name="password" />
-            {errors.password && touched.password ? (
-              <div>{errors.password}</div>
-            ) : null}
-          </div>
+          <WrapFormStyled>
+            <div>
+              <InputStyled
+                type="text"
+                name="email"
+                validate={validateEmail}
+                placeholder="Email"
+              />
+              {errors.email && touched.email ? (
+                <ErrorDivStyled>{errors.email}</ErrorDivStyled>
+              ) : null}
+            </div>
+            <div>
+              <InputStyled type="text" name="password" placeholder="Password" />
+              {errors.password && touched.password ? (
+                <ErrorDivStyled>{errors.password}</ErrorDivStyled>
+              ) : null}
+            </div>
+          </WrapFormStyled>
 
           <ButtonSubmitStyled type="submit">Sign In</ButtonSubmitStyled>
         </Form>

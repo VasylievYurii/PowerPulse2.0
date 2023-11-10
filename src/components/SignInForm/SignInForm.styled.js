@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const ButtonSubmitStyled = styled.button`
   display: block;
   padding: 12px 40px;
+  margin-top: 28px;
   color: var(--color-text);
   font-size: 16px;
   font-weight: 500;

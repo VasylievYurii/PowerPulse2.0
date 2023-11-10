@@ -1,16 +1,25 @@
 import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
 import SignUpForm from '../components/SignUpForm/index';
+import {
+  TitleSignupStyled,
+  ParagrStyled,
+  NavLinkStyled,
+  TextRedirectStyled,
+} from './SignUp.styled';
 
 const SignUp = () => {
   return (
     <SectionTemplate>
-      <h1>Sign Up</h1>
-      <p>
+      <TitleSignupStyled>Sign Up</TitleSignupStyled>
+      <ParagrStyled>
         Thank you for your interest in our platform. To complete the
         registration process, please provide us with the following information.
-      </p>
+      </ParagrStyled>
       <SignUpForm />
-      <p>Already have an account? Sign In</p>
+      <TextRedirectStyled>
+        Already have an account?{' '}
+        <NavLinkStyled to="/signin">Sign In</NavLinkStyled>
+      </TextRedirectStyled>
     </SectionTemplate>
   );
 };
