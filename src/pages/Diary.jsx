@@ -4,7 +4,7 @@ import { TitlePage } from '../components/TitlePage';
 const Diary = () => {
   return (
     <SectionTemplate>
-      <TitlePage title={'Diary'}/>
+      <TitlePage> Diary</TitlePage>
       <p>Diary page</p>
     </SectionTemplate>
   );
