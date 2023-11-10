@@ -1,0 +1,1 @@
+import{j as r}from"./index-4f33650f.js";import{S as t}from"./SectionTemplate-83cdc5ec.js";import"./emotion-styled.browser.esm-29ba4e06.js";const p=()=>r.jsx(t,{children:r.jsx("p",{children:"Products page"})});export{p as default};

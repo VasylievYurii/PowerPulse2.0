@@ -1,0 +1,1 @@
+import{j as r}from"./index-4f33650f.js";import{S as t}from"./SectionTemplate-83cdc5ec.js";import"./emotion-styled.browser.esm-29ba4e06.js";const o=()=>r.jsx(t,{children:r.jsx("p",{children:"SignIn page"})});export{o as default};
