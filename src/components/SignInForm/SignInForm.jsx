@@ -2,6 +2,7 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../redux/auth/operations';
+import { ButtonSubmitStyled } from './SignInForm.styled';
 
 const SignupSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -55,7 +56,7 @@ const SignInForm = () => {
             ) : null}
           </div>
 
-          <button type="submit">Sign In</button>
+          <ButtonSubmitStyled type="submit">Sign In</ButtonSubmitStyled>
         </Form>
       )}
     </Formik>
