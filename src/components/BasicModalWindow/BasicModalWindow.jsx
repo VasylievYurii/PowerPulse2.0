@@ -38,7 +38,7 @@ const BasicModalWindow = ({ onClick, children }) => {
       <BackdropModal onClick={handleBackDropClick}>
         <ModalContainer>
           <CloseBtnWrapper onClick={handleCloseClick}>
-            <use href={`${sprite}#icon-checkbox`} />
+            <use href={`${sprite}#icon-cross`} />
           </CloseBtnWrapper>
           <ModalChildrenWrapper>{children}</ModalChildrenWrapper>
         </ModalContainer>
