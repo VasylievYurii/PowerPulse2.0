@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import Loader from '../Loader';
 // import RestrictedRoute from '../RestrictedRoute';
 // import PrivateRoute from '../PrivateRoute';
@@ -20,6 +20,7 @@ const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 
 function App() {
   const location = useLocation();
+
   return (
     <Routes location={location} key={location.pathname}>
       <Route path="/" element={<SharedLayout />}>
@@ -37,11 +38,11 @@ function App() {
         <Route
           path="/products"
           element={
-            <BasicModalWindow>
-              <Suspense fallback={<Loader />}>
-                <Products />
-              </Suspense>
-            </BasicModalWindow>
+            // <BasicModalWindow>
+            <Suspense fallback={<Loader />}>
+              <Products />
+            </Suspense>
+            // </BasicModalWindow>
           }
         />
 
@@ -57,35 +58,35 @@ function App() {
         <Route
           path="/exercises"
           element={
-            <BasicModalWindow>
-              <Suspense fallback={<Loader />}>
-                <Exercises />
-              </Suspense>
-            </BasicModalWindow>
+            // <BasicModalWindow>
+            <Suspense fallback={<Loader />}>
+              <Exercises />
+            </Suspense>
+            // </BasicModalWindow>
           }
         >
           <Route
             path="bodyparts"
             element={
-              <BasicModalWindow>
-                <BodyParts />
-              </BasicModalWindow>
+              // <BasicModalWindow>
+              <BodyParts />
+              // </BasicModalWindow>
             }
           />
           <Route
             path="muscles"
             element={
-              <BasicModalWindow>
-                <Muscles />
-              </BasicModalWindow>
+              // <BasicModalWindow>
+              <Muscles />
+              // </BasicModalWindow>
             }
           />
           <Route
             path="equipment"
             element={
-              <BasicModalWindow>
-                <Equipment />
-              </BasicModalWindow>
+              // <BasicModalWindow>
+              <Equipment />
+              // </BasicModalWindow>
             }
           />
         </Route>
