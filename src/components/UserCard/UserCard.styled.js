@@ -49,6 +49,10 @@ export const WrapperUser = styled.svg`
   width: 90px;
   height: 90px;
   position: relative;
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    width: 150px;
+    height: 150px;
+  }
 `;
 
 export const IconWrapperUser = styled.svg`
@@ -68,39 +72,66 @@ export const ButtonUser = styled.button`
   align-items: center;
   display: flex;
   background-color: transparent;
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    width: 32px;
+    height: 32px;
+    left: 48%;
+    bottom: -13px;
+  }
 `;
 
-export const WrapperUserDiv = styled.button`
+export const WrapperUserDiv = styled.div`
   position: relative;
   background-color: transparent;
   border: 0px;
   display: flex;
-  width: 336px;
   margin-bottom: 20px;
   justify-content: center;
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+  }
 `;
 
 export const IconPluse = styled.svg`
   width: 22px;
   height: 22px;
   fill: rgba(239, 137, 100, 1);
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    width: 32px;
+    height: 32px;
+  }
 `;
 
 export const TextUser = styled.p`
   font-size: 14px;
   font-weight: 400;
   color: rgba(239, 237, 232, 0.5);
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    font-size: 18px;
+  }
 `;
 export const TextNameUser = styled.p`
   font-size: 18px;
   font-weight: 400;
   color: rgba(239, 237, 232, 1);
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    font-size: 24px;
+  }
 `;
 
 export const WrapperName = styled.div`
-  width: 336px;
+  gap: 4px;
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-bottom: 40px;
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    gap: 8px;
+  }
+`;
+
+export const IconExclamation = styled.svg`
+  width: 24px;
+  height: 24px;
+  background-color: rgba(239, 137, 100, 1);
+  border-radius: 50%;
 `;

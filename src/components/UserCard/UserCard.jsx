@@ -13,9 +13,13 @@ import {
   TextUser,
   TextNameUser,
   WrapperName,
+  IconExclamation,
 } from './UserCard.styled';
 import sprite from '../../assets/sprite.svg';
 const UserCard = () => {
+  const addPhoto = () => {
+    console.log('add photo');
+  };
   return (
     <>
       <WrapperUserDiv>
@@ -24,7 +28,7 @@ const UserCard = () => {
             <use href={`${sprite}#icon-user`} />
           </IconWrapperUser>
         </WrapperUser>
-        <ButtonUser>
+        <ButtonUser onClick={addPhoto}>
           <IconPluse>
             <use href={`${sprite}#icon-plus`} />
           </IconPluse>
@@ -54,6 +58,15 @@ const UserCard = () => {
           <Span>0 min</Span>
         </WrapperIndicators>
       </WrapperTwoIndicators>
+      <div>
+        <IconExclamation>
+          <use href={`${sprite}#icon-exclamation`} />
+        </IconExclamation>
+        <p>
+          We understand that each individual is unique, so the entire approach
+          to diet is relative and tailored to your unique body and goals.
+        </p>
+      </div>
     </>
   );
 };
