@@ -1,9 +1,9 @@
 // import React from 'react';
 import { Formik, Form } from 'formik';
 import './useForm.css';
-import { RadioUseForm } from './RadioUseForm';
-import { InputUseForm } from './InputUseForm';
+import RadioUseForm from './RadioUseForm/RadioUseForm';
 import { object, string, number, date } from 'yup';
+import InputUseForm from './InputUseForm/InputUseForm';
 
 let userSchema = object({
   login: string().required(),
