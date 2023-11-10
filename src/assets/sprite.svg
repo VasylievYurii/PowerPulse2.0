@@ -1,9 +1,13 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
+<symbol id="icon-cross" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4615" d="M24 8l-16 16"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4615" d="M8 8l16 16"></path>
+</symbol>
 <symbol id="icon-next" viewBox="0 0 32 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M18.133 22.667l6.667-6.667M24.8 16l-6.667-6.667M24.8 16h-16"></path>
 </symbol>
-<symbol id="icon-line" viewBox="0 0 87 32">
+<symbol id="icon-Line" viewBox="0 0 87 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.7297" d="M60.717 0.865c-20.169 0.292-64.211 3.812-59.502 21.728 4.232 12.649 64.534 9.932 79.413 0.414s-5.555-19.422-34.037-15.916"></path>
 </symbol>
 <symbol id="icon-exclamation" viewBox="0 0 32 32">

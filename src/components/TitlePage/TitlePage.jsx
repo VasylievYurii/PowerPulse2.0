@@ -1,15 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { TitlePageStyle } from '.';
+import { TitlePageStyle } from './TitlePage.styled';
 
-const TitlePage = ({ title }) => {
-    console.log(title);
+const TitlePage = ({ children }) => {
     return (
-        <TitlePageStyle>{title}</TitlePageStyle>
+        <TitlePageStyle>{children}</TitlePageStyle>
 )};
-
-TitlePage.propTypes = {
-    title: PropTypes.string.isRequired
-};
 
 export default TitlePage;

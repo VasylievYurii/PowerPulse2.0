@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import Loader from '../Loader';
 // import RestrictedRoute from '../RestrictedRoute';
 // import PrivateRoute from '../PrivateRoute';
@@ -19,6 +19,7 @@ const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 
 function App() {
   const location = useLocation();
+
   return (
     <Routes location={location} key={location.pathname}>
       <Route path="/" element={<SharedLayout />}>
