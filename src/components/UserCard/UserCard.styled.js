@@ -1,1 +1,106 @@
 import styled from 'styled-components';
+
+export const WrapperTwoIndicators = styled.div`
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    gap: 16px;
+  }
+`;
+export const WrapperIndicators = styled.div`
+  width: 157px;
+  height: 96px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px;
+  font-size: 12px;
+  font-weight: 400;
+  border-radius: 12px;
+  background-color: rgba(230, 83, 60, 1);
+  color: rgba(239, 237, 232, 0.8);
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    width: 214px;
+    height: 108px;
+  }
+`;
+
+export const WrapperText = styled.div`
+  display: flex;
+  gap: 8px;
+  align-items: center;
+`;
+export const IconWrapper = styled.svg`
+  width: 20px;
+  height: 20px;
+  fill: rgba(239, 137, 100, 1);
+`;
+
+export const Span = styled.use`
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(239, 237, 232, 1);
+`;
+
+export const WrapperUser = styled.svg`
+  border: 1px solid rgba(230, 83, 60, 1);
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  position: relative;
+`;
+
+export const IconWrapperUser = styled.svg`
+  width: 61px;
+  height: 61px;
+  fill: rgba(239, 237, 232, 0.1);
+`;
+export const ButtonUser = styled.button`
+  border: 0px solid rgba(230, 83, 60, 1);
+  border-radius: 50%;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 47%;
+  bottom: -9px;
+  align-items: center;
+  display: flex;
+  background-color: transparent;
+`;
+
+export const WrapperUserDiv = styled.button`
+  position: relative;
+  background-color: transparent;
+  border: 0px;
+  display: flex;
+  width: 336px;
+  margin-bottom: 20px;
+  justify-content: center;
+`;
+
+export const IconPluse = styled.svg`
+  width: 22px;
+  height: 22px;
+  fill: rgba(239, 137, 100, 1);
+`;
+
+export const TextUser = styled.p`
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(239, 237, 232, 0.5);
+`;
+export const TextNameUser = styled.p`
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(239, 237, 232, 1);
+`;
+
+export const WrapperName = styled.div`
+  width: 336px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 40px;
+`;

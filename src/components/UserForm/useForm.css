@@ -34,6 +34,7 @@ p {
   cursor: pointer;
   margin-right: 5px;
   align-items: center;
+
   margin-bottom: 8px;
 }
 .radio-input:checked + span {
@@ -116,8 +117,10 @@ p {
   max-width: 340px;
   text-align: start;
 }
+
 .submit-btn {
   display: flex;
+
   align-items: center;
   margin-top: 40px;
   width: 115px;
