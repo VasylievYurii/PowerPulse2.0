@@ -1,23 +1,26 @@
 import React from 'react';
+import { DayProductsStyle, DayProductsSupTitle, DayProductsTitle, DayProductsWrapTitle } from './DayProducts.styled';
 
 const DayProducts = () => {
   return (
-    <section>
-      <h3>Products</h3>
-      <a href="">Add product</a>   
+    <DayProductsStyle>
+      <DayProductsWrapTitle>
+        <DayProductsTitle>Products</DayProductsTitle>
+        <a href="#">Add product</a>
+      </DayProductsWrapTitle>   
 <ul>
-  <li><h4>Title</h4>
+  <li><DayProductsSupTitle>Title</DayProductsSupTitle>
       <p></p>
-      <h4>Category</h4>
+      <DayProductsSupTitle>Category</DayProductsSupTitle>
       <p></p>
       <div>
-        <h4>Calories</h4><p></p>
-        <h4>Weight</h4><p></p>
-        <h4>Recommend</h4><p></p>
+        <DayProductsSupTitle>Calories</DayProductsSupTitle><p></p>
+        <DayProductsSupTitle>Weight</DayProductsSupTitle><p></p>
+        <DayProductsSupTitle>Recommend</DayProductsSupTitle><p></p>
         <button>Del</button>
       </div></li>
 </ul>
-    </section>
+    </DayProductsStyle>
   )
 };
 
