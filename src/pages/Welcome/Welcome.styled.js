@@ -19,6 +19,7 @@ export const Heading = styled.h1`
 export const Buttons = styled.div`
   display: flex;
   gap: 14px;
+  margin-bottom: 231px;
 
   @media screen and (min-width: 768px) {
     gap: 20px;

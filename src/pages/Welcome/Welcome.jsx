@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom';
+import Logo from '../../components/Logo';
 import SectionTemplate from '../../components/SectionTemplate/SectionTemplate';
+import WelcomeStats from '../../components/WelcomeStats';
 import {
   Buttons,
   Heading,
@@ -9,11 +12,17 @@ import {
 const Welcome = () => {
   return (
     <SectionTemplate>
+      <Logo />
       <Heading>Transforming your body shape with Power Pulse</Heading>
       <Buttons>
-        <WelcomePrimaryBtn>Sign Up</WelcomePrimaryBtn>
-        <WelcomeOutlinedBtn>Sign In</WelcomeOutlinedBtn>
+        <Link to="/signup">
+          <WelcomePrimaryBtn>Sign Up</WelcomePrimaryBtn>
+        </Link>
+        <Link to="/signin">
+          <WelcomeOutlinedBtn>Sign In</WelcomeOutlinedBtn>
+        </Link>
       </Buttons>
+      <WelcomeStats />
     </SectionTemplate>
   );
 };
