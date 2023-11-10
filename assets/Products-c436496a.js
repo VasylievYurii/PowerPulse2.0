@@ -1,4 +1,4 @@
-import{r as d,s,a,j as o,b as c}from"./index-711865cb.js";import{S as p}from"./SectionTemplate-c9bf0412.js";import"./emotion-styled.browser.esm-0d89ca1a.js";const x=({children:t})=>{const e=document.getElementById("portal-root");return e?d.createPortal(t,e):(console.error("Portal root element not found. Please create a div with id='portal-root' in your HTML."),null)},h=s.div`
+import{r as d,s,a,j as o,b as c}from"./index-69535aba.js";import{S as p}from"./SectionTemplate-aba7b931.js";import"./emotion-styled.browser.esm-7618cdb1.js";const x=({children:t})=>{const e=document.getElementById("portal-root");return e?d.createPortal(t,e):(console.error("Portal root element not found. Please create a div with id='portal-root' in your HTML."),null)},h=s.div`
   position: absolute;
   top: 50%;
   left: 50%;

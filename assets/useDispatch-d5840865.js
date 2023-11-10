@@ -1,1 +1,0 @@
-import{a as c,R as e}from"./index-711865cb.js";function s(t=e){return function(){return c.useContext(t)}}const a=s();function r(t=e){const o=t===e?a:s(t);return function(){const{store:u}=o();return u}}const x=r();function i(t=e){const o=t===e?x:r(t);return function(){return o().dispatch}}const p=i();export{p as u};
