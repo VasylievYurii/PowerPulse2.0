@@ -1,6 +1,8 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../../redux/auth/operations';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -15,11 +17,12 @@ function validateEmail(value) {
   let error;
   if (!value) {
     error = 'Required';
-  } else if (/^[\w-.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/.test(value)) {
+  } else if (!/^[\w-.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/i.test(value)) {
     error = 'Invalid email address';
   }
   return error;
 }
+//     /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
 
 //    /^[\w-.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
 
@@ -30,9 +33,12 @@ const initialValues = {
 };
 
 const SignUpForm = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, actions) => {
     console.log('values', values);
     console.log('actions', actions);
+    dispatch(registerUser(values));
     actions.resetForm();
   };
 
@@ -44,20 +50,24 @@ const SignUpForm = () => {
     >
       {({ errors, touched }) => (
         <Form autoComplete="off">
-          <label htmlFor="name">
-            Name <Field type="text" name="name" />
+          <div>
+            <label htmlFor="name">Name </label>
+            <Field type="text" name="name" />
             {errors.name && touched.name ? <div>{errors.name}</div> : null}
-          </label>
-          <label htmlFor="email">
-            Email <Field type="text" name="email" validate={validateEmail} />
+          </div>
+          <div>
+            <label htmlFor="email">Email </label>
+            <Field type="text" name="email" validate={validateEmail} />
             {errors.email && touched.email ? <div>{errors.email}</div> : null}
-          </label>
-          <label htmlFor="password">
-            Password <Field type="text" name="password" />
+          </div>
+          <div>
+            <label htmlFor="password">Password </label>
+            <Field type="text" name="password" />
             {errors.password && touched.password ? (
               <div>{errors.password}</div>
             ) : null}
-          </label>
+          </div>
+
           <button type="submit">Sign Up</button>
         </Form>
       )}
