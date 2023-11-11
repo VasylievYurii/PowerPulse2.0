@@ -1,9 +1,27 @@
 import React from 'react';
-import { DayProductsStyle, DiarySupTitle, DiaryLink, DiaryTitle, DiaryWrapTitle, DescriptionItem, ValueBox, DiaryProductsList, DiaryProductsCard, WrapLastDescrBox, Circle, TrashIconWrapper, NextIconWrapper } from './DayProducts.styled';
+import { DayProductsStyle, DiaryTitle, DiaryWrapTitle, DiaryProductsList, NextIconWrapper, DiaryLink } from './DayProducts.styled';
 import { Link } from 'react-router-dom';
 import sprite from '../../assets/sprite.svg';
+import DayProductItem from '../DayProductItem';
+import { useDispatch, useSelector } from 'react-redux';
 
 const DayProducts = () => {
+  // const dispatch = useDispatch();
+    // const [load, setLoad] = useState(true);
+    // const meals = useSelector(selectPhoneBookValue);
+    // const date = useSelector(selectDate);
+
+    // useEffect(() => {
+    //     setLoad(false);
+    // }, [])
+
+    // useEffect(() => {
+    //     dispatch(getContactsThunk())
+    // }, [dispatch]);
+  
+  // const mealsByDate = meals.filter(({ meal.date }) =>
+  //   (meal.date === date));
+  
   return (
     <DayProductsStyle>
       <DiaryWrapTitle>
@@ -17,38 +35,10 @@ const DayProducts = () => {
         </Link>
       </DiaryWrapTitle>
       <DiaryProductsList>
-        <DiaryProductsCard>
-          <DescriptionItem>
-            <DiarySupTitle>Title</DiarySupTitle>
-            <ValueBox>Bread Hercules grain</ValueBox>
-          </DescriptionItem>
-          <DescriptionItem>
-            <DiarySupTitle>Category</DiarySupTitle>
-            <ValueBox>Flour</ValueBox>
-          </DescriptionItem>
-          <WrapLastDescrBox>
-            <DescriptionItem>
-              <DiarySupTitle>Calories</DiarySupTitle>
-              <ValueBox>100</ValueBox>
-            </DescriptionItem>
-            <DescriptionItem>
-              <DiarySupTitle>Weight</DiarySupTitle>
-              <ValueBox>500</ValueBox>
-            </DescriptionItem>
-            <DescriptionItem>
-              <DiarySupTitle>Recommend</DiarySupTitle>
-              <ValueBox>
-                <Circle />
-                fff</ValueBox>
-            </DescriptionItem>
-                      {/* <button type="button"> */}
-          <TrashIconWrapper stroke='var(--color-main-two)' >
-            <use href={`${sprite}#icon-trash`} />
-          </TrashIconWrapper>
-            {/* </button> */}
-          </WrapLastDescrBox>
-        </DiaryProductsCard>
-      
+        {/* {mealsByDate.map((meal) =>
+                    <DayProductItem meal={meal} key={meal.id} />
+                )} */}
+        <DayProductItem />
       </DiaryProductsList>
     </DayProductsStyle>
   )
