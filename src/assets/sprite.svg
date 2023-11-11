@@ -23,7 +23,7 @@
 <symbol id="icon-menu" viewBox="0 0 32 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M4 16h16M4 8h24M4 24h24"></path>
 </symbol>
-<symbol id="icon-plus"  viewBox="0 0 32 32">
+<symbol id="icon-plus" viewBox="0 0 33 32">
 <path fill="#e6533c" style="fill: var(--color1, #e6533c)" d="M11.238 0.428l4.69 1.356c0.339 0.098 0.699 0.099 1.038 0.002l4.83-1.375c0.845-0.241 1.744 0.136 2.166 0.906l2.506 4.577c0.168 0.307 0.419 0.561 0.723 0.734l3.986 2.258c0.771 0.437 1.133 1.352 0.869 2.198l-1.381 4.428c-0.113 0.363-0.114 0.752-0.002 1.115l1.394 4.521c0.258 0.836-0.094 1.739-0.849 2.18l-4.443 2.597c-0.303 0.177-0.551 0.436-0.715 0.746l-2.114 4.004c-0.409 0.775-1.298 1.165-2.145 0.941l-4.863-1.284c-0.317-0.084-0.651-0.083-0.968 0.002l-4.715 1.264c-0.867 0.232-1.777-0.179-2.175-0.983l-2.106-4.256c-0.177-0.357-0.462-0.649-0.816-0.834l-4.304-2.247c-0.786-0.411-1.179-1.314-0.943-2.169l1.255-4.548c0.089-0.322 0.090-0.662 0.005-0.985l-1.288-4.843c-0.221-0.833 0.151-1.71 0.904-2.129l4.422-2.46c0.322-0.179 0.584-0.448 0.754-0.775l2.090-4.007c0.414-0.794 1.331-1.187 2.192-0.938z"></path>
 <path fill="none" stroke="#efede8" style="stroke: var(--color2, #efede8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M16.5 10.75v10.5"></path>
 <path fill="none" stroke="#efede8" style="stroke: var(--color2, #efede8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M11.25 16h10.5"></path>
@@ -38,7 +38,6 @@
 <symbol id="icon-logout" viewBox="0 0 32 32">
 <path d="M7.5 2.5H6.5C5.09987 2.5 4.3998 2.5 3.86502 2.77248C3.39462 3.01217 3.01217 3.39462 2.77248 3.86502C2.5 4.3998 2.5 5.09987 2.5 6.5V13.5C2.5 14.9001 2.5 15.6002 2.77248 16.135C3.01217 16.6054 3.39462 16.9878 3.86502 17.2275C4.3998 17.5 5.09987 17.5 6.5 17.5H7.5" stroke="#E6533C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M13.3333 14.1666L17.5 9.99998M17.5 9.99998L13.3333 5.83331M17.5 9.99998H7.5" stroke="#E6533C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-
 </symbol>
 <symbol id="icon-trash" viewBox="0 0 32 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.4" d="M12 4h8M13.333 14v6.667M18.667 14v6.667"></path>
