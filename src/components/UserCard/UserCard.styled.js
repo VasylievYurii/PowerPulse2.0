@@ -43,7 +43,7 @@ export const Span = styled.use`
   color: rgba(239, 237, 232, 1);
 `;
 
-export const WrapperUser = styled.svg`
+export const WrapperUser = styled.div`
   border: 1px solid rgba(230, 83, 60, 1);
   border-radius: 50%;
   width: 90px;
@@ -54,13 +54,29 @@ export const WrapperUser = styled.svg`
     height: 150px;
   }
 `;
-
-export const IconWrapperUser = styled.svg`
-  width: 61px;
-  height: 61px;
-  fill: rgba(239, 237, 232, 0.1);
+export const Img = styled.img`
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  position: relative;
+  @media screen and (min-width: 768px) {
+    width: 150px;
+    height: 150px;
+  }
 `;
-export const ButtonUser = styled.button`
+export const IconWrapperUser = styled.svg`
+  width: 90px;
+  height: 90px;
+  fill: rgba(239, 237, 232, 0.1);
+  @media screen and (min-width: 768px) {
+    width: 150px;
+    height: 150px;
+  }
+`;
+export const Input = styled.input`
+  visibility: hidden;
+`;
+export const ButtonUser = styled.label`
   border: 0px solid rgba(230, 83, 60, 1);
   border-radius: 50%;
   padding: 0;
