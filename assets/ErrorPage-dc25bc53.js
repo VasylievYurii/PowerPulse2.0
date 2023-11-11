@@ -1,12 +1,12 @@
-import{b as o,j as e,u as a}from"./index-37bd22ad.js";import{n as t}from"./emotion-styled.browser.esm-0344d5ff.js";const d=t.div`
+import{b as o,j as e,u as a}from"./index-d8db28c4.js";import{n as t}from"./emotion-styled.browser.esm-5463fd8f.js";const d=t.div`
   position: relative;
- /*  background-image: */
+  /*  background-image: */
   color: #efede8;
   background-repeat: no-repeat;
   background-position: bottom 0 right -40%;
   margin: 0 auto;
   position: relative;
-  height: 100vh;
+  /* height: 100vh; */
 
   @media screen and (min-width: 375px) {
     max-width: 375px;
@@ -24,7 +24,6 @@ import{b as o,j as e,u as a}from"./index-37bd22ad.js";import{n as t}from"./emoti
     width: 1440px;
     height: 800px;
     /* background-image:  */
-  
   }
 `,p=t.div`
   background: #e6533c;
@@ -80,8 +79,8 @@ import{b as o,j as e,u as a}from"./index-37bd22ad.js";import{n as t}from"./emoti
   left: 32px;
   top: 32px;
 
-   @media screen and (min-width: 1440px) {
-  left: 96px;
+  @media screen and (min-width: 1440px) {
+    left: 96px;
   }
 `;t.svg`
   width: 126px;
@@ -91,4 +90,4 @@ import{b as o,j as e,u as a}from"./index-37bd22ad.js";import{n as t}from"./emoti
     width: 152px;
     height: 17px;
   }
-`;const c=()=>e.jsx("div",{}),l=()=>{const i=a(),n=()=>{i("/")};return e.jsxs(d,{children:[e.jsx(x,{to:"/"}),e.jsx(p,{children:e.jsxs(r,{children:[e.jsx(s,{children:"404"}),e.jsx(h,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(c,{className:"Button",text:"Go Home",type:"button",onClick:n})]})})]})};export{l as default};
+`;const c=()=>e.jsx("div",{}),l=()=>{const i=a(),n=()=>{i("/")};return console.log("404"),e.jsxs(d,{children:[e.jsx(x,{to:"/"}),e.jsx(p,{children:e.jsxs(r,{children:[e.jsx(s,{children:"404"}),e.jsx(h,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(c,{className:"Button",text:"Go Home",type:"button",onClick:n})]})})]})};export{l as default};

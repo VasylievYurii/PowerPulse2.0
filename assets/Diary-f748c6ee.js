@@ -1,1 +1,0 @@
-import{j as r}from"./index-37bd22ad.js";import{S as e}from"./SectionTemplate-2cf62a5b.js";import{T as i}from"./TitlePage-54abe8e8.js";import"./emotion-styled.browser.esm-0344d5ff.js";const m=()=>r.jsxs(e,{children:[r.jsx(i,{children:"Diary"}),r.jsx("p",{children:"Diary page"})]});export{m as default};
