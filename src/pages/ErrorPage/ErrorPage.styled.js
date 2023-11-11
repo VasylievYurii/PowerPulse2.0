@@ -1,16 +1,15 @@
-import styled from '@emotion/styled'; 
+import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-
 
 export const Container = styled.div`
   position: relative;
- /*  background-image: */
+  /*  background-image: */
   color: #efede8;
   background-repeat: no-repeat;
   background-position: bottom 0 right -40%;
   margin: 0 auto;
   position: relative;
-  height: 100vh;
+  /* height: 100vh; */
 
   @media screen and (min-width: 375px) {
     max-width: 375px;
@@ -28,7 +27,6 @@ export const Container = styled.div`
     width: 1440px;
     height: 800px;
     /* background-image:  */
-  
   }
 `;
 
@@ -89,14 +87,13 @@ export const Text = styled.p`
   }
 `;
 
-
 export const StyledLink = styled(Link)`
   position: absolute;
   left: 32px;
   top: 32px;
 
-   @media screen and (min-width: 1440px) {
-  left: 96px;
+  @media screen and (min-width: 1440px) {
+    left: 96px;
   }
 `;
 
@@ -109,4 +106,3 @@ export const Svg = styled.svg`
     height: 17px;
   }
 `;
-

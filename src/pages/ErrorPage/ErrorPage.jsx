@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Container,
@@ -6,13 +5,11 @@ import {
   Content,
   Title,
   Text,
-  Svg,
-  StyledLink, 
+  StyledLink,
 } from './ErrorPage.styled';
-import  Button  from '../../components/LogOutBtn/LogOutBtn';
+import Button from '../../components/LogOutBtn';
 
 /* import svg */
-
 
 const ErrorPage = () => {
   const navigate = useNavigate();
@@ -20,7 +17,7 @@ const ErrorPage = () => {
   const handleClick = () => {
     navigate('/');
   };
-
+  console.log('404');
   return (
     <Container>
       <StyledLink to="/">
@@ -32,12 +29,12 @@ const ErrorPage = () => {
         <Content>
           <Title>404</Title>
           <Text>
-            Sorry, you have reached a page that we could not find. It seems
-            that you are lost among the numbers and letters of our virtual
-            space. Perhaps this page went on vacation or decided to disappear
-            into another dimension. We apologize for this inconvenience.
+            Sorry, you have reached a page that we could not find. It seems that
+            you are lost among the numbers and letters of our virtual space.
+            Perhaps this page went on vacation or decided to disappear into
+            another dimension. We apologize for this inconvenience.
           </Text>
-             <Button
+          <Button
             className="Button"
             text="Go Home"
             type="button"
