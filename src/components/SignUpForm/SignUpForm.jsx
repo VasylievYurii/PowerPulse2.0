@@ -1,7 +1,13 @@
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/auth/operations';
+import {
+  InputStyled,
+  ErrorDivStyled,
+  WrapFormStyled,
+} from './SignUpForm.styled';
+import { ButtonSubmitStyled } from '../SignInForm/SignInForm.styled';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -35,8 +41,6 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    console.log('values', values);
-    console.log('actions', actions);
     dispatch(registerUser(values));
     actions.resetForm();
   };
@@ -49,25 +53,35 @@ const SignUpForm = () => {
     >
       {({ errors, touched }) => (
         <Form autoComplete="off">
-          <div>
-            <label htmlFor="name">Name </label>
-            <Field type="text" name="name" />
-            {errors.name && touched.name ? <div>{errors.name}</div> : null}
-          </div>
-          <div>
-            <label htmlFor="email">Email </label>
-            <Field type="text" name="email" validate={validateEmail} />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
-          </div>
-          <div>
-            <label htmlFor="password">Password </label>
-            <Field type="text" name="password" />
-            {errors.password && touched.password ? (
-              <div>{errors.password}</div>
-            ) : null}
-          </div>
+          <WrapFormStyled>
+            <div>
+              <InputStyled type="text" name="name" placeholder="Name" />
+              {errors.name && touched.name ? (
+                <ErrorDivStyled>{errors.name}</ErrorDivStyled>
+              ) : null}
+            </div>
 
-          <button type="submit">Sign Up</button>
+            <div>
+              <InputStyled
+                type="text"
+                name="email"
+                validate={validateEmail}
+                placeholder="Email"
+              />
+              {errors.email && touched.email ? (
+                <ErrorDivStyled>{errors.email}</ErrorDivStyled>
+              ) : null}
+            </div>
+
+            <div>
+              <InputStyled type="text" name="password" placeholder="Password" />
+              {errors.password && touched.password ? (
+                <ErrorDivStyled>{errors.password}</ErrorDivStyled>
+              ) : null}
+            </div>
+          </WrapFormStyled>
+
+          <ButtonSubmitStyled type="submit">Sign Up</ButtonSubmitStyled>
         </Form>
       )}
     </Formik>
