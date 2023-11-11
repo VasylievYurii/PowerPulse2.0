@@ -5,7 +5,7 @@ const Exercises = () => {
   return (
     <SectionTemplate>
       <div className='ExercisesCategories_ExercisesPage'>
-        <h2>Exercices</h2>
+        <h1>Exercices</h1>
         <ul className="exercices_nav">
           <li className="exercices_nav_item">
             <NavLink to="/">Body parts</NavLink>
