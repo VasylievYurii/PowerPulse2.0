@@ -1,8 +1,17 @@
 import React from 'react';
 import { DiarySupTitle, DescriptionItem, ValueBox, DiaryProductCard, WrapLastDescrBox, Circle, TrashIconWrapper, DiaryTrashButton } from './DayProductItem.styled';
 import sprite from '../../assets/sprite.svg';
+import { useDispatch } from 'react-redux';
+import { delDiaryMealsThunk } from '../../redux/diary/diaryOperations';
 
 const DayProductItem = () => {
+
+const dispatch = useDispatch();
+
+    const deleteProductItem = (productId) => {
+        dispatch(delDiaryMealsThunk(productId))
+    };
+
   return (
         <DiaryProductCard>
           <DescriptionItem>
@@ -28,7 +37,7 @@ const DayProductItem = () => {
                 <Circle />
                 fff</ValueBox>
             </DescriptionItem>
-                      <DiaryTrashButton type="button">
+                      <DiaryTrashButton type="button" onClick={() => deleteProductItem(id)}>
           <TrashIconWrapper stroke='var(--color-main-two)' >
             <use href={`${sprite}#icon-trash`} />
           </TrashIconWrapper>

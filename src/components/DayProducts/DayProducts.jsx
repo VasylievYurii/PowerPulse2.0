@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom';
 import sprite from '../../assets/sprite.svg';
 import DayProductItem from '../DayProductItem';
 import { useDispatch, useSelector } from 'react-redux';
+import { selectDiaryMeals } from '../../redux/selectors';
 
 const DayProducts = () => {
+  const meals = useSelector(selectDiaryMeals);
+  console.log(meals);
+
   // const dispatch = useDispatch();
     // const [load, setLoad] = useState(true);
-    // const meals = useSelector(selectPhoneBookValue);
     // const date = useSelector(selectDate);
 
     // useEffect(() => {
