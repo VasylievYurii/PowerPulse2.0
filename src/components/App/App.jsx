@@ -5,7 +5,7 @@ import Loader from '../Loader';
 // import PrivateRoute from '../PrivateRoute';
 import SharedLayout from '../SharedLayout';
 
-const Welcome = lazy(() => import('../../pages/Welcome'));
+const Welcome = lazy(() => import('../../pages/Welcome/Welcome'));
 const Profile = lazy(() => import('../../pages/Profile'));
 const Products = lazy(() => import('../../pages/Products'));
 const Diary = lazy(() => import('../../pages/Diary'));
