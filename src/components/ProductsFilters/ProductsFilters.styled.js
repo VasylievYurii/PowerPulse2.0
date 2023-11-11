@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 
+export const LabelEl = styled.label`
+  position: relative;
+`;
+
 export const InputEl = styled.input`
   width: 100%;
-  
 
   padding: 14px;
   border-radius: 12px;
-  top: calc(50% - 16px / 2);
-  right: 14px; */
-  width: 320px;
+  width: 270px;
   background-color: transparent;
-  color: var(--white-color);
+  color: var(--color-text);
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
   font-size: 14px;
@@ -20,9 +21,9 @@ export const InputEl = styled.input`
     width: 335px;
     height: 46px;
     padding: 14px;
-    padding-right: 68px;
+
     background-color: transparent;
-    color: var(--white-color);
+    color: var(--color-text);
     font-size: 14px;
     line-height: 18px;
     border-radius: 12px;
@@ -31,13 +32,10 @@ export const InputEl = styled.input`
 
   @media screen and (min-width: 768px) {
     width: 236px;
-
+    height: 52px;
   }
 
   @media screen and (min-width: 1440px) {
-    width: 236px;
-    height: 52px;
-
     font-size: 16px;
     line-height: 24px;
   }
@@ -45,10 +43,44 @@ export const InputEl = styled.input`
   &:hover,
   &:focus {
     outline: none;
-    border-color: #e6533c;
+    border-color: var(--color-main-one);
   }
 
   &::placeholder {
-    color: var(--white-color);
+    color: var(--color-text);
   }
+`;
+
+export const FilterBtnSearch = styled.button`
+  position: absolute;
+  top: calc(50% - 18px / 2);
+  right: 14px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+`;
+
+export const FilterSvgSearch = styled.svg`
+  stroke: var(--color-main-one);
+  width: 18px;
+  height: 18px;
+`;
+
+export const FilterBtnClose = styled.button`
+  position: absolute;
+  top: calc(50% - 18px / 2);
+  right: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+`;
+
+export const FilterSvgClose = styled.svg`
+  stroke: var(--color-main-one);
+  width: 18px;
+  height: 18px;
 `;
