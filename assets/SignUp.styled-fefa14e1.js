@@ -1,4 +1,4 @@
-import{r as p,R as e,s as t,N as x}from"./index-7a93abdc.js";import{F as c}from"./index.esm-b5e71c05.js";function a(o=e){return function(){return p.useContext(o)}}const d=a();function s(o=e){const n=o===e?d:a(o);return function(){const{store:i}=n();return i}}const l=s();function m(o=e){const n=o===e?l:s(o);return function(){return n().dispatch}}const h=m(),f=t(c)`
+import{s as o,N as i}from"./index-c8d8a70a.js";import{F as t}from"./index.esm-214d39bb.js";const r=o(t)`
 font-size: 14px;
 line-height: 18px;
 max-width: 335px;
@@ -25,13 +25,13 @@ transition: border 0.3s var(--timing-function);
     max-width: 364px;
     height: 52px;
 }
-`,b=t.div`
+`,a=o.div`
 color: var(--color-wrong-one);
 margin-top: 4px;
 margin-left: 4px;
 line-height: 1.5;
 letter-spacing: 0.12px;
-`,v=t.div`
+`,p=o.div`
 display: flex;
 flex-direction: column;
 gap: 18px;
@@ -39,7 +39,7 @@ gap: 18px;
 @media screen and (min-width: 768px){
     gap: 20px;
 }
-`,w=t.button`
+`,d=o.button`
   display: block;
   padding: 12px 40px;
   margin-top: 28px;
@@ -65,7 +65,7 @@ gap: 18px;
     padding: 16px 60px;
     margin-top: 64px;
   }
-`,S=t.h1`
+`,x=o.h1`
 font-size: 24px;
 line-height: 1.16;
 color: var(--color-text);
@@ -76,7 +76,7 @@ margin-bottom: 14px;
     line-height: 1.37;
     margin-bottom: 16px;
 }
-`,y=t.p`
+`,l=o.p`
 font-size: 14px;
 line-height: 1.28;
 color: rgba(239, 237, 232, 0.30);
@@ -88,11 +88,11 @@ margin-bottom: 28px;
     margin-bottom: 32px;
     max-width: 496px;
 }
-`,k=t(x)`
+`,s=o(i)`
 line-height: 1.5;
 color:  var(--color-text);
 text-decoration: underline;
-`,z=t.p`
+`,c=o.p`
 line-height: 1.5;
 color: rgba(239, 237, 232, 0.60);
 margin-top: 12px;
@@ -101,4 +101,4 @@ margin-bottom: 0;
 @media screen and (min-width: 768px){
     margin-left: 10px;
 }
-`;export{w as B,b as E,f as I,k as N,y as P,S as T,v as W,z as a,h as u};
+`;export{d as B,a as E,r as I,s as N,l as P,x as T,p as W,c as a};
