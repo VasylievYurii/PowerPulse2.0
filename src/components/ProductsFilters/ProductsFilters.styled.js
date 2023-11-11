@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const LabelEl = styled.label`
   position: relative;
@@ -6,18 +6,18 @@ export const LabelEl = styled.label`
 
 export const InputEl = styled.input`
   width: 100%;
-  
 
   padding: 14px;
   border-radius: 12px;
   top: calc(50% - 16px / 2);
-  right: 14px; */
+  right: 14px;
   width: 270px;
   background-color: transparent;
   color: var(--color-text);
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.3);
   font-size: 14px;
+  transition: border-color 0.3s var(--timing-function);
 
   @media screen and (min-width: 375px) {
     box-sizing: border-box;
@@ -36,7 +36,6 @@ export const InputEl = styled.input`
   @media screen and (min-width: 768px) {
     width: 236px;
     height: 52px;
-
   }
 
   @media screen and (min-width: 1440px) {
@@ -47,7 +46,7 @@ export const InputEl = styled.input`
   &:hover,
   &:focus {
     outline: none;
-   border-color: var(--color-main-one);
+    border-color: var(--color-main-one);
   }
 
   &::placeholder {
@@ -67,9 +66,15 @@ export const SearchBtnSearch = styled.button`
 `;
 
 export const SearchSvgSearch = styled.svg`
-  stroke: var(--color-main-one);
+  stroke: var(--color-text);
   width: 18px;
   height: 18px;
+  transition: stroke 0.3s var(--timing-function);
+
+  &:hover,
+  &:focus {
+    stroke: var(--color-main-one);
+  }
 `;
 
 export const SearchBtnClose = styled.button`
