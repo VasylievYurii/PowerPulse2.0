@@ -19,8 +19,7 @@ const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 
 function App() {
   const location = useLocation();
-  console.log("location:", location.pathname)
-  
+
   if (location.pathname === '/') {
     return <Navigate to="/welcome" />;
   }
