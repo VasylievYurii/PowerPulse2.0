@@ -1,4 +1,4 @@
-import{s as n,j as i,a as e,L as a,b as t}from"./index-f1244651.js";import{S as s}from"./SectionTemplate-7255ddf4.js";import"./emotion-styled.browser.esm-1884fc11.js";const x=n.div`
+import{s as n,j as i,a as e,L as a,b as t}from"./index-19b864c7.js";import{S as s}from"./SectionTemplate-6d52b549.js";import"./emotion-styled.browser.esm-78c748ed.js";const x=n.div`
   display: flex;
   align-items: center;
   gap: 8px;

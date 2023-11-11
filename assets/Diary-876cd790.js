@@ -1,4 +1,4 @@
-import{s as r,j as t}from"./index-f1244651.js";import{S as i}from"./SectionTemplate-7255ddf4.js";import"./emotion-styled.browser.esm-1884fc11.js";const o=r.h2`
+import{s as r,j as t}from"./index-19b864c7.js";import{S as i}from"./SectionTemplate-6d52b549.js";import"./emotion-styled.browser.esm-78c748ed.js";const o=r.h2`
 color: var(--color-text);
 font-size: 24px;
 font-weight: 700;

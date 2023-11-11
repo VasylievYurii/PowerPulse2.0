@@ -1,4 +1,4 @@
-import{s,j as e,l}from"./index-f1244651.js";import{S as d}from"./SectionTemplate-7255ddf4.js";import{c,a as t,e as m,f as p,F as n}from"./index.esm-a606a55c.js";import{u as x}from"./useDispatch-5bc71c77.js";import"./emotion-styled.browser.esm-1884fc11.js";const u=s.button`
+import{s,j as e,l}from"./index-19b864c7.js";import{S as d}from"./SectionTemplate-6d52b549.js";import{c,a as t,e as m,f as p,F as n}from"./index.esm-e5edbe01.js";import{u as x}from"./useDispatch-96922fea.js";import"./emotion-styled.browser.esm-78c748ed.js";const u=s.button`
   display: block;
   padding: 12px 40px;
   color: var(--color-text);
