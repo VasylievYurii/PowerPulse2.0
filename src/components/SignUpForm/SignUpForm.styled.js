@@ -21,14 +21,28 @@ transition: border 0.3s var(--timing-function);
 &:hover {
     border: 1px solid var(--color-main-one)
 }
+
+@media screen and (min-width: 768px){
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 364px;
+    height: 52px;
+}
 `
 export const ErrorDivStyled = styled.div`
 color: var(--color-wrong-one);
 margin-top: 4px;
+margin-left: 4px;
+line-height: 1.5;
+letter-spacing: 0.12px;
 `
 
 export const WrapFormStyled = styled.div`
 display: flex;
 flex-direction: column;
 gap: 18px;
+
+@media screen and (min-width: 768px){
+    gap: 20px;
+}
 `

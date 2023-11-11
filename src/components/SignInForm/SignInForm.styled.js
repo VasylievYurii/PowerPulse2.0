@@ -16,8 +16,15 @@ export const ButtonSubmitStyled = styled.button`
   cursor: pointer;
   transition: border 0.3s var(--timing-function);
 
-  &:hover {
+  &:hover, &:focus {
     background-color: var(--color-main-two);
     border: 1px solid var(--color-main-two);
+  }
+
+  @media screen and (min-width: 768px){
+    font-size: 20px;
+    line-height: 1.2;
+    padding: 16px 60px;
+    margin-top: 64px;
   }
 `;
