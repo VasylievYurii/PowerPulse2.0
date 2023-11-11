@@ -9,6 +9,7 @@ export default defineConfig({
       src: '/src',
       components: '/src/components',
       pages: 'src/pages',
+      public: 'public'
     },
   },
   base: '/PowerPulse2.0/',

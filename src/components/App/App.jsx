@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import { lazy, Suspense, useState } from 'react';
 import Loader from '../Loader';
 // import RestrictedRoute from '../RestrictedRoute';
@@ -19,6 +19,11 @@ const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 
 function App() {
   const location = useLocation();
+  console.log("location:", location.pathname)
+  
+  if (location.pathname === '/') {
+    return <Navigate to="/welcome" />;
+  }
 
   return (
     <Routes location={location} key={location.pathname}>
