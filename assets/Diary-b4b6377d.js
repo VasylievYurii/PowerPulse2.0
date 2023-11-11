@@ -1,4 +1,4 @@
-import{s as r,j as e,a,d,u as x,b as p,g as h}from"./index-c8d8a70a.js";import{u as l}from"./useDispatch-d3c00dd3.js";import{S as g}from"./SectionTemplate-9dd4cfb9.js";import{T as u}from"./TitlePage-1c377bf3.js";import"./emotion-styled.browser.esm-be433e81.js";const m=r.section`
+import{s as r,j as e,a,d,u as x,b as p,g as h}from"./index-9444bbfc.js";import{u as l}from"./useDispatch-7c5f55c3.js";import{S as g}from"./SectionTemplate-9637bfd4.js";import{T as u}from"./TitlePage-a6b15193.js";import"./emotion-styled.browser.esm-220f6834.js";const m=r.section`
   width: 100%;
   display: flex;
   flex-direction: column;
