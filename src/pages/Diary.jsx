@@ -1,4 +1,4 @@
-import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
+import SectionTemplate from '../components/SectionTemplate';
 import TitlePage from '../components/TitlePage';
 
 const Diary = () => {
