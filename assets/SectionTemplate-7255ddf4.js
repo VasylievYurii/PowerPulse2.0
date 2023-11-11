@@ -1,4 +1,4 @@
-import{j as i}from"./index-1af33d15.js";import{n as t}from"./emotion-styled.browser.esm-7f169b79.js";const p=t.section`
+import{j as i}from"./index-f1244651.js";import{n as t}from"./emotion-styled.browser.esm-1884fc11.js";const p=t.section`
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0 auto;
