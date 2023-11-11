@@ -14,14 +14,30 @@ import {
   TextNameUser,
   WrapperName,
   IconExclamation,
+  WrapperExclamation,
+  TextExclamation,
+  IconLogout,
+  WrapperLogout,
+  TextLogout,
+  WrapperUseCard,
 } from './UserCard.styled';
 import sprite from '../../assets/sprite.svg';
+import { useState } from 'react';
+
 const UserCard = () => {
+  const [colories, setColories] = useState('0');
+  const [physical, setPhysical] = useState('0');
+
+  const logout = () => {
+    console.log('logout');
+    setColories(105);
+    setPhysical(200);
+  };
   const addPhoto = () => {
     console.log('add photo');
   };
   return (
-    <>
+    <WrapperUseCard>
       <WrapperUserDiv>
         <WrapperUser>
           <IconWrapperUser>
@@ -46,7 +62,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily calorie intake</p>
           </WrapperText>
-          <Span>0</Span>
+          <Span>{colories}</Span>
         </WrapperIndicators>
         <WrapperIndicators>
           <WrapperText>
@@ -55,19 +71,25 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily physical activity</p>
           </WrapperText>
-          <Span>0 min</Span>
+          <Span>{physical} min</Span>
         </WrapperIndicators>
       </WrapperTwoIndicators>
-      <div>
+      <WrapperExclamation>
         <IconExclamation>
           <use href={`${sprite}#icon-exclamation`} />
         </IconExclamation>
-        <p>
+        <TextExclamation>
           We understand that each individual is unique, so the entire approach
           to diet is relative and tailored to your unique body and goals.
-        </p>
-      </div>
-    </>
+        </TextExclamation>
+      </WrapperExclamation>
+      <WrapperLogout>
+        <TextLogout>Logout</TextLogout>
+        <IconLogout onClick={logout}>
+          <use href={`${sprite}#icon-logout`} />
+        </IconLogout>
+      </WrapperLogout>
+    </WrapperUseCard>
   );
 };
 
