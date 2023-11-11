@@ -51,7 +51,7 @@ export const InputEl = styled.input`
   }
 `;
 
-export const FilterBtnSearch = styled.button`
+export const SearchBtnSearch = styled.button`
   position: absolute;
   top: calc(50% - 18px / 2);
   right: 14px;
@@ -62,13 +62,13 @@ export const FilterBtnSearch = styled.button`
   background: transparent;
 `;
 
-export const FilterSvgSearch = styled.svg`
+export const SearchSvgSearch = styled.svg`
   stroke: var(--color-main-one);
   width: 18px;
   height: 18px;
 `;
 
-export const FilterBtnClose = styled.button`
+export const SearchBtnClose = styled.button`
   position: absolute;
   top: calc(50% - 18px / 2);
   right: 40px;
@@ -79,7 +79,7 @@ export const FilterBtnClose = styled.button`
   background: transparent;
 `;
 
-export const FilterSvgClose = styled.svg`
+export const SearchSvgClose = styled.svg`
   stroke: var(--color-main-one);
   width: 18px;
   height: 18px;
