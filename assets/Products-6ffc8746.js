@@ -1,6 +1,6 @@
-import{r as d,j as e,a as i}from"./index-9f9b0870.js";import{S as p}from"./SectionTemplate-a516fa75.js";import{n as r}from"./emotion-styled.browser.esm-3007a468.js";const x=r.label`
+import{r as d,j as e,a as s}from"./index-089ec1c6.js";import{S as p}from"./SectionTemplate-b43e3235.js";import{n as r}from"./emotion-styled.browser.esm-4fddf9e6.js";import{T as x}from"./TitlePage-14fc0a61.js";const h=r.label`
   position: relative;
-`,h=r.input`
+`,u=r.input`
   width: 100%;
 
   padding: 14px;
@@ -48,7 +48,7 @@ import{r as d,j as e,a as i}from"./index-9f9b0870.js";import{S as p}from"./Secti
   &::placeholder {
     color: var(--color-text);
   }
-`,u=r.button`
+`,g=r.button`
   position: absolute;
   top: calc(50% - 18px / 2);
   right: 14px;
@@ -57,7 +57,7 @@ import{r as d,j as e,a as i}from"./index-9f9b0870.js";import{S as p}from"./Secti
   padding: 0;
   border: none;
   background: transparent;
-`,g=r.svg`
+`,m=r.svg`
   stroke: var(--color-text);
   width: 18px;
   height: 18px;
@@ -67,7 +67,7 @@ import{r as d,j as e,a as i}from"./index-9f9b0870.js";import{S as p}from"./Secti
   &:focus {
     stroke: var(--color-main-one);
   }
-`,m=r.button`
+`,b=r.button`
   position: absolute;
   top: calc(50% - 18px / 2);
   right: 40px;
@@ -76,8 +76,8 @@ import{r as d,j as e,a as i}from"./index-9f9b0870.js";import{S as p}from"./Secti
   padding: 0;
   border: none;
   background: transparent;
-`,b=r.svg`
+`,v=r.svg`
   stroke: var(--color-main-one);
   width: 18px;
   height: 18px;
-`,v=()=>{const[s,o]=d.useState(""),a=t=>{const{value:n}=t.target;o(n)},c=t=>{t.preventDefault();const n=t.target.elements[0].value;o(n)},l=()=>{o("")};return e.jsx(e.Fragment,{children:e.jsxs("ul",{children:[e.jsx("li",{children:e.jsx("form",{onSubmit:c,children:e.jsxs(x,{children:[e.jsx(h,{type:"text",name:"productsSearch",placeholder:"Search",value:s,onChange:a}),s&&e.jsx(m,{type:"button",onClick:l,children:e.jsx(b,{children:e.jsx("use",{href:i+"#icon-cross"})})}),e.jsx(u,{type:"submit",children:e.jsx(g,{children:e.jsx("use",{href:i+"#icon-search"})})})]})})}),e.jsx("li",{children:e.jsx("div",{})}),e.jsx("li",{children:e.jsx("div",{})})]})})},w=()=>e.jsxs(p,{children:[e.jsx("p",{children:"Products page"}),e.jsx(v,{})]});export{w as default};
+`,j=()=>{const[i,o]=d.useState(""),a=t=>{const{value:n}=t.target;o(n)},c=t=>{t.preventDefault();const n=t.target.elements[0].value;o(n)},l=()=>{o("")};return e.jsx(e.Fragment,{children:e.jsxs("ul",{children:[e.jsx("li",{children:e.jsx("form",{onSubmit:c,children:e.jsxs(h,{children:[e.jsx(u,{type:"text",name:"productsSearch",placeholder:"Search",value:i,onChange:a}),i&&e.jsx(b,{type:"button",onClick:l,children:e.jsx(v,{children:e.jsx("use",{href:s+"#icon-cross"})})}),e.jsx(g,{type:"submit",children:e.jsx(m,{children:e.jsx("use",{href:s+"#icon-search"})})})]})})}),e.jsx("li",{children:e.jsx("div",{})}),e.jsx("li",{children:e.jsx("div",{})})]})})},y=()=>e.jsxs(p,{children:[e.jsx(x,{children:"Products page"}),e.jsx(j,{})]});export{y as default};
