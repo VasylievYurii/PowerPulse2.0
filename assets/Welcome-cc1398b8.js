@@ -1,22 +1,4 @@
-import{s as e,j as i,a as n,L as t}from"./index-29d25957.js";import{S as s}from"./SectionTemplate-ec652151.js";import"./emotion-styled.browser.esm-4d76d1cc.js";const x=e.svg`
-  width: 36px;
-  height: 13px;
-  fill: var(--color-main-one);
-
-  @media screen and (min-width: 768px) {
-    width: 44px;
-    height: 17px;
-  }
-`,a=e.svg`
-  width: 82px;
-  height: 12px;
-  fill: var(--color-text);
-
-  @media screen and (min-width: 768px) {
-    width: 99.527px;
-    height: 15.26px;
-  }
-`,c=()=>i.jsxs("div",{children:[i.jsx(x,{children:i.jsx("use",{href:`${n}#icon-vector`})}),i.jsx(a,{children:i.jsx("use",{href:`${n}#icon-powerpulse`})})]}),h=e.div`
+import{s as n,j as i,a as e,L as a,b as t}from"./index-48070649.js";import{S as s}from"./SectionTemplate-c8e80a43.js";import"./emotion-styled.browser.esm-e117a63b.js";const x=n.div`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -38,7 +20,7 @@ import{s as e,j as i,a as n,L as t}from"./index-29d25957.js";import{S as s}from"
     width: 206px;
     height: 96px;
   }
-`,l=e.div`
+`,c=n.div`
   width: 119px;
   height: 76px;
   margin-left: 216px;
@@ -55,7 +37,7 @@ import{s as e,j as i,a as n,L as t}from"./index-29d25957.js";import{S as s}from"
     width: 180px;
     height: 110px;
   }
-`,d=e.div`
+`,d=n.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,13 +51,13 @@ import{s as e,j as i,a as n,L as t}from"./index-29d25957.js";import{S as s}from"
     width: 40px;
     height: 40px;
   }
-`,m=e(d)`
+`,h=n(d)`
   margin-bottom: 4px;
   width: 20px;
   height: 20px;
   padding: 4px;
   background-color: var(--color-main-three);
-`,r=e.svg`
+`,o=n.svg`
   width: 12px;
   height: 12px;
   fill: #efede8;
@@ -84,11 +66,11 @@ import{s as e,j as i,a as n,L as t}from"./index-29d25957.js";import{S as s}from"
     width: 20px;
     height: 20px;
   }
-`,g=e.div`
+`,l=n.div`
   display: flex;
   gap: 8px;
   align-items: flex-end;
-`,w=e.p`
+`,m=n.p`
   margin-bottom: 4px;
   font-size: 16px;
   font-weight: 700;
@@ -98,7 +80,7 @@ import{s as e,j as i,a as n,L as t}from"./index-29d25957.js";import{S as s}from"
     font-size: 24px;
     line-height: 1;
   }
-`,u=e.p`
+`,g=n.p`
   margin-bottom: 0;
   font-size: 24px;
   font-weight: 700;
@@ -108,11 +90,11 @@ import{s as e,j as i,a as n,L as t}from"./index-29d25957.js";import{S as s}from"
   @media screen and (min-width: 768px) {
     font-size: 48px;
   }
-`,o=e.p`
+`,r=n.p`
   font-size: 12px;
   margin-bottom: 0;
   color: rgba(239, 237, 232, 0.65);
-`,f=()=>i.jsxs(i.Fragment,{children:[i.jsxs(h,{children:[i.jsx(d,{children:i.jsx(r,{children:i.jsx("use",{href:`${n}#icon-play`})})}),i.jsxs("div",{children:[i.jsx(w,{children:"350+"}),i.jsx(o,{children:"Video tutorial"})]})]}),i.jsxs(l,{children:[i.jsx(m,{children:i.jsx(r,{children:i.jsx("use",{href:`${n}#icon-run`})})}),i.jsxs(g,{children:[i.jsx(u,{children:"500"}),i.jsx(o,{children:"cal"})]})]})]}),j=e.h1`
+`,w=()=>i.jsxs(i.Fragment,{children:[i.jsxs(x,{children:[i.jsx(d,{children:i.jsx(o,{children:i.jsx("use",{href:`${e}#icon-play`})})}),i.jsxs("div",{children:[i.jsx(m,{children:"350+"}),i.jsx(r,{children:"Video tutorial"})]})]}),i.jsxs(c,{children:[i.jsx(h,{children:i.jsx(o,{children:i.jsx("use",{href:`${e}#icon-run`})})}),i.jsxs(l,{children:[i.jsx(g,{children:"500"}),i.jsx(r,{children:"cal"})]})]})]}),u=n.h1`
   width: 335px;
   margin-bottom: 40px;
   font-size: 38px;
@@ -126,7 +108,7 @@ import{s as e,j as i,a as n,L as t}from"./index-29d25957.js";import{S as s}from"
     line-height: 1.11; /* 111.429% */
     letter-spacing: 0.7px;
   }
-`,b=e.div`
+`,f=n.div`
   display: flex;
   gap: 14px;
   margin-bottom: 231px;
@@ -134,7 +116,7 @@ import{s as e,j as i,a as n,L as t}from"./index-29d25957.js";import{S as s}from"
   @media screen and (min-width: 768px) {
     gap: 20px;
   }
-`,p=e.button`
+`,p=n.button`
   display: block;
   min-width: 136px;
   padding: 12px 40px;
@@ -150,7 +132,7 @@ import{s as e,j as i,a as n,L as t}from"./index-29d25957.js";import{S as s}from"
     padding: 16px 60px;
     font-size: 20px;
   }
-`,v=e(p)`
+`,b=n(p)`
   background-color: var(--color-main-one);
   border: 1px solid var(--color-main-one);
 
@@ -159,7 +141,7 @@ import{s as e,j as i,a as n,L as t}from"./index-29d25957.js";import{S as s}from"
     background-color: var(--color-main-two);
     border: 1px solid var(--color-main-two);
   }
-`,y=e(p)`
+`,j=n(p)`
   background-color: transparent;
   border: 1px solid rgba(239, 237, 232, 0.3);
 
@@ -167,4 +149,4 @@ import{s as e,j as i,a as n,L as t}from"./index-29d25957.js";import{S as s}from"
   &:focus {
     border: 1px solid var(--color-main-one);
   }
-`,S=()=>i.jsxs(s,{children:[i.jsx(c,{}),i.jsx(j,{children:"Transforming your body shape with Power Pulse"}),i.jsxs(b,{children:[i.jsx(t,{to:"/signup",children:i.jsx(v,{children:"Sign Up"})}),i.jsx(t,{to:"/signin",children:i.jsx(y,{children:"Sign In"})})]}),i.jsx(f,{})]});export{S as default};
+`,z=()=>i.jsxs(s,{children:[i.jsx(a,{}),i.jsx(u,{children:"Transforming your body shape with Power Pulse"}),i.jsxs(f,{children:[i.jsx(t,{to:"/signup",children:i.jsx(b,{children:"Sign Up"})}),i.jsx(t,{to:"/signin",children:i.jsx(j,{children:"Sign In"})})]}),i.jsx(w,{})]});export{z as default};
