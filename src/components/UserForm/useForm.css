@@ -34,6 +34,7 @@ p {
   cursor: pointer;
   margin-right: 5px;
   align-items: center;
+
   margin-bottom: 8px;
 }
 .radio-input:checked + span {
@@ -116,8 +117,10 @@ p {
   max-width: 340px;
   text-align: start;
 }
+
 .submit-btn {
   display: flex;
+
   align-items: center;
   margin-top: 40px;
   width: 115px;
@@ -174,7 +177,7 @@ p {
 }
 
 /* tablet */
-@media screen and (min-width: 768px) and (max-width: 1439px) {
+@media screen and (min-width: 768px) {
   .login-email-input {
     width: 341px;
     height: 52px;
@@ -202,7 +205,7 @@ p {
     display: flex;
     padding-left: 2px;
     margin: 0;
-
+    justify-content: end;
     max-width: 500px;
     align-items: center;
   }

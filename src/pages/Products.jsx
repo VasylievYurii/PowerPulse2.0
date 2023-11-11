@@ -1,9 +1,12 @@
-import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
+import SectionTemplate from '../components/SectionTemplate';
+import ProductsFilters from '../components/ProductsFilters';
+import TitlePage from '../components/TitlePage';
 
 const Products = () => {
   return (
     <SectionTemplate>
-      <p>Products page</p>
+      <TitlePage>Products page</TitlePage>
+      <ProductsFilters />
     </SectionTemplate>
   );
 };

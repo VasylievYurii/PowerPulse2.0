@@ -1,11 +1,11 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import { lazy, Suspense, useState } from 'react';
 import Loader from '../Loader';
 // import RestrictedRoute from '../RestrictedRoute';
 // import PrivateRoute from '../PrivateRoute';
 import SharedLayout from '../SharedLayout';
 
-const Welcome = lazy(() => import('../../pages/Welcome'));
+const Welcome = lazy(() => import('../../pages/Welcome/Welcome'));
 const Profile = lazy(() => import('../../pages/Profile'));
 const Products = lazy(() => import('../../pages/Products'));
 const Diary = lazy(() => import('../../pages/Diary'));
@@ -19,6 +19,10 @@ const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 
 function App() {
   const location = useLocation();
+
+  if (location.pathname === '/') {
+    return <Navigate to="/welcome" />;
+  }
 
   return (
     <Routes location={location} key={location.pathname}>

@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { DayProducts } from '../components/DayProducts';
 import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
-import { TitlePage } from '../components/TitlePage';
+import TitlePage from '../components/TitlePage';
 import { getDiaryMealsThunk } from '../redux/diary/diaryOperations';
 
 const Diary = () => {
