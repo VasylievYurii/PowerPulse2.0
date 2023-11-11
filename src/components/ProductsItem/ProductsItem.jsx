@@ -12,9 +12,7 @@ const ProductsItem = () => {
     <div>
       <div>
         {showModal && (
-          <BasicModalWindow onClick={toggleModal}>
-            This is modal
-          </BasicModalWindow>
+          <BasicModalWindow onClick={toggleModal}></BasicModalWindow>
         )}
       </div>
       <button onClick={toggleModal}></button>
