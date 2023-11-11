@@ -1,5 +1,5 @@
-import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
-import ProductsFilters from '../components/ProductsFilters/ProductsFilters';
+import SectionTemplate from '../components/SectionTemplate';
+import ProductsFilters from '../components/ProductsFilters';
 const Products = () => {
   return (
     <SectionTemplate>
