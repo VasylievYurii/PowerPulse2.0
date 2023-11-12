@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import LogOutBtn from '../LogOutBtn';
 
 export const HeaderContainer = styled.div`
   padding: 12px 20px;
@@ -99,4 +100,9 @@ export const SecondNavWrapper = styled.div`
   @media screen and (min-width: 768px) {
     gap: 32px;
   }
+`;
+
+export const LogoutBtnStyled = styled(LogOutBtn)`
+  position: static;
+  /* outline: 1px solid white; */
 `;

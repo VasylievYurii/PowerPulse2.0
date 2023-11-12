@@ -5,12 +5,11 @@ import {
   CloseMenuBtnStyled,
   LinkStyled,
   NavContainerStyled,
-  LogoutRouteStyled,
-  LogoutIcon,
   BackdropMenuStyled,
   IconCross,
 } from './MobileMenu.styled';
 import MobileMenuPortal from './MobileMenuPortal';
+import LogOutBtn from '../LogOutBtn';
 
 const MobileMenu = ({ onClick }) => {
   const handleKeyDown = (e) => {
@@ -51,13 +50,7 @@ const MobileMenu = ({ onClick }) => {
             <LinkStyled to="/products">Products</LinkStyled>
             <LinkStyled to="/exercises">Exercises</LinkStyled>
           </NavContainerStyled>
-
-          <LogoutRouteStyled to="/welcome">
-            <span>Logout</span>
-            <LogoutIcon>
-              <use href={`${sprite}#icon-logout`} />
-            </LogoutIcon>
-          </LogoutRouteStyled>
+          <LogOutBtn onClick={onClick} />
         </MenuContainerStyled>
       </BackdropMenuStyled>
     </MobileMenuPortal>
