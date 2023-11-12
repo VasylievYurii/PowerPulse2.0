@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import MediaQuery from 'react-responsive';
 import {
   HeaderContainer,
@@ -13,8 +14,15 @@ import {
 } from './Header.styled';
 import sprite from '../../assets/sprite.svg';
 import Logo from '../Logo';
+import MobileMenu from '../MobileMenu/MobileMenu';
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prevState) => !prevState);
+  };
+
   return (
     <HeaderContainer>
       <Navigation>
@@ -41,12 +49,13 @@ const Header = () => {
             </UserWrapper>
           </StyledLinkSettings>
           <MediaQuery maxWidth={1339}>
-            <Burger>
+            <Burger onClick={toggleMenu}>
               <use href={`${sprite}#icon-menu`} />
             </Burger>
           </MediaQuery>
         </SecondNavWrapper>
       </Navigation>
+      {isMenuOpen && <MobileMenu onClick={toggleMenu} />}
     </HeaderContainer>
   );
 };
