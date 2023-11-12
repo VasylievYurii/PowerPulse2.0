@@ -8,6 +8,7 @@ import {
   LogoutRouteStyled,
   LogoutIcon,
   BackdropMenuStyled,
+  IconCross,
 } from './MobileMenu.styled';
 import MobileMenuPortal from './MobileMenuPortal';
 
@@ -41,7 +42,9 @@ const MobileMenu = ({ onClick }) => {
       <BackdropMenuStyled onClick={handleBackdropClick}>
         <MenuContainerStyled>
           <CloseMenuBtnStyled onClick={handleCloseClick}>
-            <use href={`${sprite}#icon-cross`} />
+            <IconCross>
+              <use href={`${sprite}#icon-cross`} />
+            </IconCross>
           </CloseMenuBtnStyled>
           <NavContainerStyled>
             <LinkStyled to="/diary">Diary</LinkStyled>

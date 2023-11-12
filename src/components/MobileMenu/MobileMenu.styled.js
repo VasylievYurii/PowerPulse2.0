@@ -19,8 +19,13 @@ export const MenuContainerStyled = styled.div`
   max-width: 350px;
   background-color: var(--color-main-one);
   padding: 26px 32px 32px 32px;
-
   position: relative;
+`;
+
+export const IconCross = styled.svg`
+  width: 32px;
+  height: 32px;
+  fill: white;
 `;
 
 export const CloseMenuBtnStyled = styled.div`
@@ -30,8 +35,6 @@ export const CloseMenuBtnStyled = styled.div`
   stroke: white;
   top: 26px;
   right: 32px;
-  padding: 10px;
-  border: 1px solid white;
 `;
 
 export const NavContainerStyled = styled.div`
@@ -64,10 +67,8 @@ export const LogoutRouteStyled = styled(Link)`
 `;
 
 export const LogoutIcon = styled.svg`
-  fill: var(--color-text);
-  filter: invert(1);
+  fill: transparent;
+  stroke: white;
   width: 20px;
   height: 20px;
-
-  outline: 1px solid white;
 `;
