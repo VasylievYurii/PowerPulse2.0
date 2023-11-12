@@ -14,7 +14,7 @@ background: rgba(239, 237, 232, 0.05);
 color: var(--color-main-two);
 `;
 
-export const DiaryWrapTitle = styled.div`
+export const DayProductsWrapTitle = styled.div`
 width: 100%;
 display: flex;
 justify-content: space-between;

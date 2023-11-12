@@ -5,4 +5,5 @@ color: var(--color-text);
 font-size: 24px;
 font-weight: 700;
 line-height: 1.17;
+margin: 0;
 `;
