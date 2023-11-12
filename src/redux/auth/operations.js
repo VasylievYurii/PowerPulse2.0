@@ -20,7 +20,7 @@ export const instance = axios.create({ baseURL: 'https://powerpulse-t5-backend.o
 
 export const token = {
     set: token => {
-        instance.defaults.headers['Authorization'] = token;
+        instance.defaults.headers['Authorization'] = `Bearer ${token}`;
     },
     clear: () => {
         instance.defaults.headers['Authorization'] = '';
@@ -46,6 +46,7 @@ export const loginUser = createAsyncThunk('auth/loginUser',
         try {
             const { data } = await instance.post('auth/login', dataUser);
             token.set(data.token);
+
             return data;
         } catch (error) {
             toastError(`Oops! Something was wrog.... ${error.message}`);
@@ -60,6 +61,7 @@ export const logOutUser = createAsyncThunk('auth/logOutUser',
         try {
             await instance.post('auth/logout');
             token.clear();
+            console.log('Yupiiii!!! You are logout!!')
             return;
         } catch (error) {
             toastError(`Oops! Something was wrog.... ${error.message}`);
@@ -73,6 +75,7 @@ export const refreshUser = createAsyncThunk('auth/refreshUser',
     async (_, thunkApi) => {
         try {
             const state = thunkApi.getState();
+            console.log('state', state)
             const userToken = state.auth.token;
             token.set(userToken);
             const { data } = await instance.get('auth/current');

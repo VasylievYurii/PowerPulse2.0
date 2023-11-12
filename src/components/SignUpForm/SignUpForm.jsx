@@ -92,7 +92,7 @@ const SignUpForm = () => {
             <div>
               <LabelWrapStyled>
                 <InputStyled
-                  type="text"
+                  type="password"
                   name="password"
                   placeholder="Password"
                 />
