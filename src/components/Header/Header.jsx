@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import MediaQuery from 'react-responsive';
+import { Link } from 'react-router-dom';
 import {
   HeaderContainer,
   Navigation,
@@ -26,8 +27,9 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Navigation>
-        <Logo />
-
+        <Link to="/">
+          <Logo />
+        </Link>
         <SecondNavWrapper>
           <MediaQuery minWidth={1440}>
             <NavWrapper>
@@ -36,12 +38,10 @@ const Header = () => {
               <StyledLink to="/exercises">Exercises</StyledLink>
             </NavWrapper>
           </MediaQuery>
-
           <StyledLinkSettings to="/profile">
             <IconSettings>
               <use href={`${sprite}#icon-settings`} />
             </IconSettings>
-
             <UserWrapper>
               <IconUser>
                 <use href={`${sprite}#icon-user`} />
