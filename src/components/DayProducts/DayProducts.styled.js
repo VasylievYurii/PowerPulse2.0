@@ -4,17 +4,23 @@ export const DayProductsStyle = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
-height: 824px;
-padding: 16px 8px 16px 16px;
-align-items: center;
-gap: 22px;
-border-radius: 12px;
-border: 1px solid rgba(239, 237, 232, 0.20);
-background: rgba(239, 237, 232, 0.05);
-color: var(--color-main-two);
+  height: 824px;
+  padding: 16px 8px 16px 16px;
+  align-items: center;
+  gap: 22px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.20);
+  background: rgba(239, 237, 232, 0.05);
+  color: var(--color-text);
+
+  @media screen and (min-width: 768px) {
+  height: 704;
+  padding: 16px;
+  gap: 16px;
+  }
 `;
 
-export const DiaryWrapTitle = styled.div`
+export const DayProductsWrapTitle = styled.div`
 width: 100%;
 display: flex;
 justify-content: space-between;
@@ -27,6 +33,10 @@ margin: 0;
 font-weight: 400;
 font-size: 14px;
 line-height: 1.29;
+
+  @media screen and (min-width: 768px) {
+
+  }
 `;
 
 export const DiaryLink = styled.div`
@@ -36,6 +46,11 @@ color: var(--color-main-one);
 font-weight: 500;
 line-height: 1.29;
 font-size: 14px;
+
+  @media screen and (min-width: 768px) {
+font-size: 16px;
+line-height: 1.5;
+  }
 `;
 
 export const NextIconWrapper = styled.svg`
@@ -68,4 +83,9 @@ overflow-y: auto;
   background-color: rgba(239, 237, 232, 0.10);
       border-radius: 12px;
 }
+
+  @media screen and (min-width: 768px) {
+gap: 8px;
+padding-right: 12px;
+  }
 `;

@@ -20,7 +20,7 @@ export const instance = axios.create({ baseURL: 'https://powerpulse-t5-backend.o
 
 export const token = {
     set: token => {
-        instance.defaults.headers['Authorization'] = token;
+        instance.defaults.headers['Authorization'] = `Bearer ${token}`;
     },
     clear: () => {
         instance.defaults.headers['Authorization'] = '';
@@ -44,6 +44,7 @@ export const registerUser = createAsyncThunk('auth/registerUser',
 export const loginUser = createAsyncThunk('auth/loginUser',
     async (dataUser, thunkApi) => {
         try {
+            console.log(dataUser);
             const { data } = await instance.post('auth/login', dataUser);
             token.set(data.token);
             return data;
