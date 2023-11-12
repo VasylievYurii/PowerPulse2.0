@@ -150,6 +150,7 @@ export const IconExclamation = styled.svg`
   height: 24px;
   background-color: rgba(239, 137, 100, 1);
   border-radius: 50%;
+  stroke: var(--color-text);
 `;
 
 export const WrapperExclamation = styled.div`
@@ -178,9 +179,9 @@ export const TextExclamation = styled.p`
   }
 `;
 export const IconLogout = styled.svg`
-  height: 40px;
-  width: 40px;
-  padding-top: 10px;
+  height: 20px;
+  width: 20px;
+  stroke: var(--color-main-one);
 `;
 
 export const WrapperLogout = styled.div`
