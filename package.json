@@ -16,6 +16,7 @@
     "@reduxjs/toolkit": "^1.9.7",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "axios": "^1.6.1",
+    "date-fns": "^2.30.0",
     "formik": "^2.4.5",
     "lodash.debounce": "^4.0.8",
     "modern-normalize": "^2.0.0",
