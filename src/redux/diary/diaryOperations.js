@@ -23,18 +23,15 @@ const toastSuccess = (text) => {
     toast.success(text, options);
 };
 
-
-// axios.defaults.baseURL = 'https://powerpulse-t5-backend.onrender.com';
-
 const getMeals = async (diaryData, thunkAPI) => {
     try {
         console.log('diaryData ->', diaryData);
-        const searchData = {
-            date: diaryData
-        };
-        console.log('searchData ->', searchData);
+        // const searchData = {
+        //     date: diaryData
+        // };
+        // console.log('searchData ->', searchData);
 
-                const response = await instance.get('dairys/meals', searchData);
+        const response = await instance.get('dairys/meals', diaryData);
 
         console.log(response);
 return response.data;

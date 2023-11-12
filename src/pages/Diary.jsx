@@ -35,7 +35,7 @@ const Diary = () => {
       
       <button
         type="button"
-        onClick={() => getMeal(newDate)}
+        onClick={() => getMeal({data: {"date": "2023-11-12"}})}
         // onClick={() => getMeal(selectedDate)}
       >
         GetMeal

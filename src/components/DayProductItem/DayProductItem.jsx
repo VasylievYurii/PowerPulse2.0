@@ -37,7 +37,7 @@ const dispatch = useDispatch();
                 <Circle />
                 fff</ValueBox>
             </DescriptionItem>
-                      <DiaryTrashButton type="button" onClick={() => deleteProductItem({"_id": "6550b49cd58a02d766fad49e"})}>
+        <DiaryTrashButton type="button" onClick={() => deleteProductItem({ data: { "_id": "6550b49cd58a02d766fad49e" } })}>
           <TrashIconWrapper stroke='var(--color-main-two)' >
             <use href={`${sprite}#icon-trash`} />
           </TrashIconWrapper>

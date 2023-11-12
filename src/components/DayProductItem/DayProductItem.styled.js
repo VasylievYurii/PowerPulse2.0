@@ -16,6 +16,7 @@ export const DiarySupTitle = styled.h4`
 font-weight: 400;
 line-height: 1.5;
 margin: 0;
+color: var(--color-main-two);
 `;
 
 export const ValueBox = styled.div`
@@ -27,7 +28,6 @@ height: 38px;
 padding: 10px 14px;
 border-radius: 12px;
 border: 1px solid rgba(239, 237, 232, 0.30);
-color: var(--color-text);
 font-size: 14px;
 line-height: 1,29;
 
