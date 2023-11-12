@@ -1,4 +1,4 @@
-import{s as n,j as o,L as e,a as i}from"./index-49b2d376.js";import{S as t}from"./SectionTemplate-59d04790.js";import{W as s}from"./WelcomeStats-a116f709.js";import"./emotion-styled.browser.esm-855325ab.js";const a=n.h1`
+import{s as n,j as o,L as e,a as i}from"./index-ba767765.js";import{S as t}from"./SectionTemplate-53727e9d.js";import{W as s}from"./WelcomeStats-a5378d22.js";import"./emotion-styled.browser.esm-d2668f4e.js";const a=n.h1`
   width: 335px;
   margin-bottom: 40px;
   font-size: 38px;
