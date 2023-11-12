@@ -9,7 +9,7 @@ const Welcome = lazy(() => import('../../pages/Welcome'));
 const Profile = lazy(() => import('../../pages/Profile'));
 const Products = lazy(() => import('../../pages/Products'));
 const Diary = lazy(() => import('../../pages/Diary'));
-const Exercises = lazy(() => import('../../pages/Exercises'));
+const Exercises = lazy(() => import('../../pages/Exercises/Exercises'));
 const BodyParts = lazy(() => import('../../pages/BodyParts'));
 const Muscles = lazy(() => import('../../pages/Muscles'));
 const Equipment = lazy(() => import('../../pages/Equipment'));

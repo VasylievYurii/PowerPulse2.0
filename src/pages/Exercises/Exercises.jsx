@@ -1,6 +1,16 @@
 import SectionTemplate from '../../components/SectionTemplate/SectionTemplate';
-import { NavLink } from 'react-router-dom';
-import { } from './Exercises.style';
+import { Routes, Route } from "react-router-dom";
+
+import {
+  ExercisesCategories_ExercisesPage,
+  Header,
+  Exercices_nav,
+  StyledLink
+} from './Exercises.style';
+
+// const BodyParts = lazy(() => import("./BodyParts"));
+// const Muscles = lazy(() => import("./Muscles"));
+// const Equipment = lazy(() => import("./Equipment"));
 
 const Exercises = () => {
   return (
@@ -8,10 +18,23 @@ const Exercises = () => {
       <ExercisesCategories_ExercisesPage>
         <Header>Exercices</Header>
         <Exercices_nav>
-          <NavLink to="/">Body parts</NavLink>
-          <NavLink to="/">Muscles</NavLink>
-          <NavLink to="/">Equipment</NavLink>
+          <StyledLink to="/BodyParts">Body parts</StyledLink>
+          <StyledLink to="/Muscles">Muscles</StyledLink>
+          <StyledLink to="/Equipment">Equipment</StyledLink>
         </Exercices_nav>
+
+        <Routes>
+          {/* <Route path='/BodyParts' element={
+            <BodyParts />
+          } />
+          <Route path='/Muscles' element={
+            <Muscles />
+          } />
+          <Route path='/Equipment' element={
+            <Equipment />
+          } /> */}
+        </Routes>
+
       </ExercisesCategories_ExercisesPage>
     </SectionTemplate>
   );
