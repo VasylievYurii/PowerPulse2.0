@@ -13,19 +13,30 @@ export const BackdropMenuStyled = styled.div`
 `;
 
 export const MenuContainerStyled = styled.div`
+  position: relative;
   right: 0;
   margin-left: auto;
   height: 100vh;
-  max-width: 350px;
   background-color: var(--color-main-one);
   padding: 26px 32px 32px 32px;
-  position: relative;
+
+  @media (max-width: 374px) {
+    max-width: 200px;
+  }
+
+  @media (min-width: 375px) and (max-width: 768px) {
+    width: 200px;
+  }
+
+  @media (min-width: 769px) and (max-width: 1440px) {
+    width: 350px;
+  }
 `;
 
 export const IconCross = styled.svg`
   width: 32px;
   height: 32px;
-  fill: white;
+  fill: var(--color-text);
 `;
 
 export const CloseMenuBtnStyled = styled.div`
@@ -42,7 +53,7 @@ export const NavContainerStyled = styled.div`
   flex-direction: column;
   gap: 16px;
   align-items: center;
-  transform: translateY(50%);
+  transform: translateY(100%);
 `;
 
 export const LinkStyled = styled(NavLink)`
@@ -50,6 +61,8 @@ export const LinkStyled = styled(NavLink)`
   padding: 10px 27px;
   border: 1px solid #efede833;
   border-radius: 12px;
+
+  font-size: 16px;
 
   &.active {
     border-color: var(--color-text);
@@ -64,11 +77,12 @@ export const LogoutRouteStyled = styled(Link)`
   align-items: center;
   gap: 8px;
   color: var(--color-text);
+  font-size: 16px;
 `;
 
 export const LogoutIcon = styled.svg`
   fill: transparent;
-  stroke: white;
+  stroke: var(--color-text);
   width: 20px;
   height: 20px;
 `;

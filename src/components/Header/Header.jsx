@@ -48,14 +48,16 @@ const Header = () => {
               </IconUser>
             </UserWrapper>
           </StyledLinkSettings>
-          <MediaQuery maxWidth={1339}>
+          <MediaQuery maxWidth={1439}>
             <Burger onClick={toggleMenu}>
               <use href={`${sprite}#icon-menu`} />
             </Burger>
           </MediaQuery>
         </SecondNavWrapper>
       </Navigation>
-      {isMenuOpen && <MobileMenu onClick={toggleMenu} />}
+      <MediaQuery maxWidth={1439}>
+        {isMenuOpen && <MobileMenu onClick={toggleMenu} />}
+      </MediaQuery>
     </HeaderContainer>
   );
 };
