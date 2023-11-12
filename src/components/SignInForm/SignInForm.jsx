@@ -16,9 +16,9 @@ import {
   IconWrapdStyled,
 } from '../SignUpForm/SignUpForm.styled';
 
-const SignupSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Required'),
-  password: Yup.string().min(6, 'Too Short!').required('Required'),
+const SigninSchema = Yup.object().shape({
+  email: Yup.string().email('Invalid email').required('Required!'),
+  password: Yup.string().min(6, 'Too Short!').required('Required!'),
 });
 
 function validateEmail(value) {
@@ -42,7 +42,8 @@ const initialValues = {
 const SignInForm = () => {
   const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye`);
   const [type, setType] = useState('password');
-  const [borderColor, setBorderColor] = useState('red');
+  const [borderColor, setBorderColor] = useState('');
+  // const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
@@ -50,7 +51,7 @@ const SignInForm = () => {
     actions.resetForm();
   };
 
-  const togglePassInput = (e) => {
+  const togglePassInput = () => {
     if (type === 'password') {
       setType('text');
       setToggleIcon(`${sprite}#icon-eye-off`);
@@ -60,10 +61,22 @@ const SignInForm = () => {
     }
   };
 
+  const toggleInputBorder = () => {
+    let error = SigninSchema;
+
+    console.log('SigninSchema', error === true);
+
+    if (error === true) {
+      setBorderColor('#D80027');
+    } else {
+      setBorderColor('#3CBF61');
+    }
+  };
+
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={SignupSchema}
+      validationSchema={SigninSchema}
       onSubmit={handleSubmit}
     >
       {({ errors, touched }) => (
@@ -95,6 +108,7 @@ const SignInForm = () => {
                   type={type}
                   name="password"
                   placeholder="Password"
+                  $border_color={borderColor}
                 />
                 <IconWrapdStyled>
                   <SvgIconEyeStyled onClick={togglePassInput}>
