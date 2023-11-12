@@ -1,5 +1,6 @@
 import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
 import SignInForm from '../components/SignInForm/index';
+import WelcomeStats from '../components/WelcomeStats/WelcomeStats';
 import {
   TitleSignupStyled,
   ParagrStyled,
@@ -15,10 +16,11 @@ const SignIn = () => {
         Welcome! Please enter your credentials to login to the platform:
       </ParagrStyled>
       <SignInForm />
-      <TextRedirectStyled>
+      <TextRedirectStyled bigmargin="true">
         Don’t have an account?{' '}
         <NavLinkStyled to="/signup"> Sign Up</NavLinkStyled>
       </TextRedirectStyled>
+      <WelcomeStats />
     </SectionTemplate>
   );
 };
