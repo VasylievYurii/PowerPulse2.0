@@ -1,51 +1,42 @@
 import React from 'react';
-import {Container, LeftContainer, GifWrapper, Timer, CountdownCircleTimer, Calories, RightContainer, List, ListItem, ButtonContainer} from './AddExerciseForm.styled';
+import {TimerTitle, CountdownCircleTimer, TimerButton, Calories, ItemTitle, Button} from './AddExerciseForm.styled';
+
 
 const AddExerciseForm = () => {
 
     return (
-      <Container>
-        <LeftContainer>
-          <GifWrapper>
-            <Gif src={gifUrl} alt={name} />
-          </GifWrapper>
-          <Timer>
-            <TimerTitle>Time</TimerTitle>
-            <TimerWrapper>
-              <CountdownCircleTimer >
-                 {/* renderTime */}
-              </CountdownCircleTimer>
-            </TimerWrapper>
-            <TimerButton type="button" onClick={toggleIsPlaying}>
-             {/*  <svg className="timerButtonIcon">
+      <div>
+        <div>
+        {/* <Gif src={gifUrl} alt={name} /> */}
+          <TimerTitle>Time</TimerTitle>
+          <CountdownCircleTimer >renderTime</CountdownCircleTimer>
+           <TimerButton /* type="button" */ />  {/* onClick={}>
+              <svg className="timerButtonIcon">
                 <use href={isPlaying ? `${sprite}` : `${sprite}`} />
-              </svg> */}
-            </TimerButton>
-            <Calories>
-              Burned calories: <span className="caloriesSpan">{calculatedCalories}</span>
-            </Calories>
-          </Timer>
-        </LeftContainer>
-        <RightContainer>
-          <List>
-            <ListItem>
+              </svg>   
+          </TimerButton>  */}
+          <Calories> Burned calories: {/* <span className="caloriesSpan">{calculatedCalories}</span> */} </Calories>
+        </div>
+        <div>
+          <div>
+            <div>
               <ItemTitle>Name</ItemTitle>
-            </ListItem>
-            <ListItem>
+            </div>
+            <div>
               <ItemTitle>Target</ItemTitle>
-            </ListItem>
-            <ListItem>
+            </div>
+            <div>
               <ItemTitle>Body Part</ItemTitle>
-            </ListItem>
-            <ListItem>
+            </div>
+            <div>
               <ItemTitle>Equipment</ItemTitle>
-            </ListItem>
-          </List>
-          <ButtonContainer>
-            <Button title="Add to diary" onClick={handleAddToDiary} />
-          </ButtonContainer>
-        </RightContainer>
-      </Container>
+            </div>
+          </div>
+          <div>
+            <Button title="Add to diary" /* onClick={handleAddToDiary} */ />
+          </div>
+        </div>
+      </div>
     );
   };
 
