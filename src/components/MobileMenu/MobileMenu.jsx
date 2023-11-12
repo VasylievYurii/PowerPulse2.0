@@ -8,9 +8,9 @@ import {
   BackdropMenuStyled,
   IconCross,
   LogOutStyled,
-  LogOutIconOnMenuStyled,
 } from './MobileMenu.styled';
 import MobileMenuPortal from './MobileMenuPortal';
+import { LogoutIcon } from '../LogOutBtn/LogOutBtn.styled';
 
 const MobileMenu = ({ onClick }) => {
   const handleKeyDown = (e) => {
@@ -53,9 +53,9 @@ const MobileMenu = ({ onClick }) => {
           </NavContainerStyled>
           <LogOutStyled to="/welcome" onClick={onClick}>
             <span>Logout</span>
-            <LogOutIconOnMenuStyled>
+            <LogoutIcon>
               <use href={`${sprite}#icon-logout`} />
-            </LogOutIconOnMenuStyled>
+            </LogoutIcon>
           </LogOutStyled>
         </MenuContainerStyled>
       </BackdropMenuStyled>
