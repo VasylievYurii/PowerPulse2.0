@@ -53,7 +53,7 @@ gap: 18px;
 export const SvgIconEyeStyled = styled.svg`
 width: 20px;
 height: 20px;
-
+stroke: var(--color-text);
  
 `
 
