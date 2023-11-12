@@ -1,4 +1,4 @@
-import{s as o,N as i}from"./index-f30b0c8a.js";import{F as t}from"./index.esm-2e472224.js";const r=o(t)`
+import{s as o,N as i}from"./index-49b2d376.js";import{F as e}from"./index.esm-521351e8.js";const a=o(e)`
 font-size: 14px;
 line-height: 18px;
 max-width: 335px;
@@ -15,7 +15,11 @@ color: var(--color-text);
 background-color: transparent;
 transition: border 0.3s var(--timing-function);
 
-&:hover {
+/* &::placeholder {
+    color: var(--color-text);
+  } */
+
+&:hover, &:focus {
     border: 1px solid var(--color-main-one)
 }
 
@@ -25,13 +29,13 @@ transition: border 0.3s var(--timing-function);
     max-width: 364px;
     height: 52px;
 }
-`,a=o.div`
+`,p=o.div`
 color: var(--color-wrong-one);
 margin-top: 4px;
-margin-left: 4px;
+/* margin-left: 4px; */
 line-height: 1.5;
 letter-spacing: 0.12px;
-`,p=o.div`
+`,l=o.div`
 display: flex;
 flex-direction: column;
 gap: 18px;
@@ -39,7 +43,28 @@ gap: 18px;
 @media screen and (min-width: 768px){
     gap: 20px;
 }
-`,d=o.button`
+`,d=o.svg`
+width: 20px;
+height: 20px;
+stroke: var(--color-text);
+ 
+`,x=o.svg`
+width: 16px;
+height: 16px;
+margin-top: 4px;
+fill: var(--color-wrong-one);
+`,s=o.div`
+display: flex;
+gap: 4px;
+`,c=o.label`
+position: relative;
+`,g=o.div`
+position: absolute;
+ display: flex; 
+ top: calc(50% - 20px / 2);
+align-items: center;
+right: 14px;
+`,m=o.button`
   display: block;
   padding: 12px 40px;
   margin-top: 28px;
@@ -65,7 +90,7 @@ gap: 18px;
     padding: 16px 60px;
     margin-top: 64px;
   }
-`,x=o.h1`
+`,h=o.h1`
 font-size: 24px;
 line-height: 1.16;
 color: var(--color-text);
@@ -76,7 +101,7 @@ margin-bottom: 14px;
     line-height: 1.37;
     margin-bottom: 16px;
 }
-`,l=o.p`
+`,b=o.p`
 font-size: 14px;
 line-height: 1.28;
 color: rgba(239, 237, 232, 0.30);
@@ -88,17 +113,19 @@ margin-bottom: 28px;
     margin-bottom: 32px;
     max-width: 496px;
 }
-`,s=o(i)`
+`,v=o(i)`
 line-height: 1.5;
 color:  var(--color-text);
 text-decoration: underline;
-`,c=o.p`
+`,f=o.p`
 line-height: 1.5;
 color: rgba(239, 237, 232, 0.60);
 margin-top: 12px;
-margin-bottom: 0;
+margin-bottom: ${t=>t.bigmargin?"35px":"121px"};
+
 
 @media screen and (min-width: 768px){
     margin-left: 10px;
+    margin-bottom: 39px;
 }
-`;export{d as B,a as E,r as I,s as N,l as P,x as T,p as W,c as a};
+`;export{m as B,p as E,a as I,c as L,v as N,b as P,x as S,h as T,l as W,s as a,g as b,d as c,f as d};

@@ -1,4 +1,4 @@
-import{b as o,j as e,v as a}from"./index-f30b0c8a.js";import{n as t}from"./emotion-styled.browser.esm-414ced51.js";const d=t.div`
+import{a as o,j as e,v as a}from"./index-49b2d376.js";import{n as t}from"./emotion-styled.browser.esm-855325ab.js";const d=t.div`
   position: relative;
   /*  background-image: */
   color: #efede8;
