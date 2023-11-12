@@ -1,10 +1,10 @@
 import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
 import SignInForm from '../components/SignInForm/index';
 import WelcomeStats from '../components/WelcomeStats/WelcomeStats';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { logOutUser } from '../redux/auth/operations';
-import { selectUserAuthenticated, selectUserToken } from '../redux/selectors';
+// import { useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
+// import { logOutUser } from '../redux/auth/operations';
+// import { selectUserAuthenticated, selectUserToken } from '../redux/selectors';
 import {
   TitleSignupStyled,
   ParagrStyled,
@@ -13,10 +13,10 @@ import {
 } from './SignUp.styled';
 
 const SignIn = () => {
-  const authenticated = useSelector(selectUserAuthenticated);
-  const currentToken = useSelector(selectUserToken);
-  console.log('authenticated', authenticated);
-  console.log('currentToken', currentToken);
+  // const authenticated = useSelector(selectUserAuthenticated);
+  // const currentToken = useSelector(selectUserToken);
+  // console.log('authenticated', authenticated);
+  // console.log('currentToken', currentToken);
   // const dispatch = useDispatch();
 
   // const handleLogOut = () => {
@@ -30,7 +30,7 @@ const SignIn = () => {
         Welcome! Please enter your credentials to login to the platform:
       </ParagrStyled>
       <SignInForm />
-      <TextRedirectStyled $bigmargin>
+      <TextRedirectStyled $margin>
         Don’t have an account?{' '}
         <NavLinkStyled to="/signup"> Sign Up</NavLinkStyled>
       </TextRedirectStyled>

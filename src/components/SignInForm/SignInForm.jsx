@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { loginUser } from '../../redux/auth/operations';
 import { ButtonSubmitStyled } from './SignInForm.styled';
 import sprite from '../../assets/sprite.svg';
+import { useState } from 'react';
 import {
   InputStyled,
   WrapFormStyled,
@@ -39,6 +40,9 @@ const initialValues = {
 };
 
 const SignInForm = () => {
+  const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye-off`);
+  const [type, setType] = useState('password');
+  const [borderColor, setBorderColor] = useState('red');
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
@@ -62,6 +66,7 @@ const SignInForm = () => {
                   name="email"
                   validate={validateEmail}
                   placeholder="Email"
+                  $border_color={borderColor}
                 />
               </LabelWrapStyled>
 

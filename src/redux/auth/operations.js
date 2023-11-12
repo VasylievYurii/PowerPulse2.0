@@ -76,7 +76,7 @@ export const refreshUser = createAsyncThunk('auth/refreshUser',
     async (_, thunkApi) => {
         try {
             const state = thunkApi.getState();
-            console.log('state', state)
+            // console.log('state', state)
             const userToken = state.auth.token;
             token.set(userToken);
             const { data } = await instance.get('auth/current');

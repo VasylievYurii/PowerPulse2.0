@@ -17,7 +17,7 @@ align-items: center;
 color: var(--color-text);
 background-color: transparent;
 transition: border 0.3s var(--timing-function);
-
+border-color: ${props => props.$border_color};
 /* &::placeholder {
     color: var(--color-text);
   } */
