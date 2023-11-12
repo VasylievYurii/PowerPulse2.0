@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { LogoutIcon, LogoutRouteStyled } from '../LogOutBtn/LogOutBtn.styled';
 
 export const BackdropMenuStyled = styled.div`
   position: fixed;
@@ -68,3 +69,11 @@ export const LinkStyled = styled(NavLink)`
     border-color: var(--color-text);
   }
 `;
+
+export const LogOutStyled = styled(LogoutRouteStyled)`
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+`;
+
+export const LogOutIconOnMenuStyled = styled(LogoutIcon)``;

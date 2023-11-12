@@ -2,9 +2,6 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const LogoutRouteStyled = styled(Link)`
-  position: absolute;
-  bottom: 32px;
-  left: 32px;
   display: flex;
   align-items: center;
   gap: 8px;

@@ -12,12 +12,12 @@ import {
   Burger,
   UserWrapper,
   StyledLinkSettings,
-  LogoutBtnStyled,
+  LogoutIconStyled,
+  LogoutWrapperStyled,
 } from './Header.styled';
 import sprite from '../../assets/sprite.svg';
 import Logo from '../Logo';
 import MobileMenu from '../MobileMenu/MobileMenu';
-import LogOutBtn from '../LogOutBtn';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,7 +51,12 @@ const Header = () => {
             </UserWrapper>
           </StyledLinkSettings>
           <MediaQuery minWidth={1440}>
-            <LogoutBtnStyled />
+            <LogoutWrapperStyled to="/welcome">
+              <span>Logout</span>
+              <LogoutIconStyled>
+                <use href={`${sprite}#icon-logout`} />
+              </LogoutIconStyled>
+            </LogoutWrapperStyled>
           </MediaQuery>
           <MediaQuery maxWidth={1439}>
             <Burger onClick={toggleMenu}>
