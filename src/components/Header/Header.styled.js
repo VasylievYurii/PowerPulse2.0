@@ -54,7 +54,7 @@ export const IconSettings = styled.svg`
 export const IconUser = styled.svg`
   width: ${(props) => props.size || '28px'};
   height: ${(props) => props.size || '28px'};
-  fill: ${(props) => props.color || 'none'};
+  fill: ${(props) => props.color || 'var(--color-back-two)'};
   stroke: ${(props) => props.color || 'var(--color-back-two)'};
   display: block;
 
