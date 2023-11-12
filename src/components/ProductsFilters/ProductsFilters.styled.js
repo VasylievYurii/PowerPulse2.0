@@ -4,6 +4,34 @@ export const LabelEl = styled.label`
   position: relative;
 `;
 
+export const ProductsFiltersList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 375px) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 28px;
+  }
+`;
+
 export const InputEl = styled.input`
   width: 100%;
 
@@ -92,4 +120,16 @@ export const SearchSvgClose = styled.svg`
   stroke: var(--color-main-one);
   width: 18px;
   height: 18px;
+`;
+
+export const SelectContainer = styled.div`
+  @media screen and (min-width: 375px) {
+    width: 173px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 204px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 192px;
+  }
 `;
