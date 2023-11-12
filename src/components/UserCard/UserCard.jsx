@@ -20,38 +20,67 @@ import {
   WrapperLogout,
   TextLogout,
   WrapperUseCard,
+  Img,
+  Input,
 } from './UserCard.styled';
 import sprite from '../../assets/sprite.svg';
 import { useState } from 'react';
 
+const HOST_URL = 'https://powerpulse-t5-backend.onrender.com/api/users/avatars';
 const UserCard = () => {
+  const [image, setImage] = useState();
+  const [imageURL, setImageURL] = useState();
   const [colories, setColories] = useState('0');
   const [physical, setPhysical] = useState('0');
+  const [user, setUser] = useState('Anna Rybachok');
 
+  const fileReader = new FileReader();
+  fileReader.onloadend = () => {
+    setImageURL(fileReader.result);
+  };
+  const uploadPhoto = async (e) => {
+    e.preventDefault();
+    const file = e.target.files[0];
+    setImage(file);
+    console.log(file);
+    fileReader.readAsDataURL(file);
+    const formData = new FormData();
+    formData.append('avatar', file);
+    const res = await fetch(HOST_URL, {
+      method: 'PATCH',
+      body: formData,
+    });
+    const data = await res.json();
+    console.log(data);
+  };
   const logout = () => {
     console.log('logout');
     setColories(105);
     setPhysical(200);
   };
-  const addPhoto = () => {
-    console.log('add photo');
-  };
+
   return (
     <WrapperUseCard>
+      <Input id="file-loader" type="file" onChange={uploadPhoto} />
+
       <WrapperUserDiv>
         <WrapperUser>
-          <IconWrapperUser>
-            <use href={`${sprite}#icon-user`} />
-          </IconWrapperUser>
+          {image ? (
+            <Img src={imageURL} width={'90'} height={'90'} />
+          ) : (
+            <IconWrapperUser>
+              <use href={`${sprite}#icon-user`} />
+            </IconWrapperUser>
+          )}
         </WrapperUser>
-        <ButtonUser onClick={addPhoto}>
+        <ButtonUser htmlFor="file-loader">
           <IconPluse>
             <use href={`${sprite}#icon-plus`} />
           </IconPluse>
         </ButtonUser>
       </WrapperUserDiv>
       <WrapperName>
-        <TextNameUser>Anna Rybachok</TextNameUser>
+        <TextNameUser>{user}</TextNameUser>
         <TextUser>User</TextUser>
       </WrapperName>
       <WrapperTwoIndicators>
