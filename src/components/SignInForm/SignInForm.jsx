@@ -77,7 +77,7 @@ const SignInForm = () => {
             <div>
               <LabelWrapStyled>
                 <InputStyled
-                  type="text"
+                  type="password"
                   name="password"
                   placeholder="Password"
                 />
