@@ -40,7 +40,7 @@ const initialValues = {
 };
 
 const SignInForm = () => {
-  const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye-off`);
+  const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye`);
   const [type, setType] = useState('password');
   const [borderColor, setBorderColor] = useState('red');
   const dispatch = useDispatch();
@@ -48,6 +48,16 @@ const SignInForm = () => {
   const handleSubmit = (values, actions) => {
     dispatch(loginUser(values));
     actions.resetForm();
+  };
+
+  const togglePassInput = (e) => {
+    if (type === 'password') {
+      setType('text');
+      setToggleIcon(`${sprite}#icon-eye-off`);
+    } else {
+      setType('password');
+      setToggleIcon(`${sprite}#icon-eye`);
+    }
   };
 
   return (
@@ -82,13 +92,13 @@ const SignInForm = () => {
             <div>
               <LabelWrapStyled>
                 <InputStyled
-                  type="password"
+                  type={type}
                   name="password"
                   placeholder="Password"
                 />
                 <IconWrapdStyled>
-                  <SvgIconEyeStyled>
-                    <use href={`${sprite}#icon-eye`} />
+                  <SvgIconEyeStyled onClick={togglePassInput}>
+                    <use href={toggleIcon} />
                   </SvgIconEyeStyled>
                 </IconWrapdStyled>
               </LabelWrapStyled>

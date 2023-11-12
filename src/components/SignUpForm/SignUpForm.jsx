@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/auth/operations';
 import sprite from '../../assets/sprite.svg';
+import { useState } from 'react';
 import {
   InputStyled,
   ErrorDivStyled,
@@ -44,11 +45,25 @@ const initialValues = {
 };
 
 const SignUpForm = () => {
+  const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye`);
+  const [type, setType] = useState('password');
+  const [borderColor, setBorderColor] = useState('red');
+
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
     dispatch(registerUser(values));
     actions.resetForm();
+  };
+
+  const togglePassInput = (e) => {
+    if (type === 'password') {
+      setType('text');
+      setToggleIcon(`${sprite}#icon-eye-off`);
+    } else {
+      setType('password');
+      setToggleIcon(`${sprite}#icon-eye`);
+    }
   };
 
   return (
@@ -92,13 +107,13 @@ const SignUpForm = () => {
             <div>
               <LabelWrapStyled>
                 <InputStyled
-                  type="password"
+                  type={type}
                   name="password"
                   placeholder="Password"
                 />
                 <IconWrapdStyled>
-                  <SvgIconEyeStyled>
-                    <use href={`${sprite}#icon-eye`} />
+                  <SvgIconEyeStyled onClick={togglePassInput}>
+                    <use href={toggleIcon} />
                   </SvgIconEyeStyled>
                 </IconWrapdStyled>
               </LabelWrapStyled>
