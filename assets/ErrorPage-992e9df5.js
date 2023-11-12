@@ -1,4 +1,4 @@
-import{a as o,j as e,v as a}from"./index-ba767765.js";import{n as t}from"./emotion-styled.browser.esm-d2668f4e.js";const d=t.div`
+import{a as o,j as e,v as a,w as d,b as s,x as r}from"./index-bd77707c.js";import{n as t}from"./emotion-styled.browser.esm-a1f13aa5.js";const p=t.div`
   position: relative;
   /*  background-image: */
   color: #efede8;
@@ -25,7 +25,7 @@ import{a as o,j as e,v as a}from"./index-ba767765.js";import{n as t}from"./emoti
     height: 800px;
     /* background-image:  */
   }
-`,p=t.div`
+`,c=t.div`
   background: #e6533c;
   max-width: calc(64%);
   height: 100%;
@@ -43,10 +43,10 @@ import{a as o,j as e,v as a}from"./index-ba767765.js";import{n as t}from"./emoti
     width: 669px;
     padding: 32px 96px;
   }
-`,r=t.div`
+`,h=t.div`
   margin-top: auto;
   margin-bottom: auto;
-`,s=t.h1`
+`,x=t.h1`
   font-size: 66px;
   line-height: 1;
   letter-spacing: 0.66px;
@@ -56,7 +56,7 @@ import{a as o,j as e,v as a}from"./index-ba767765.js";import{n as t}from"./emoti
     line-height: calc(150 / 160);
     letter-spacing: 1.6px;
   }
-`,h=t.p`
+`,l=t.p`
   width: 200px;
   font-size: 14px;
   margin-top: 14px;
@@ -74,7 +74,7 @@ import{a as o,j as e,v as a}from"./index-ba767765.js";import{n as t}from"./emoti
   @media screen and (min-width: 1440px) {
     width: 477px;
   }
-`,x=t(o)`
+`,g=t(o)`
   position: absolute;
   left: 32px;
   top: 32px;
@@ -90,4 +90,4 @@ import{a as o,j as e,v as a}from"./index-ba767765.js";import{n as t}from"./emoti
     width: 152px;
     height: 17px;
   }
-`;const c=()=>e.jsx("div",{}),l=()=>{const i=a(),n=()=>{i("/")};return console.log("404"),e.jsxs(d,{children:[e.jsx(x,{to:"/"}),e.jsx(p,{children:e.jsxs(r,{children:[e.jsx(s,{children:"404"}),e.jsx(h,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(c,{className:"Button",text:"Go Home",type:"button",onClick:n})]})})]})};export{l as default};
+`;const m=({onClick:i})=>{const n=()=>{i()};return e.jsxs(a,{to:"/welcome",onClick:n,children:[e.jsx("span",{children:"Logout"}),e.jsx(d,{children:e.jsx("use",{href:`${s}#icon-logout`})})]})},b=()=>{const i=r(),n=()=>{i("/")};return console.log("404"),e.jsxs(p,{children:[e.jsx(g,{to:"/"}),e.jsx(c,{children:e.jsxs(h,{children:[e.jsx(x,{children:"404"}),e.jsx(l,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(m,{className:"Button",text:"Go Home",type:"button",onClick:n})]})})]})};export{b as default};
