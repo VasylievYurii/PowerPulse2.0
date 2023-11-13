@@ -1,5 +1,6 @@
 import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
 import SignUpForm from '../components/SignUpForm/index';
+import WelcomeStats from '../components/WelcomeStats/WelcomeStats';
 import {
   TitleSignupStyled,
   ParagrStyled,
@@ -20,6 +21,7 @@ const SignUp = () => {
         Already have an account?{' '}
         <NavLinkStyled to="/signin">Sign In</NavLinkStyled>
       </TextRedirectStyled>
+      <WelcomeStats />
     </SectionTemplate>
   );
 };

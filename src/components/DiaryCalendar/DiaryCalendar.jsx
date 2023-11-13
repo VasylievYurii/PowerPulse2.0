@@ -1,17 +1,35 @@
 import { useState, forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 import { format } from 'date-fns';
-import { CalendarGlobalStyles, TitleWrapper } from './DiaryCalendar.styled';
+import {
+  CalendarGlobalStyles,
+  TitleWrapper,
+  CalendarWrapper,
+  IconWrapper,
+  IconCalendar,
+} from './DiaryCalendar.styled';
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import sprite from '../../assets/sprite.svg';
 
 const DiaryCalendar = ({ onDateChange }) => {
   const [startDate, setStartDate] = useState(new Date());
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
-      <TitleWrapper onClick={onClick} ref={ref}>
-        {format(startDate, 'dd/MM/yyyy')}
-      </TitleWrapper>
+      <CalendarWrapper>
+        <TitleWrapper onClick={onClick} ref={ref}>
+          {format(startDate, 'dd/MM/yyyy')}
+        </TitleWrapper>
+        <IconCalendar onClick={onClick} ref={ref}>
+          <use href={`${sprite}#icon-calendar`} />
+        </IconCalendar>
+        <IconWrapper>
+          <use href={`${sprite}#icon-left`} />
+        </IconWrapper>
+        <IconWrapper>
+          <use href={`${sprite}#icon-right`} />
+        </IconWrapper>
+      </CalendarWrapper>
     );
   });
 

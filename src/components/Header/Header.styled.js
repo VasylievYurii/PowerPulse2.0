@@ -1,8 +1,23 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { LogoutIcon } from '../LogOutBtn/LogOutBtn.styled';
 
 export const HeaderContainer = styled.div`
-  padding: 12px 20px;
+  @media (max-width: 374px) {
+    padding: 12px 18px;
+  }
+
+  @media (min-width: 375px) and (max-width: 768px) {
+    padding: 12px 18px;
+  }
+
+  @media (min-width: 769px) and (max-width: 1439px) {
+    padding: 19px 26px;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 20px 96px;
+  }
 `;
 
 export const Navigation = styled.nav`
@@ -31,7 +46,6 @@ export const StyledLinkSettings = styled(Link)`
   display: flex;
   align-items: center;
   gap: 14px;
-  /* padding: 10px 27px; */
   color: var(--color-text);
   background-color: transparent;
   border-radius: 12px;
@@ -99,4 +113,8 @@ export const SecondNavWrapper = styled.div`
   @media screen and (min-width: 768px) {
     gap: 32px;
   }
+`;
+
+export const LogoutIconStyled = styled(LogoutIcon)`
+  stroke: var(--color-main-one);
 `;

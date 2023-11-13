@@ -2,10 +2,16 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/auth/operations';
+import sprite from '../../assets/sprite.svg';
 import {
   InputStyled,
   ErrorDivStyled,
   WrapFormStyled,
+  WrapErrorStyled,
+  SvgIconCheckBoxStyled,
+  LabelWrapStyled,
+  IconWrapdStyled,
+  SvgIconEyeStyled,
 } from './SignUpForm.styled';
 import { ButtonSubmitStyled } from '../SignInForm/SignInForm.styled';
 
@@ -57,7 +63,12 @@ const SignUpForm = () => {
             <div>
               <InputStyled type="text" name="name" placeholder="Name" />
               {errors.name && touched.name ? (
-                <ErrorDivStyled>{errors.name}</ErrorDivStyled>
+                <WrapErrorStyled>
+                  <SvgIconCheckBoxStyled>
+                    <use href={`${sprite}#icon-checkbox`} />
+                  </SvgIconCheckBoxStyled>
+                  <ErrorDivStyled>{errors.name}</ErrorDivStyled>
+                </WrapErrorStyled>
               ) : null}
             </div>
 
@@ -69,14 +80,36 @@ const SignUpForm = () => {
                 placeholder="Email"
               />
               {errors.email && touched.email ? (
-                <ErrorDivStyled>{errors.email}</ErrorDivStyled>
+                <WrapErrorStyled>
+                  <SvgIconCheckBoxStyled>
+                    <use href={`${sprite}#icon-checkbox`} />
+                  </SvgIconCheckBoxStyled>
+                  <ErrorDivStyled>{errors.email}</ErrorDivStyled>
+                </WrapErrorStyled>
               ) : null}
             </div>
 
             <div>
-              <InputStyled type="text" name="password" placeholder="Password" />
+              <LabelWrapStyled>
+                <InputStyled
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                />
+                <IconWrapdStyled>
+                  <SvgIconEyeStyled>
+                    <use href={`${sprite}#icon-eye`} />
+                  </SvgIconEyeStyled>
+                </IconWrapdStyled>
+              </LabelWrapStyled>
+
               {errors.password && touched.password ? (
-                <ErrorDivStyled>{errors.password}</ErrorDivStyled>
+                <WrapErrorStyled>
+                  <SvgIconCheckBoxStyled>
+                    <use href={`${sprite}#icon-checkbox`} />
+                  </SvgIconCheckBoxStyled>
+                  <ErrorDivStyled>{errors.password}</ErrorDivStyled>
+                </WrapErrorStyled>
               ) : null}
             </div>
           </WrapFormStyled>
