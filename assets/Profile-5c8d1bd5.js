@@ -1,4 +1,4 @@
-import{s as i,r,u as $,b as N,j as e,c as o,d as T}from"./index-03fd3242.js";import{S as q}from"./SectionTemplate-31c8e380.js";import{F as W,c as C,a as g,b as p,d as E,e as P,f as B}from"./index.esm-63414892.js";import"./emotion-styled.browser.esm-048484be.js";const H=i.div`
+import{s as i,r,u as $,b as N,j as e,c as o,d as T}from"./index-d474ec5f.js";import{S as q}from"./SectionTemplate-84a709a2.js";import{F as W,c as C,a as g,b as p,d as E,e as P,f as B}from"./index.esm-8fdb3a06.js";import"./emotion-styled.browser.esm-0d87a74a.js";const H=i.div`
   display: flex;
   gap: 14px;
   justify-content: center;
@@ -74,6 +74,7 @@ import{s as i,r,u as $,b as N,j as e,c as o,d as T}from"./index-03fd3242.js";imp
   align-items: center;
   display: flex;
   background-color: transparent;
+  cursor: pointer;
   @media screen and (min-width: 768px) {
     width: 32px;
     height: 32px;
