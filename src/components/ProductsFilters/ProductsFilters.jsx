@@ -1,7 +1,15 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 import { useMediaQuery } from 'react-responsive';
 import sprite from '../../assets/sprite.svg';
+import { filterReducer } from '../../redux/products/filterSlice';
+
+// import { selectAllProductsList, selectFilter } from '../../redux/selectors';
+// import { useSelector } from 'react-redux';
+
+const animatedComponents = makeAnimated();
 
 import {
   ProductsFiltersList,
@@ -41,10 +49,51 @@ const productsCategories = [
   'soft drinks',
   'vegetables and herbs',
 ];
+// це коли ми мепаємо
+
+// const filter = useSelector(selectFilter);
+// const productsList = useSelector(selectAllProductsList)
+//   .slice(0, 10)
+//   .map((product) => ({
+//     ...product,
+//     recommended: product.groupBloodNotAllowed[передаємо тип крові],
+//   }));
+// const filteredList = filteredProducts(productsList, filter);
+
+// а це після меп функція фільтрації отрмує потрібні параметри
+
+// const filteredProducts = (listProducts, filter) => {
+//   const { category, recommended, search } = filter;
+//   const searchToLower = search ? search.toLowerCase() : undefined;
+
+//   let filteredList = listProducts;
+
+//   if (category) {
+//     filteredList = filteredList.filter(
+//       (product) => product.category === category,
+//     );
+//   }
+
+//   if (recommended === 'recommended') {
+//     filteredList = filteredList.filter((product) => product.recommended);
+//   } else if (recommended === 'notRecommended') {
+//     filteredList = filteredList.filter((product) => !product.recommended);
+//   }
+
+//   if (searchToLower) {
+//     filteredList = filteredList.filter((product) =>
+//       product.title.toLowerCase().includes(searchToLower),
+//     );
+//   }
+
+//   return filteredList;
+// };
 
 const ProductsFilters = () => {
+  const dispatch = useDispatch();
+
   const [searchQuery, setSearchQuery] = useState('');
-  const [category, setCategory] = useState(null);
+  const [category, setCategory] = useState('');
   const [recommended, setRecommended] = useState(options[0]);
 
   // Перетворюємо рядок так, щоб перший символ був у верхньому регістрі,
@@ -62,6 +111,13 @@ const ProductsFilters = () => {
   const handleChange = (e) => {
     const { value } = e.target;
     setSearchQuery(value);
+    dispatch(
+      filterReducer({
+        search: value,
+        category: category.value,
+        recommended: recommended.value,
+      }),
+    );
   };
 
   const handleSubmit = (e) => {
@@ -70,20 +126,48 @@ const ProductsFilters = () => {
     // console.log(e);
     // console.log(searchValue);
     setSearchQuery(searchValue);
+    dispatch(
+      filterReducer({
+        search: searchValue,
+      }),
+    );
   };
 
   const resetForm = () => {
     setSearchQuery('');
+    dispatch(
+      filterReducer({
+        search: '',
+      }),
+    );
   };
 
   const handleCategoriesChange = (e) => {
-    const { value } = e.target;
+    const { value } = e;
+    console.log(value);
     setCategory(value);
+
+    dispatch(
+      filterReducer({
+        searchQuery,
+        category: value,
+        recommended: recommended.value,
+      }),
+    );
   };
 
   const handleRecomendedChange = (e) => {
-    const { value } = e.target;
+    // console.log(e);
+    const { value } = e;
+    console.log(value);
     setRecommended(value);
+    dispatch(
+      filterReducer({
+        searchQuery,
+        category: category.value,
+        recommended: value,
+      }),
+    );
   };
 
   const isMobile = useMediaQuery({ minWidth: 375 });
@@ -97,41 +181,26 @@ const ProductsFilters = () => {
   isDesktop ? (height = '52px') : (height = '46px');
 
   const customStyles = {
-    option: (defaultStyles, { isFocused, isSelected }) => ({
+    option: (defaultStyles, state) => ({
       ...defaultStyles,
-      backgroundColor: isSelected
-        ? 'rgba(28, 28, 28, 1)'
-        : isFocused
-        ? 'rgba(28, 28, 28, 1)'
-        : 'rgba(28, 28, 28, 1)',
-      color: isSelected ? '#E6533C' : '#EFEDE8',
-      padding: '14px',
+
+      fontSize: '14px',
+      height: height,
+      color: state.isSelected ? '#E6533C' : '#EFEDE8',
+      background: '#1C1C1C',
     }),
+
     control: (defaultStyles) => ({
       ...defaultStyles,
-      background: 'trasparent',
+
+      background: 'transparent',
+      borderRadius: '12px',
+      border: '1px solid rgba(239, 237, 232, 0.3)',
       height: height,
-      appearance: 'none', // Вилучення стандартного вигляду
-      WebkitAppearance: 'none',
-      MozAppearance: 'none',
     }),
     singleValue: (defaultStyles) => ({
       ...defaultStyles,
       color: '#EFEDE8',
-    }),
-    indicatorSeparator: (defaultStyles) => ({
-      ...defaultStyles,
-      backgroundColor: 'transparent', // Прозорий колір розділювача
-    }),
-    dropdownIndicator: (defaultStyles) => ({
-      ...defaultStyles,
-      color: '#EFEDE8', // Колір стрілки розгортання списку
-    }),
-    container: (defaultStyles) => ({
-      ...defaultStyles,
-      border: '1px solid rgba(239, 237, 232, 0.30)',
-      borderRadius: '12px',
-      outline: 'none',
     }),
   };
 
@@ -171,6 +240,9 @@ const ProductsFilters = () => {
               onChange={handleCategoriesChange}
               options={categoriesList || []}
               placeholder="Categories"
+              components={animatedComponents}
+              className="react-select-container"
+              classNamePrefix="react-select"
             />
           </SelectContainer>
         </li>
@@ -181,6 +253,9 @@ const ProductsFilters = () => {
               value={recommended}
               onChange={handleRecomendedChange}
               options={options}
+              components={animatedComponents}
+              className="react-select-container"
+              classNamePrefix="react-select"
             />
           </SelectContainer>
         </li>
