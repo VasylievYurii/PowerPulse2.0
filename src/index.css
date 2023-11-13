@@ -10,7 +10,7 @@
   --color-approved-one: #3cbf61;
   --color-approved-two: #419b09;
   --color-wrong-one: #d80027;
-  --color-wrong-one: #e9101d;
+  --color-wrong-two: #e9101d;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 

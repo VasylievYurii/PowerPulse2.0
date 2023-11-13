@@ -4,6 +4,8 @@ import './useForm.css';
 import RadioUseForm from './RadioUseForm/RadioUseForm';
 import { object, string, number, date } from 'yup';
 import InputUseForm from './InputUseForm/InputUseForm';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 let userSchema = object({
   login: string().required(),
@@ -29,9 +31,16 @@ const initialValues = {
 };
 
 const UserForm = () => {
+  const { userData } = useSelector((state) => state.auth);
+  useEffect(() => {
+    if (userData) {
+      initialValues.email = userData.email;
+    }
+  }, [userData]);
+
   const handleSubmit = (values) => {
     console.log(values);
-    console.log(values.blood);
+    console.log(values.login);
   };
 
   return (

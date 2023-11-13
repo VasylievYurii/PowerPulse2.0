@@ -88,6 +88,7 @@ export const ButtonUser = styled.label`
   align-items: center;
   display: flex;
   background-color: transparent;
+  cursor: pointer;
   @media screen and (min-width: 768px) {
     width: 32px;
     height: 32px;

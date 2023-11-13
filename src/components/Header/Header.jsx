@@ -18,12 +18,20 @@ import sprite from '../../assets/sprite.svg';
 import Logo from '../Logo';
 import MobileMenu from '../MobileMenu/MobileMenu';
 import { LogoutRouteStyled } from '../LogOutBtn/LogOutBtn.styled';
+import { useDispatch } from 'react-redux';
+import { logOutUser } from '../../redux/auth/operations';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
+  };
+
+  const dispatch = useDispatch();
+
+  const handleLogOut = () => {
+    dispatch(logOutUser());
   };
 
   return (
@@ -51,7 +59,7 @@ const Header = () => {
             </UserWrapper>
           </StyledLinkSettings>
           <MediaQuery minWidth={1440}>
-            <LogoutRouteStyled to="/welcome">
+            <LogoutRouteStyled onClick={handleLogOut} to="/welcome">
               <span>Logout</span>
               <LogoutIconStyled>
                 <use href={`${sprite}#icon-logout`} />

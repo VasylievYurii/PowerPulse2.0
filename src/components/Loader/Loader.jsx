@@ -1,7 +1,7 @@
-import React from 'react';
+import { LoaderStyled } from './Loader.styled';
 
 const Loader = () => {
-  return <div></div>;
+  return <LoaderStyled></LoaderStyled>;
 };
 
 export default Loader;
