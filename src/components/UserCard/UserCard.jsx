@@ -24,7 +24,9 @@ import {
   Input,
 } from './UserCard.styled';
 import sprite from '../../assets/sprite.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateAvatar } from '../../redux/user/userOperations';
 
 const HOST_URL = 'https://powerpulse-t5-backend.onrender.com/api/users/avatars';
 const UserCard = () => {
@@ -33,6 +35,21 @@ const UserCard = () => {
   const [colories, setColories] = useState('0');
   const [physical, setPhysical] = useState('0');
   const [user, setUser] = useState('Anna Rybachok');
+  const dispatch = useDispatch();
+  const { userData } = useSelector((state) => state.auth);
+  // const { avatarURL } = useSelector((state) => state.users);
+  console.log('userData', userData);
+
+  useEffect(() => {
+    if (userData) {
+      setUser(userData.name);
+      setImageURL(userData.avatarURL);
+    }
+
+    if (imageURL) {
+      setImageURL(imageURL);
+    }
+  }, [userData, imageURL]);
 
   const fileReader = new FileReader();
   fileReader.onloadend = () => {
@@ -44,14 +61,18 @@ const UserCard = () => {
     setImage(file);
     console.log(file);
     fileReader.readAsDataURL(file);
+
+    dispatch(updateAvatar(file));
     const formData = new FormData();
-    formData.append('avatar', file);
+    formData.append('avatarURL', file);
     const res = await fetch(HOST_URL, {
       method: 'PATCH',
       body: formData,
     });
+    console.log('res', res);
     const data = await res.json();
-    console.log(data);
+    // dispatch(updateAvatar(data));
+    console.log('data', data);
   };
   const logout = () => {
     console.log('logout');
@@ -65,8 +86,8 @@ const UserCard = () => {
 
       <WrapperUserDiv>
         <WrapperUser>
-          {image ? (
-            <Img src={imageURL} width={'90'} height={'90'} />
+          {image || imageURL ? (
+            <Img src={imageURL} sizes="90px" />
           ) : (
             <IconWrapperUser>
               <use href={`${sprite}#icon-user`} />

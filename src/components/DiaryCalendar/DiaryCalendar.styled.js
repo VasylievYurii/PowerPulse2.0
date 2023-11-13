@@ -97,8 +97,8 @@ letter-spacing: -0.28px;
   .react-datepicker__week {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    color: white;
+    /* justify-content: center; */
+    color: var(--color-text);
   }
 
   .react-datepicker__day {
@@ -106,7 +106,7 @@ letter-spacing: -0.28px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 11px;
     flex-shrink: 0;
     margin: 0;
     width: 32px;
@@ -123,10 +123,10 @@ letter-spacing: -0.28px;
 
   .react-datepicker__month {
     display: flex;
-    gap: 7px;
+    gap: 11px;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 16px;
+    padding-top: 11px;
     margin: 0;
   }
 
@@ -147,25 +147,26 @@ letter-spacing: -0.28px;
     color:#3e85f3;
   }
 
-  .react-datepicker__day--keyboard-selected {
+  /* .react-datepicker__day--keyboard-selected {
     border-radius: 50%;
     background-color:white;
     color:#3e85f3;
-  }
+  } */
 
   .react-datepicker__day--weekend {
-    opacity: 50%;
+    opacity: 100%;
   }
 
+//Дати інших місяців
 .react-datepicker__day--outside-month {
     background-color: transparent;
     pointer-events: none;
-    opacity: 0;
+    opacity: 50%;
   }
 
-  .react-datepicker__view-calendar-icon input {
+  /* .react-datepicker__view-calendar-icon input {
     padding: 6px 10px 5px 13px;
-  }
+  } */
 
   .react-datepicker__triangle {
     visibility: hidden;
@@ -181,4 +182,21 @@ export const TitleWrapper = styled.button`
   line-height: 32px;
   background-color: transparent;
   border: none;
+`;
+
+export const CalendarWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const IconWrapper = styled.svg`
+  width: 16px;
+  height: 16px;
+  stroke: var(--color-text);
+`;
+
+export const IconCalendar = styled.svg`
+  width: 24px;
+  height: 24px;
+  stroke: var(--color-main-one);
 `;

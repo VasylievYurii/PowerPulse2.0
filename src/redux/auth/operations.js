@@ -1,76 +1,78 @@
-import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const toastError = (text) => {
-    toast.error(text, {
-        position: "top-right",
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-    });
-}
-
-export const instance = axios.create({ baseURL: 'https://powerpulse-t5-backend.onrender.com/api/', });
-
-export const token = {
-    set: token => {
-        instance.defaults.headers['Authorization'] = `Bearer ${token}`;
-    },
-    clear: () => {
-        instance.defaults.headers['Authorization'] = '';
-    },
+  toast.error(text, {
+    position: 'top-right',
+    autoClose: 4000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: 'dark',
+  });
 };
 
-export const registerUser = createAsyncThunk('auth/registerUser',
-    async (dataUser, thunkApi) => {
-        try {
-            const { data } = await instance.post('auth/register', dataUser);
-            token.set(data.token);
-            return data;
-        } catch (error) {
-            toastError(`Oops! Something was wrog.... ${error.message}`);
-            return thunkApi.rejectWithValue(error.message);
-        }
+export const instance = axios.create({
+  baseURL: 'https://powerpulse-t5-backend.onrender.com/api/',
+});
+
+export const token = {
+  set: (token) => {
+    instance.defaults.headers['Authorization'] = `Bearer ${token}`;
+  },
+  clear: () => {
+    instance.defaults.headers['Authorization'] = '';
+  },
+};
+
+export const registerUser = createAsyncThunk(
+  'auth/registerUser',
+  async (dataUser, thunkApi) => {
+    try {
+      const { data } = await instance.post('auth/register', dataUser);
+      token.set(data.token);
+      return data;
+    } catch (error) {
+      toastError(`Oops! Something was wrong.... ${error.message}`);
+      return thunkApi.rejectWithValue(error.message);
     }
+  },
 );
 
+export const loginUser = createAsyncThunk(
+  'auth/loginUser',
+  async (dataUser, thunkApi) => {
+    try {
+      console.log(dataUser);
+      const { data } = await instance.post('auth/login', dataUser);
+      token.set(data.token);
 
-export const loginUser = createAsyncThunk('auth/loginUser',
-    async (dataUser, thunkApi) => {
-        try {
-            console.log(dataUser);
-            const { data } = await instance.post('auth/login', dataUser);
-            token.set(data.token);
-
-            return data;
-        } catch (error) {
-            toastError(`Oops! Something was wrog.... ${error.message}`);
-            return thunkApi.rejectWithValue(error.message);
-        }
+      return data;
+    } catch (error) {
+      toastError(`Oops! Something was wrong.... ${error.message}`);
+      return thunkApi.rejectWithValue(error.message);
     }
-)
-
-
-export const logOutUser = createAsyncThunk('auth/logOutUser',
-    async (_, thunkApi) => {
-        try {
-            await instance.post('auth/logout');
-            token.clear();
-            console.log('Yupiiii!!! You are logout!!')
-            return;
-        } catch (error) {
-            toastError(`Oops! Something was wrog.... ${error.message}`);
-            return thunkApi.rejectWithValue(error.message);
-        }
-    }
+  },
 );
 
+export const logOutUser = createAsyncThunk(
+  'auth/logOutUser',
+  async (_, thunkApi) => {
+    try {
+      await instance.post('auth/logout');
+      token.clear();
+      console.log('Yupiiii!!! You are logout!!');
+      return;
+    } catch (error) {
+      toastError(`Oops! Something was wrog.... ${error.message}`);
+      return thunkApi.rejectWithValue(error.message);
+    }
+  },
+);
 
 export const refreshUser = createAsyncThunk('auth/refreshUser',
     async (_, thunkApi) => {

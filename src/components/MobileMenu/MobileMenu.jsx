@@ -11,8 +11,16 @@ import {
 } from './MobileMenu.styled';
 import MobileMenuPortal from './MobileMenuPortal';
 import { LogoutIcon } from '../LogOutBtn/LogOutBtn.styled';
+import { useDispatch } from 'react-redux';
+import { logOutUser } from '../../redux/auth/operations';
 
 const MobileMenu = ({ onClick }) => {
+  const dispatch = useDispatch();
+
+  const handleLogOut = () => {
+    dispatch(logOutUser());
+  };
+
   const handleKeyDown = (e) => {
     if (e.code === 'Escape') {
       onClick();
@@ -51,7 +59,7 @@ const MobileMenu = ({ onClick }) => {
             <LinkStyled to="/products">Products</LinkStyled>
             <LinkStyled to="/exercises">Exercises</LinkStyled>
           </NavContainerStyled>
-          <LogOutStyled to="/welcome" onClick={onClick}>
+          <LogOutStyled to="/welcome" onClick={handleLogOut}>
             <span>Logout</span>
             <LogoutIcon>
               <use href={`${sprite}#icon-logout`} />
