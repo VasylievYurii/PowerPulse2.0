@@ -49,6 +49,7 @@ const productsCategories = [
   'soft drinks',
   'vegetables and herbs',
 ];
+// це коли ми мепаємо
 
 // const filter = useSelector(selectFilter);
 // const productsList = useSelector(selectAllProductsList)
@@ -58,6 +59,8 @@ const productsCategories = [
 //     recommended: product.groupBloodNotAllowed[передаємо тип крові],
 //   }));
 // const filteredList = filteredProducts(productsList, filter);
+
+// а це після меп функція фільтрації отрмує потрібні параметри
 
 // const filteredProducts = (listProducts, filter) => {
 //   const { category, recommended, search } = filter;
