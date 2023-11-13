@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container,LeftContainer, TimerTitle, CountdownCircleTimer, TimerButton, Calories,RightContainer, ItemTitle,ButtonContainer, Button} from './AddExerciseForm.styled';
+import {Container,LeftContainer, /* GifWrapper, Gif, */ TimerTitle, CountdownCircleTimer, TimerButton, Calories,RightContainer, ItemTitle,ButtonContainer, Button} from './AddExerciseForm.styled';
 
 const handleAddToDiary = () => {
   if (!amount) {
@@ -27,8 +27,10 @@ const AddExerciseForm = () => {
     return (
       <Container>
         <LeftContainer>
-        <div>
-        {/* <Gif src={gifUrl} alt={name} /> */}
+          <div>
+            {/* <GifWrapper>
+            <Gif src={gifUrl} alt={name} /> 
+            </GifWrapper> */}
           <TimerTitle>Time</TimerTitle>
           <CountdownCircleTimer >renderTime</CountdownCircleTimer>
            <TimerButton /* type="button" */ />  {/* onClick={}>
