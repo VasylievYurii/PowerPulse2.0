@@ -1,5 +1,5 @@
 import React from 'react';
-import {TimerTitle, CountdownCircleTimer, TimerButton, Calories, ItemTitle,ButtonConteiner, Button} from './AddExerciseForm.styled';
+import {Container,LeftContainer, TimerTitle, CountdownCircleTimer, TimerButton, Calories,RightContainer, ItemTitle,ButtonContainer, Button} from './AddExerciseForm.styled';
 
 const handleAddToDiary = () => {
   if (!amount) {
@@ -25,7 +25,8 @@ const handleAddToDiary = () => {
 const AddExerciseForm = () => {
 
     return (
-      <div>
+      <Container>
+        <LeftContainer>
         <div>
         {/* <Gif src={gifUrl} alt={name} /> */}
           <TimerTitle>Time</TimerTitle>
@@ -36,8 +37,9 @@ const AddExerciseForm = () => {
               </svg>   
           </TimerButton>  */}
           <Calories> Burned calories: {/* <span className="caloriesSpan">{calculatedCalories}</span> */} </Calories>
-        </div>
-        <div>
+          </div>
+          </LeftContainer>
+        <RightContainer>
           <div>
             <div>
               <ItemTitle>Name</ItemTitle>
@@ -52,12 +54,12 @@ const AddExerciseForm = () => {
               <ItemTitle>Equipment</ItemTitle>
             </div>
           </div>
-          <ButtonConteiner>
+          <ButtonContainer>
             <Button title="Add to diary" onClick={handleAddToDiary} >
               </Button>
-          </ButtonConteiner>
-        </div>
-      </div>
+          </ButtonContainer>
+        </RightContainer>
+      </Container>
     );
   };
 

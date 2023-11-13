@@ -1,5 +1,24 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+`;
+
+export const LeftContainer = styled.div`
+max-width: 344px;
+    display: flex;
+    flex-direction: column;
+
+;` 
+
 
 export const TimerTitle = styled.p`
 font-size: 10px;
@@ -8,7 +27,7 @@ color: var(--color-text);
 ;`
 
 export const CountdownCircleTimer = styled.p`
-font-size: 50px;
+font-size: 10px;
 ` ;
 
 export const TimerButton = styled.button`
@@ -24,13 +43,19 @@ line-height: 1.3;
 color: var(--color-text);
 ;`
 
+export const RightContainer = styled.div`
+    max-width: 344px;
+    display: flex;
+    flex-direction: column;
+;`
+
 export const ItemTitle = styled.h3`
 font-size: 12px;
 line-height: 1.5;
 color: var(--color-text);
 ;`
 
-export const ButtonConteiner = styled.div`
+export const ButtonContainer = styled.div`
 @media screen and (min-width: 768px) {
     grid-area: button;
     display: flex;
