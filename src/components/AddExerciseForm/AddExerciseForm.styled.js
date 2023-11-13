@@ -30,6 +30,19 @@ line-height: 1.5;
 color: var(--color-text);
 ;`
 
+export const ButtonConteiner = styled.div`
+@media screen and (min-width: 768px) {
+    grid-area: button;
+    display: flex;
+    justify-content: flex-end;
+    @media screen and (min-width: 768px) {
+      margin-right: 32px;
+      margin-top: auto;
+      margin-bottom: 48px;
+    }
+  }
+`;
+
 export const Button = styled.button`
 color: var(--color-text);
   font-size: 16px;

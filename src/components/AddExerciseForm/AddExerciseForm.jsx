@@ -1,6 +1,26 @@
 import React from 'react';
-import {TimerTitle, CountdownCircleTimer, TimerButton, Calories, ItemTitle, Button} from './AddExerciseForm.styled';
+import {TimerTitle, CountdownCircleTimer, TimerButton, Calories, ItemTitle,ButtonConteiner, Button} from './AddExerciseForm.styled';
 
+const handleAddToDiary = () => {
+  if (!amount) {
+    toast.error('Must be greater than 0');
+    return;
+  }
+
+  dispatch(
+    addExercise({
+      date: formattedDate, // Use the formatted date
+      bodyPart,
+      target,
+      time: dinamicTime,
+      exerciseId: _id,
+      equipment,
+      name,
+      burnedCalories: dinamicBurnCal,
+    }),
+  );
+  onClick();
+};
 
 const AddExerciseForm = () => {
 
@@ -32,9 +52,10 @@ const AddExerciseForm = () => {
               <ItemTitle>Equipment</ItemTitle>
             </div>
           </div>
-          <div>
-            <Button title="Add to diary" /* onClick={handleAddToDiary} */ />
-          </div>
+          <ButtonConteiner>
+            <Button title="Add to diary" onClick={handleAddToDiary} >
+              </Button>
+          </ButtonConteiner>
         </div>
       </div>
     );
