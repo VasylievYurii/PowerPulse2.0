@@ -61,17 +61,15 @@ const SignInForm = () => {
     }
   };
 
-  const toggleInputBorder = () => {
-    let error = SigninSchema;
+  // const toggleInputBorder = () => {
+  //   const { errors, touched } = Formik;
 
-    console.log('SigninSchema', error === true);
-
-    if (error === true) {
-      setBorderColor('#D80027');
-    } else {
-      setBorderColor('#3CBF61');
-    }
-  };
+  //   if (errors && touched === true) {
+  //     setBorderColor('#D80027');
+  //   } else {
+  //     setBorderColor('#3CBF61');
+  //   }
+  // };
 
   return (
     <Formik
@@ -108,7 +106,7 @@ const SignInForm = () => {
                   type={type}
                   name="password"
                   placeholder="Password"
-                  $border_color={borderColor}
+                  // $border_color={borderColor}
                 />
                 <IconWrapdStyled>
                   <SvgIconEyeStyled onClick={togglePassInput}>
