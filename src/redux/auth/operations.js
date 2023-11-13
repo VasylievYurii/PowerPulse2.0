@@ -1,25 +1,27 @@
-import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const toastError = (text) => {
     toast.error(text, {
-        position: "top-right",
+        position: 'top-right',
         autoClose: 4000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "dark",
+        theme: 'dark',
     });
-}
+};
 
-export const instance = axios.create({ baseURL: 'https://powerpulse-t5-backend.onrender.com/api/', });
+export const instance = axios.create({
+    baseURL: 'https://powerpulse-t5-backend.onrender.com/api/',
+});
 
 export const token = {
-    set: token => {
+    set: (token) => {
         instance.defaults.headers['Authorization'] = `Bearer ${token}`;
     },
     clear: () => {
@@ -27,7 +29,8 @@ export const token = {
     },
 };
 
-export const registerUser = createAsyncThunk('auth/registerUser',
+export const registerUser = createAsyncThunk(
+    'auth/registerUser',
     async (dataUser, thunkApi) => {
         try {
             const { data } = await instance.post('auth/register', dataUser);
@@ -37,11 +40,11 @@ export const registerUser = createAsyncThunk('auth/registerUser',
             toastError(`Oops! Something was wrog.... ${error.message}`);
             return thunkApi.rejectWithValue(error.message);
         }
-    }
+    },
 );
 
-
-export const loginUser = createAsyncThunk('auth/loginUser',
+export const loginUser = createAsyncThunk(
+    'auth/loginUser',
     async (dataUser, thunkApi) => {
         try {
             console.log(dataUser);
@@ -53,26 +56,26 @@ export const loginUser = createAsyncThunk('auth/loginUser',
             toastError(`Oops! Something was wrog.... ${error.message}`);
             return thunkApi.rejectWithValue(error.message);
         }
-    }
-)
+    },
+);
 
-
-export const logOutUser = createAsyncThunk('auth/logOutUser',
+export const logOutUser = createAsyncThunk(
+    'auth/logOutUser',
     async (_, thunkApi) => {
         try {
             await instance.post('auth/logout');
             token.clear();
-            console.log('Yupiiii!!! You are logout!!')
+            console.log('Yupiiii!!! You are logout!!');
             return;
         } catch (error) {
             toastError(`Oops! Something was wrog.... ${error.message}`);
             return thunkApi.rejectWithValue(error.message);
         }
-    }
+    },
 );
 
-
-export const refreshUser = createAsyncThunk('auth/refreshUser',
+export const refreshUser = createAsyncThunk(
+    'auth/refreshUser',
     async (_, thunkApi) => {
         try {
             const state = thunkApi.getState();
@@ -93,5 +96,5 @@ export const refreshUser = createAsyncThunk('auth/refreshUser',
                 return false;
             }
         },
-    }
+    },
 );
