@@ -1,7 +1,7 @@
 const Equipment = () => {
   return (
     <div>
-      <p>BodyParts</p>
+      <p>Equipment</p>
     </div>
   );
 };
