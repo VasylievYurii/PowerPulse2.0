@@ -1,5 +1,5 @@
 import React from 'react';
-import { DayProductsStyle, DiaryTitle, DiaryWrapTitle, DiaryProductsList, NextIconWrapper, DiaryLink } from './DayProducts.styled';
+import { DayProductsStyle, DiaryTitle, DiaryProductsList, NextIconWrapper, DiaryLink, DayProductsWrapTitle } from './DayProducts.styled';
 import { Link } from 'react-router-dom';
 import sprite from '../../assets/sprite.svg';
 import DayProductItem from '../DayProductItem';
@@ -27,7 +27,7 @@ const DayProducts = () => {
   
   return (
     <DayProductsStyle>
-      <DiaryWrapTitle>
+      <DayProductsWrapTitle>
         <DiaryTitle>Products</DiaryTitle>
         <Link to='/products'>
           <DiaryLink>Add product
@@ -36,7 +36,7 @@ const DayProducts = () => {
             </NextIconWrapper>
             </DiaryLink>
         </Link>
-      </DiaryWrapTitle>
+      </DayProductsWrapTitle>
       <DiaryProductsList>
         {/* {mealsByDate.map((meal) =>
                     <DayProductItem meal={meal} key={meal.id} />

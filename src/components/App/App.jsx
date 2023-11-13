@@ -4,6 +4,9 @@ import Loader from '../Loader';
 // import RestrictedRoute from '../RestrictedRoute';
 // import PrivateRoute from '../PrivateRoute';
 import SharedLayout from '../SharedLayout';
+import { refreshUser } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 const Welcome = lazy(() => import('../../pages/Welcome/Welcome'));
 const Profile = lazy(() => import('../../pages/Profile'));
@@ -19,6 +22,11 @@ const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 
 function App() {
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   if (location.pathname === '/') {
     return <Navigate to="/welcome" />;
