@@ -4,7 +4,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://powerpulse-t5-backend.onrender.com/api/';
 
 export const updateAvatar = createAsyncThunk(
-  'users/avatars',
+  'users/updateAvatar',
   async (file, thunkAPI) => {
     console.log('operat', file);
     try {
