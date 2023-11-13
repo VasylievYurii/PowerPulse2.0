@@ -12,7 +12,7 @@ import {
   InfoLineWrapper,
 } from './ProductsItem.styled';
 
-const ProductsItem = ({product}) => {
+const ProductsItem = ({ weight, title }) => {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
@@ -44,17 +44,23 @@ const ProductsItem = ({product}) => {
               <use href={`${sprite}#icon-run`} />
             </svg>
           </RunIconWrapper>
-          <p>Name of product</p>
+          <p>{title}</p>
         </MiddleLineWrapper>
         <InfoLineWrapper>
           <li>
-            <p>Calories:<span>value</span></p> 
+            <p>
+              Calories:<span>value</span>
+            </p>
           </li>
           <li>
-            <p>Category:<span>value</span></p> 
+            <p>
+              Category:<span>value</span>
+            </p>
           </li>
           <li>
-            <p>Weight:<span>value</span></p> 
+            <p>
+              Weight:<span>{weight}</span>
+            </p>
           </li>
         </InfoLineWrapper>
       </ProductItemContainer>
