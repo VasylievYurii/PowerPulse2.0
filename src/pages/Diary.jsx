@@ -5,9 +5,9 @@ import DiaryCalendar from '../components/DiaryCalendar';
 import DayProducts from '../components/DayProducts';
 import DayExercises from '../components/DayExercises';
 import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
-import {getDiaryThunk } from '../redux/diary/diaryOperations';
-import { DiaryWrapTitle } from './Diary/Diary.styled';
+import { getDiaryWorkoutThunk } from '../redux/workouts/workoutsOperations';
 import { getDiaryMealsThunk } from '../redux/meals/mealsOperations';
+import { DiaryWrapTitle } from './Diary/Diary.styled';
 
 const Diary = () => {
   const dispatch = useDispatch();
@@ -21,10 +21,11 @@ const Diary = () => {
   };
 
   useEffect(() => {
-        dispatch(getDiaryMealsThunk(selectedDate));
+    dispatch(getDiaryMealsThunk(selectedDate));
+  }, [selectedDate]);
 
-    dispatch(getDiaryThunk(selectedDate));
-    // dispatch(getDiaryMealsThunk(selectedDate));
+    useEffect(() => {
+    dispatch(getDiaryWorkoutThunk(selectedDate));
   }, [selectedDate]);
 
   return (

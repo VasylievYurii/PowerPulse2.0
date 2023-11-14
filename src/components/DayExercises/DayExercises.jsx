@@ -12,13 +12,13 @@ import {
 } from '../../pages/Diary/Diary.styled';
 import { Link } from 'react-router-dom';
 import sprite from '../../assets/sprite.svg';
-import { selectDiaryMealsExercise } from '../../redux/selectors';
+import { selectWorkouts } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 import DayExercisesItem from '../DayExercisesItem';
 
 
 const DayExercises = () => {
-  const {workouts} = useSelector(selectDiaryMealsExercise);
+  const workouts = useSelector(selectWorkouts);
   const [points, setPoints] = useState(window.innerWidth);
 
   const handleResize = () => setPoints(window.innerWidth);

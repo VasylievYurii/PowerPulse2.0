@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import sprite from '../../assets/sprite.svg';
 import { useDispatch } from 'react-redux';
-import { delDiaryWorkoutThunk } from '../../redux/diary/diaryOperations';
+import { delDiaryWorkoutThunk } from '../../redux/workouts/workoutsOperations';
 import {
     DiaryCard,
     DescriptionItem,

@@ -4,9 +4,11 @@ export const selectUserIsLoading = (state) => state.auth.isLoading;
 export const selectUserError = (state) => state.auth.error;
 export const selectUserToken = (state) => state.auth.token;
 
-// =========== D I A R Y ==================
+// =========== W O R K O U T ==================
 
-export const selectDiaryMealsExercise = (state) => state.diary.diaryMealsExercise;
+export const selectWorkouts = (state) => state.workouts.workouts;
+export const selectWorkoutsIsLoading = (state) => state.workouts.isLoading;
+export const selectWorkoutsError = (state) => state.workouts.error;
 
 // =========== M E A L S ==================
 
