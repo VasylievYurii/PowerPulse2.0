@@ -8,7 +8,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 /* import toast from 'react-hot-toast'; */
 
 import {Container, GifWrapper, Gif, Timer, TimerTitle, TimerWrapper, TimerButton, Calories,  RightContainer, List, ListItem, ItemTitle, ItemValue, ButtonContainer, Button} from './AddExerciseForm.styled'
-import { date } from 'yup';
+
 
 
 
