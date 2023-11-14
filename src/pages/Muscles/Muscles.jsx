@@ -1,9 +1,8 @@
-import { Wrapper } from '../BodyParts/BodyParts.styled';
-import ExercisesItem from '../../components/ExercisesItem/ExercisesItem';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getExercisesMuscles } from '../../redux/exercises/exeOperation';
 import Pagination from '../../components/Pagination/Pagination';
+import ExercisesSubcategoriesList from '../../components/ExercisesSubcategoriesList/ExercisesSubcategoriesList';
 
 const Muscles = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -26,7 +25,7 @@ const Muscles = () => {
 
   return (
     <>
-      <ExersisesArrayTmg arr={arrayPerPage()} />
+      <ExercisesSubcategoriesList arr={arrayPerPage()} />
       <Pagination
         exePerPage={exePerPage}
         totalExe={muscles.length}
@@ -37,22 +36,3 @@ const Muscles = () => {
 };
 
 export default Muscles;
-
-export const ExersisesArrayTmg = ({ arr }) => {
-  function ucFirst(str) {
-    if (!str) return str;
-    return str[0].toUpperCase() + str.slice(1);
-  }
-  return (
-    <Wrapper>
-      {arr.map(({ name, imgURL, _id, filter }) => (
-        <ExercisesItem
-          key={_id}
-          fig={imgURL}
-          nameImg={ucFirst(name)}
-          category={filter}
-        />
-      ))}
-    </Wrapper>
-  );
-};
