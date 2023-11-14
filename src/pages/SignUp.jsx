@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import SectionTemplateNoAuth from '../components/SectionTemplateNoAuth';
 import SignUpForm from '../components/SignUpForm/index';
 import WelcomeStats from '../components/WelcomeStats/WelcomeStats';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   TitleSignupStyled,
   ParagrStyled,
@@ -27,6 +29,7 @@ const SignUp = () => {
             information.
           </ParagrStyled>
           <SignUpForm />
+          <ToastContainer />
           <TextRedirectStyled>
             Already have an account?{' '}
             <NavLinkStyled to="/signin">Sign In</NavLinkStyled>

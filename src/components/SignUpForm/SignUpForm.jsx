@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/auth/operations';
 import sprite from '../../assets/sprite.svg';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import {
   InputStyled,
   ErrorDivStyled,
@@ -15,6 +16,19 @@ import {
   SvgIconEyeStyled,
 } from './SignUpForm.styled';
 import { ButtonSubmitStyled } from '../SignInForm/SignInForm.styled';
+
+const toastInfo = (text) => {
+  toast.info(text, {
+    position: 'top-center',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: 'light',
+  });
+};
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
@@ -38,9 +52,14 @@ function validateEmail(value) {
   }
   return error;
 }
-//     /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
 
-//    /^[\w-.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
+function validateName(value) {
+  let error;
+  if (value === 'admin' || value === 'god') {
+    error = 'Nice try!';
+  }
+  return error;
+}
 
 const initialValues = {
   name: '',
@@ -58,9 +77,12 @@ const SignUpForm = () => {
   const handleSubmit = (values, actions) => {
     dispatch(registerUser(values));
     actions.resetForm();
+    toastInfo(
+      'You have been sent a varification email. Follow the istructions in the email.',
+    );
   };
 
-  const togglePassInput = (e) => {
+  const togglePassInput = () => {
     if (type === 'password') {
       setType('text');
       setToggleIcon(`${sprite}#icon-eye-off`);
@@ -80,7 +102,12 @@ const SignUpForm = () => {
         <Form autoComplete="off">
           <WrapFormStyled>
             <div>
-              <InputStyled type="text" name="name" placeholder="Name" />
+              <InputStyled
+                type="text"
+                name="name"
+                placeholder="Name"
+                validate={validateName}
+              />
               {errors.name && touched.name ? (
                 <WrapErrorStyled>
                   <SvgIconCheckBoxStyled>
