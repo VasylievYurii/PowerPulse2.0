@@ -1,5 +1,13 @@
 import React from 'react';
-import {Container,LeftContainer,  GifWrapper,/* Gif, */TitleWrapper,TimerWrapper, TimerTitle, CountdownCircleTimer, /* IconPause */TimerButtonWrapper, TimerButton, CaloriesWrapper,  Calories,RightContainer,List,ListItem, ItemTitle,ButtonContainer, Button} from './AddExerciseForm.styled';
+import {
+  ExersiceModalWindowWrap,
+  ExersiceModalContainer,
+  ExersiceModalImgWrapper,
+  ExersiceModalWindowBtn,
+  BoxBtn,
+  ExersiceModalImg,
+  ExersiceModalTimer,
+} from './AddExerciseForm.styled';
 
 const handleAddToDiary = () => {
   if (!amount) {
@@ -24,58 +32,35 @@ const handleAddToDiary = () => {
 
 const AddExerciseForm = () => {
 
-    return (
-      <Container>
-        <LeftContainer>
-          
-             <GifWrapper>
-            {/* <Gif src={gifUrl} alt={name} />  */}
-            </GifWrapper> 
-            <TitleWrapper>
-            <TimerTitle>Time</TimerTitle>
-            </TitleWrapper>
-            <TimerWrapper>
-              <CountdownCircleTimer >
-                 {/* renderTime  */}
-              </CountdownCircleTimer>
-            </TimerWrapper>
-           
-            <TimerButtonWrapper>
-           <TimerButton  onClick={handleAddToDiary}>
-              {/* <IconPause>
-              <use href={`${sprite}#icon-pause`} />
-              </IconPause>  */}  
-          </TimerButton>  
-            </TimerButtonWrapper>
-            
-           <CaloriesWrapper> 
-              <Calories> Burned calories: {/* <span className="caloriesSpan">{calculatedCalories}</span> */} </Calories>
-             </CaloriesWrapper> 
-          
-            </LeftContainer>
-        <RightContainer>
-          <List>
-            <ListItem>
-              <ItemTitle>Name</ItemTitle>
-            </ListItem>
-            <ListItem>
-              <ItemTitle>Target</ItemTitle>
-            </ListItem>
-            <ListItem>
-              <ItemTitle>Body Part</ItemTitle>
-            </ListItem>
-            <ListItem>
-              <ItemTitle>Equipment</ItemTitle>
-            </ListItem>
-          </List>
-          <ButtonContainer>
-            <Button type="button" onClick={handleAddToDiary} >
+  return (
+    <ExersiceModalContainer>
+      <ExersiceModalWindowWrap>
+        <ExersiceModalImgWrapper>
+          {/* <ExersiceModalImg src={gifUrl} alt={name} /> */}
+        </ExersiceModalImgWrapper>
+        <ExersiceModalTimer>
+          {/* <Timer
+            data={data}
+            setDinamicBurnCal={setDinamicBurnCal}
+            dinamicBurnCal={dinamicBurnCal}
+            setDinamicTime={setDinamicTime}
+          /> */}
+        </ExersiceModalTimer>
+       {/*  <ExersiceModalWindowList
+          name={name}
+          bodypart={bodyPart}
+          target={target}
+          equipment={equipment}
+          time={time}
+        /> */}
+        <BoxBtn>
+          <ExersiceModalWindowBtn type="button" onClick={handleAddToDiary}>
             Add to diary
-              </Button>
-          </ButtonContainer>
-        </RightContainer>
-      </Container>
-    );
+          </ExersiceModalWindowBtn>
+        </BoxBtn>
+      </ExersiceModalWindowWrap>
+    </ExersiceModalContainer>
+  )
   };
 
 export default AddExerciseForm;

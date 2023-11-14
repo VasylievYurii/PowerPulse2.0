@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const ExersiceModalContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,20 +12,25 @@ export const Container = styled.div`
   }
 `;
 
-export const LeftContainer = styled.div`
-max-width: 344px;
-    display: flex;
-    flex-direction: column;
-    margin-right: 16px;
+export const ExersiceModalWindowWrap = styled.div`
+  width: 335px;
+  padding: 48px 16px;
+  display: flex;
+  flex-direction: column;
 
-;` 
- export const GifWrapper = styled.div`
+  @media screen and (min-width: 768px) {
+    width: 694px;
+    height: 550px;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+`;
+
+export const ExersiceModalImgWrapper = styled.div`
   width: 270px;
   height: 226px;
   margin-left: auto;
   margin-right: auto;
-  background-color: var(--color-main-one);
-  margin-bottom: 14px;
 
   @media screen and (min-width: 768px) {
     margin-left: 32px;
@@ -33,142 +38,38 @@ max-width: 344px;
     margin-top: 40px;
   }
 `;
-
-
-/*export const Gif = styled.img`
-width: 270px;
-height: 226px;
-border-radius: 12px;
-border: 1px solid rgba(239, 237, 232, 0.2);
-object-fit: cover;
-padding: 105px, 45px;
-
-@media screen and (min-width: 768px) {
-    margin-right: 16px;
-  }
-;`
- */
-export const TitleWrapper = styled.div`
-display: flex;
-  flex-direction: column;
-  align-items: center;
-;`
-export const TimerTitle = styled.p`
-font-size: 10px;
-height: 1.4;
-margin-bottom: 4px;
-color: var(--color-text);
-;`
-
-export const TimerWrapper = styled.div`
+export const ExersiceModalTimer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-margin-bottom: 14px;
-;`
 
-export const CountdownCircleTimer = styled.p`
-width: 125px;
-height: 124px;
-background-color: var(--color-main-one);
-border-radius:100px;
-` ;
-
-export const TimerButtonWrapper = styled.div`
- @media screen and (min-width: 768px) {
-    grid-area: button;
-    display: flex;
-    justify-content: center;
-
-    @media screen and (min-width: 768px) {
-      margin-right: 32px;
-      margin-top: auto;
-    }
+  @media screen and (min-width: 768px) {
+    align-items: start;
+    width: 125px;
+    height: 125px;
+    margin-left: 105px;
+    margin-right: none;
   }
-;`
+`;
 
-export const TimerButton = styled.button`
-    width: 32px;
-    height: 32px;
-    border-radius: 10px;
-    padding: 0px;
-  margin-bottom: 8px;
-  cursor: pointer;
-    background: var(--color-main-one);
-    color: var(--color-text);
-`; 
-/* export const IconPause = styled.svg`
-width: 6px;
-height: 8px;
-fill: var(--color-text);
-
-;` */
-
-export const CaloriesWrapper = styled.div`
-display: flex;
-  flex-direction: column;
-  align-items: center;
-;` 
-
-export const Calories = styled.h2`
-font-size: 14px;
-line-height: 1.3;
-color: var(--color-text);
-
-;`
-
-export const RightContainer = styled.div`
-    max-width: 302px;
-
-    @media screen and (min-width: 768px) {
-      max-width: 344px;
-    display: flex;
-    flex-direction: column;
-    }
-   
-;`
-
-export const List = styled.div`
-display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px;
-  margin-top: 40px;
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 0;
-    margin-top: 0;
-    }
-  `; 
-
-export const ListItem = styled.p`
- padding: 12px 18px;
-  width: 147px;
-  justify-content: center;
-
-  gap: 4px;
+export const ExersiceModalImg = styled.img`
+  width: 270px;
+  height: 226px;
   border-radius: 12px;
-  border: 1px solid rgba(--color-text, 0.2);
-  background: rgba(--color-text, 0.05);
+  border: 1px solid rgba(239, 237, 232, 0.2);
+  object-fit: cover;
 
   @media screen and (min-width: 768px) {
-    width: 168px;;
-    }
-;`
+    margin-right: 16px;
+  }
+`;
 
-export const ItemTitle = styled.h3`
-font-size: 12px;
-line-height: 1.5;
-color: var(--color-text);
-margin-bottom: 4px;
-;`
-
-export const ButtonContainer = styled.div`
-@media screen and (min-width: 768px) {
+export const BoxBtn = styled.div`
+  @media screen and (min-width: 768px) {
     grid-area: button;
     display: flex;
     justify-content: flex-end;
-
     @media screen and (min-width: 768px) {
       margin-right: 32px;
       margin-top: auto;
@@ -177,22 +78,20 @@ export const ButtonContainer = styled.div`
   }
 `;
 
-export const Button = styled.button`
-color: var(--color-text);
+export const ExersiceModalWindowBtn = styled.button`
+  color: var(--white-color);
   font-size: 16px;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 24px;
   padding: 12px 32px;
   border-radius: 12px;
-  background: var(--color-main-one);
+  background: var(--orange-color);
   align-self: flex-start;
   &:hover {
-    background: var(--color-main-one);
-    color: var(--color-text);
+    background: var(--orange-light-color);
+    color: var(--white-color);
   }
-
   @media screen and (min-width: 768px) {
     align-self: flex-end;
   }
-
-  `;
+`;
