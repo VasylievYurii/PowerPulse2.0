@@ -71,7 +71,6 @@ export const logOutUser = createAsyncThunk('auth/logOutUser',
     }
 );
 
-
 export const refreshUser = createAsyncThunk('auth/refreshUser',
     async (_, thunkApi) => {
         try {
@@ -94,4 +93,21 @@ export const refreshUser = createAsyncThunk('auth/refreshUser',
             }
         },
     },
+);
+
+export const updateAvatar = createAsyncThunk(
+  'auth/updateAvatar',
+  async (file, thunkApi) => {
+    try {
+      const state = thunkApi.getState();
+      const userToken = state.auth.token;
+      token.set(userToken);
+      const formData = new FormData();
+      formData.append('avatar', file);
+      const res = await instance.patch('users/avatars', formData);
+      return res.data;
+    } catch (e) {
+      return thunkApi.rejectWithValue(e.message);
+    }
+  },
 );
