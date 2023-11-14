@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import SectionTemplateNoAuth from '../components/SectionTemplateNoAuth';
 import SignUpForm from '../components/SignUpForm/index';
 import WelcomeStats from '../components/WelcomeStats/WelcomeStats';
@@ -15,7 +16,9 @@ const SignUp = () => {
   return (
     <SectionTemplateNoAuth>
       <SectionTemplateLeft>
-        <Logo />
+        <Link to="/welcome">
+          <Logo />
+        </Link>
         <SecondWrapperTemplate>
           <TitleSignupStyled>Sign Up</TitleSignupStyled>
           <ParagrStyled>
