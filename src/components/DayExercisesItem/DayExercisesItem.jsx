@@ -3,23 +3,21 @@ import sprite from '../../assets/sprite.svg';
 import { useDispatch } from 'react-redux';
 import { delDiaryMealsThunk } from '../../redux/diary/diaryOperations';
 import {
-  DiaryCard,
-  DescriptionItem,
-  DiarySupTitle,
-  ValueBox,
-  WrapLastDescrBox,
-  TrashIconWrapper,
-  DiaryTrashButton,
+    DiaryCard,
+    DescriptionItem,
+    DiarySupTitle,
+    ValueBox,
+    WrapLastDescrBox,
+    TrashIconWrapper,
+    DiaryTrashButton,
 } from '../../pages/Diary/Diary.styled';
-import { Circle } from './DayProductItem.styled';
 
-const DayProductItem = ({ meal, points }) => {
-  let { _id,
-    product: { title, category:{ name }, groupBloodNotAllowed },
-    profile: { blood },
-    calories,
-    weight
-  } = meal;
+const DayExercisesItem = ({ workout, points }) => {
+    let { _id,
+        burnedCalories,
+        time,
+        exercise_id: { bodyPart, equipment, name, target }
+    } = workout;
 
   const dispatch = useDispatch();
 
@@ -30,31 +28,34 @@ const DayProductItem = ({ meal, points }) => {
   return (
     <DiaryCard key={_id}>     
       <DescriptionItem>
-        <DiarySupTitle>Title</DiarySupTitle>
-        <ValueBox width={(points < 1440 && points >= 768) ? '204px' : ((points >= 1440) ? '212px' : '100%')}>{title}</ValueBox>
+        <DiarySupTitle>Body Part</DiarySupTitle>
+        <ValueBox width={(points < 1440 && points >= 768) ? '204px' : ((points >= 1440) ? '212px' : '100%')}>{bodyPart}</ValueBox>
       </DescriptionItem>
       <DescriptionItem>
-        <DiarySupTitle>Category</DiarySupTitle>
+        <DiarySupTitle>Equipment</DiarySupTitle>
+        <ValueBox width={(points < 1440 && points >= 768) ? '128px' : ((points >= 1440) ? '166px' : '100%')}>{equipment}</ValueBox>
+          </DescriptionItem>
+          <DescriptionItem>
+        <DiarySupTitle>Name</DiarySupTitle>
         <ValueBox width={(points < 1440 && points >= 768) ? '128px' : ((points >= 1440) ? '166px' : '100%')}>{name}</ValueBox>
       </DescriptionItem>
       <WrapLastDescrBox>
         <DescriptionItem>
-          <DiarySupTitle>Calories</DiarySupTitle>
+          <DiarySupTitle>Target</DiarySupTitle>
           <ValueBox width={(points < 1440 && points >= 768) ? '90px' : ((points >= 1440) ? '105px' : '100%')}>
-            {calories}
+            {target}
           </ValueBox>
         </DescriptionItem>
         <DescriptionItem>
-          <DiarySupTitle>Weight</DiarySupTitle>
+          <DiarySupTitle>Burned Calories fhsf</DiarySupTitle>
           <ValueBox width={(points < 1440 && points >= 768) ? '90px' : ((points >= 1440) ? '105px' : '100%')}>
-            {weight}
+            {burnedCalories}
           </ValueBox>
         </DescriptionItem>
         <DescriptionItem>
-          <DiarySupTitle>Recommend</DiarySupTitle>
-          <ValueBox display='flex' width={(points < 1440 && points >= 768) ? '80px' : ((points >= 1440) ? '110px' : '100%')}>
-            <Circle color={groupBloodNotAllowed[blood]} />
-            {groupBloodNotAllowed[blood] ? 'Yes' : 'No'}
+          <DiarySupTitle>Time</DiarySupTitle>
+          <ValueBox width={(points < 1440 && points >= 768) ? '80px' : ((points >= 1440) ? '110px' : '100%')}>
+            {time}
           </ValueBox>
         </DescriptionItem>
         <DiaryTrashButton
@@ -69,4 +70,4 @@ const DayProductItem = ({ meal, points }) => {
   );
 };
 
-export default DayProductItem;
+export default DayExercisesItem;

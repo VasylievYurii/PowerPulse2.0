@@ -1,10 +1,11 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit'
-import { delDiaryMealsThunk, getDiaryMealsThunk } from './diaryOperations';
+import { delDiaryMealsThunk, getDiaryMealsThunk, getDiaryThunk } from './diaryOperations';
 
 const diaryInitialState = {
     isLoading: false,
     error: null,
     meals: [],
+    diaryMealsExercise: {}
 };
 
 const onPending = (state) => {
@@ -17,7 +18,7 @@ const onRejected = (state, { payload }) => {
     state.error = payload;
 };
 
-const arrOfActs = [getDiaryMealsThunk, delDiaryMealsThunk];
+const arrOfActs = [getDiaryThunk, getDiaryMealsThunk, delDiaryMealsThunk];
 
 const addStatusToActs = status =>
     arrOfActs.map((el) => el[status]);
@@ -27,11 +28,16 @@ export const diarySlice = createSlice({
     initialState: diaryInitialState,
     extraReducers: builder => {
         builder
-            .addCase(getDiaryMealsThunk.fulfilled, (state, { payload }) => {
+            .addCase(getDiaryThunk.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
-                state.meals = payload;
+                state.diaryMealsExercise = payload;
                 state.error = null;
             })
+            // .addCase(getDiaryMealsThunk.fulfilled, (state, { payload }) => {
+            //     state.isLoading = false;
+            //     state.meals = payload;
+            //     state.error = null;
+            // })
             .addCase(delDiaryMealsThunk.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
                 state.meals = state.meals.filter(meal => meal._id !== payload._id)

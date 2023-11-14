@@ -4,6 +4,9 @@ export const selectUserIsLoading = (state) => state.auth.isLoading;
 export const selectUserError = (state) => state.auth.error;
 export const selectUserToken = (state) => state.auth.token;
 
+// =========== D I A R Y ==================
+
+export const selectDiaryMealsExercise = (state) => state.diary.diaryMealsExercise;
 export const selectDiaryMeals = (state) => state.diary.meals;
 export const selectDiaryIsLoading = (state) => state.diary.isLoading;
 export const selectDiaryError = (state) => state.diary.error;

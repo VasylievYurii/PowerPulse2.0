@@ -23,15 +23,21 @@ const toastSuccess = (text) => {
   toast.success(text, options);
 };
 
-const getMeals = async (diaryData, thunkAPI) => {
+const getDiary = async (diaryData, thunkAPI) => {
   try {
-    console.log("diaryData", diaryData);
-    const response = await instance.get(`diaries/meals/${diaryData}`);
-
-    console.log(response.data);
+    const response = await instance.get(`diaries/${diaryData}`);
     return response.data;
   } catch (e) {
-    console.log(e.message);
+    toastError(`Oops! Something was wrong.... ${e.message}`);
+    return thunkAPI.rejectWithValue(e.message);
+  }
+};
+
+const getMeals = async (diaryData, thunkAPI) => {
+  try {
+    const response = await instance.get(`diaries/meals/${diaryData}`);
+    return response.data;
+  } catch (e) {
     toastError(`Oops! Something was wrong.... ${e.message}`);
     return thunkAPI.rejectWithValue(e.message);
   }
@@ -39,19 +45,15 @@ const getMeals = async (diaryData, thunkAPI) => {
 
 const delMeal = async (mealId, thunkAPI) => {
   try {
-    console.log(mealId);
     const response = await instance.delete(`diaries/meals/${mealId}`);
-
     toastSuccess(`Meal delete successfully`);
-    console.log(response);
     return response.data;
   } catch (e) {
-    console.log(e.message);
     toastError(`Oops! Something was wrong.... ${e.message}`);
     return thunkAPI.rejectWithValue(e.message);
   }
 };
 
+export const getDiaryThunk = createAsyncThunk('diary/getMeals', getDiary);
 export const getDiaryMealsThunk = createAsyncThunk('diary/getMeals', getMeals);
-
 export const delDiaryMealsThunk = createAsyncThunk('diary/delMeal', delMeal);
