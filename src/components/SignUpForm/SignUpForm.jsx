@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/auth/operations';
 import sprite from '../../assets/sprite.svg';
+import { useState } from 'react';
 import {
   InputStyled,
   ErrorDivStyled,
@@ -17,11 +18,15 @@ import { ButtonSubmitStyled } from '../SignInForm/SignInForm.styled';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-  email: Yup.string().email('Invalid email').required('Required'),
-  password: Yup.string().min(6, 'Too Short!').required('Required'),
+    .min(2, 'Too Short! Must be minimum 6 symbols')
+    .max(50, 'Too Long! 50 symbols - is maximum.')
+    .required('Name is required'),
+  email: Yup.string()
+    .email('Invalid email. Here is an example: example@mail.com')
+    .required('Email is required'),
+  password: Yup.string()
+    .min(6, 'Too Short! Must be minimum 6 symbols')
+    .required('Password is required'),
 });
 
 function validateEmail(value) {
@@ -44,11 +49,25 @@ const initialValues = {
 };
 
 const SignUpForm = () => {
+  const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye`);
+  const [type, setType] = useState('password');
+  const [borderColor, setBorderColor] = useState('red');
+
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
     dispatch(registerUser(values));
     actions.resetForm();
+  };
+
+  const togglePassInput = (e) => {
+    if (type === 'password') {
+      setType('text');
+      setToggleIcon(`${sprite}#icon-eye-off`);
+    } else {
+      setType('password');
+      setToggleIcon(`${sprite}#icon-eye`);
+    }
   };
 
   return (
@@ -92,13 +111,13 @@ const SignUpForm = () => {
             <div>
               <LabelWrapStyled>
                 <InputStyled
-                  type="password"
+                  type={type}
                   name="password"
                   placeholder="Password"
                 />
                 <IconWrapdStyled>
-                  <SvgIconEyeStyled>
-                    <use href={`${sprite}#icon-eye`} />
+                  <SvgIconEyeStyled onClick={togglePassInput}>
+                    <use href={toggleIcon} />
                   </SvgIconEyeStyled>
                 </IconWrapdStyled>
               </LabelWrapStyled>
