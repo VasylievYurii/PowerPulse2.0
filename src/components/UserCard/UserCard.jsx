@@ -1,4 +1,3 @@
-// import React from 'react';
 import {
   IconWrapper,
   WrapperIndicators,
@@ -26,54 +25,43 @@ import {
 import sprite from '../../assets/sprite.svg';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateAvatar } from '../../redux/user/userOperations';
+import { updateAvatar } from '../../redux/auth/operations';
+import Loader from '../Loader';
 
-const HOST_URL = 'https://powerpulse-t5-backend.onrender.com/api/users/avatars';
 const UserCard = () => {
-  const [image, setImage] = useState();
   const [imageURL, setImageURL] = useState();
   const [colories, setColories] = useState('0');
   const [physical, setPhysical] = useState('0');
   const [user, setUser] = useState('Anna Rybachok');
+  const [loading, setLoading] = useState(false);
+
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
-  // const { avatarURL } = useSelector((state) => state.users);
-  console.log('userData', userData);
 
   useEffect(() => {
     if (userData) {
       setUser(userData.name);
       setImageURL(userData.avatarURL);
     }
-
-    if (imageURL) {
-      setImageURL(imageURL);
-    }
-  }, [userData, imageURL]);
+  }, [userData]);
 
   const fileReader = new FileReader();
   fileReader.onloadend = () => {
     setImageURL(fileReader.result);
   };
+
   const uploadPhoto = async (e) => {
     e.preventDefault();
     const file = e.target.files[0];
-    setImage(file);
-    console.log(file);
     fileReader.readAsDataURL(file);
 
-    dispatch(updateAvatar(file));
-    const formData = new FormData();
-    formData.append('avatarURL', file);
-    const res = await fetch(HOST_URL, {
-      method: 'PATCH',
-      body: formData,
-    });
-    console.log('res', res);
-    const data = await res.json();
-    // dispatch(updateAvatar(data));
-    console.log('data', data);
+    setLoading(true);
+
+    await dispatch(updateAvatar(file));
+
+    setLoading(false);
   };
+
   const logout = () => {
     console.log('logout');
     setColories(105);
@@ -86,8 +74,11 @@ const UserCard = () => {
 
       <WrapperUserDiv>
         <WrapperUser>
-          {image || imageURL ? (
-            <Img src={imageURL} sizes="90px" />
+          {imageURL ? (
+            <Img
+              src={`https://powerpulse-t5-backend.onrender.com/${imageURL}`}
+              sizes="90px"
+            />
           ) : (
             <IconWrapperUser>
               <use href={`${sprite}#icon-user`} />
@@ -139,6 +130,7 @@ const UserCard = () => {
           <use href={`${sprite}#icon-logout`} />
         </IconLogout>
       </WrapperLogout>
+      {loading && <Loader />}
     </WrapperUseCard>
   );
 };

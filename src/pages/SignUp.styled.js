@@ -38,12 +38,12 @@ export const TextRedirectStyled = styled.p`
 line-height: 1.5;
 color: rgba(239, 237, 232, 0.60);
 margin-top: 12px;
-margin-bottom: ${props => props.bigmargin ? "35px" : "121px"};
+margin-bottom: ${props => props.$margin ? "121px" : "35px"};
 
 
 @media screen and (min-width: 768px){
     margin-left: 10px;
-    margin-bottom: 39px;
+    margin-bottom: ${props => props.$margin ? "135px" : "39px"};
 }
 `
 

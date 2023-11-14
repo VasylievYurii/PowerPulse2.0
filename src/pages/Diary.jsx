@@ -1,11 +1,12 @@
 import { useDispatch } from 'react-redux';
-import DayProducts from '../components/DayProducts';
-import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
-import TitlePage from '../components/TitlePage';
-import { getDiaryMealsThunk } from '../redux/diary/diaryOperations';
-import DiaryCalendar from '../components/DiaryCalendar';
 import { useState, useEffect } from 'react';
-import { format } from 'date-fns';
+import { format } from 'date-fns';import TitlePage from '../components/TitlePage';
+import DiaryCalendar from '../components/DiaryCalendar';
+import DayProducts from '../components/DayProducts';
+import DayExercises from '../components/DayExercises';
+import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
+import { getDiaryWorkoutThunk } from '../redux/workouts/workoutsOperations';
+import { getDiaryMealsThunk } from '../redux/meals/mealsOperations';
 import { DiaryWrapTitle } from './Diary/Diary.styled';
 
 const Diary = () => {
@@ -23,6 +24,10 @@ const Diary = () => {
     dispatch(getDiaryMealsThunk(selectedDate));
   }, [selectedDate]);
 
+    useEffect(() => {
+    dispatch(getDiaryWorkoutThunk(selectedDate));
+  }, [selectedDate]);
+
   return (
     <SectionTemplate>
       <DiaryWrapTitle>
@@ -30,6 +35,7 @@ const Diary = () => {
         <DiaryCalendar onDateChange={handleDateChange} />
       </DiaryWrapTitle>
       <DayProducts />
+      <DayExercises />
     </SectionTemplate>
   );
 };

@@ -3,11 +3,12 @@ import styled from 'styled-components';
 export const VideoStats = styled.div`
   display: flex;
   align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
   gap: 8px;
   width: 146px;
   height: 66px;
-  margin-left: 101px;
-  margin-bottom: 70px;
   padding: 14px 18px;
   border-radius: 12px;
   background: var(--color-back-two);
@@ -16,7 +17,6 @@ export const VideoStats = styled.div`
     gap: 12px;
     width: 206px;
     height: 96px;
-    margin-left: 300px;
   }
   @media screen and (min-width: 1440px) {
     width: 206px;
@@ -25,9 +25,11 @@ export const VideoStats = styled.div`
 `;
 
 export const CalStats = styled.div`
+  position: absolute;
+  right: 0;
+  bottom: 0;
   width: 119px;
   height: 76px;
-  margin-left: 216px;
   padding: 14px 18px;
   border-radius: 12px;
   background: var(--color-main-two);
@@ -35,7 +37,6 @@ export const CalStats = styled.div`
   @media screen and (min-width: 768px) {
     width: 180px;
     height: 110px;
-    margin-left: 526px;
   }
   @media screen and (min-width: 1440px) {
     width: 180px;
@@ -88,7 +89,7 @@ export const VideoCount = styled.p`
   margin-bottom: 4px;
   font-size: 16px;
   font-weight: 700;
-  line-height: 1.12; /* 112.5% */
+  line-height: 1.12;
 
   @media screen and (min-width: 768px) {
     font-size: 24px;
@@ -100,7 +101,7 @@ export const CalCount = styled.p`
   margin-bottom: 0;
   font-size: 24px;
   font-weight: 700;
-  line-height: 1; /* 100% */
+  line-height: 1;
   letter-spacing: -1px;
 
   @media screen and (min-width: 768px) {
@@ -112,4 +113,20 @@ export const Descr = styled.p`
   font-size: 12px;
   margin-bottom: 0;
   color: rgba(239, 237, 232, 0.65);
+`;
+
+export const StatsWrapper = styled.div`
+  position: relative;
+  width: 212px;
+  height: 230px;
+
+  @media screen and (min-width: 768px) {
+    width: 405px;
+    height: 262px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 638px;
+    height: 245px;
+  }
 `;

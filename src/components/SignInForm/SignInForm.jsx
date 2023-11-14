@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { loginUser } from '../../redux/auth/operations';
 import { ButtonSubmitStyled } from './SignInForm.styled';
 import sprite from '../../assets/sprite.svg';
+import { useState } from 'react';
 import {
   InputStyled,
   WrapFormStyled,
@@ -15,9 +16,9 @@ import {
   IconWrapdStyled,
 } from '../SignUpForm/SignUpForm.styled';
 
-const SignupSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Required'),
-  password: Yup.string().min(6, 'Too Short!').required('Required'),
+const SigninSchema = Yup.object().shape({
+  email: Yup.string().email('Invalid email').required('Required!'),
+  password: Yup.string().min(6, 'Too Short!').required('Required!'),
 });
 
 function validateEmail(value) {
@@ -39,6 +40,10 @@ const initialValues = {
 };
 
 const SignInForm = () => {
+  const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye`);
+  const [type, setType] = useState('password');
+  const [borderColor, setBorderColor] = useState('');
+  // const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
@@ -46,10 +51,30 @@ const SignInForm = () => {
     actions.resetForm();
   };
 
+  const togglePassInput = () => {
+    if (type === 'password') {
+      setType('text');
+      setToggleIcon(`${sprite}#icon-eye-off`);
+    } else {
+      setType('password');
+      setToggleIcon(`${sprite}#icon-eye`);
+    }
+  };
+
+  // const toggleInputBorder = () => {
+  //   const { errors, touched } = Formik;
+
+  //   if (errors && touched === true) {
+  //     setBorderColor('#D80027');
+  //   } else {
+  //     setBorderColor('#3CBF61');
+  //   }
+  // };
+
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={SignupSchema}
+      validationSchema={SigninSchema}
       onSubmit={handleSubmit}
     >
       {({ errors, touched }) => (
@@ -62,6 +87,7 @@ const SignInForm = () => {
                   name="email"
                   validate={validateEmail}
                   placeholder="Email"
+                  $border_color={borderColor}
                 />
               </LabelWrapStyled>
 
@@ -77,13 +103,14 @@ const SignInForm = () => {
             <div>
               <LabelWrapStyled>
                 <InputStyled
-                  type="password"
+                  type={type}
                   name="password"
                   placeholder="Password"
+                  // $border_color={borderColor}
                 />
                 <IconWrapdStyled>
-                  <SvgIconEyeStyled>
-                    <use href={`${sprite}#icon-eye`} />
+                  <SvgIconEyeStyled onClick={togglePassInput}>
+                    <use href={toggleIcon} />
                   </SvgIconEyeStyled>
                 </IconWrapdStyled>
               </LabelWrapStyled>

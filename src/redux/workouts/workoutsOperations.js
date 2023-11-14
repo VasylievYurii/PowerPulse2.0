@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,34 +22,26 @@ const toastSuccess = (text) => {
   toast.success(text, options);
 };
 
-const getMeals = async (diaryData, thunkAPI) => {
+const getWorkouts = async (diaryData, thunkAPI) => {
   try {
-    const response = await instance.get(`dairys/meals/${diaryData}`);
-
-    console.log(response);
+    const response = await instance.get(`diaries/workouts/${diaryData}`);
     return response.data;
   } catch (e) {
-    console.log(e.message);
     toastError(`Oops! Something was wrong.... ${e.message}`);
     return thunkAPI.rejectWithValue(e.message);
   }
 };
 
-const delMeal = async (mealId, thunkAPI) => {
+const delWorkout = async (workoutId, thunkAPI) => {
   try {
-    console.log(mealId);
-    const response = await instance.delete(`dairys/meals/${mealId}`);
-
-    toastSuccess(`Meal delete successfully`);
-    console.log(response);
+    const response = await instance.delete(`diaries/workouts/${workoutId}`);
+    toastSuccess(`Workout delete successfully`);
     return response.data;
   } catch (e) {
-    console.log(e.message);
     toastError(`Oops! Something was wrong.... ${e.message}`);
     return thunkAPI.rejectWithValue(e.message);
   }
 };
 
-export const getDiaryMealsThunk = createAsyncThunk('diary/getMeals', getMeals);
-
-export const delDiaryMealsThunk = createAsyncThunk('diary/delMeal', delMeal);
+export const getDiaryWorkoutThunk = createAsyncThunk('workouts/getWorkouts', getWorkouts);
+export const delDiaryWorkoutThunk = createAsyncThunk('workouts/delWorkout', delWorkout);
