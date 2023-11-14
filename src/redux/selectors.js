@@ -11,5 +11,11 @@ export const selectDiaryError = (state) => state.diary.error;
 // =========== P R O D U C T S ==================
 
 export const selectFilter = (state) => state.filters.filter;
-export const selectProductsByCategories = (state) => state.filters.categories;
+
 export const selectAllProductsList = (state) => state.filters.allProducts;
+
+export const selectCategoriesProducts = (state) => state.filters.categories;
+
+export const getIsLoading = (state) => state.filters.isLoading;
+
+export const getError = (state) => state.filters.error;
