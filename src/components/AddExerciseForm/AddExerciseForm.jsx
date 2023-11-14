@@ -9,6 +9,19 @@ import {
   ExersiceModalTimer,
 } from './AddExerciseForm.styled';
 
+const formatDate = date => {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
+export const ExersiceModalWindow = () => {
+  const { bodyPart, equipment, burnedCalories, gifUrl, name, target, _id, time } = data;
+}
+
+const formattedDate = formatDate(date);
+
 const handleAddToDiary = () => {
   if (!amount) {
     toast.error('Must be greater than 0');
@@ -17,7 +30,7 @@ const handleAddToDiary = () => {
 
   dispatch(
     addExercise({
-      date: formattedDate, // Use the formatted date
+      date: formattedDate, 
       bodyPart,
       target,
       time: dinamicTime,
