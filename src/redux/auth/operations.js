@@ -79,7 +79,6 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkApi) => {
     try {
       const state = thunkApi.getState();
-      console.log('state', state);
       const userToken = state.auth.token;
       token.set(userToken);
       const { data } = await instance.get('auth/current');
@@ -96,5 +95,23 @@ export const refreshUser = createAsyncThunk(
         return false;
       }
     },
+  },
+);
+
+export const updateAvatar = createAsyncThunk(
+  'auth/updateAvatar',
+  async (file, thunkApi) => {
+    console.log('updateAvatar in userOperations', file);
+    try {
+      const state = thunkApi.getState();
+      const userToken = state.auth.token;
+      token.set(userToken);
+      const formData = new FormData();
+      formData.append('avatar', file);
+      const res = await instance.patch('users/avatars', formData);
+      return res.data;
+    } catch (e) {
+      return thunkApi.rejectWithValue(e.message);
+    }
   },
 );
