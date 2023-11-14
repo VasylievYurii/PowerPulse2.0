@@ -1,114 +1,116 @@
-import ExersiceModalWindowList from './ExersiceModalWindowList/ExersiceModalWindowList';
-
-import {
-  ExersiceModalWindowWrap,
-  ExersiceModalContainer,
-  ExersiceModalImgWrapper,
-  ExersiceModalWindowBtn,
-  BoxBtn,
-  ExersiceModalImg,
-  ExersiceModalTimer,
-} from './AddExerciseForm.styled';
-
-/* import { getUserParams } from '../../redux/auth/operations'; */
-/* import { useEffect } from '../../redux/auth/operations';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify'; */
- /* import { addExercise } from '../../redux/diary/diaryOperations'; */
- 
-const formatDate = date => {
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const year = date.getFullYear();
-  return `${day}/${month}/${year}`;
-};
+/* import sprite from '../../images/svg/sprite.svg'; */
+import PropTypes from 'prop-types';
+/* import Button from 'components/Button/Button'; */
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+/*  import { fetchDiarySaveExercise } from 'redux/operations';  */
+/* import toast from 'react-hot-toast'; */
 
-export const ExersiceModalWindow = ({ data, onClick, closeModal }) => {
-  const {
-    bodyPart,
-    equipment,
-    burnedCalories,
-    gifUrl,
-    name,
-    target,
-    _id,
-    time,
-  } = data;
+import {Container, GifWrapper, Gif, Timer, TimerTitle, TimerWrapper, TimerButton, Calories,  RightContainer, List, ListItem, ItemTitle, ItemValue, ButtonContainer, Button} from './AddExerciseForm.styled'
+import { date } from 'yup';
 
-  const [dinamicBurnCal, setDinamicBurnCal] = useState(0);
-  const [dinamicTime, setDinamicTime] = useState(0);
 
+
+const AddExerciseForm = ({ data, onSuccess }) => {
+   const { _id, bodyPart, equipment, gifUrl, name, target, burnedCalories, time } = date; 
+
+  const [currentTime, setCurrentTime] = useState(time * 60);
+  const [isPlaying, setIsPlaying] = useState(false);
   const dispatch = useDispatch();
-  
 
-  useEffect(() => {
-    dispatch(getUserParams());
-  }, [dispatch]);
+  const toggleIsPlaying = () => {
+    setIsPlaying(!isPlaying);
+  };
 
-  const amount = Math.round((burnedCalories / (time * 60)) * 180);
-  // ;
-
-  const savedDate = localStorage.getItem('selectedDate');
-  let date = new Date(); // Default to current date
-
-  if (savedDate) {
-    const parsedDate = new Date(savedDate);
-    if (!isNaN(parsedDate.getTime())) {
-      date = parsedDate; // Use parsed date if valid
-    }
-  }
-
-  const formattedDate = formatDate(date);
+  const calculatedCalories = Math.floor((currentTime / 60) * (burnedCalories / 3)); 
 
   const handleAddToDiary = () => {
-    if (!amount) {
-      toast.error('Must be greater than 0');
+    if (!calculatedCalories) {
       return;
     }
 
     dispatch(
-      addExercise({
-        date: formattedDate, // Use the formatted date
-        bodyPart,
-        target,
-        time: dinamicTime,
-        exerciseId: _id,
-        equipment,
-        name,
-        burnedCalories: dinamicBurnCal,
+      fetchDiarySaveExercise({
+        exercise: _id,
+        time: Math.ceil(currentTime / 60),
+        calories: calculatedCalories,
       }),
-    );
-    onClick();
-    // closeModal();
+    )
+      .then(onSuccess(currentTime, calculatedCalories))
+      .catch((error) => {
+        toast(error.message);
+      });
   };
 
+  const renderTime = ({ remainingTime }) => {
+    setCurrentTime(time * 60 - remainingTime);
+    const minutes = Math.floor(remainingTime / 60);
+    const seconds = remainingTime % 60;
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(seconds).padStart(2, '0');
+    return `${minutes}:${seconds}`
+       
+  };
+     onClick(); 
+    // closeModal();
+  
+
   return (
-    <ExersiceModalContainer>
-      <ExersiceModalWindowWrap>
-        <ExersiceModalImgWrapper>
-          {/* <ExersiceModalImg src={gifUrl} alt={name} /> */}
-        </ExersiceModalImgWrapper>
-        <ExersiceModalTimer>
-          {/* <Timer
-            data={data}
-            setDinamicBurnCal={setDinamicBurnCal}
-            dinamicBurnCal={dinamicBurnCal}
-            setDinamicTime={setDinamicTime}
-          /> */}
-        </ExersiceModalTimer>
-        <ExersiceModalWindowList
-          name={name}
-          bodypart={bodyPart}
-          target={target}
-          equipment={equipment}
-          time={time}
-        />
-        <BoxBtn>
-          <ExersiceModalWindowBtn type="button" onClick={handleAddToDiary}>
-            Add to diary
-          </ExersiceModalWindowBtn>
-        </BoxBtn>
-      </ExersiceModalWindowWrap>
-    </ExersiceModalContainer>
+    <Container>
+      <div>
+        <GifWrapper>
+         {/*  <Gif src={gifUrl} alt={name} /> */}
+        </GifWrapper>
+        <Timer>
+          <TimerTitle>Time</TimerTitle>
+          <TimerWrapper>
+            <CountdownCircleTimer
+              isPlaying={isPlaying}
+              duration={time * 60}
+              colors={'#e6533c'}
+              size={125}
+              strokeWidth={4}
+              trailColor={'#040404'}
+              strokeLinecap="round"
+              rotation={-1}
+            >
+              {({ remainingTime }) => renderTime({ remainingTime })}
+            </CountdownCircleTimer> 
+          </TimerWrapper>
+          <TimerButton onClick={toggleIsPlaying}>
+          {/* <use href={`${sprite}#icon-pause`} /> */}
+          </TimerButton>
+          <Calories>
+            Burned calories: {/* <span className="caloriesSpan">{calculatedCalories}</span> */}
+          </Calories>
+        </Timer>
+      </div>
+      <RightContainer>
+        <List>
+          <ListItem>
+            <ItemTitle>Name</ItemTitle>
+            <ItemValue>{name}</ItemValue>
+          </ListItem>
+          <ListItem>
+            <ItemTitle>Target</ItemTitle>
+            <ItemValue>{target}</ItemValue>
+          </ListItem>
+          <ListItem>
+            <ItemTitle>Body Part</ItemTitle>
+            <ItemValue>{bodyPart}</ItemValue>
+          </ListItem>
+          <ListItem>
+            <ItemTitle>Equipment</ItemTitle>
+            <ItemValue>{equipment}</ItemValue>
+          </ListItem>
+        </List>
+        <ButtonContainer>
+          <Button title="Add to diary" onClick={handleAddToDiary} />
+        </ButtonContainer>
+      </RightContainer>
+    </Container>
   );
 };
+
+export default AddExerciseForm;
