@@ -1,4 +1,4 @@
-import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
+import SectionTemplateNoAuth from '../components/SectionTemplateNoAuth';
 import SignInForm from '../components/SignInForm/index';
 import WelcomeStats from '../components/WelcomeStats/WelcomeStats';
 // import { useSelector } from 'react-redux';
@@ -11,6 +11,9 @@ import {
   NavLinkStyled,
   TextRedirectStyled,
 } from './SignUp.styled';
+import SectionTemplateLeft from '../components/SectionTemplateLeft';
+import Logo from '../components/Logo';
+import SecondWrapperTemplate from '../components/SecondWrapperTemplate';
 
 const SignIn = () => {
   // const authenticated = useSelector(selectUserAuthenticated);
@@ -24,19 +27,25 @@ const SignIn = () => {
   // };
 
   return (
-    <SectionTemplate>
-      <TitleSignupStyled>Sign In</TitleSignupStyled>
-      <ParagrStyled>
-        Welcome! Please enter your credentials to login to the platform:
-      </ParagrStyled>
-      <SignInForm />
-      <TextRedirectStyled $margin>
-        Don’t have an account?{' '}
-        <NavLinkStyled to="/signup"> Sign Up</NavLinkStyled>
-      </TextRedirectStyled>
-      {/* <button onClick={handleLogOut}>Logout</button> */}
+    <SectionTemplateNoAuth>
+      <SectionTemplateLeft>
+        <Logo />
+        <SecondWrapperTemplate>
+          <TitleSignupStyled>Sign In</TitleSignupStyled>
+          <ParagrStyled>
+            Welcome! Please enter your credentials to login to the platform:
+          </ParagrStyled>
+          <SignInForm />
+          <TextRedirectStyled $margin>
+            Don&apos;t have an account?{' '}
+            <NavLinkStyled to="/signup"> Sign Up</NavLinkStyled>
+          </TextRedirectStyled>
+          {/* <button onClick={handleLogOut}>Logout</button> */}
+        </SecondWrapperTemplate>
+      </SectionTemplateLeft>
+
       <WelcomeStats />
-    </SectionTemplate>
+    </SectionTemplateNoAuth>
   );
 };
 

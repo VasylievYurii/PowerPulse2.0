@@ -1,4 +1,4 @@
-import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
+import SectionTemplateNoAuth from '../components/SectionTemplateNoAuth';
 import SignUpForm from '../components/SignUpForm/index';
 import WelcomeStats from '../components/WelcomeStats/WelcomeStats';
 import {
@@ -7,22 +7,32 @@ import {
   NavLinkStyled,
   TextRedirectStyled,
 } from './SignUp.styled';
+import SectionTemplateLeft from '../components/SectionTemplateLeft';
+import Logo from '../components/Logo';
+import SecondWrapperTemplate from '../components/SecondWrapperTemplate';
 
 const SignUp = () => {
   return (
-    <SectionTemplate>
-      <TitleSignupStyled>Sign Up</TitleSignupStyled>
-      <ParagrStyled>
-        Thank you for your interest in our platform. To complete the
-        registration process, please provide us with the following information.
-      </ParagrStyled>
-      <SignUpForm />
-      <TextRedirectStyled>
-        Already have an account?{' '}
-        <NavLinkStyled to="/signin">Sign In</NavLinkStyled>
-      </TextRedirectStyled>
+    <SectionTemplateNoAuth>
+      <SectionTemplateLeft>
+        <Logo />
+        <SecondWrapperTemplate>
+          <TitleSignupStyled>Sign Up</TitleSignupStyled>
+          <ParagrStyled>
+            Thank you for your interest in our platform. To complete the
+            registration process, please provide us with the following
+            information.
+          </ParagrStyled>
+          <SignUpForm />
+          <TextRedirectStyled>
+            Already have an account?{' '}
+            <NavLinkStyled to="/signin">Sign In</NavLinkStyled>
+          </TextRedirectStyled>
+        </SecondWrapperTemplate>
+      </SectionTemplateLeft>
+
       <WelcomeStats />
-    </SectionTemplate>
+    </SectionTemplateNoAuth>
   );
 };
 
