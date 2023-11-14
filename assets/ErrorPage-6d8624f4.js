@@ -1,4 +1,4 @@
-import{a,u as d,j as e,z as s,A as r,c as p,B as c,C as h}from"./index-d98b2ce2.js";import{n as t}from"./emotion-styled.browser.esm-2d6cd9d7.js";const x=t.div`
+import{a,u as s,j as e,A as d,B as r,c as p,C as c,D as h}from"./index-8f2c1484.js";import{n as t}from"./emotion-styled.browser.esm-78d5ccfd.js";import{S as x}from"./SectionTemplateNoAuth-c3be45a4.js";const l=t.div`
   position: relative;
   /*  background-image: */
   color: #efede8;
@@ -25,7 +25,7 @@ import{a,u as d,j as e,z as s,A as r,c as p,B as c,C as h}from"./index-d98b2ce2.
     height: 800px;
     /* background-image:  */
   }
-`,l=t.div`
+`,m=t.div`
   background: #e6533c;
   max-width: calc(64%);
   height: 100%;
@@ -46,7 +46,7 @@ import{a,u as d,j as e,z as s,A as r,c as p,B as c,C as h}from"./index-d98b2ce2.
 `,g=t.div`
   margin-top: auto;
   margin-bottom: auto;
-`,m=t.h1`
+`,u=t.h1`
   font-size: 66px;
   line-height: 1;
   letter-spacing: 0.66px;
@@ -56,7 +56,7 @@ import{a,u as d,j as e,z as s,A as r,c as p,B as c,C as h}from"./index-d98b2ce2.
     line-height: calc(150 / 160);
     letter-spacing: 1.6px;
   }
-`,u=t.p`
+`,w=t.p`
   width: 200px;
   font-size: 14px;
   margin-top: 14px;
@@ -74,7 +74,7 @@ import{a,u as d,j as e,z as s,A as r,c as p,B as c,C as h}from"./index-d98b2ce2.
   @media screen and (min-width: 1440px) {
     width: 477px;
   }
-`,w=t(a)`
+`,f=t(a)`
   position: absolute;
   left: 32px;
   top: 32px;
@@ -90,4 +90,4 @@ import{a,u as d,j as e,z as s,A as r,c as p,B as c,C as h}from"./index-d98b2ce2.
     width: 152px;
     height: 17px;
   }
-`;const b=({onClick:i})=>{const n=d(),o=()=>{n(c()),i()};return e.jsxs(s,{to:"/welcome",onClick:o,children:[e.jsx("span",{children:"Logout"}),e.jsx(r,{children:e.jsx("use",{href:`${p}#icon-logout`})})]})},j=()=>{const i=h(),n=()=>{i("/")};return console.log("404"),e.jsxs(x,{children:[e.jsx(w,{to:"/"}),e.jsx(l,{children:e.jsxs(g,{children:[e.jsx(m,{children:"404"}),e.jsx(u,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(b,{className:"Button",text:"Go Home",type:"button",onClick:n})]})})]})};export{j as default};
+`;const b=({onClick:i})=>{const n=s(),o=()=>{n(c()),i()};return e.jsxs(d,{to:"/welcome",onClick:o,children:[e.jsx("span",{children:"Logout"}),e.jsx(r,{children:e.jsx("use",{href:`${p}#icon-logout`})})]})},y=()=>{const i=h(),n=()=>{i("/")};return console.log("404"),e.jsxs(x,{children:[" ",e.jsxs(l,{children:[e.jsx(f,{to:"/"}),e.jsx(m,{children:e.jsxs(g,{children:[e.jsx(u,{children:"404"}),e.jsx(w,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(b,{className:"Button",text:"Go Home",type:"button",onClick:n})]})})]})]})};export{y as default};

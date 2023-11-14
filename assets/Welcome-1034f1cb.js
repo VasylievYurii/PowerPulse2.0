@@ -1,5 +1,5 @@
-import{s as n,j as o,L as e,a as i}from"./index-d98b2ce2.js";import{S as t}from"./SectionTemplate-acd910bd.js";import{W as s}from"./WelcomeStats-2664edb9.js";import"./emotion-styled.browser.esm-2d6cd9d7.js";const a=n.h1`
-  width: 335px;
+import{s as n,j as o,L as i,a as e}from"./index-8f2c1484.js";import{S as t}from"./SectionTemplateNoAuth-c3be45a4.js";import{S as s,a,W as p}from"./WelcomeStats-bdd46fd6.js";const d=n.h1`
+  /* width: 335px; */
   margin-bottom: 40px;
   font-size: 38px;
   font-weight: 500;
@@ -7,15 +7,16 @@ import{s as n,j as o,L as e,a as i}from"./index-d98b2ce2.js";import{S as t}from"
   letter-spacing: 0.38px;
 
   @media screen and (min-width: 768px) {
-    width: 598px;
+    /* width: 598px; */
+    margin-bottom: 64px;
     font-size: 70px;
     line-height: 1.11; /* 111.429% */
     letter-spacing: 0.7px;
   }
-`,p=n.div`
+`,c=n.div`
   display: flex;
   gap: 14px;
-  margin-bottom: 231px;
+  /* margin-bottom: 231px; */
 
   @media screen and (min-width: 768px) {
     gap: 20px;
@@ -36,7 +37,7 @@ import{s as n,j as o,L as e,a as i}from"./index-d98b2ce2.js";import{S as t}from"
     padding: 16px 60px;
     font-size: 20px;
   }
-`,d=n(r)`
+`,x=n(r)`
   background-color: var(--color-main-one);
   border: 1px solid var(--color-main-one);
 
@@ -45,7 +46,7 @@ import{s as n,j as o,L as e,a as i}from"./index-d98b2ce2.js";import{S as t}from"
     background-color: var(--color-main-two);
     border: 1px solid var(--color-main-two);
   }
-`,c=n(r)`
+`,l=n(r)`
   background-color: transparent;
   border: 1px solid rgba(239, 237, 232, 0.3);
 
@@ -53,4 +54,4 @@ import{s as n,j as o,L as e,a as i}from"./index-d98b2ce2.js";import{S as t}from"
   &:focus {
     border: 1px solid var(--color-main-one);
   }
-`,h=()=>o.jsxs(t,{children:[o.jsx(e,{}),o.jsx(a,{children:"Transforming your body shape with Power Pulse"}),o.jsxs(p,{children:[o.jsx(i,{to:"/signup",children:o.jsx(d,{children:"Sign Up"})}),o.jsx(i,{to:"/signin",children:o.jsx(c,{children:"Sign In"})})]}),o.jsx(s,{})]});export{h as default};
+`,u=()=>o.jsxs(t,{children:[o.jsxs(s,{children:[o.jsx(i,{}),o.jsxs(a,{children:[o.jsx(d,{children:"Transforming your body shape with Power Pulse"}),o.jsxs(c,{children:[o.jsx(e,{to:"/signup",children:o.jsx(x,{children:"Sign Up"})}),o.jsx(e,{to:"/signin",children:o.jsx(l,{children:"Sign In"})})]})]})]}),o.jsx(p,{})]});export{u as default};

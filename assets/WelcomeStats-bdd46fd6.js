@@ -1,11 +1,27 @@
-import{s as e,j as i,c as t}from"./index-d98b2ce2.js";const r=e.div`
+import{s as i,j as e,c as n}from"./index-8f2c1484.js";const r=i.div`
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  justify-content: space-between;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 598px;
+  }
+  @media screen and (min-width: 1440px) {
+    height: auto;
+    gap: 20%;
+    justify-content: start;
+  }
+`,j=({children:t})=>e.jsx(r,{children:t}),a=i.div``,b=({children:t})=>e.jsx(a,{children:t}),o=i.div`
   display: flex;
   align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
   gap: 8px;
   width: 146px;
   height: 66px;
-  margin-left: 101px;
-  margin-bottom: 70px;
   padding: 14px 18px;
   border-radius: 12px;
   background: var(--color-back-two);
@@ -14,16 +30,17 @@ import{s as e,j as i,c as t}from"./index-d98b2ce2.js";const r=e.div`
     gap: 12px;
     width: 206px;
     height: 96px;
-    margin-left: 300px;
   }
   @media screen and (min-width: 1440px) {
     width: 206px;
     height: 96px;
   }
-`,x=e.div`
+`,x=i.div`
+  position: absolute;
+  right: 0;
+  bottom: 0;
   width: 119px;
   height: 76px;
-  margin-left: 216px;
   padding: 14px 18px;
   border-radius: 12px;
   background: var(--color-main-two);
@@ -31,13 +48,12 @@ import{s as e,j as i,c as t}from"./index-d98b2ce2.js";const r=e.div`
   @media screen and (min-width: 768px) {
     width: 180px;
     height: 110px;
-    margin-left: 526px;
   }
   @media screen and (min-width: 1440px) {
     width: 180px;
     height: 110px;
   }
-`,p=e.div`
+`,s=i.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,13 +67,13 @@ import{s as e,j as i,c as t}from"./index-d98b2ce2.js";const r=e.div`
     width: 40px;
     height: 40px;
   }
-`,a=e(p)`
+`,h=i(s)`
   margin-bottom: 4px;
   width: 20px;
   height: 20px;
   padding: 4px;
   background-color: var(--color-main-three);
-`,n=e.svg`
+`,d=i.svg`
   width: 12px;
   height: 12px;
   fill: #efede8;
@@ -66,32 +82,55 @@ import{s as e,j as i,c as t}from"./index-d98b2ce2.js";const r=e.div`
     width: 20px;
     height: 20px;
   }
-`,s=e.div`
+`,c=i.div`
   display: flex;
   gap: 8px;
   align-items: flex-end;
-`,o=e.p`
+`,l=i.p`
   margin-bottom: 4px;
   font-size: 16px;
   font-weight: 700;
-  line-height: 1.12; /* 112.5% */
+  line-height: 1.12;
 
   @media screen and (min-width: 768px) {
     font-size: 24px;
     line-height: 1;
   }
-`,h=e.p`
+`,m=i.p`
   margin-bottom: 0;
   font-size: 24px;
   font-weight: 700;
-  line-height: 1; /* 100% */
+  line-height: 1;
   letter-spacing: -1px;
 
   @media screen and (min-width: 768px) {
     font-size: 48px;
   }
-`,d=e.p`
+`,p=i.p`
   font-size: 12px;
   margin-bottom: 0;
   color: rgba(239, 237, 232, 0.65);
-`,l=()=>i.jsxs(i.Fragment,{children:[i.jsxs(r,{children:[i.jsx(p,{children:i.jsx(n,{children:i.jsx("use",{href:`${t}#icon-play`})})}),i.jsxs("div",{children:[i.jsx(o,{children:"350+"}),i.jsx(d,{children:"Video tutorial"})]})]}),i.jsxs(x,{children:[i.jsx(a,{children:i.jsx(n,{children:i.jsx("use",{href:`${t}#icon-run`})})}),i.jsxs(s,{children:[i.jsx(h,{children:"500"}),i.jsx(d,{children:"cal"})]})]})]});export{l as W};
+`,g=i.div`
+  position: relative;
+  width: 212px;
+  height: 230px;
+
+  @media screen and (min-width: 768px) {
+    width: 405px;
+    height: 262px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 638px;
+    height: 245px;
+  }
+`,w=i.div`
+  display: flex;
+  justify-content: end;
+
+  @media screen and (min-width: 768px) {
+  }
+  @media screen and (min-width: 1440px) {
+    flex-direction: column;
+  }
+`,u=({children:t})=>e.jsx(w,{children:t}),v=()=>e.jsx(u,{children:e.jsxs(g,{children:[e.jsxs(o,{children:[e.jsx(s,{children:e.jsx(d,{children:e.jsx("use",{href:`${n}#icon-play`})})}),e.jsxs("div",{children:[e.jsx(l,{children:"350+"}),e.jsx(p,{children:"Video tutorial"})]})]}),e.jsxs(x,{children:[e.jsx(h,{children:e.jsx(d,{children:e.jsx("use",{href:`${n}#icon-run`})})}),e.jsxs(c,{children:[e.jsx(m,{children:"500"}),e.jsx(p,{children:"cal"})]})]})]})});export{j as S,v as W,b as a};

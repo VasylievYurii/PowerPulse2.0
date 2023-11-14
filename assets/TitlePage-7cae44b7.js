@@ -1,4 +1,4 @@
-import{s as e,j as i}from"./index-d98b2ce2.js";const n=e.h2`
+import{s as e,j as i}from"./index-8f2c1484.js";const n=e.h2`
     color: var(--color-text);
     font-size: 24px;
     font-weight: 700;
