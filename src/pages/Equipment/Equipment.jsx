@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getExercisesEquipment } from '../../redux/exercises/exeOperation';
-import { ExersisesArrayTmg } from '../Muscles/Muscles';
+// import { ExersisesArrayTmg } from '../Muscles/Muscles';
 import Pagination from '../../components/Pagination/Pagination';
+import ExercisesSubcategoriesList from '../../components/ExercisesSubcategoriesList/ExercisesSubcategoriesList';
 
 const Equipment = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,7 +25,7 @@ const Equipment = () => {
 
   return (
     <>
-      <ExersisesArrayTmg arr={arrayPerPage()} />
+      <ExercisesSubcategoriesList arr={arrayPerPage()} />
       <Pagination
         exePerPage={exePerPage}
         totalExe={equipment.length}
