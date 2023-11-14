@@ -1,4 +1,4 @@
-import{s as i,r as n,u as A,b as y,j as e,c as d,d as L,e as R}from"./index-690cb328.js";import{S as D}from"./SectionTemplate-0334a0ef.js";import{F as N,c as q,a as m,b as c,d as C,e as E,f as T}from"./index.esm-1cfdc749.js";import"./emotion-styled.browser.esm-ef11709b.js";const P=i.div`
+import{s as i,r as n,a as A,u as y,j as e,d,p as L,q as R}from"./index-b8eac154.js";import{S as q}from"./SectionTemplate-1d8d44a7.js";import{d as N,c as D,a as m,e as c,f as C,F as E,b as T}from"./index.esm-abf4df79.js";import"./emotion-styled.browser.esm-3c78d66d.js";const P=i.div`
   display: flex;
   gap: 14px;
   justify-content: center;
@@ -48,6 +48,7 @@ import{s as i,r as n,u as A,b as y,j as e,c as d,d as L,e as R}from"./index-690c
   width: 90px;
   height: 90px;
   position: relative;
+  object-fit: cover;
   @media screen and (min-width: 768px) {
     width: 150px;
     height: 150px;
@@ -199,4 +200,4 @@ import{s as i,r as n,u as A,b as y,j as e,c as d,d as L,e as R}from"./index-690c
   border-color: rgba(239, 237, 232, 0.3);
   background-color: #000;
   color: #efede8;
-`;let le=q({login:m().required(),email:m().email(),sex:m().required(),blood:c().required().positive().integer(),height:c().required().positive().integer().min(150),levelActivity:c().required().positive().integer(),currentWeight:c().required().positive().integer().min(35),desiredWeight:c().required().positive().integer().min(35),birthday:C().default(()=>new Date)});const w={login:"Anna Rybachok",email:"annarybachok@gmail.com",height:0,currentWeight:0,desiredWeight:0,blood:0,sex:"",levelActivity:0,birthday:"05.05.2020"},ce=()=>{const{userData:a}=y(t=>t.auth);n.useEffect(()=>{a&&(w.email=a.email)},[a]);const r=t=>{console.log(t),console.log(t.login)};return e.jsx("div",{children:e.jsx(E,{initialValues:w,onSubmit:r,validationSchema:le,children:({errors:t,touched:o})=>e.jsxs(T,{autoComplete:"off",className:"formik",children:[t.email&&o.email&&e.jsx("div",{className:"error-mess",children:t.email}),t.height&&o.height&&e.jsx("div",{className:"error-mess",children:t.height}),t.currentWeight&&o.currentWeight&&e.jsx("div",{className:"error-mess",children:t.currentWeight}),t.desiredWeight&&o.desiredWeight&&e.jsx("div",{className:"error-mess",children:t.desiredWeight}),e.jsx(de,{}),e.jsx(oe,{}),e.jsx("button",{type:"submit",className:"submit-btn",children:"Save"})]})})})},ge=()=>e.jsxs(D,{children:[e.jsx(ae,{children:"Profile Settings"}),e.jsxs(ne,{children:[e.jsx(re,{}),e.jsx(ce,{})]})]});export{ge as default};
+`;let le=D({login:m().required(),email:m().email(),sex:m().required(),blood:c().required().positive().integer(),height:c().required().positive().integer().min(150),levelActivity:c().required().positive().integer(),currentWeight:c().required().positive().integer().min(35),desiredWeight:c().required().positive().integer().min(35),birthday:C().default(()=>new Date)});const w={login:"Anna Rybachok",email:"annarybachok@gmail.com",height:0,currentWeight:0,desiredWeight:0,blood:0,sex:"",levelActivity:0,birthday:"05.05.2020"},ce=()=>{const{userData:a}=y(t=>t.auth);n.useEffect(()=>{a&&(w.email=a.email)},[a]);const r=t=>{console.log(t),console.log(t.login)};return e.jsx("div",{children:e.jsx(E,{initialValues:w,onSubmit:r,validationSchema:le,children:({errors:t,touched:o})=>e.jsxs(T,{autoComplete:"off",className:"formik",children:[t.email&&o.email&&e.jsx("div",{className:"error-mess",children:t.email}),t.height&&o.height&&e.jsx("div",{className:"error-mess",children:t.height}),t.currentWeight&&o.currentWeight&&e.jsx("div",{className:"error-mess",children:t.currentWeight}),t.desiredWeight&&o.desiredWeight&&e.jsx("div",{className:"error-mess",children:t.desiredWeight}),e.jsx(de,{}),e.jsx(oe,{}),e.jsx("button",{type:"submit",className:"submit-btn",children:"Save"})]})})})},ge=()=>e.jsxs(q,{children:[e.jsx(ae,{children:"Profile Settings"}),e.jsxs(ne,{children:[e.jsx(re,{}),e.jsx(ce,{})]})]});export{ge as default};
