@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container,LeftContainer,  GifWrapper,/* Gif, */TitleWrapper,TimerWrapper, TimerTitle, CountdownCircleTimer, /* IconPause */TimerButtonWrapper, TimerButton,CaloriesWrapper, Calories,RightContainer, ItemTitle,ButtonContainer, Button} from './AddExerciseForm.styled';
+import {Container,LeftContainer,  GifWrapper,/* Gif, */TitleWrapper,TimerWrapper, TimerTitle, CountdownCircleTimer, /* IconPause */TimerButtonWrapper, TimerButton, CaloriesWrapper,  Calories,RightContainer,List,ListItem, ItemTitle,ButtonContainer, Button} from './AddExerciseForm.styled';
 
 const handleAddToDiary = () => {
   if (!amount) {
@@ -27,7 +27,7 @@ const AddExerciseForm = () => {
     return (
       <Container>
         <LeftContainer>
-          <div>
+          
              <GifWrapper>
             {/* <Gif src={gifUrl} alt={name} />  */}
             </GifWrapper> 
@@ -39,6 +39,7 @@ const AddExerciseForm = () => {
                  {/* renderTime  */}
               </CountdownCircleTimer>
             </TimerWrapper>
+           
             <TimerButtonWrapper>
            <TimerButton  onClick={handleAddToDiary}>
               {/* <IconPause>
@@ -47,28 +48,29 @@ const AddExerciseForm = () => {
           </TimerButton>  
             </TimerButtonWrapper>
             
-          <CaloriesWrapper>
+           <CaloriesWrapper> 
               <Calories> Burned calories: {/* <span className="caloriesSpan">{calculatedCalories}</span> */} </Calories>
-              </CaloriesWrapper>
-          </div>
-          </LeftContainer>
+             </CaloriesWrapper> 
+          
+            </LeftContainer>
         <RightContainer>
-          <div>
-            <div>
+          <List>
+            <ListItem>
               <ItemTitle>Name</ItemTitle>
-            </div>
-            <div>
+            </ListItem>
+            <ListItem>
               <ItemTitle>Target</ItemTitle>
-            </div>
-            <div>
+            </ListItem>
+            <ListItem>
               <ItemTitle>Body Part</ItemTitle>
-            </div>
-            <div>
+            </ListItem>
+            <ListItem>
               <ItemTitle>Equipment</ItemTitle>
-            </div>
-          </div>
+            </ListItem>
+          </List>
           <ButtonContainer>
-            <Button title="Add to diary" onClick={handleAddToDiary} >
+            <Button type="button" onClick={handleAddToDiary} >
+            Add to diary
               </Button>
           </ButtonContainer>
         </RightContainer>

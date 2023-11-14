@@ -16,6 +16,7 @@ export const LeftContainer = styled.div`
 max-width: 344px;
     display: flex;
     flex-direction: column;
+    margin-right: 16px;
 
 ;` 
  export const GifWrapper = styled.div`
@@ -117,15 +118,49 @@ color: var(--color-text);
 ;`
 
 export const RightContainer = styled.div`
-    max-width: 344px;
+    max-width: 302px;
+
+    @media screen and (min-width: 768px) {
+      max-width: 344px;
     display: flex;
     flex-direction: column;
+    }
+   
+;`
+
+export const List = styled.div`
+display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  margin-top: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+    margin-top: 0;
+    }
+  `; 
+
+export const ListItem = styled.p`
+ padding: 12px 18px;
+  width: 147px;
+  justify-content: center;
+
+  gap: 4px;
+  border-radius: 12px;
+  border: 1px solid rgba(--color-text, 0.2);
+  background: rgba(--color-text, 0.05);
+
+  @media screen and (min-width: 768px) {
+    width: 168px;;
+    }
 ;`
 
 export const ItemTitle = styled.h3`
 font-size: 12px;
 line-height: 1.5;
 color: var(--color-text);
+margin-bottom: 4px;
 ;`
 
 export const ButtonContainer = styled.div`
@@ -133,6 +168,7 @@ export const ButtonContainer = styled.div`
     grid-area: button;
     display: flex;
     justify-content: flex-end;
+
     @media screen and (min-width: 768px) {
       margin-right: 32px;
       margin-top: auto;
@@ -154,4 +190,9 @@ color: var(--color-text);
     background: var(--color-main-one);
     color: var(--color-text);
   }
+
+  @media screen and (min-width: 768px) {
+    align-self: flex-end;
+  }
+
   `;
