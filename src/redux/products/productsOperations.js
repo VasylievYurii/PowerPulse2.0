@@ -9,7 +9,7 @@ export const getProductsThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const persistedToken =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTJhMjlhYzlkMzg0MGM4NGVmMzVhMSIsImNyZWF0ZWRBdCI6IjIwMjMtMTEtMTNUMjI6MjY6MzQuODkyWiIsImlhdCI6MTY5OTkxNjY3MywiZXhwIjoxNzAwMDI0NjczfQ.nVqdyV4cg59bxhaAQ8s22EWTDZvYE9cWyrtVA0ddrnA';
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTJhMjlhYzlkMzg0MGM4NGVmMzVhMSIsImNyZWF0ZWRBdCI6IjIwMjMtMTEtMTNUMjI6MjY6MzQuODkyWiIsImlhdCI6MTY5OTk5OTc3NSwiZXhwIjoxNzAwMTA3Nzc1fQ.6tgnK-H4OUlggC3x_cD0eTcVRf3uj3UvgfFe-CBKVMk';
       console.log('persistedToken', persistedToken);
 
       // Встановлення токену в хедери
