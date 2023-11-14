@@ -43,7 +43,6 @@ const authSlice = createSlice({
       })
       // ------------Update Avatar------------
       .addCase(updateAvatar.fulfilled, (state, action) => {
-        console.log('Avatar updated:', action.payload);
         state.isLoading = false;
         state.userData.avatarURL = action.payload.avatarURL;
       })

@@ -101,7 +101,6 @@ export const refreshUser = createAsyncThunk(
 export const updateAvatar = createAsyncThunk(
   'auth/updateAvatar',
   async (file, thunkApi) => {
-    console.log('updateAvatar in userOperations', file);
     try {
       const state = thunkApi.getState();
       const userToken = state.auth.token;
