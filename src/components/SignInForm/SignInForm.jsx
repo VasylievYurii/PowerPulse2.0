@@ -30,9 +30,6 @@ function validateEmail(value) {
   }
   return error;
 }
-//     /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
-
-//    /^[\w-.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
 
 const initialValues = {
   email: '',
