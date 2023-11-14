@@ -1,4 +1,4 @@
-import{s as o,j as e}from"./index-95b93f81.js";const t="/PowerPulse2.0/assets/welcome-desktop-273a83a8.jpg",i="/PowerPulse2.0/assets/welcome-desktop@2x-902fa55c.jpg",a="/PowerPulse2.0/assets/welcome-tablet-35c3dbb9.jpg",d="/PowerPulse2.0/assets/welcome-tablet@2x-e852773e.jpg",s="/PowerPulse2.0/assets/welcome-mobile-6771fa4f.jpg",p="/PowerPulse2.0/assets/welcome-mobile@2x-ec2a5429.jpg",r=o.section`
+import{s as o,j as e}from"./index-d60d8388.js";const t="/PowerPulse2.0/assets/welcome-desktop-273a83a8.jpg",i="/PowerPulse2.0/assets/welcome-desktop@2x-902fa55c.jpg",a="/PowerPulse2.0/assets/welcome-tablet-35c3dbb9.jpg",d="/PowerPulse2.0/assets/welcome-tablet@2x-e852773e.jpg",s="/PowerPulse2.0/assets/welcome-mobile-6771fa4f.jpg",p="/PowerPulse2.0/assets/welcome-mobile@2x-ec2a5429.jpg",r=o.section`
   margin: 0 auto;
   width: 100%;
   height: 100vh;
