@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   DayProductsStyle,
   DiaryTitle,
@@ -6,6 +6,8 @@ import {
   NextIconWrapper,
   DiaryLink,
   DayProductsWrapTitle,
+  WrapTitlesTablet,
+  DiarySupTitleTablet,
 } from './DayProducts.styled';
 import { Link } from 'react-router-dom';
 import sprite from '../../assets/sprite.svg';
@@ -15,6 +17,14 @@ import { selectDiaryMeals } from '../../redux/selectors';
 
 const DayProducts = () => {
   const meals = useSelector(selectDiaryMeals);
+  const [points, setPoints] = useState(window.innerWidth);
+
+  const handleResize = () => setPoints(window.innerWidth);
+  
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   // const dispatch = useDispatch();
   // const [load, setLoad] = useState(true);
@@ -32,7 +42,7 @@ const DayProducts = () => {
   //   (meal.date === date));
 
   if (meals.length !== 0) {
-    console.log(meals);
+    console.log('meals - всі продукти', meals);
     return (
       <DayProductsStyle>
         <DayProductsWrapTitle>
@@ -40,21 +50,23 @@ const DayProducts = () => {
           <Link to="/products">
             <DiaryLink>
               Add product
-              <NextIconWrapper size="16px" stroke="var(--color-main-one)">
+              <NextIconWrapper>
                 <use href={`${sprite}#icon-next`} />
               </NextIconWrapper>
             </DiaryLink>
           </Link>
         </DayProductsWrapTitle>
+        <WrapTitlesTablet>
+          <DiarySupTitleTablet width={(points < 1440) ? '206px' : '212px'}>Title</DiarySupTitleTablet>
+          <DiarySupTitleTablet width={(points < 1440) ? '130px' : '166px'}>Category</DiarySupTitleTablet>
+          <DiarySupTitleTablet width={(points < 1440) ? '92px' : '105px'}>Calories</DiarySupTitleTablet>
+          <DiarySupTitleTablet width={(points < 1440) ? '92px' : '105px'}>Weight</DiarySupTitleTablet>
+          <DiarySupTitleTablet width={(points < 1440) ? '82px' : '110px'}>Recommend</DiarySupTitleTablet>
+        </WrapTitlesTablet>
         <DiaryProductsList>
-          {meals.map((meal) => (
-            <DayProductItem
-              calories={meal.calories}
-              weight={meal.weight}
-              key={meal._id}
-            />
-          ))}
-          <DayProductItem />
+          {meals.map((meal) =>
+            <DayProductItem meal={meal} points={points} key={meal._id} />
+          )}
         </DiaryProductsList>
       </DayProductsStyle>
     );
