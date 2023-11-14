@@ -2,34 +2,25 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   getProductsThunk,
   // fetchProductsByCategories,
-} from '../../redux/products/filterOperations';
+} from './productsOperations';
 
-const initialFilterState = {
-  allProducts: [],
+const initialProductsState = {
+  products: [], // перші 15 продуктів
   categories: [],
-  filter: {
-    search: '',
-    category: '',
-    recommended: '',
-  },
   isLoading: false,
   error: null,
 };
 
-const filterSlice = createSlice({
+const productsFilterSlice = createSlice({
   name: 'filters',
-  initialState: initialFilterState,
-  reducers: {
-    setFilterProducts(state, action) {
-      state.filter = action.payload;
-    },
-  },
+  initialState: initialProductsState,
+
   extraReducers: (builder) => {
     builder
       .addCase(getProductsThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.allProducts = action.payload;
+        state.products = action.payload;
       })
       .addCase(getProductsThunk.pending, (state) => {
         state.isLoading = true;
@@ -55,5 +46,5 @@ const filterSlice = createSlice({
   },
 });
 
-export const roductsReducer = filterSlice.reducer;
-export const filterReducer = filterSlice.actions.setFilterProducts;
+export const productsReducer = productsFilterSlice.reducer;
+export const productReducer = productsFilterSlice.actions.setFilterProducts;

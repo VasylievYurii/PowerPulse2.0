@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import { useMediaQuery } from 'react-responsive';
 import sprite from '../../assets/sprite.svg';
-import { filterReducer } from '../../redux/products/filterSlice';
+// import { productReducer } from '../../redux/products/productsSlice';
+// import { getProductsThunk } from '../../redux/products/productsOperations';
 
 // import { selectAllProductsList, selectFilter } from '../../redux/selectors';
 // import { useSelector } from 'react-redux';
@@ -49,48 +50,9 @@ const productsCategories = [
   'soft drinks',
   'vegetables and herbs',
 ];
-// це коли ми мепаємо
-
-// const filter = useSelector(selectFilter);
-// const productsList = useSelector(selectAllProductsList)
-//   .slice(0, 10)
-//   .map((product) => ({
-//     ...product,
-//     recommended: product.groupBloodNotAllowed[передаємо тип крові],
-//   }));
-// const filteredList = filteredProducts(productsList, filter);
-
-// а це після меп функція фільтрації отрмує потрібні параметри
-
-// const filteredProducts = (listProducts, filter) => {
-//   const { category, recommended, search } = filter;
-//   const searchToLower = search ? search.toLowerCase() : undefined;
-
-//   let filteredList = listProducts;
-
-//   if (category) {
-//     filteredList = filteredList.filter(
-//       (product) => product.category === category,
-//     );
-//   }
-
-//   if (recommended === 'recommended') {
-//     filteredList = filteredList.filter((product) => product.recommended);
-//   } else if (recommended === 'notRecommended') {
-//     filteredList = filteredList.filter((product) => !product.recommended);
-//   }
-
-//   if (searchToLower) {
-//     filteredList = filteredList.filter((product) =>
-//       product.title.toLowerCase().includes(searchToLower),
-//     );
-//   }
-
-//   return filteredList;
-// };
 
 const ProductsFilters = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [searchQuery, setSearchQuery] = useState('');
   const [category, setCategory] = useState('');
@@ -111,13 +73,6 @@ const ProductsFilters = () => {
   const handleChange = (e) => {
     const { value } = e.target;
     setSearchQuery(value);
-    dispatch(
-      filterReducer({
-        search: value,
-        category: category.value,
-        recommended: recommended.value,
-      }),
-    );
   };
 
   const handleSubmit = (e) => {
@@ -126,34 +81,16 @@ const ProductsFilters = () => {
     // console.log(e);
     // console.log(searchValue);
     setSearchQuery(searchValue);
-    dispatch(
-      filterReducer({
-        search: searchValue,
-      }),
-    );
   };
 
   const resetForm = () => {
     setSearchQuery('');
-    dispatch(
-      filterReducer({
-        search: '',
-      }),
-    );
   };
 
   const handleCategoriesChange = (e) => {
     const { value } = e;
     console.log(value);
     setCategory(value);
-
-    dispatch(
-      filterReducer({
-        searchQuery,
-        category: value,
-        recommended: recommended.value,
-      }),
-    );
   };
 
   const handleRecomendedChange = (e) => {
@@ -161,13 +98,6 @@ const ProductsFilters = () => {
     const { value } = e;
     console.log(value);
     setRecommended(value);
-    dispatch(
-      filterReducer({
-        searchQuery,
-        category: category.value,
-        recommended: value,
-      }),
-    );
   };
 
   const isMobile = useMediaQuery({ minWidth: 375 });
