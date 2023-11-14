@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { LogoutIcon } from '../LogOutBtn/LogOutBtn.styled';
 
 export const HeaderContainer = styled.div`
+  border-bottom: 1px solid var(--color-text);
   @media (max-width: 374px) {
     padding: 12px 18px;
   }

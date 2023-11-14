@@ -1,9 +1,42 @@
 import styled from 'styled-components';
+import welcomeDesktop from '../../assets/backgroundImages/welcome-desktop.jpg';
+import welcomeDesktop2x from '../../assets/backgroundImages/welcome-desktop@2x.jpg';
+import welcomeTablet from '../../assets/backgroundImages/welcome-tablet.jpg';
+import welcomeTablet2x from '../../assets/backgroundImages/welcome-tablet@2x.jpg';
+import welcomeMobile from '../../assets/backgroundImages/welcome-mobile.jpg';
+import welcomeMobile2x from '../../assets/backgroundImages/welcome-mobile@2x.jpg';
 
 export const SectionNoAuth = styled.section`
   margin: 0 auto;
   width: 100%;
   height: 100vh;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+  background-image: url(${welcomeMobile});
+
+  @media only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    background-image: url(${welcomeMobile2x});
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url(${welcomeTablet});
+
+    @media only screen and (min-resolution: 192dpi),
+      only screen and (min-resolution: 2dppx) {
+      background-image: url(${welcomeTablet2x});
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    background-image: url(${welcomeDesktop});
+
+    @media only screen and (min-resolution: 192dpi),
+      only screen and (min-resolution: 2dppx) {
+      background-image: url(${welcomeDesktop2x});
+    }
+  }
 `;
 
 export const ContainerNoAuth = styled.div`
