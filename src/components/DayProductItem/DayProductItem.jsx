@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import {
-  DiarySupTitle,
-  DescriptionItem,
-  ValueBox,
-  DiaryProductCard,
-  WrapLastDescrBox,
-  Circle,
-  TrashIconWrapper,
-  DiaryTrashButton,
-} from './DayProductItem.styled';
 import sprite from '../../assets/sprite.svg';
 import { useDispatch } from 'react-redux';
-import { delDiaryMealsThunk } from '../../redux/diary/diaryOperations';
+import {
+  DiaryCard,
+  DescriptionItem,
+  DiarySupTitle,
+  ValueBox,
+  WrapLastDescrBox,
+  TrashIconWrapper,
+  DiaryTrashButton,
+} from '../../pages/Diary/Diary.styled';
+import { Circle } from './DayProductItem.styled';
+import { delDiaryMealsThunk } from '../../redux/meals/mealsOperations';
 
 const DayProductItem = ({ meal, points }) => {
-  let { _id, product: { title, category, groupBloodNotAllowed }, calories, weight } = meal;
+  let { _id,
+    product: { title, category:{ name }, groupBloodNotAllowed },
+    profile: { blood },
+    calories,
+    weight
+  } = meal;
 
   const dispatch = useDispatch();
 
@@ -23,14 +28,14 @@ const DayProductItem = ({ meal, points }) => {
   };
 
   return (
-    <DiaryProductCard key={_id}>     
+    <DiaryCard key={_id}>     
       <DescriptionItem>
         <DiarySupTitle>Title</DiarySupTitle>
         <ValueBox width={(points < 1440 && points >= 768) ? '204px' : ((points >= 1440) ? '212px' : '100%')}>{title}</ValueBox>
       </DescriptionItem>
       <DescriptionItem>
         <DiarySupTitle>Category</DiarySupTitle>
-        <ValueBox width={(points < 1440 && points >= 768) ? '128px' : ((points >= 1440) ? '166px' : '100%')}>{category}</ValueBox>
+        <ValueBox width={(points < 1440 && points >= 768) ? '128px' : ((points >= 1440) ? '166px' : '100%')}>{name}</ValueBox>
       </DescriptionItem>
       <WrapLastDescrBox>
         <DescriptionItem>
@@ -48,8 +53,8 @@ const DayProductItem = ({ meal, points }) => {
         <DescriptionItem>
           <DiarySupTitle>Recommend</DiarySupTitle>
           <ValueBox display='flex' width={(points < 1440 && points >= 768) ? '80px' : ((points >= 1440) ? '110px' : '100%')}>
-            <Circle />
-            fff
+            <Circle color={`${groupBloodNotAllowed[blood]}`} />
+            {groupBloodNotAllowed[blood] ? 'Yes' : 'No'}
           </ValueBox>
         </DescriptionItem>
         <DiaryTrashButton
@@ -60,7 +65,7 @@ const DayProductItem = ({ meal, points }) => {
           </TrashIconWrapper>
         </DiaryTrashButton>
       </WrapLastDescrBox>
-    </DiaryProductCard>
+    </DiaryCard>
   );
 };
 

@@ -1,7 +1,7 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit'
-import { delDiaryMealsThunk, getDiaryMealsThunk } from './diaryOperations';
+import { delDiaryMealsThunk, getDiaryMealsThunk } from './mealsOperations';
 
-const diaryInitialState = {
+const mealInitialState = {
     isLoading: false,
     error: null,
     meals: [],
@@ -23,8 +23,8 @@ const addStatusToActs = status =>
     arrOfActs.map((el) => el[status]);
 
 export const diarySlice = createSlice({
-    name: 'diary',
-    initialState: diaryInitialState,
+    name: 'meals',
+    initialState: mealInitialState,
     extraReducers: builder => {
         builder
             .addCase(getDiaryMealsThunk.fulfilled, (state, { payload }) => {
@@ -42,6 +42,6 @@ export const diarySlice = createSlice({
     }
 });
 
-export const diaryReducer = diarySlice.reducer;
+export const mealsReducer = diarySlice.reducer;
 
 
