@@ -1,4 +1,4 @@
-import{s,j as e,r as p,u as d,a as u,o as h}from"./index-b8eac154.js";const m=s.div`
+import{s,j as e,r as p,u as d,a as u,p as h}from"./index-c4b58ba1.js";const m=s.div`
   display: flex;
   gap: 8px;
   margin-top: 32px;
@@ -27,7 +27,7 @@ import{s,j as e,r as p,u as d,a as u,o as h}from"./index-b8eac154.js";const m=s.
       transition: opacity 0.2s;
     }
   }
-`,b=({exePerPage:a,totalExe:n,paginate:t})=>{const o=[];for(let r=1;r<=Math.ceil(n/a);r++)o.push(r);return e.jsx("div",{style:{marginLeft:"auto",marginRight:"auto"},children:e.jsx(m,{children:o.map(r=>e.jsx("div",{children:e.jsx(f,{href:"#",onClick:()=>t(r)})},r))})})},j=s.div`
+`,b=({exePerPage:a,totalExe:n,paginate:t})=>{const i=[];for(let r=1;r<=Math.ceil(n/a);r++)i.push(r);return e.jsx("div",{style:{marginLeft:"auto",marginRight:"auto"},children:e.jsx(m,{children:i.map(r=>e.jsx("div",{children:e.jsx(f,{href:"#",onClick:()=>t(r)})},r))})})},j=s.div`
   width: 768px;
   display: flex;
   gap: 16px;
@@ -62,4 +62,4 @@ import{s,j as e,r as p,u as d,a as u,o as h}from"./index-b8eac154.js";const m=s.
   font-weight: 400;
   color: rgba(239, 237, 232, 0.4);
   text-align: center;
-`,I=({fig:a,nameImg:n,category:t})=>e.jsxs(E,{children:[e.jsx(y,{src:a}),e.jsxs(P,{children:[e.jsx(v,{children:n}),e.jsx(w,{children:t})]})]}),C=()=>{const[a,n]=p.useState(1),{muscles:t}=d(c=>c.exercises),o=u();p.useEffect(()=>{o(h())},[o]),console.log("bod",t);const r=9,i=a*r,x=i-r;function g(){return t.slice(x,i)}const l=c=>n(c);return e.jsxs(e.Fragment,{children:[e.jsx(M,{arr:g()}),e.jsx(b,{exePerPage:r,totalExe:t.length,paginate:l})]})},z=C,M=({arr:a})=>{function n(t){return t&&t[0].toUpperCase()+t.slice(1)}return e.jsx(j,{children:a.map(({name:t,imgURL:o,_id:r,filter:i})=>e.jsx(I,{fig:o,nameImg:n(t),category:i},r))})};export{M as E,z as M,b as P};
+`,I=({fig:a,nameImg:n,category:t})=>e.jsxs(E,{children:[e.jsx(y,{src:a}),e.jsxs(P,{children:[e.jsx(v,{children:n}),e.jsx(w,{children:t})]})]}),C=()=>{const[a,n]=p.useState(1),{muscles:t}=d(c=>c.exercises),i=u();p.useEffect(()=>{i(h())},[i]),console.log("bod",t);const r=9,o=a*r,x=o-r;function g(){return t.slice(x,o)}const l=c=>n(c);return e.jsxs(e.Fragment,{children:[e.jsx(M,{arr:g()}),e.jsx(b,{exePerPage:r,totalExe:t.length,paginate:l})]})},z=C,M=({arr:a})=>{function n(t){return t&&t[0].toUpperCase()+t.slice(1)}return e.jsx(j,{children:a.map(({name:t,imgURL:i,_id:r,filter:o})=>e.jsx(I,{fig:i,nameImg:n(t),category:o},r))})};export{M as E,z as M,b as P};
