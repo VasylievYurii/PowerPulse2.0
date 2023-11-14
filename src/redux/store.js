@@ -14,8 +14,8 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 
-import { diaryReducer } from './diary/diarySlice';
-import { userReducer } from './user/userSlice';
+// import { diaryReducer } from './diary/diarySlice';
+// import { userReducer } from './user/userSlice';
 import { exeReducer } from './exercises/exeSlice';
 import { workoutsReducer } from './workouts/workoutsSlice';
 import { mealsReducer } from './meals/mealsSlice';
@@ -31,8 +31,8 @@ const authPersistConfig = {
 const combinedReducers = combineReducers({
   //   contacts: contactsReducer,
   //   filter: filterReducer,
-  diary: diaryReducer,
-  users: userReducer,
+  // diary: diaryReducer,
+  // users: userReducer,
   exercises: exeReducer,
   workouts: workoutsReducer,
   meals: mealsReducer,
