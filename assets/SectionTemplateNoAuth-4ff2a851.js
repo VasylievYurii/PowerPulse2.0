@@ -1,4 +1,4 @@
-import{s as i,j as t}from"./index-8f2c1484.js";const d=i.section`
+import{s as i,j as t}from"./index-65859e47.js";const d=i.section`
   margin: 0 auto;
   width: 100%;
   height: 100vh;
