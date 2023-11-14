@@ -23,7 +23,7 @@ max-width: 344px;
   height: 226px;
   margin-left: auto;
   margin-right: auto;
-  background-color: blue;
+  background-color: var(--color-main-one);
   margin-bottom: 14px;
 
   @media screen and (min-width: 768px) {
@@ -69,7 +69,7 @@ margin-bottom: 14px;
 export const CountdownCircleTimer = styled.p`
 width: 125px;
 height: 124px;
-background-color: blue;
+background-color: var(--color-main-one);
 border-radius:100px;
 ` ;
 
@@ -82,7 +82,6 @@ export const TimerButtonWrapper = styled.div`
     @media screen and (min-width: 768px) {
       margin-right: 32px;
       margin-top: auto;
-      margin-bottom: 48px;
     }
   }
 ;`
@@ -97,18 +96,18 @@ export const TimerButton = styled.button`
     background: var(--color-main-one);
     color: var(--color-text);
 `; 
-/* export const IconTimer = styled.svg`
+/* export const IconPause = styled.svg`
 width: 6px;
 height: 8px;
 fill: var(--color-text);
 
 ;` */
-/* 
+
 export const CaloriesWrapper = styled.div`
 display: flex;
   flex-direction: column;
   align-items: center;
-;` */
+;` 
 
 export const Calories = styled.h2`
 font-size: 14px;

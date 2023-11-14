@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container,LeftContainer, /* GifWrapper, Gif, */ TimerTitle, CountdownCircleTimer, TimerButton, Calories,RightContainer, ItemTitle,ButtonContainer, Button} from './AddExerciseForm.styled';
+import {Container,LeftContainer,  GifWrapper,/* Gif, */TitleWrapper,TimerWrapper, TimerTitle, CountdownCircleTimer, /* IconPause */TimerButtonWrapper, TimerButton,CaloriesWrapper, Calories,RightContainer, ItemTitle,ButtonContainer, Button} from './AddExerciseForm.styled';
 
 const handleAddToDiary = () => {
   if (!amount) {
@@ -28,17 +28,28 @@ const AddExerciseForm = () => {
       <Container>
         <LeftContainer>
           <div>
-            {/* <GifWrapper>
-            <Gif src={gifUrl} alt={name} /> 
-            </GifWrapper> */}
-          <TimerTitle>Time</TimerTitle>
-          <CountdownCircleTimer >renderTime</CountdownCircleTimer>
-           <TimerButton /* type="button" */ />  {/* onClick={}>
-              <svg className="timerButtonIcon">
-                <use href={isPlaying ? `${sprite}` : `${sprite}`} />
-              </svg>   
-          </TimerButton>  */}
-          <Calories> Burned calories: {/* <span className="caloriesSpan">{calculatedCalories}</span> */} </Calories>
+             <GifWrapper>
+            {/* <Gif src={gifUrl} alt={name} />  */}
+            </GifWrapper> 
+            <TitleWrapper>
+            <TimerTitle>Time</TimerTitle>
+            </TitleWrapper>
+            <TimerWrapper>
+              <CountdownCircleTimer >
+                 {/* renderTime  */}
+              </CountdownCircleTimer>
+            </TimerWrapper>
+            <TimerButtonWrapper>
+           <TimerButton  onClick={handleAddToDiary}>
+              {/* <IconPause>
+              <use href={`${sprite}#icon-pause`} />
+              </IconPause>  */}  
+          </TimerButton>  
+            </TimerButtonWrapper>
+            
+          <CaloriesWrapper>
+              <Calories> Burned calories: {/* <span className="caloriesSpan">{calculatedCalories}</span> */} </Calories>
+              </CaloriesWrapper>
           </div>
           </LeftContainer>
         <RightContainer>
