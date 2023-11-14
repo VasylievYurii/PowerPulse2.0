@@ -1,23 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  fetchAllProducts,
-  fetchProductsByCategories,
+  getProductsThunk,
+  // fetchProductsByCategories,
 } from '../../redux/products/filterOperations';
 
 const initialFilterState = {
   allProducts: [],
-  categories: [
-    'alcoholic drinks',
-    'berries',
-    'cereals',
-    'dairy',
-    'dried fruits',
-    'eggs',
-    'fish',
-    'flour',
-    'fruits',
-    'meat',
-  ],
+  categories: [],
   filter: {
     search: '',
     category: '',
@@ -37,32 +26,32 @@ const filterSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchAllProducts.fulfilled, (state, action) => {
+      .addCase(getProductsThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.allProducts = action.payload;
       })
-      .addCase(fetchAllProducts.pending, (state) => {
+      .addCase(getProductsThunk.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(fetchAllProducts.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(fetchProductsByCategories.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.categories = action.payload;
-      })
-      .addCase(fetchProductsByCategories.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(fetchProductsByCategories.rejected, (state, action) => {
+      .addCase(getProductsThunk.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
+    // .addCase(fetchProductsByCategories.fulfilled, (state, action) => {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   state.categories = action.payload;
+    // })
+    // .addCase(fetchProductsByCategories.pending, (state) => {
+    //   state.isLoading = true;
+    //   state.error = null;
+    // })
+    // .addCase(fetchProductsByCategories.rejected, (state, action) => {
+    //   state.isLoading = false;
+    //   state.error = action.payload;
+    // });
   },
 });
 
