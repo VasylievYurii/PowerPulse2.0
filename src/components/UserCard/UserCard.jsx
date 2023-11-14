@@ -26,12 +26,14 @@ import sprite from '../../assets/sprite.svg';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateAvatar } from '../../redux/auth/operations';
+import Loader from '../Loader';
 
 const UserCard = () => {
   const [imageURL, setImageURL] = useState();
   const [colories, setColories] = useState('0');
   const [physical, setPhysical] = useState('0');
   const [user, setUser] = useState('Anna Rybachok');
+  const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
@@ -53,7 +55,11 @@ const UserCard = () => {
     const file = e.target.files[0];
     fileReader.readAsDataURL(file);
 
-    dispatch(updateAvatar(file));
+    setLoading(true);
+
+    await dispatch(updateAvatar(file));
+
+    setLoading(false);
   };
 
   const logout = () => {
@@ -124,6 +130,7 @@ const UserCard = () => {
           <use href={`${sprite}#icon-logout`} />
         </IconLogout>
       </WrapperLogout>
+      {loading && <Loader />}
     </WrapperUseCard>
   );
 };
