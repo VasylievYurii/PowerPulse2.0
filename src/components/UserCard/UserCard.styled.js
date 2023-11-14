@@ -59,6 +59,7 @@ export const Img = styled.img`
   width: 90px;
   height: 90px;
   position: relative;
+  object-fit: cover;
   @media screen and (min-width: 768px) {
     width: 150px;
     height: 150px;

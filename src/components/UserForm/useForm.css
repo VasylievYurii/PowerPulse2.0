@@ -8,20 +8,15 @@ p {
   appearance: none;
 
   border-radius: 50%;
-  /* width: 16px;
-  height: 16px; */
+
   left: -5px;
   border: 2px solid #999;
   transition: 0.2s all linear;
   outline: none;
-  /* margin-right: 5px; */
+
   margin: 0;
   position: relative;
   visibility: hidden;
-}
-
-.radio-input:checked {
-  border: 2px solid #ef8964;
 }
 
 .radio-label {
@@ -58,7 +53,6 @@ p {
 }
 .custom-radio {
   left: -4px;
-  /* top: 6px; */
   cursor: pointer;
   width: 18px;
   height: 18px;
