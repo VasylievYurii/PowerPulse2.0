@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import sprite from '../../assets/sprite.svg';
 import { useDispatch } from 'react-redux';
-import { delDiaryMealsThunk } from '../../redux/diary/diaryOperations';
 import {
   DiaryCard,
   DescriptionItem,
@@ -12,6 +11,7 @@ import {
   DiaryTrashButton,
 } from '../../pages/Diary/Diary.styled';
 import { Circle } from './DayProductItem.styled';
+import { delDiaryMealsThunk } from '../../redux/meals/mealsOperations';
 
 const DayProductItem = ({ meal, points }) => {
   let { _id,
@@ -53,7 +53,7 @@ const DayProductItem = ({ meal, points }) => {
         <DescriptionItem>
           <DiarySupTitle>Recommend</DiarySupTitle>
           <ValueBox display='flex' width={(points < 1440 && points >= 768) ? '80px' : ((points >= 1440) ? '110px' : '100%')}>
-            <Circle color={groupBloodNotAllowed[blood]} />
+            <Circle color={`${groupBloodNotAllowed[blood]}`} />
             {groupBloodNotAllowed[blood] ? 'Yes' : 'No'}
           </ValueBox>
         </DescriptionItem>

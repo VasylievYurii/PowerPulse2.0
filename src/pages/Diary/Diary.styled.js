@@ -147,6 +147,7 @@ export const DescriptionItem = styled.div`
 `;
 
 export const DiarySupTitle = styled.h4`
+  max-width: ${(props) => props.size || 'inherit' };
   font-weight: 400;
   line-height: 1.5;
   margin: 0;

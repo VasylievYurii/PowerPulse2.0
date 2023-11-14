@@ -28,7 +28,7 @@ const DayExercises = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  if (workouts.length !== 0) {
+  if (workouts?.length !== 0) {
     console.log('workouts - всі workouts', workouts);
     return (
       <DiarySections height='1066px'>
@@ -52,7 +52,7 @@ const DayExercises = () => {
           <DiarySupTitleTablet width={(points < 1440) ? '82px' : '110px'}>Time</DiarySupTitleTablet>
         </WrapTitlesTablet>
         <DiaryLists>
-          {workouts.map((workout) =>
+          {workouts?.map((workout) =>
             <DayExercisesItem workout={workout} points={points} key={workout._id} />
           )}
         </DiaryLists>

@@ -7,9 +7,12 @@ export const selectUserToken = (state) => state.auth.token;
 // =========== D I A R Y ==================
 
 export const selectDiaryMealsExercise = (state) => state.diary.diaryMealsExercise;
-export const selectDiaryMeals = (state) => state.diary.meals;
-export const selectDiaryIsLoading = (state) => state.diary.isLoading;
-export const selectDiaryError = (state) => state.diary.error;
+
+// =========== M E A L S ==================
+
+export const selectMeals = (state) => state.meals.meals;
+export const selectMealsIsLoading = (state) => state.meals.isLoading;
+export const selectMealsError = (state) => state.meals.error;
 
 // =========== P R O D U C T S ==================
 

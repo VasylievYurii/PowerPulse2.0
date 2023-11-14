@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import sprite from '../../assets/sprite.svg';
 import DayProductItem from '../DayProductItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectDiaryMeals, selectDiaryMealsExercise } from '../../redux/selectors';
+import { selectMeals } from '../../redux/selectors';
 import {
   DiarySections,
   DiaryTitle,
@@ -16,8 +16,7 @@ import {
 } from '../../pages/Diary/Diary.styled';
 
 const DayProducts = () => {
-  // const meals = useSelector(selectDiaryMeals);
-  const {meals} = useSelector(selectDiaryMealsExercise);
+  const meals = useSelector(selectMeals);
   const [points, setPoints] = useState(window.innerWidth);
 
   const handleResize = () => setPoints(window.innerWidth);
@@ -42,7 +41,7 @@ const DayProducts = () => {
   // const mealsByDate = meals.filter(({ meal.date }) =>
   //   (meal.date === date));
 
-  if (meals.length !== 0) {
+  if (meals?.length !== 0) {
     console.log('meals - всі продукти', meals);
     return (
       <DiarySections>
@@ -65,7 +64,7 @@ const DayProducts = () => {
           <DiarySupTitleTablet width={(points < 1440) ? '82px' : '110px'}>Recommend</DiarySupTitleTablet>
         </WrapTitlesTablet>
         <DiaryLists>
-          {meals.map((meal) =>
+          {meals?.map((meal) =>
             <DayProductItem meal={meal} points={points} key={meal._id} />
           )}
         </DiaryLists>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import sprite from '../../assets/sprite.svg';
 import { useDispatch } from 'react-redux';
-import { delDiaryMealsThunk } from '../../redux/diary/diaryOperations';
+import { delDiaryWorkoutThunk } from '../../redux/diary/diaryOperations';
 import {
     DiaryCard,
     DescriptionItem,
@@ -21,8 +21,8 @@ const DayExercisesItem = ({ workout, points }) => {
 
   const dispatch = useDispatch();
 
-  const deleteProductItem = (productId) => {
-    dispatch(delDiaryMealsThunk(productId));
+  const deleteWorkoutItem = (workoutId) => {
+    dispatch(delDiaryWorkoutThunk(workoutId));
   };
 
   return (
@@ -47,7 +47,7 @@ const DayExercisesItem = ({ workout, points }) => {
           </ValueBox>
         </DescriptionItem>
         <DescriptionItem>
-          <DiarySupTitle>Burned Calories fhsf</DiarySupTitle>
+          <DiarySupTitle size="80px">Burned Calories</DiarySupTitle>
           <ValueBox width={(points < 1440 && points >= 768) ? '90px' : ((points >= 1440) ? '105px' : '100%')}>
             {burnedCalories}
           </ValueBox>
@@ -60,7 +60,7 @@ const DayExercisesItem = ({ workout, points }) => {
         </DescriptionItem>
         <DiaryTrashButton
           type="button"
-          onClick={() => deleteProductItem(_id)}>
+          onClick={() => deleteWorkoutItem(_id)}>
           <TrashIconWrapper>
             <use href={`${sprite}#icon-trash`} />
           </TrashIconWrapper>
