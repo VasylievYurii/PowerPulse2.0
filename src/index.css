@@ -10,7 +10,7 @@
   --color-approved-one: #3cbf61;
   --color-approved-two: #419b09;
   --color-wrong-one: #d80027;
-  --color-wrong-one: #e9101d;
+  --color-wrong-two: #e9101d;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -36,7 +36,7 @@ h4,
 h5,
 h6,
 p {
-  margin-top: 0;
+  margin: 0;
 }
 a {
   text-decoration: none;
@@ -51,4 +51,7 @@ img {
 }
 button {
   cursor: pointer;
+}
+* {
+  box-sizing: border-box;
 }

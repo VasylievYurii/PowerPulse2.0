@@ -25,9 +25,10 @@ const toastSuccess = (text) => {
 
 const getMeals = async (diaryData, thunkAPI) => {
   try {
-    const response = await instance.get(`dairys/meals/${diaryData}`);
+    console.log("diaryData", diaryData);
+    const response = await instance.get(`diaries/meals/${diaryData}`);
 
-    console.log(response);
+    console.log(response.data);
     return response.data;
   } catch (e) {
     console.log(e.message);
@@ -39,7 +40,7 @@ const getMeals = async (diaryData, thunkAPI) => {
 const delMeal = async (mealId, thunkAPI) => {
   try {
     console.log(mealId);
-    const response = await instance.delete(`dairys/meals/${mealId}`);
+    const response = await instance.delete(`diaries/meals/${mealId}`);
 
     toastSuccess(`Meal delete successfully`);
     console.log(response);

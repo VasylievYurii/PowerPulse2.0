@@ -13,15 +13,19 @@ padding-top: 14px;
 padding-bottom: 14px;
 padding-left: 14px;
 align-items: center;
-/* margin-bottom: 18px; */
 color: var(--color-text);
 background-color: transparent;
 transition: border 0.3s var(--timing-function);
-
-/* &::placeholder {
-    color: var(--color-text);
-  } */
-
+/* border-color: ${props => props.$border_color}; */
+&:invalid {
+    border: 2px solid var(--color-wrong-one);
+}
+&:required {
+    border: 1px solid var(--color-wrong-one);
+}
+/* &:valid{
+    border: 1px solid var(--color-approved-one);
+} */
 &:hover, &:focus {
     border: 1px solid var(--color-main-one)
 }

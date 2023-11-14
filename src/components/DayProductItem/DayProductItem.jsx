@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   DiarySupTitle,
   DescriptionItem,
@@ -13,9 +13,9 @@ import sprite from '../../assets/sprite.svg';
 import { useDispatch } from 'react-redux';
 import { delDiaryMealsThunk } from '../../redux/diary/diaryOperations';
 
-const DayProductItem = ({ calories, weight }) => {
-  console.log('weight:', weight);
-  console.log('calories:', calories);
+const DayProductItem = ({ meal, points }) => {
+  let { _id, product: { title, category, groupBloodNotAllowed }, calories, weight } = meal;
+
   const dispatch = useDispatch();
 
   const deleteProductItem = (productId) => {
@@ -23,38 +23,39 @@ const DayProductItem = ({ calories, weight }) => {
   };
 
   return (
-    <DiaryProductCard>
+    <DiaryProductCard key={_id}>     
       <DescriptionItem>
         <DiarySupTitle>Title</DiarySupTitle>
-        <ValueBox>Bread Hercules grain</ValueBox>
+        <ValueBox width={(points < 1440 && points >= 768) ? '204px' : ((points >= 1440) ? '212px' : '100%')}>{title}</ValueBox>
       </DescriptionItem>
       <DescriptionItem>
         <DiarySupTitle>Category</DiarySupTitle>
-        <ValueBox>Flour</ValueBox>
+        <ValueBox width={(points < 1440 && points >= 768) ? '128px' : ((points >= 1440) ? '166px' : '100%')}>{category}</ValueBox>
       </DescriptionItem>
       <WrapLastDescrBox>
         <DescriptionItem>
           <DiarySupTitle>Calories</DiarySupTitle>
-          <ValueBox>{calories}</ValueBox>
+          <ValueBox width={(points < 1440 && points >= 768) ? '90px' : ((points >= 1440) ? '105px' : '100%')}>
+            {calories}
+          </ValueBox>
         </DescriptionItem>
         <DescriptionItem>
           <DiarySupTitle>Weight</DiarySupTitle>
-          <ValueBox>{weight}</ValueBox>
+          <ValueBox width={(points < 1440 && points >= 768) ? '90px' : ((points >= 1440) ? '105px' : '100%')}>
+            {weight}
+          </ValueBox>
         </DescriptionItem>
         <DescriptionItem>
           <DiarySupTitle>Recommend</DiarySupTitle>
-          <ValueBox>
+          <ValueBox display='flex' width={(points < 1440 && points >= 768) ? '80px' : ((points >= 1440) ? '110px' : '100%')}>
             <Circle />
             fff
           </ValueBox>
         </DescriptionItem>
         <DiaryTrashButton
           type="button"
-          onClick={() =>
-            deleteProductItem({ data: { _id: '6550b49cd58a02d766fad49e' } })
-          }
-        >
-          <TrashIconWrapper stroke="var(--color-main-two)">
+          onClick={() => deleteProductItem(_id)}>
+          <TrashIconWrapper>
             <use href={`${sprite}#icon-trash`} />
           </TrashIconWrapper>
         </DiaryTrashButton>
