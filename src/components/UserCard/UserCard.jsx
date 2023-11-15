@@ -2,7 +2,7 @@ import {
   IconWrapper,
   WrapperIndicators,
   WrapperText,
-  Span,
+  TextSpan,
   WrapperTwoIndicators,
   IconWrapperUser,
   WrapperUser,
@@ -103,7 +103,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily calorie intake</p>
           </WrapperText>
-          <Span>{colories}</Span>
+          <TextSpan>{colories}</TextSpan>
         </WrapperIndicators>
         <WrapperIndicators>
           <WrapperText>
@@ -112,7 +112,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily physical activity</p>
           </WrapperText>
-          <Span>{physical} min</Span>
+          <TextSpan>{physical} min</TextSpan>
         </WrapperIndicators>
       </WrapperTwoIndicators>
       <WrapperExclamation>

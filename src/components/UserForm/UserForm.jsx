@@ -44,35 +44,33 @@ const UserForm = () => {
   };
 
   return (
-    <div>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validationSchema={userSchema}
-      >
-        {({ errors, touched }) => (
-          <Form autoComplete="off" className="formik">
-            {errors.email && touched.email && (
-              <div className="error-mess">{errors.email}</div>
-            )}
-            {errors.height && touched.height && (
-              <div className="error-mess">{errors.height}</div>
-            )}
-            {errors.currentWeight && touched.currentWeight && (
-              <div className="error-mess">{errors.currentWeight}</div>
-            )}
-            {errors.desiredWeight && touched.desiredWeight && (
-              <div className="error-mess">{errors.desiredWeight}</div>
-            )}
-            <InputUseForm />
-            <RadioUseForm />
-            <button type="submit" className="submit-btn">
-              Save
-            </button>
-          </Form>
-        )}
-      </Formik>
-    </div>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+      validationSchema={userSchema}
+    >
+      {({ errors, touched }) => (
+        <Form autoComplete="off" className="formik">
+          {errors.email && touched.email && (
+            <div className="error-mess">{errors.email}</div>
+          )}
+          {errors.height && touched.height && (
+            <div className="error-mess">{errors.height}</div>
+          )}
+          {errors.currentWeight && touched.currentWeight && (
+            <div className="error-mess">{errors.currentWeight}</div>
+          )}
+          {errors.desiredWeight && touched.desiredWeight && (
+            <div className="error-mess">{errors.desiredWeight}</div>
+          )}
+          <InputUseForm />
+          <RadioUseForm />
+          <button type="submit" className="submit-btn">
+            Save
+          </button>
+        </Form>
+      )}
+    </Formik>
   );
 };
 

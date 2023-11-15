@@ -37,7 +37,7 @@ export const IconWrapper = styled.svg`
   fill: rgba(239, 137, 100, 1);
 `;
 
-export const Span = styled.use`
+export const TextSpan = styled.span`
   font-size: 18px;
   font-weight: 700;
   color: rgba(239, 237, 232, 1);

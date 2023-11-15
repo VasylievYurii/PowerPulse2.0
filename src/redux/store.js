@@ -16,6 +16,7 @@ import { authReducer } from './auth/authSlice';
 
 // import { diaryReducer } from './diary/diarySlice';
 // import { userReducer } from './user/userSlice';
+import { profileReducer } from './userProfile/userProfileSlice';
 import { exeReducer } from './exercises/exeSlice';
 import { workoutsReducer } from './workouts/workoutsSlice';
 import { mealsReducer } from './meals/mealsSlice';
@@ -33,6 +34,7 @@ const combinedReducers = combineReducers({
   //   filter: filterReducer,
   // diary: diaryReducer,
   // users: userReducer,
+  profile: profileReducer,
   exercises: exeReducer,
   workouts: workoutsReducer,
   meals: mealsReducer,

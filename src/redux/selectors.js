@@ -19,9 +19,12 @@ export const selectMealsError = (state) => state.meals.error;
 // =========== P R O D U C T S ==================
 
 export const selectProduct = (state) => state.filters.allProducts;
-
 export const selectCategory = (state) => state.filters.categories;
-
 export const getIsLoading = (state) => state.filters.isLoading;
-
 export const getError = (state) => state.filters.error;
+
+// =========== U S E R  P R O F I L E ============
+
+export const selectUserProfile = (state) => state.profile.userProfile;
+export const selectUserProfileIsLoading = (state) => state.profile.isLoading;
+export const selectUserProfileError = (state) => state.profile.Error;

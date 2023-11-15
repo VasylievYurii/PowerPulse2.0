@@ -1,18 +1,19 @@
 import { Link } from 'react-router-dom';
-import SectionTemplateNoAuth from '../components/SectionTemplateNoAuth';
-import SignUpForm from '../components/SignUpForm/index';
-import WelcomeStats from '../components/WelcomeStats/WelcomeStats';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SectionTemplateNoAuth from '../components/SectionTemplateNoAuth';
+import SectionTemplateLeft from '../components/SectionTemplateLeft';
+import Logo from '../components/Logo';
+import SecondWrapperTemplate from '../components/SecondWrapperTemplate';
+import SignUpForm from '../components/SignUpForm';
+import WelcomeStats from '../components/WelcomeStats';
+
 import {
   TitleSignupStyled,
   ParagrStyled,
   NavLinkStyled,
   TextRedirectStyled,
 } from './SignUp.styled';
-import SectionTemplateLeft from '../components/SectionTemplateLeft';
-import Logo from '../components/Logo';
-import SecondWrapperTemplate from '../components/SecondWrapperTemplate';
 
 const SignUp = () => {
   return (
