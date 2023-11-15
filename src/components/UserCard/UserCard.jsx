@@ -27,7 +27,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutUser, updateAvatar } from '../../redux/auth/operations';
 import Loader from '../Loader';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const UserCard = () => {
   const [imageURL, setImageURL] = useState();
@@ -58,14 +58,13 @@ const UserCard = () => {
 
     setLoading(true);
 
-    await dispatch(updateAvatar(file));
+    dispatch(updateAvatar(file));
 
     setLoading(false);
   };
 
   const logout = () => {
-    // dispatch(logOutUser());
-    console.log('logout');
+    dispatch(logOutUser());
   };
 
   return (
@@ -125,7 +124,7 @@ const UserCard = () => {
         </TextExclamation>
       </WrapperExclamation>
 
-      <WrapperLogout>
+      <WrapperLogout onClick={logout}>
         <Link to="/welcome">
           <TextLogout>Logout</TextLogout>
         </Link>
