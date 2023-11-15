@@ -60,7 +60,7 @@ const Exercises = () => {
           </button>
           {showModal && (
             <BasicModalWindow onClick={toggleModal}>
-              <AddExerciseSuccess />
+              <AddExerciseSuccess toggleModal={toggleModal} />
             </BasicModalWindow>
           )}
           <Outlet />

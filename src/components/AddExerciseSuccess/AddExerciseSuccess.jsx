@@ -2,24 +2,35 @@ import {
   TitleModalStyled,
   NavLinkExStyled,
   ButtonExerStyled,
+  TextExerStyled,
+  WrapTextExerStyled,
+  ContainerExerStyled,
+  SvgEferArrow,
+  ImgThumbUp,
 } from './AddExerciseSuccess.styled';
-import { NavLink } from 'react-router-dom';
+import sprite from '../../assets/sprite.svg';
 
-const AddExerciseSuccess = () => {
+const AddExerciseSuccess = ({ toggleModal }) => {
   return (
-    <div>
-      <img src="../../assets/thumb_up_color.png" alt="Thumb up" />
+    <ContainerExerStyled>
+      <ImgThumbUp src="../../assets/thumb_up_color.png" alt="Thumb up" />
       <TitleModalStyled>Well done</TitleModalStyled>
-      <p>Your time:</p>
-      <p>Burned calories:</p>
-      <ButtonExerStyled>Next Exercise</ButtonExerStyled>
+      <WrapTextExerStyled>
+        <TextExerStyled>
+          Your time: <span>3 minutes</span>
+        </TextExerStyled>
+        <TextExerStyled>
+          Burned calories: <span>250</span>
+        </TextExerStyled>
+      </WrapTextExerStyled>
+      <ButtonExerStyled onClick={toggleModal}>Next Exercise</ButtonExerStyled>
       <NavLinkExStyled to="/diary">
         To the diary
-        <svg>
-          <use />
-        </svg>
+        <SvgEferArrow>
+          <use href={`${sprite}#icon-arrow`} />
+        </SvgEferArrow>
       </NavLinkExStyled>
-    </div>
+    </ContainerExerStyled>
   );
 };
 

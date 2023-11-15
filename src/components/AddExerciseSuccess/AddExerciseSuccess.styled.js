@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+export const ContainerExerStyled = styled.div`
+padding-top: 48px;
+padding-bottom: 48px;
+`
+
 export const TitleModalStyled = styled.h1`
 color: var(--color-text);
 font-size: 24px;
+margin-bottom: 16px;
+margin-top: 27px;
 `
 
 export const NavLinkExStyled = styled(NavLink)`
@@ -22,7 +29,8 @@ export const ButtonExerStyled = styled.button`
   text-align: center;
   margin-top: 24px;
   margin-bottom: 16px;
-  
+  margin-left: auto;
+  margin-right: auto;
   background-color: var(--color-main-one);
   border-radius: 12px;
   border: 1px solid var(--color-main-one);
@@ -40,4 +48,32 @@ export const ButtonExerStyled = styled.button`
     padding: 14px 32px;
     margin-top: 32px;
   }
+`
+
+export const TextExerStyled = styled.p`
+color: rgba(239, 237, 232, 0.30);
+font-size: 14px;
+line-height: 1.28;
+
+>span{
+    color: var(--color-main-one);
+}
+
+`
+
+export const WrapTextExerStyled = styled.div`
+display: flex;
+gap: 4px;
+flex-direction: column;
+`
+
+export const SvgEferArrow = styled.svg`
+stroke: var(--color-text);
+width: 16px;
+height: 16px;
+margin-left: 6px;
+`
+
+export const ImgThumbUp = styled.img`
+width: 118px;
 `
