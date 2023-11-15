@@ -10,9 +10,6 @@ const LogOutBtn = ({ onClick }) => {
     dispatch(logOutUser());
     onClick();
   };
-  // const handleLogOut = () => {
-  //   dispatch(logOutUser());
-  // };
 
   return (
     <LogoutRouteStyled to="/welcome" onClick={handleCloseClick}>
