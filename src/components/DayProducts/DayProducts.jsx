@@ -12,13 +12,14 @@ import {
   WrapTitlesTablet,
   DiarySupTitleTablet,
   DiaryLists,
-  SectionsWrapTitle
+  SectionsWrapTitle,
+  EmptyText
 } from '../../pages/Diary/Diary.styled';
 
 const DayProducts = () => {
   const meals = useSelector(selectMeals);
   const [points, setPoints] = useState(window.innerWidth);
-
+console.log(meals.length);
   const handleResize = () => setPoints(window.innerWidth);
   
   useEffect(() => {
@@ -41,8 +42,6 @@ const DayProducts = () => {
   // const mealsByDate = meals.filter(({ meal.date }) =>
   //   (meal.date === date));
 
-  if (meals?.length !== 0) {
-    console.log('meals - всі продукти', meals);
     return (
       <DiarySections>
         <SectionsWrapTitle>
@@ -63,14 +62,14 @@ const DayProducts = () => {
           <DiarySupTitleTablet width={(points < 1440) ? '92px' : '105px'}>Weight</DiarySupTitleTablet>
           <DiarySupTitleTablet width={(points < 1440) ? '82px' : '110px'}>Recommend</DiarySupTitleTablet>
         </WrapTitlesTablet>
-        <DiaryLists>
+        {meals.length !== 0 ? <DiaryLists>
           {meals?.map((meal) =>
             <DayProductItem meal={meal} points={points} key={meal._id} />
           )}
-        </DiaryLists>
+        </DiaryLists> : <EmptyText>Not found products</EmptyText>
+        }
       </DiarySections>
     );
-  }
 };
 
 export default DayProducts;
