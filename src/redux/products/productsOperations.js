@@ -13,7 +13,7 @@ export const getProducts = createAsyncThunk(
   ) => {
     try {
       const { data } = await instance.get(
-        `products`,
+        `products?page=1&limit=20`,
         // `products?recommended=${recommended}&categoryId=${categoryId}&query=${query}&page=${page}&limit=${limit}`,
       );
       console.log('data getProducts', data);

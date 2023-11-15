@@ -20,7 +20,7 @@ import { profileReducer } from './userProfile/userProfileSlice';
 import { exeReducer } from './exercises/exeSlice';
 import { workoutsReducer } from './workouts/workoutsSlice';
 import { mealsReducer } from './meals/mealsSlice';
-import { productsReducer } from './products/productsSlice';
+import { productsReducer } from './products/productsSlice_var2';
 // import { contactsReducer } from './contacts/contactsSlice';
 // import { filterReducer } from './contacts/filterSlice';
 

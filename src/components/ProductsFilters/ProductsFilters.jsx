@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectCategory } from '../../redux/selectors';
+import { selectCategoriesProducts } from '../../redux/selectors';
 // import { selectProduct } from '../../redux/selectors';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
@@ -66,7 +66,7 @@ const ProductsFilters = () => {
     return `${string[0].toUpperCase()}${string.slice(1)}`;
   };
 
-  const categories = useSelector(selectCategory);
+  const categories = useSelector(selectCategoriesProducts);
 
   // console.log('categories State', categories);
 

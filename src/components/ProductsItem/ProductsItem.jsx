@@ -29,8 +29,8 @@ const ProductsItem = ({ title, calories, category, weight, recommended }) => {
             <p>DIET</p>
           </LeftTopLabelWrapper>
           <RightTopBlockWrapper>
-            {/* <RightTopBlockWrapper isrecommended={recommended ? true : false}> */}
-            <span></span>
+            {/* <RightTopBlockWrapper isrecommended={`${recommended}`}> */}
+            <div></div>
             <p>{recommended ? `Recommended` : `Not recommended`}</p>
             <AddButton type="button" onClick={toggleModal}>
               <span>Add</span>
