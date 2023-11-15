@@ -5,6 +5,7 @@ import TitlePage from '../components/TitlePage';
 import DiaryCalendar from '../components/DiaryCalendar';
 import DayProducts from '../components/DayProducts';
 import DayExercises from '../components/DayExercises';
+import DayDashboard from '../components/DayDashboard';
 import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
 import { getDiaryWorkoutThunk } from '../redux/workouts/workoutsOperations';
 import { getDiaryMealsThunk } from '../redux/meals/mealsOperations';
@@ -20,14 +21,14 @@ const Diary = () => {
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
-
+console.log(selectedDate);
   useEffect(() => {
     dispatch(getDiaryMealsThunk(selectedDate));
-  }, [dispatch]);
+  }, [selectedDate]);
 
   useEffect(() => {
     dispatch(getDiaryWorkoutThunk(selectedDate));
-  }, [dispatch]);
+  }, [selectedDate]);
 
   return (
     <SectionTemplate>
@@ -35,6 +36,7 @@ const Diary = () => {
         <TitlePage>Diary</TitlePage>
         <DiaryCalendar onDateChange={handleDateChange} />
       </DiaryWrapTitle>
+      <DayDashboard />
       <DayProducts />
       <DayExercises />
     </SectionTemplate>
