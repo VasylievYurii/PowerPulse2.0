@@ -1,4 +1,4 @@
-import{m as d,s as n,r as c,j as o,c as l}from"./index-fc7dea4f.js";const p=({children:t})=>{const e=document.getElementById("portal-root");return e?d.createPortal(t,e):(console.error("Portal root element not found. Please create a div with id='portal-root' in your HTML."),null)},x=n.div`
+import{m as d,s as n,r as c,j as o,c as l}from"./index-180f6523.js";const p=({children:t})=>{const e=document.getElementById("portal-root");return e?d.createPortal(t,e):(console.error("Portal root element not found. Please create a div with id='portal-root' in your HTML."),null)},x=n.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -11,6 +11,7 @@ import{m as d,s as n,r as c,j as o,c as l}from"./index-fc7dea4f.js";const p=({ch
   border-radius: 12px;
 `,h=n.svg`
   position: absolute;
+  cursor: pointer;
   width: 22px;
   height: 22px;
   stroke: var(--color-text);
