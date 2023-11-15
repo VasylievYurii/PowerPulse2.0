@@ -19,7 +19,7 @@ import {
 const DayProducts = () => {
   const meals = useSelector(selectMeals);
   const [points, setPoints] = useState(window.innerWidth);
-console.log(meals.length);
+
   const handleResize = () => setPoints(window.innerWidth);
   
   useEffect(() => {
@@ -63,7 +63,7 @@ console.log(meals.length);
           <DiarySupTitleTablet width={(points < 1440) ? '82px' : '110px'}>Recommend</DiarySupTitleTablet>
         </WrapTitlesTablet>
         {meals.length !== 0 ? <DiaryLists>
-          {meals?.map((meal) =>
+          {meals.map((meal) =>
             <DayProductItem meal={meal} points={points} key={meal._id} />
           )}
         </DiaryLists> : <EmptyText>Not found products</EmptyText>

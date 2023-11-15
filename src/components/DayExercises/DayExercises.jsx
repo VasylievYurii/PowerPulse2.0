@@ -51,7 +51,7 @@ const DayExercises = () => {
           <DiarySupTitleTablet width={(points < 1440) ? '82px' : '110px'}>Time</DiarySupTitleTablet>
         </WrapTitlesTablet>
           {workouts.length !== 0 ? <DiaryLists>
-          {workouts?.map((workout) =>
+          {workouts.map((workout) =>
             <DayExercisesItem workout={workout} points={points} key={workout._id} />
           )}
         </DiaryLists> : <EmptyText>Not found exercises</EmptyText>}
