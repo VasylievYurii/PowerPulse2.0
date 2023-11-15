@@ -32,7 +32,7 @@ const UserCard = () => {
   const [imageURL, setImageURL] = useState();
   const [colories, setColories] = useState('0');
   const [physical, setPhysical] = useState('0');
-  const [user, setUser] = useState('Anna Rybachok');
+  const [user, setUser] = useState('Hello user!');
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();

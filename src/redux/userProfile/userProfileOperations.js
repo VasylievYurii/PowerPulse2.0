@@ -33,7 +33,12 @@ export const getUserProfile = createAsyncThunk(
   'profiles/getUserProfile',
   async (_, thunkApi) => {
     try {
+      console.log('отримую');
+      const state = thunkApi.getState();
+      const userToken = state.auth.token;
+      token.set(userToken);
       const { data } = await instance.get('profiles');
+      console.log('data:', data);
       return data;
     } catch (error) {
       toastError(
@@ -49,7 +54,6 @@ export const updateUserProfile = createAsyncThunk(
   async (newData, thunkApi) => {
     try {
       const state = thunkApi.getState();
-
       const userToken = state.auth.token;
       token.set(userToken);
       console.log('newData 2', newData);

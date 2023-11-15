@@ -1,34 +1,30 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import { Link } from 'react-router-dom';
+import sprite from '../../assets/sprite.svg';
+import Logo from '../Logo';
+import MobileMenu from '../MobileMenu';
+import UserBar from '../UserBar/UserBar';
+import { LogoutRouteStyled } from '../LogOutBtn/LogOutBtn.styled';
+import { logOutUser } from '../../redux/auth/operations';
 import {
   HeaderContainer,
   Navigation,
   NavWrapper,
   SecondNavWrapper,
   StyledLink,
-  IconSettings,
-  IconUser,
   Burger,
-  UserWrapper,
   StyledLinkSettings,
   LogoutIconStyled,
 } from './Header.styled';
-import sprite from '../../assets/sprite.svg';
-import Logo from '../Logo';
-import MobileMenu from '../MobileMenu/MobileMenu';
-import { LogoutRouteStyled } from '../LogOutBtn/LogOutBtn.styled';
-import { useDispatch } from 'react-redux';
-import { logOutUser } from '../../redux/auth/operations';
 
 const Header = () => {
+  const dispatch = useDispatch();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
   };
-
-  const dispatch = useDispatch();
 
   const handleLogOut = () => {
     dispatch(logOutUser());
@@ -49,14 +45,7 @@ const Header = () => {
             </NavWrapper>
           </MediaQuery>
           <StyledLinkSettings to="/profile">
-            <IconSettings>
-              <use href={`${sprite}#icon-settings`} />
-            </IconSettings>
-            <UserWrapper>
-              <IconUser>
-                <use href={`${sprite}#icon-user`} />
-              </IconUser>
-            </UserWrapper>
+            <UserBar />
           </StyledLinkSettings>
           <MediaQuery minWidth={1440}>
             <LogoutRouteStyled onClick={handleLogOut} to="/welcome">

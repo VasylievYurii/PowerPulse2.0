@@ -1,19 +1,19 @@
-// import React from 'react';
-import { Formik, Form } from 'formik';
-import './useForm.css';
-import RadioUseForm from './RadioUseForm/RadioUseForm';
-// import { object, string, number } from 'yup';
-import InputUseForm from './InputUseForm/InputUseForm';
-import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { Formik, Form } from 'formik';
+import { useSelector, useDispatch } from 'react-redux';
 import { updateUser } from '../../redux/auth/operations';
-import { updateUserProfile } from '../../redux/userProfile/userProfileOperations';
-import { useDispatch } from 'react-redux';
+import {
+  updateUserProfile,
+  getUserProfile,
+} from '../../redux/userProfile/userProfileOperations';
 import userSchema from '../../schema/userProfileSchema';
+import RadioUseForm from './RadioUseForm/RadioUseForm';
+import InputUseForm from './InputUseForm/InputUseForm';
+import './useForm.css';
 
 const initialValues = {
   name: '',
-  email: 'annarybachok@gmail.com',
+  email: '',
   height: 0,
   currentWeight: 0,
   desiredWeight: 0,
@@ -26,12 +26,24 @@ const initialValues = {
 const UserForm = () => {
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
+  const { profile } = useSelector((state) => state.profile);
+
   useEffect(() => {
     if (userData) {
       initialValues.name = userData.name;
       initialValues.email = userData.email;
     }
-  }, [userData]);
+    dispatch(getUserProfile());
+    if (profile) {
+      initialValues.height = profile.height;
+      initialValues.currentWeight = profile.currentWeight;
+      initialValues.desiredWeight = profile.desiredWeight;
+      initialValues.blood = profile.blood;
+      initialValues.sex = profile.sex;
+      initialValues.levelActivity = profile.levelActivity;
+      initialValues.birthday = profile.birthday;
+    }
+  }, []);
 
   const handleSubmit = (values) => {
     const { name, email, ...rest } = values;

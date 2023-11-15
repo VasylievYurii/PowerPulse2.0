@@ -52,42 +52,6 @@ export const StyledLinkSettings = styled(Link)`
   border-radius: 12px;
 `;
 
-export const IconSettings = styled.svg`
-  width: ${(props) => props.size || '28px'};
-  height: ${(props) => props.size || '28px'};
-  fill: ${(props) => props.color || 'none'};
-  stroke: ${(props) => props.color || 'var(--color-back-two)'};
-  display: block;
-  transition: stroke 0.3s var(--timing-function);
-  &:hover,
-  &:focus {
-    stroke: var(--color-main-one);
-  }
-`;
-
-export const IconUser = styled.svg`
-  width: ${(props) => props.size || '28px'};
-  height: ${(props) => props.size || '28px'};
-  fill: ${(props) => props.color || 'var(--color-back-two)'};
-  display: block;
-  transition: fill 0.3s var(--timing-function);
-  &:hover,
-  &:focus {
-    fill: var(--color-main-one);
-  }
-`;
-
-export const UserWrapper = styled.div`
-  border: 1px solid var(--color-main-one);
-  border-radius: 50%;
-  padding: 11px;
-  &:hover {
-    ${IconUser} {
-      fill: var(--color-main-one);
-    }
-  }
-`;
-
 export const Burger = styled.svg`
   width: ${(props) => props.size || '28px'};
   height: ${(props) => props.size || '28px'};
