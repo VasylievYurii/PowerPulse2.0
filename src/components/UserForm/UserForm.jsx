@@ -30,29 +30,25 @@ const UserForm = () => {
 
   useEffect(() => {
     if (userData) {
+      dispatch(getUserProfile());
       initialValues.name = userData.name;
       initialValues.email = userData.email;
+      if (profile) {
+        initialValues.height = profile.height;
+        initialValues.currentWeight = profile.currentWeight;
+        initialValues.desiredWeight = profile.desiredWeight;
+        initialValues.blood = profile.blood;
+        initialValues.sex = profile.sex;
+        initialValues.levelActivity = profile.levelActivity;
+        initialValues.birthday = profile.birthday;
+      }
     }
-    dispatch(getUserProfile());
-    if (profile) {
-      initialValues.height = profile.height;
-      initialValues.currentWeight = profile.currentWeight;
-      initialValues.desiredWeight = profile.desiredWeight;
-      initialValues.blood = profile.blood;
-      initialValues.sex = profile.sex;
-      initialValues.levelActivity = profile.levelActivity;
-      initialValues.birthday = profile.birthday;
-    }
-  }, []);
+  }, [userData]);
 
   const handleSubmit = (values) => {
     const { name, email, ...rest } = values;
-
     const nameEmailObject = { name };
     const restObject = { ...rest };
-
-    console.log(nameEmailObject);
-    console.log(restObject);
     dispatch(updateUser(nameEmailObject));
     dispatch(updateUserProfile(restObject));
   };

@@ -13,12 +13,13 @@ const userProfileSlice = createSlice({
   extraReducers: (builder) =>
     builder
       .addCase(getUserProfile.fulfilled, (state, action) => {
+        console.log('getUserProfileSlice');
         state.isLoading = false;
         state.profile = action.payload;
         state.error = null;
       })
       .addCase(updateUserProfile.fulfilled, (state, action) => {
-        console.log('action.payload', action.payload);
+        console.log('updateUserProfileSlice');
         state.isLoading = false;
         state.profile = action.payload;
         state.error = null;

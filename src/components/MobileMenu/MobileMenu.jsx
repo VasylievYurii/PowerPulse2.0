@@ -1,4 +1,4 @@
-import React, { Children, useEffect } from 'react';
+import { useEffect } from 'react';
 import sprite from '../../assets/sprite.svg';
 import {
   MenuContainerStyled,
