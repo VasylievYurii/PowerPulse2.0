@@ -1,4 +1,4 @@
-import{s as n,j as o,L as i,a as e}from"./index-7e9e4693.js";import{S as t}from"./SectionTemplateNoAuth-7147f12a.js";import{S as s,a,W as p}from"./WelcomeStats-a3aca285.js";const d=n.h1`
+import{s as n,j as o,L as i,a as e}from"./index-2bd1b3f7.js";import{S as t}from"./SectionTemplateNoAuth-a2b55d95.js";import{S as s,a,W as p}from"./WelcomeStats-92ac086f.js";const d=n.h1`
   /* width: 335px; */
   margin-bottom: 40px;
   font-size: 38px;
