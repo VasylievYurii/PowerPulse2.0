@@ -1,4 +1,4 @@
-import{j as t}from"./index-afc7be27.js";import{n}from"./emotion-styled.browser.esm-305e639c.js";const d="/PowerPulse2.0/assets/products-desktop-75c3a380.jpg",e="/PowerPulse2.0/assets/products-desktop@2x-aa965045.jpg",p=n.section`
+import{j as n,s as i}from"./index-5274576d.js";import{n as e}from"./emotion-styled.browser.esm-93c34bb0.js";const o="/PowerPulse2.0/assets/products-desktop-75c3a380.jpg",d="/PowerPulse2.0/assets/products-desktop@2x-aa965045.jpg",a=e.section`
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0 auto;
@@ -8,14 +8,14 @@ import{j as t}from"./index-afc7be27.js";import{n}from"./emotion-styled.browser.e
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: contain;
-    background-image: url(${d});
+    background-image: url(${o});
 
     @media only screen and (min-resolution: 192dpi),
       only screen and (min-resolution: 2dppx) {
-      background-image: url(${e});
+      background-image: url(${d});
     }
   }
-`,o=n.div`
+`,p=e.div`
   max-width: 375px;
   margin: 0 auto;
   width: 100%;
@@ -36,4 +36,15 @@ import{j as t}from"./index-afc7be27.js";import{n}from"./emotion-styled.browser.e
     padding-left: 96px;
     padding-right: 96px;
   }
-`;function s({children:i}){return t.jsx(p,{children:t.jsx(o,{children:i})})}export{s as S};
+`;function x({children:t}){return n.jsx(a,{children:n.jsx(p,{children:t})})}const s=i.h2`
+    color: var(--color-text);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.17;
+    margin: 0;
+
+    @media screen and (min-width: 768px) {
+        font-size: 32px;
+        line-height: 1.38;
+    }
+`,c=({children:t})=>n.jsx(s,{children:t});export{x as S,c as T};
