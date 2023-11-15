@@ -9,7 +9,6 @@ import welcomeMobile2x from '../../assets/backgroundImages/welcome-mobile@2x.jpg
 export const SectionNoAuth = styled.section`
   margin: 0 auto;
   width: 100%;
-  height: 100vh;
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: contain;
@@ -31,7 +30,7 @@ export const SectionNoAuth = styled.section`
 
   @media screen and (min-width: 1440px) {
     background-image: url(${welcomeDesktop});
-
+    height: 100vh;
     @media only screen and (min-resolution: 192dpi),
       only screen and (min-resolution: 2dppx) {
       background-image: url(${welcomeDesktop2x});
@@ -50,7 +49,6 @@ export const ContainerNoAuth = styled.div`
   padding-right: 20px;
   padding-top: 24px;
   padding-bottom: 40px;
-  height: 100vh;
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
@@ -64,5 +62,6 @@ export const ContainerNoAuth = styled.div`
     max-width: 1440px;
     padding-left: 96px;
     flex-direction: row;
+    height: 100vh;
   }
 `;
