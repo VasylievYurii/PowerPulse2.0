@@ -65,7 +65,7 @@ export const WraperStart = styled.div`
 `;
 
 export const IconWrapperStart = styled.svg`
-  fill: rgba(230, 83, 60, 1);
-  width: 14px;
-  height: 14px;
+  padding-top: 3px;
+  width: 20px;
+  height: 20px;
 `;

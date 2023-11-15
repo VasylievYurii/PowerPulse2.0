@@ -64,7 +64,7 @@ const UserCard = () => {
   };
 
   const logout = () => {
-    dispatch(logOutUser());
+    // dispatch(logOutUser());
     console.log('logout');
   };
 
