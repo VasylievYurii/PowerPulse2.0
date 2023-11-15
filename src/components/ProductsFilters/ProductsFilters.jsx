@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectCategory, selectProduct } from '../../redux/selectors';
+import { selectCategory } from '../../redux/selectors';
+// import { selectProduct } from '../../redux/selectors';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import { useMediaQuery } from 'react-responsive';
@@ -10,9 +11,6 @@ import {
   getProductsCategories,
   getProducts,
 } from '../../redux/products/productsOperations';
-
-// import { selectAllProductsList, selectFilter } from '../../redux/selectors';
-// import { useSelector } from 'react-redux';
 
 const animatedComponents = makeAnimated();
 
@@ -41,8 +39,8 @@ const ProductsFilters = () => {
 
   const limit = 16;
 
-  const product = useSelector(selectProduct);
-  console.log('product', product);
+  // const product = useSelector(selectProduct);
+  // console.log('product', product);
 
   const dispatch = useDispatch();
 

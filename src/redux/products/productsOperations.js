@@ -7,12 +7,14 @@ import { instance } from '../auth/operations';
 export const getProducts = createAsyncThunk(
   'products/getProducts',
   async (
-    { recommended = '', categoryId = '', query = '', page, limit },
+    _,
+    // { recommended = '', categoryId = '', query = '', page, limit },
     thunkAPI,
   ) => {
     try {
       const { data } = await instance.get(
-        `products?recommended=${recommended}&categoryId=${categoryId}&query=${query}&page=${page}&limit=${limit}`,
+        `products`,
+        // `products?recommended=${recommended}&categoryId=${categoryId}&query=${query}&page=${page}&limit=${limit}`,
       );
       console.log('data getProducts', data);
       return data;
