@@ -87,7 +87,7 @@ const ProductsFilters = () => {
     e.preventDefault();
     const searchValue = e.target.elements[0].value;
     // console.log(e);
-    console.log(searchValue);
+    // console.log(searchValue);
     setSearchQuery(searchValue);
     // Викликаємо dispatch для асинхронної операції відправлення запиту на сервер)
     dispatch(getProducts({ searchQuery: searchValue, otherParams: '...' }));
@@ -100,12 +100,12 @@ const ProductsFilters = () => {
   const handleCategoriesChange = (selectedCategory) => {
     setCategory(selectedCategory.value);
   };
-  console.log('setCategory', category);
+  // console.log('setCategory', category);
 
   const handleRecomendedChange = (e) => {
     // console.log(e);
     const { value } = e;
-    console.log(value);
+    // console.log(value);
     setRecommended(value);
   };
 
