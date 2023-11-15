@@ -19,9 +19,10 @@ const Diary = () => {
   );
 
   const handleDateChange = (date) => {
-    setSelectedDate(date);
+    const newDate = date.toISOString();
+    setSelectedDate(newDate);
   };
-console.log(selectedDate);
+
   useEffect(() => {
     dispatch(getDiaryMealsThunk(selectedDate));
   }, [selectedDate]);
