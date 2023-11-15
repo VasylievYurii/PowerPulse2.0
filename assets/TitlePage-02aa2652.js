@@ -1,4 +1,4 @@
-import{j as n,s as i}from"./index-9475e7be.js";import{n as e}from"./emotion-styled.browser.esm-a43d0c5a.js";const o="/PowerPulse2.0/assets/products-desktop-75c3a380.jpg",d="/PowerPulse2.0/assets/products-desktop@2x-aa965045.jpg",a=e.section`
+import{j as n,s as i}from"./index-fc1258a4.js";import{n as e}from"./emotion-styled.browser.esm-7fd80208.js";const o="/PowerPulse2.0/assets/products-desktop-75c3a380.jpg",d="/PowerPulse2.0/assets/products-desktop@2x-aa965045.jpg",a=e.section`
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0 auto;
