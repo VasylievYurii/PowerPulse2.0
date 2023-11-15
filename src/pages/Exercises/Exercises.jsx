@@ -6,19 +6,22 @@ import SectionTemplate from '../../components/SectionTemplate';
 import TitlePage from '../../components/TitlePage';
 import ChapterTemplate from '../../components/ChapterTemplate';
 import { ChaptersWrapper, GoBack } from './Exercises.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getExercises } from '../../redux/exercises/exeOperation';
+import ExercisesItem from '../../components/ExercisesItem/ExercisesItem';
 
 const Exercises = () => {
+  const { array } = useSelector((state) => state.exercises);
   const location = useLocation();
   const backLinkHref = useRef(location.state?.from ?? '/');
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getExercises());
   }, [dispatch]);
-
+  console.log('arr', array);
   return (
     <>
+      <ExercisesItem />
       <SectionTemplate>
         <Link to={backLinkHref.current}>
           <GoBack>Go Back</GoBack>

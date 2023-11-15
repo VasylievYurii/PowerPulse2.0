@@ -64,7 +64,7 @@ export const getExercisesMuscles = createAsyncThunk(
       const persistedToken = state.auth.token;
       token.set(persistedToken);
 
-      const response = await instance.get('/exercises/muscles');
+      const response = await instance.get('/exercises/groups/muscles');
 
       console.log(response);
       return response.data;
@@ -84,7 +84,7 @@ export const getExercisesEquipment = createAsyncThunk(
       const persistedToken = state.auth.token;
       token.set(persistedToken);
 
-      const response = await instance.get('/exercises/equipment');
+      const response = await instance.get('/exercises/groups/equipment');
 
       console.log(response);
       return response.data;
@@ -104,7 +104,7 @@ export const getExercisesBodyparts = createAsyncThunk(
       const persistedToken = state.auth.token;
       token.set(persistedToken);
 
-      const response = await instance.get('/exercises/bodyparts');
+      const response = await instance.get('/exercises/groups/bodyparts');
 
       console.log(response);
       return response.data;

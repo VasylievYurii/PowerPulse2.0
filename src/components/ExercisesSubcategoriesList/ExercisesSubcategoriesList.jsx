@@ -1,4 +1,3 @@
-import React from 'react';
 import { WrapperStyled } from './ExercisesSubcategoriesList.styled';
 import ExercisesSubcategoriesItem from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
 
