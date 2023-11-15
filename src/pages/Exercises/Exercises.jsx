@@ -12,23 +12,22 @@ import ExercisesItem from '../../components/ExercisesItem/ExercisesItem';
 import AddExerciseSuccess from '../../components/AddExerciseSuccess/index';
 import BasicModalWindow from '../../components/BasicModalWindow';
 
-
-
 const Exercises = () => {
   const { array } = useSelector((state) => state.exercises);
   const [showModal, setShowModal] = useState(false);
   const location = useLocation();
   const dispatch = useDispatch();
   const backLinkHref = useRef(location.state?.from ?? '/');
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => {
     setIsModalOpen((prevState) => !prevState);
   };
- 
+
   useEffect(() => {
     dispatch(getExercises());
   }, [dispatch]);
-  console.log('arr', array);
+
   return (
     <>
       <ExercisesItem />
@@ -57,16 +56,10 @@ const Exercises = () => {
           </li>
         </ChaptersWrapper>
         <Suspense fallback={<p>Loader</p>}>
-          <button
-            onClick={() => {
-              setShowModal(true);
-            }}
-          >
-            Add to diary
-          </button>
-          {showModal && (
+          <button onClick={toggleModal}>Add to diary</button>
+          {isModalOpen && (
             <BasicModalWindow onClick={toggleModal}>
-              <AddExerciseSuccess toggleModal={toggleModal} />
+              <AddExerciseSuccess />
             </BasicModalWindow>
           )}
           <Outlet />
