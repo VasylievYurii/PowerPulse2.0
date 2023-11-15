@@ -1,4 +1,4 @@
-import{s as o,j as s,b as p,B as h,r,u as d,C as j,a as e,O as u}from"./index-c57bf64e.js";import{S as m,T as f}from"./TitlePage-f20cfe93.js";import{E}from"./ExercisesItem-03734e64.js";import"./emotion-styled.browser.esm-79c7ed68.js";const g=o.h3`
+import{s as o,j as s,b as p,B as h,r,u as d,C as j,a as e,O as u}from"./index-4e61c5a7.js";import{S as m,T as f}from"./TitlePage-60aa1c8d.js";import{E}from"./ExercisesItem-846a56b5.js";import"./emotion-styled.browser.esm-3533df8a.js";const g=o.h3`
   color: var(--color-text);
   font-size: 14px;
   font-style: normal;
