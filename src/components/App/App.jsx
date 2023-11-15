@@ -99,19 +99,19 @@ function App() {
           }
         >
           <Route path="bodyparts" element={<BodyParts />}>
-            <Route path="/part/:id">
+            {/* <Route path="/part/:id">
               <ExercisesList />
-            </Route>
+            </Route> */}
           </Route>
           <Route path="muscles" element={<Muscles />}>
-            <Route path="/part/:id">
+            {/* <Route path="/part/:id">
               <ExercisesList />
-            </Route>
+            </Route> */}
           </Route>
           <Route path="equipment" element={<Equipment />}>
-            <Route path="/part/:id">
+            {/* <Route path="/part/:id">
               <ExercisesList />
-            </Route>
+            </Route> */}
           </Route>
         </Route>
       </Route>
