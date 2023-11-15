@@ -10,7 +10,11 @@ import {
 } from './AddExerciseSuccess.styled';
 import sprite from '../../assets/sprite.svg';
 
-const AddExerciseSuccess = ({ toggleModal }) => {
+const AddExerciseSuccess = ({ onClick }) => {
+  const handleCloseClick = () => {
+    onClick();
+  };
+
   return (
     <ContainerExerStyled>
       <ImgThumbUp src="../../assets/thumb_up_color.png" alt="Thumb up" />
@@ -23,7 +27,9 @@ const AddExerciseSuccess = ({ toggleModal }) => {
           Burned calories: <span>250</span>
         </TextExerStyled>
       </WrapTextExerStyled>
-      <ButtonExerStyled onClick={toggleModal}>Next Exercise</ButtonExerStyled>
+      <ButtonExerStyled onClick={handleCloseClick}>
+        Next Exercise
+      </ButtonExerStyled>
       <NavLinkExStyled to="/diary">
         To the diary
         <SvgEferArrow>
