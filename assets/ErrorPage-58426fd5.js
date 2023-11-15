@@ -1,4 +1,4 @@
-import{a,u as s,j as e,K as d,M as r,c as p,l as c,P as h}from"./index-fc2f9228.js";import{n as t}from"./emotion-styled.browser.esm-1a7c2c03.js";import{S as x}from"./SectionTemplateNoAuth-fd90ce7b.js";const l=t.div`
+import{a,u as s,j as e,K as d,M as r,c as p,l as c,P as h}from"./index-1cbf4c27.js";import{n as t}from"./emotion-styled.browser.esm-c81bf6b6.js";import{S as x}from"./SectionTemplateNoAuth-70a3b56b.js";const l=t.div`
   position: relative;
   /*  background-image: */
   color: #efede8;

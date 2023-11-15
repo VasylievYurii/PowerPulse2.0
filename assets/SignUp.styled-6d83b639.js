@@ -1,4 +1,4 @@
-import{s as o,N as i}from"./index-fc2f9228.js";import{F as t}from"./index.esm-2dd0e8d0.js";const a=o(t)`
+import{s as o,N as i}from"./index-1cbf4c27.js";import{F as t}from"./index.esm-ea774ad1.js";const a=o(t)`
 font-size: 14px;
 line-height: 18px;
 max-width: 335px;
@@ -75,7 +75,7 @@ right: 14px;
   color: var(--color-text);
   font-size: 16px;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 1.12;
   text-align: center;
   background-color: var(--color-main-one);
   border-radius: 12px;
