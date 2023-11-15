@@ -1,14 +1,13 @@
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCategory } from '../../redux/selectors';
 import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import { useMediaQuery } from 'react-responsive';
 import sprite from '../../assets/sprite.svg';
 // import { productReducer } from '../../redux/products/productsSlice';
 // import { getProductsThunk } from '../../redux/products/productsOperations';
-
-// import { selectAllProductsList, selectFilter } from '../../redux/selectors';
-// import { useSelector } from 'react-redux';
 
 const animatedComponents = makeAnimated();
 
@@ -57,6 +56,30 @@ const ProductsFilters = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [category, setCategory] = useState('');
   const [recommended, setRecommended] = useState(options[0]);
+
+  const limit = 16;
+
+  // const product = useSelector(selectProduct);
+  // console.log('product', product);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      getProducts({
+        recommended,
+        category,
+        searchQuery,
+        // page,
+        limit,
+      }),
+    );
+  }, [limit, dispatch, recommended, category, searchQuery]);
+  // page;
+  useEffect(() => {
+    dispatch(getProductsCategories());
+  }, [dispatch]);
+
 
   // Перетворюємо рядок так, щоб перший символ був у верхньому регістрі,
   // а решта рядка лишалася незмінною
