@@ -107,6 +107,7 @@ export const updateUser = createAsyncThunk(
   'auth/updateUser',
   async (newData, thunkApi) => {
     try {
+      console.log('newData', newData);
       const res = await instance.patch('users', newData);
       return res.data;
     } catch (e) {

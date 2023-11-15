@@ -33,7 +33,7 @@ export const getUserProfile = createAsyncThunk(
   'profile/getUserProfile',
   async (_, thunkApi) => {
     try {
-      const { data } = await instance.get('/profiles');
+      const { data } = await instance.get('profiles');
       return data;
     } catch (error) {
       toastError(
@@ -48,7 +48,8 @@ export const updateUserProfile = createAsyncThunk(
   'profile/updateUserProfile',
   async (newData, thunkApi) => {
     try {
-      const { data } = await instance.put('/profiles', newData);
+      console.log('newData 2', newData);
+      const { data } = await instance.put('profiles', newData);
       return data;
     } catch (error) {
       toastError(`Oops! Something was wrong.... ${error.message}`);

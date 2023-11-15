@@ -7,6 +7,7 @@ import InputUseForm from './InputUseForm/InputUseForm';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { updateUser } from '../../redux/auth/operations';
+import { updateUserProfile } from '../../redux/userProfile/userProfileOperations';
 import { useDispatch } from 'react-redux';
 
 let userSchema = object({
@@ -52,6 +53,7 @@ const UserForm = () => {
     console.log(nameEmailObject);
     console.log(restObject);
     dispatch(updateUser(nameEmailObject));
+    dispatch(updateUserProfile(restObject));
   };
 
   return (

@@ -15,10 +15,13 @@ const userProfileSlice = createSlice({
       .addCase(getUserProfile.fulfilled, (state, action) => {
         state.isLoading = false;
         state.profile = action.payload;
+        state.error = null;
       })
       .addCase(updateUserProfile.fulfilled, (state, action) => {
+        console.log('action.payload', action.payload);
         state.isLoading = false;
         state.profile = action.payload;
+        state.error = null;
       })
       .addMatcher(
         (action) => action.type.endsWith('/pending'),
