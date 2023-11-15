@@ -108,12 +108,9 @@ function App() {
               <ExercisesList />
             </Route> */}
           </Route>
-          <Route path="equipment" element={<Equipment />}>
-            {/* <Route path="/part/:id">
-              <ExercisesList />
-            </Route> */}
-          </Route>
+          <Route path="equipment" element={<Equipment />}></Route>
         </Route>
+        <Route path="/exercises/part/:filter/:id" element={<ExercisesList />} />
       </Route>
 
       <Route path="*" element={<ErrorPage />} />

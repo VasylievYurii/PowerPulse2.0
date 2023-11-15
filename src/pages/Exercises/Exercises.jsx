@@ -1,27 +1,35 @@
-import { useState, useEffect, Suspense, useRef } from 'react';
-import { Outlet, useParams, Link } from 'react-router-dom';
+import { Suspense, useRef } from 'react';
+import { Outlet, Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 import SectionTemplate from '../../components/SectionTemplate';
 import TitlePage from '../../components/TitlePage';
 import ChapterTemplate from '../../components/ChapterTemplate';
 import { ChaptersWrapper, GoBack } from './Exercises.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { getExercises } from '../../redux/exercises/exeOperation';
-import ExercisesItem from '../../components/ExercisesItem/ExercisesItem';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { getExercises } from '../../redux/exercises/exeOperation';
 
 const Exercises = () => {
-  const { array } = useSelector((state) => state.exercises);
+  // const { array } = useSelector((state) => state.exercises);
   const location = useLocation();
   const backLinkHref = useRef(location.state?.from ?? '/');
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getExercises());
-  }, [dispatch]);
-  console.log('arr', array);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(getExercises());
+  // }, [dispatch]);
+  // console.log('arr', array);
+
+  // function filterArray(arr) {
+  //   if (arr) {
+  //     const filterArr = arr.filter((item) => item['target'] === 'delts');
+  //     console.log('tut', filterArr);
+  //     return filterArr;
+  //   }
+  // }
+  // filterArray(array);
+
   return (
     <>
-      <ExercisesItem />
       <SectionTemplate>
         <Link to={backLinkHref.current}>
           <GoBack>Go Back</GoBack>

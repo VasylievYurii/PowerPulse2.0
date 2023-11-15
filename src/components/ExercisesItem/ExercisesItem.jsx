@@ -13,7 +13,7 @@ import {
   IconWrapperStart,
 } from './ExercisesItem.styled.js';
 import sprite from '../../assets/sprite.svg';
-const ExercisesItem = ({ calories, target, NameBodyPart, equipment }) => {
+const ExercisesItem = ({ calories, target, NameBodyPart, name }) => {
   return (
     <WraperExercisesItem>
       <HeaderIndexes>
@@ -29,7 +29,7 @@ const ExercisesItem = ({ calories, target, NameBodyPart, equipment }) => {
         <IconWrapper>
           <use href={`${sprite}#icon-run`} height={17} width={17} />
         </IconWrapper>
-        <NameExes>{equipment}</NameExes>
+        <NameExes>{name}</NameExes>
       </WraperNameExes>
       <WraperIndexes>
         <Indexes>
