@@ -1,4 +1,4 @@
-import{s as i,j as t}from"./index-fc1258a4.js";const p=i.div`
+import{s as i,j as t}from"./index-fc2f9228.js";const p=i.div`
   display: flex;
   gap: 8px;
   margin-top: 32px;
