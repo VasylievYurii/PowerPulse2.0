@@ -8,10 +8,17 @@ import ChapterTemplate from '../../components/ChapterTemplate';
 import { ChaptersWrapper, GoBack } from './Exercises.styled';
 import { useDispatch } from 'react-redux';
 import { getExercises } from '../../redux/exercises/exeOperation';
+import AddExerciseSuccess from '../../components/AddExerciseSuccess/index';
+import BasicModalWindow from '../../components/BasicModalWindow';
 
 const Exercises = () => {
+  const [showModal, setShowModal] = useState(false);
   const location = useLocation();
   const backLinkHref = useRef(location.state?.from ?? '/');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => {
+    setIsModalOpen((prevState) => !prevState);
+  };
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getExercises());
@@ -44,6 +51,18 @@ const Exercises = () => {
           </li>
         </ChaptersWrapper>
         <Suspense fallback={<p>Loader</p>}>
+          <button
+            onClick={() => {
+              setShowModal(true);
+            }}
+          >
+            Add to diary
+          </button>
+          {showModal && (
+            <BasicModalWindow onClick={toggleModal}>
+              <AddExerciseSuccess />
+            </BasicModalWindow>
+          )}
           <Outlet />
         </Suspense>
       </SectionTemplate>

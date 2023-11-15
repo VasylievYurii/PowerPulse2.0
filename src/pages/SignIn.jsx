@@ -3,7 +3,7 @@ import SectionTemplateNoAuth from '../components/SectionTemplateNoAuth';
 import SignInForm from '../components/SignInForm/index';
 import WelcomeStats from '../components/WelcomeStats/WelcomeStats';
 import { ToastContainer } from 'react-toastify';
-import AddExerciseSuccess from '../components/AddExerciseSuccess/index';
+
 import {
   TitleSignupStyled,
   ParagrStyled,
@@ -31,7 +31,7 @@ const SignIn = () => {
             Don&apos;t have an account?{' '}
             <NavLinkStyled to="/signup"> Sign Up</NavLinkStyled>
           </TextRedirectStyled>
-          <button>Open modal</button>
+
           <ToastContainer />
         </SecondWrapperTemplate>
       </SectionTemplateLeft>
