@@ -40,9 +40,9 @@ export const RightTopBlockWrapper = styled.div`
   gap: 8px;
   align-items: center;
 
-  > span {
+  > div {
     background-color: ${(props) =>
-      props.isrecommended
+      Boolean(props.isrecommended)
         ? 'var(--color-approved-two)'
         : 'var(--color-wrong-two)'};
     display: block;

@@ -20,10 +20,10 @@ export const selectMealsError = (state) => state.meals.error;
 
 // =========== P R O D U C T S ==================
 
-export const selectProduct = (state) => state.products.products;
-export const selectCategory = (state) => state.products.categories;
-export const getIsLoading = (state) => state.products.isLoading;
-export const getError = (state) => state.products.error;
+export const selectProducts = (state) => state.products.products;
+export const selectCategoriesProducts = (state) => state.products.categories;
+export const selectProductsIsLoading = (state) => state.products.isLoading;
+export const selectProductsError = (state) => state.products.error;
 
 // =========== U S E R  P R O F I L E ============
 
