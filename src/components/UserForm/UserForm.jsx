@@ -2,13 +2,13 @@
 import { Formik, Form } from 'formik';
 import './useForm.css';
 import RadioUseForm from './RadioUseForm/RadioUseForm';
-import { object, string, number, date } from 'yup';
+import { object, string, number } from 'yup';
 import InputUseForm from './InputUseForm/InputUseForm';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 let userSchema = object({
-  login: string().required(),
+  name: string().required(),
   email: string().email(),
   sex: string().required(),
   blood: number().required().positive().integer(),
@@ -16,10 +16,11 @@ let userSchema = object({
   levelActivity: number().required().positive().integer(),
   currentWeight: number().required().positive().integer().min(35),
   desiredWeight: number().required().positive().integer().min(35),
-  birthday: date().default(() => new Date()),
+  birthday: string().required(),
 });
+
 const initialValues = {
-  login: 'Anna Rybachok',
+  name: 'Anna Rybachok',
   email: 'annarybachok@gmail.com',
   height: 0,
   currentWeight: 0,
@@ -39,8 +40,13 @@ const UserForm = () => {
   }, [userData]);
 
   const handleSubmit = (values) => {
-    console.log(values);
-    console.log(values.login);
+    const { name, email, ...rest } = values;
+
+    const nameEmailObject = { name, email };
+    const restObject = { ...rest };
+
+    console.log(nameEmailObject);
+    console.log(restObject);
   };
 
   return (
