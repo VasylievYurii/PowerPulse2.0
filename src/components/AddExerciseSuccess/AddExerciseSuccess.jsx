@@ -1,7 +1,12 @@
 import React from 'react';
+import BasicModalWindow from '../BasicModalWindow/index';
 
 const AddExerciseSuccess = () => {
-  return <div></div>;
+  return (
+    <BasicModalWindow>
+      <div>Hello world</div>
+    </BasicModalWindow>
+  );
 };
 
 export default AddExerciseSuccess;
