@@ -30,27 +30,26 @@ export const token = {
 };
 
 export const getUserProfile = createAsyncThunk(
-  'profiles/getUserProfile',
+  'profile/getUserProfile',
   async (_, thunkApi) => {
     try {
-      console.log('getUserProfile');
       const state = thunkApi.getState();
       const userToken = state.auth.token;
-      token.set(userToken);
-      const { data } = await instance.get('profiles');
-      console.log('data getUserProfile:', data);
-      return data;
+      if (userToken) {
+        token.set(userToken);
+        const { data } = await instance.get('profiles');
+        console.log('data getUserProfile');
+        return data;
+      }
+      return;
     } catch (error) {
-      toastError(
-        `Oops! Something was wrong.... ${error.message}. ${error.response.data}`,
-      );
       return thunkApi.rejectWithValue(error.message);
     }
   },
 );
 
 export const updateUserProfile = createAsyncThunk(
-  'profiles/updateUserProfile',
+  'profile/updateUserProfile',
   async (newData, thunkApi) => {
     try {
       const state = thunkApi.getState();
@@ -60,7 +59,6 @@ export const updateUserProfile = createAsyncThunk(
       const { data } = await instance.put('profiles', newData);
       return data;
     } catch (error) {
-      toastError(`Oops! Something was wrong.... ${error.message}`);
       return thunkApi.rejectWithValue(error.message);
     }
   },

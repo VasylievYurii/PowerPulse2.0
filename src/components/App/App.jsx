@@ -20,7 +20,7 @@ const Equipment = lazy(() => import('../../pages/Equipment'));
 const SignUp = lazy(() => import('../../pages/SignUp'));
 const SignIn = lazy(() => import('../../pages/SignIn'));
 const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
-const ExercisesList = lazy(() => import('../../components/ExercisesList'));
+// const ExercisesList = lazy(() => import('../../components/ExercisesList'));
 
 function App() {
   const location = useLocation();
@@ -35,7 +35,9 @@ function App() {
     return <Navigate to="/welcome" />;
   }
 
-  return (
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <Routes location={location} key={location.pathname}>
       <Route
         path="/welcome"

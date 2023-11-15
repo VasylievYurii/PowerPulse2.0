@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { format } from 'date-fns';import TitlePage from '../components/TitlePage';
+import { format } from 'date-fns';
+import TitlePage from '../components/TitlePage';
 import DiaryCalendar from '../components/DiaryCalendar';
 import DayProducts from '../components/DayProducts';
 import DayExercises from '../components/DayExercises';
@@ -22,11 +23,11 @@ const Diary = () => {
 
   useEffect(() => {
     dispatch(getDiaryMealsThunk(selectedDate));
-  }, [selectedDate]);
+  }, [dispatch]);
 
-    useEffect(() => {
+  useEffect(() => {
     dispatch(getDiaryWorkoutThunk(selectedDate));
-  }, [selectedDate]);
+  }, [dispatch]);
 
   return (
     <SectionTemplate>
