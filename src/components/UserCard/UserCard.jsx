@@ -25,8 +25,9 @@ import {
 import sprite from '../../assets/sprite.svg';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateAvatar } from '../../redux/auth/operations';
+import { logOutUser, updateAvatar } from '../../redux/auth/operations';
 import Loader from '../Loader';
+import { Link } from 'react-router-dom';
 
 const UserCard = () => {
   const [imageURL, setImageURL] = useState();
@@ -57,15 +58,13 @@ const UserCard = () => {
 
     setLoading(true);
 
-    await dispatch(updateAvatar(file));
+    dispatch(updateAvatar(file));
 
     setLoading(false);
   };
 
   const logout = () => {
-    console.log('logout');
-    setColories(105);
-    setPhysical(200);
+    dispatch(logOutUser());
   };
 
   return (
@@ -124,12 +123,16 @@ const UserCard = () => {
           to diet is relative and tailored to your unique body and goals.
         </TextExclamation>
       </WrapperExclamation>
-      <WrapperLogout>
-        <TextLogout>Logout</TextLogout>
+
+      <WrapperLogout onClick={logout}>
+        <Link to="/welcome">
+          <TextLogout>Logout</TextLogout>
+        </Link>
         <IconLogout onClick={logout}>
           <use href={`${sprite}#icon-logout`} />
         </IconLogout>
       </WrapperLogout>
+
       {loading && <Loader />}
     </WrapperUseCard>
   );

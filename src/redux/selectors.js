@@ -3,6 +3,8 @@ export const selectUserData = (state) => state.auth.userData;
 export const selectUserIsLoading = (state) => state.auth.isLoading;
 export const selectUserError = (state) => state.auth.error;
 export const selectUserToken = (state) => state.auth.token;
+export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
+export const selectIsRefreshing = (state) => state.auth.isRefreshing;
 
 // =========== W O R K O U T ==================
 

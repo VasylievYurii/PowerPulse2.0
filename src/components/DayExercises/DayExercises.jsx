@@ -8,7 +8,8 @@ import {
   WrapTitlesTablet,
   DiarySupTitleTablet,
   DiaryLists,
-  SectionsWrapTitle
+  SectionsWrapTitle,
+  EmptyText
 } from '../../pages/Diary/Diary.styled';
 import { Link } from 'react-router-dom';
 import sprite from '../../assets/sprite.svg';
@@ -28,8 +29,6 @@ const DayExercises = () => {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  if (workouts?.length !== 0) {
-    console.log('workouts - всі workouts', workouts);
     return (
       <DiarySections height='1066px'>
         <SectionsWrapTitle>
@@ -51,14 +50,13 @@ const DayExercises = () => {
           <DiarySupTitleTablet width={(points < 1440) ? '92px' : '105px'}>Burned Calories</DiarySupTitleTablet>
           <DiarySupTitleTablet width={(points < 1440) ? '82px' : '110px'}>Time</DiarySupTitleTablet>
         </WrapTitlesTablet>
-        <DiaryLists>
-          {workouts?.map((workout) =>
+          {workouts.length !== 0 ? <DiaryLists>
+          {workouts.map((workout) =>
             <DayExercisesItem workout={workout} points={points} key={workout._id} />
           )}
-        </DiaryLists>
+        </DiaryLists> : <EmptyText>Not found exercises</EmptyText>}
       </DiarySections>
     );
-  }
 };
 
 export default DayExercises;

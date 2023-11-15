@@ -16,7 +16,8 @@ export const DiarySections = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: ${(props) => props.height || '826px' } ;
+  min-height: 335px;
+  max-height: ${(props) => props.height || '826px' } ;
   padding: 16px 8px 16px 16px;
   margin-bottom: 40px;
   gap: 22px;
@@ -228,4 +229,12 @@ export const TrashIconWrapper = styled.svg`
   &:focus {
     stroke: var(--color-main-one);
   }
+`;
+
+export const EmptyText = styled.p`
+  margin: auto;
+  display: block;
+  color: rgba(239, 237, 232, 0.30);
+  font-size: 14px;
+  line-height: 1.28;
 `;

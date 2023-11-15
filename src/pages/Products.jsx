@@ -6,9 +6,9 @@ import ProductsList from '../components/ProductsList';
 const Products = () => {
   return (
     <SectionTemplate>
-      <TitlePage>Products page</TitlePage>
+      <TitlePage>Products</TitlePage>
       <ProductsFilters />
-      <ProductsList/>
+      <ProductsList />
     </SectionTemplate>
   );
 };

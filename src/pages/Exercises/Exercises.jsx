@@ -6,26 +6,32 @@ import SectionTemplate from '../../components/SectionTemplate';
 import TitlePage from '../../components/TitlePage';
 import ChapterTemplate from '../../components/ChapterTemplate';
 import { ChaptersWrapper, GoBack } from './Exercises.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getExercises } from '../../redux/exercises/exeOperation';
+import ExercisesItem from '../../components/ExercisesItem/ExercisesItem';
 import AddExerciseSuccess from '../../components/AddExerciseSuccess/index';
 import BasicModalWindow from '../../components/BasicModalWindow';
 
+
+
 const Exercises = () => {
+  const { array } = useSelector((state) => state.exercises);
   const [showModal, setShowModal] = useState(false);
   const location = useLocation();
+  const dispatch = useDispatch();
   const backLinkHref = useRef(location.state?.from ?? '/');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => {
     setIsModalOpen((prevState) => !prevState);
   };
-  const dispatch = useDispatch();
+ 
   useEffect(() => {
     dispatch(getExercises());
   }, [dispatch]);
-
+  console.log('arr', array);
   return (
     <>
+      <ExercisesItem />
       <SectionTemplate>
         <Link to={backLinkHref.current}>
           <GoBack>Go Back</GoBack>

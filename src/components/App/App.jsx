@@ -20,6 +20,7 @@ const Equipment = lazy(() => import('../../pages/Equipment'));
 const SignUp = lazy(() => import('../../pages/SignUp'));
 const SignIn = lazy(() => import('../../pages/SignIn'));
 const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
+// const ExercisesList = lazy(() => import('../../components/ExercisesList'));
 
 function App() {
   const location = useLocation();
@@ -34,7 +35,9 @@ function App() {
     return <Navigate to="/welcome" />;
   }
 
-  return (
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <Routes location={location} key={location.pathname}>
       <Route
         path="/welcome"
@@ -48,7 +51,7 @@ function App() {
         path="/signup"
         element={
           <Suspense fallback={<Loader />}>
-            <RestrictedRoute redirectTo="/signin" component={<SignUp />} />
+            <RestrictedRoute redirectTo="/profile" component={<SignUp />} />
           </Suspense>
         }
       />
@@ -66,7 +69,7 @@ function App() {
           path="/profile"
           element={
             <Suspense fallback={<Loader />}>
-              <PrivateRoute redirectTo="/signin" component={<Profile />} />
+              <PrivateRoute redirectTo="/welcome" component={<Profile />} />
             </Suspense>
           }
         />
@@ -75,7 +78,7 @@ function App() {
           path="/products"
           element={
             <Suspense fallback={<Loader />}>
-              <PrivateRoute redirectTo="/signin" component={<Products />} />
+              <PrivateRoute redirectTo="/welcome" component={<Products />} />
             </Suspense>
           }
         />
@@ -84,7 +87,7 @@ function App() {
           path="/diary"
           element={
             <Suspense fallback={<Loader />}>
-              <PrivateRoute redirectTo="/signin" component={<Diary />} />
+              <PrivateRoute redirectTo="/welcome" component={<Diary />} />
             </Suspense>
           }
         />
@@ -93,13 +96,25 @@ function App() {
           path="/exercises"
           element={
             <Suspense fallback={<Loader />}>
-              <PrivateRoute redirectTo="/signin" component={<Exercises />} />
+              <PrivateRoute redirectTo="/welcome" component={<Exercises />} />
             </Suspense>
           }
         >
-          <Route path="bodyparts" element={<BodyParts />} />
-          <Route path="muscles" element={<Muscles />} />
-          <Route path="equipment" element={<Equipment />} />
+          <Route path="bodyparts" element={<BodyParts />}>
+            {/* <Route path="/part/:id">
+              <ExercisesList />
+            </Route> */}
+          </Route>
+          <Route path="muscles" element={<Muscles />}>
+            {/* <Route path="/part/:id">
+              <ExercisesList />
+            </Route> */}
+          </Route>
+          <Route path="equipment" element={<Equipment />}>
+            {/* <Route path="/part/:id">
+              <ExercisesList />
+            </Route> */}
+          </Route>
         </Route>
       </Route>
 

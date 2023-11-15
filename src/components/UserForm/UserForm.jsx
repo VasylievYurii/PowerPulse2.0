@@ -29,11 +29,14 @@ const UserForm = () => {
   const { profile } = useSelector((state) => state.profile);
 
   useEffect(() => {
+    dispatch(getUserProfile());
+  }, [dispatch]);
+
+  useEffect(() => {
     if (userData) {
       initialValues.name = userData.name;
       initialValues.email = userData.email;
     }
-    dispatch(getUserProfile());
     if (profile) {
       initialValues.height = profile.height;
       initialValues.currentWeight = profile.currentWeight;
@@ -43,16 +46,12 @@ const UserForm = () => {
       initialValues.levelActivity = profile.levelActivity;
       initialValues.birthday = profile.birthday;
     }
-  }, []);
+  }, [userData, profile]);
 
   const handleSubmit = (values) => {
     const { name, email, ...rest } = values;
-
     const nameEmailObject = { name };
     const restObject = { ...rest };
-
-    console.log(nameEmailObject);
-    console.log(restObject);
     dispatch(updateUser(nameEmailObject));
     dispatch(updateUserProfile(restObject));
   };
