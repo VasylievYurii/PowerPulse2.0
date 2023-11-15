@@ -6,6 +6,8 @@ import { object, string, number } from 'yup';
 import InputUseForm from './InputUseForm/InputUseForm';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { updateUser } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
 
 let userSchema = object({
   name: string().required(),
@@ -20,7 +22,7 @@ let userSchema = object({
 });
 
 const initialValues = {
-  name: 'Anna Rybachok',
+  name: '',
   email: 'annarybachok@gmail.com',
   height: 0,
   currentWeight: 0,
@@ -32,9 +34,11 @@ const initialValues = {
 };
 
 const UserForm = () => {
+  const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
   useEffect(() => {
     if (userData) {
+      initialValues.name = userData.name;
       initialValues.email = userData.email;
     }
   }, [userData]);
@@ -42,11 +46,12 @@ const UserForm = () => {
   const handleSubmit = (values) => {
     const { name, email, ...rest } = values;
 
-    const nameEmailObject = { name, email };
+    const nameEmailObject = { name };
     const restObject = { ...rest };
 
     console.log(nameEmailObject);
     console.log(restObject);
+    dispatch(updateUser(nameEmailObject));
   };
 
   return (

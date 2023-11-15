@@ -38,7 +38,9 @@ export const registerUser = createAsyncThunk(
 
       return data;
     } catch (error) {
-      toastError(`Oops! Something was wrong.... ${error.message}. ${error.response.data}`);
+      toastError(
+        `Oops! Something was wrong.... ${error.message}. ${error.response.data}`,
+      );
       return thunkApi.rejectWithValue(error.message);
     }
   },
@@ -53,7 +55,9 @@ export const loginUser = createAsyncThunk(
 
       return data;
     } catch (error) {
-      toastError(`Oops! Something was wrong.... ${error.message}. ${error.response.data}`);
+      toastError(
+        `Oops! Something was wrong.... ${error.message}. ${error.response.data}`,
+      );
       return thunkApi.rejectWithValue(error.message);
     }
   },
@@ -99,13 +103,22 @@ export const refreshUser = createAsyncThunk(
   },
 );
 
+export const updateUser = createAsyncThunk(
+  'auth/updateUser',
+  async (newData, thunkApi) => {
+    try {
+      const res = await instance.patch('users', newData);
+      return res.data;
+    } catch (e) {
+      return thunkApi.rejectWithValue(e.message);
+    }
+  },
+);
+
 export const updateAvatar = createAsyncThunk(
   'auth/updateAvatar',
   async (file, thunkApi) => {
     try {
-      const state = thunkApi.getState();
-      const userToken = state.auth.token;
-      token.set(userToken);
       const formData = new FormData();
       formData.append('avatar', file);
       const res = await instance.patch('users/avatars', formData);

@@ -4,6 +4,7 @@ import {
   logOutUser,
   loginUser,
   refreshUser,
+  updateUser,
   updateAvatar,
 } from './operations';
 
@@ -40,6 +41,11 @@ const authSlice = createSlice({
         state.authenticated = false;
         state.userData = null;
         state.token = null;
+      })
+      // ------------Update User------------
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.userData = action.payload;
       })
       // ------------Update Avatar------------
       .addCase(updateAvatar.fulfilled, (state, action) => {
