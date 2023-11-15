@@ -38,7 +38,6 @@ export const getUserProfile = createAsyncThunk(
       if (userToken) {
         token.set(userToken);
         const { data } = await instance.get('profiles');
-        console.log('data getUserProfile');
         return data;
       }
       return;
@@ -55,7 +54,6 @@ export const updateUserProfile = createAsyncThunk(
       const state = thunkApi.getState();
       const userToken = state.auth.token;
       token.set(userToken);
-      console.log('newData 2', newData);
       const { data } = await instance.put('profiles', newData);
       return data;
     } catch (error) {
