@@ -30,7 +30,7 @@ export const token = {
 };
 
 export const getUserProfile = createAsyncThunk(
-  'profile/getUserProfile',
+  'profiles/getUserProfile',
   async (_, thunkApi) => {
     try {
       const { data } = await instance.get('profiles');
@@ -45,9 +45,13 @@ export const getUserProfile = createAsyncThunk(
 );
 
 export const updateUserProfile = createAsyncThunk(
-  'profile/updateUserProfile',
+  'profiles/updateUserProfile',
   async (newData, thunkApi) => {
     try {
+      const state = thunkApi.getState();
+
+      const userToken = state.auth.token;
+      token.set(userToken);
       console.log('newData 2', newData);
       const { data } = await instance.put('profiles', newData);
       return data;

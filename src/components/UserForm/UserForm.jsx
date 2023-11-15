@@ -2,25 +2,14 @@
 import { Formik, Form } from 'formik';
 import './useForm.css';
 import RadioUseForm from './RadioUseForm/RadioUseForm';
-import { object, string, number } from 'yup';
+// import { object, string, number } from 'yup';
 import InputUseForm from './InputUseForm/InputUseForm';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { updateUser } from '../../redux/auth/operations';
 import { updateUserProfile } from '../../redux/userProfile/userProfileOperations';
 import { useDispatch } from 'react-redux';
-
-let userSchema = object({
-  name: string().required(),
-  email: string().email(),
-  sex: string().required(),
-  blood: number().required().positive().integer(),
-  height: number().required().positive().integer().min(150),
-  levelActivity: number().required().positive().integer(),
-  currentWeight: number().required().positive().integer().min(35),
-  desiredWeight: number().required().positive().integer().min(35),
-  birthday: string().required(),
-});
+import userSchema from '../../schema/userProfileSchema';
 
 const initialValues = {
   name: '',
@@ -31,7 +20,7 @@ const initialValues = {
   blood: 0,
   sex: '',
   levelActivity: 0,
-  birthday: '05.05.2020',
+  birthday: '2004-11-14',
 };
 
 const UserForm = () => {
