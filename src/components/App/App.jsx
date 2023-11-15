@@ -67,7 +67,7 @@ function App() {
           path="/profile"
           element={
             <Suspense fallback={<Loader />}>
-              <PrivateRoute redirectTo="/signin" component={<Profile />} />
+              <PrivateRoute redirectTo="/welcome" component={<Profile />} />
             </Suspense>
           }
         />
@@ -76,7 +76,7 @@ function App() {
           path="/products"
           element={
             <Suspense fallback={<Loader />}>
-              <PrivateRoute redirectTo="/signin" component={<Products />} />
+              <PrivateRoute redirectTo="/welcome" component={<Products />} />
             </Suspense>
           }
         />
@@ -85,7 +85,7 @@ function App() {
           path="/diary"
           element={
             <Suspense fallback={<Loader />}>
-              <PrivateRoute redirectTo="/signin" component={<Diary />} />
+              <PrivateRoute redirectTo="/welcome" component={<Diary />} />
             </Suspense>
           }
         />
@@ -94,7 +94,7 @@ function App() {
           path="/exercises"
           element={
             <Suspense fallback={<Loader />}>
-              <PrivateRoute redirectTo="/signin" component={<Exercises />} />
+              <PrivateRoute redirectTo="/welcome" component={<Exercises />} />
             </Suspense>
           }
         >
