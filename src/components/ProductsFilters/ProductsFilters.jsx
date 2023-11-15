@@ -1,14 +1,16 @@
-import { useState } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCategory } from '../../redux/selectors';
+// import { selectProduct } from '../../redux/selectors';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 import { useMediaQuery } from 'react-responsive';
 import sprite from '../../assets/sprite.svg';
 // import { productReducer } from '../../redux/products/productsSlice';
-// import { getProductsThunk } from '../../redux/products/productsOperations';
-
-// import { selectAllProductsList, selectFilter } from '../../redux/selectors';
-// import { useSelector } from 'react-redux';
+import {
+  getProductsCategories,
+  getProducts,
+} from '../../redux/products/productsOperations';
 
 const animatedComponents = makeAnimated();
 
@@ -25,38 +27,38 @@ import {
 
 const options = [
   { value: 'all', label: 'All' },
-  { value: 'recommended', label: 'Recommended ' },
-  { value: 'notRecommended', label: 'Not recommended' },
-];
-
-const productsCategories = [
-  'alcoholic drinks',
-  'berries',
-  'cereals',
-  'dairy',
-  'dried fruits',
-  'eggs',
-  'fish',
-  'flour',
-  'fruits',
-  'meat',
-  'mushrooms',
-  'nuts',
-  'oils and fats',
-  'poppy',
-  'sausage',
-  'seeds',
-  'sesame',
-  'soft drinks',
-  'vegetables and herbs',
+  { value: 'true', label: 'Recommended ' },
+  { value: 'false', label: 'Not recommended' },
 ];
 
 const ProductsFilters = () => {
-  // const dispatch = useDispatch();
-
+  // const [page, setPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
   const [category, setCategory] = useState('');
   const [recommended, setRecommended] = useState(options[0]);
+
+  const limit = 16;
+
+  // const product = useSelector(selectProduct);
+  // console.log('product', product);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      getProducts({
+        recommended,
+        category,
+        searchQuery,
+        // page,
+        limit,
+      }),
+    );
+  }, [limit, dispatch, recommended, category, searchQuery]);
+  // page;
+  useEffect(() => {
+    dispatch(getProductsCategories());
+  }, [dispatch]);
 
   // Перетворюємо рядок так, щоб перший символ був у верхньому регістрі,
   // а решта рядка лишалася незмінною
@@ -64,10 +66,16 @@ const ProductsFilters = () => {
     return `${string[0].toUpperCase()}${string.slice(1)}`;
   };
 
-  const categoriesList = productsCategories.map((product) => ({
-    value: product,
-    label: capitalizeString(product),
+  const categories = useSelector(selectCategory);
+
+  // console.log('categories State', categories);
+
+  const categoriesList = categories.map(({ _id, name }) => ({
+    value: _id,
+    label: capitalizeString(name),
   }));
+
+  // console.log('categoriesList===>', categoriesList);
 
   // Відповідає за оновлення стану
   const handleChange = (e) => {
@@ -81,22 +89,23 @@ const ProductsFilters = () => {
     // console.log(e);
     // console.log(searchValue);
     setSearchQuery(searchValue);
+    // Викликаємо dispatch для асинхронної операції відправлення запиту на сервер)
+    dispatch(getProducts({ searchQuery: searchValue, otherParams: '...' }));
   };
 
   const resetForm = () => {
     setSearchQuery('');
   };
 
-  const handleCategoriesChange = (e) => {
-    const { value } = e;
-    console.log(value);
-    setCategory(value);
+  const handleCategoriesChange = (selectedCategory) => {
+    setCategory(selectedCategory.value);
   };
+  // console.log('setCategory', category);
 
   const handleRecomendedChange = (e) => {
     // console.log(e);
     const { value } = e;
-    console.log(value);
+    // console.log(value);
     setRecommended(value);
   };
 
@@ -168,7 +177,7 @@ const ProductsFilters = () => {
               styles={customStyles}
               value={category}
               onChange={handleCategoriesChange}
-              options={categoriesList || []}
+              options={categoriesList}
               placeholder="Categories"
               components={animatedComponents}
               className="react-select-container"

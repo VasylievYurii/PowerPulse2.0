@@ -1,8 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  getProductsThunk,
-  // fetchProductsByCategories,
-} from './productsOperations';
+import { getProducts, getProductsCategories } from './productsOperations';
 
 const initialProductsState = {
   products: [], // перші 15 продуктів
@@ -12,39 +9,41 @@ const initialProductsState = {
 };
 
 const productsFilterSlice = createSlice({
-  name: 'filters',
+  name: 'products',
   initialState: initialProductsState,
 
   extraReducers: (builder) => {
     builder
-      .addCase(getProductsThunk.fulfilled, (state, action) => {
+      .addCase(getProducts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.products = action.payload;
       })
-      .addCase(getProductsThunk.pending, (state) => {
+      .addCase(getProducts.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(getProductsThunk.rejected, (state, action) => {
+      .addCase(getProducts.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(getProductsCategories.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        // Оновити поле categories у стані
+        state.categories = action.payload;
+        // state.categories = action.payload[0].items;
+      })
+      .addCase(getProductsCategories.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getProductsCategories.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
-    // .addCase(fetchProductsByCategories.fulfilled, (state, action) => {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.categories = action.payload;
-    // })
-    // .addCase(fetchProductsByCategories.pending, (state) => {
-    //   state.isLoading = true;
-    //   state.error = null;
-    // })
-    // .addCase(fetchProductsByCategories.rejected, (state, action) => {
-    //   state.isLoading = false;
-    //   state.error = action.payload;
-    // });
   },
 });
 
 export const productsReducer = productsFilterSlice.reducer;
-export const productReducer = productsFilterSlice.actions.setFilterProducts;
+export const filterReducer = productsFilterSlice.actions;
