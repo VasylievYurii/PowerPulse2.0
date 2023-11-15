@@ -1,7 +1,5 @@
 import { WrapperStyled } from './ExercisesSubcategoriesList.styled';
 import ExercisesSubcategoriesItem from '../ExercisesSubcategoriesItem/ExercisesSubcategoriesItem';
-import BasicModalWindow from '../BasicModalWindow';
-import AddExerciseSuccess from '../AddExerciseSuccess';
 
 const ExercisesSubcategoriesList = ({ arr }) => {
   const ucFirst = (str) => {
