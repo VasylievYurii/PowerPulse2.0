@@ -23,6 +23,10 @@ export const IconUser = styled.svg`
   fill: ${(props) => props.color || 'var(--color-back-two)'};
   display: block;
   transition: fill 0.3s var(--timing-function);
+  position: absolute;
+  transform: translate(50%, 50%);
+  bottom: 50%;
+  right: 50%;
 `;
 
 export const UserWrapper = styled.div`
@@ -30,9 +34,7 @@ export const UserWrapper = styled.div`
   border-radius: 50%;
   width: 37px;
   height: 37px;
-  ${IconUser} {
-    padding: 11px;
-  }
+  position: relative;
   @media screen and (min-width: 768px) {
     width: 46px;
     height: 46px;
@@ -41,6 +43,7 @@ export const UserWrapper = styled.div`
 
 export const Img = styled.img`
   border-radius: 50%;
+  border: 1px solid var(--color-main-one);
   width: 37px;
   height: 37px;
   position: relative;

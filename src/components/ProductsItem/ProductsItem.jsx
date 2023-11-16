@@ -10,9 +10,10 @@ import {
   MiddleLineWrapper,
   RunIconWrapper,
   InfoLineWrapper,
+  CategoryWrapper,
 } from './ProductsItem.styled';
 
-const ProductsItem = ({ weight, title }) => {
+const ProductsItem = ({ title, calories, category, weight, recommended }) => {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
@@ -20,16 +21,17 @@ const ProductsItem = ({ weight, title }) => {
   };
 
   return (
-    <div>
+    <ProductItemContainer>
       {showModal && <BasicModalWindow onClick={toggleModal}></BasicModalWindow>}
-      <ProductItemContainer>
+      <section>
         <TopLineWrapper>
           <LeftTopLabelWrapper>
             <p>DIET</p>
           </LeftTopLabelWrapper>
           <RightTopBlockWrapper>
-            <span></span>
-            <p>Recommended or not</p>
+            {/* <RightTopBlockWrapper isrecommended={`${recommended}`}> */}
+            <div></div>
+            <p>{recommended ? `Recommended` : `Not recommended`}</p>
             <AddButton type="button" onClick={toggleModal}>
               <span>Add</span>
               <svg>
@@ -44,18 +46,18 @@ const ProductsItem = ({ weight, title }) => {
               <use href={`${sprite}#icon-run`} />
             </svg>
           </RunIconWrapper>
-          <p>{title}</p>
+          <h2>{title}</h2>
         </MiddleLineWrapper>
         <InfoLineWrapper>
           <li>
             <p>
-              Calories:<span>value</span>
+              Calories:<span>{calories}</span>
             </p>
           </li>
           <li>
-            <p>
-              Category:<span>value</span>
-            </p>
+            <CategoryWrapper>
+              Category:<span>{category}</span>
+            </CategoryWrapper>
           </li>
           <li>
             <p>
@@ -63,8 +65,8 @@ const ProductsItem = ({ weight, title }) => {
             </p>
           </li>
         </InfoLineWrapper>
-      </ProductItemContainer>
-    </div>
+      </section>
+    </ProductItemContainer>
   );
 };
 

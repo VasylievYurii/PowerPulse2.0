@@ -8,7 +8,7 @@ const initialProductsState = {
   error: null,
 };
 
-const productsFilterSlice = createSlice({
+const productsSlice = createSlice({
   name: 'products',
   initialState: initialProductsState,
 
@@ -45,5 +45,4 @@ const productsFilterSlice = createSlice({
   },
 });
 
-export const productsReducer = productsFilterSlice.reducer;
-export const filterReducer = productsFilterSlice.actions;
+export const productsReducer = productsSlice.reducer;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const LoaderStyled = styled.div`
    color: rgba(230, 83, 60, 1);
   font-size: 8px;
@@ -6,7 +7,10 @@ export const LoaderStyled = styled.div`
   width: 1em;
   height: 1em;
   border-radius: 50%;
-  position: relative;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(50%, 50%);
   text-indent: -9999em;
   -webkit-animation: load4 1.3s infinite linear;
   animation: load4 1.3s infinite linear;

@@ -116,10 +116,12 @@ export const Descr = styled.p`
 `;
 
 export const StatsWrapper = styled.div`
-  position: relative;
+  position: absolute;
   width: 212px;
   height: 230px;
-
+  @media screen and (orientation: portrait) {
+    position: relative;
+  }
   @media screen and (min-width: 768px) {
     width: 405px;
     height: 262px;
@@ -128,5 +130,7 @@ export const StatsWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     width: 638px;
     height: 245px;
+    right: 0;
+    bottom: 20%;
   }
 `;

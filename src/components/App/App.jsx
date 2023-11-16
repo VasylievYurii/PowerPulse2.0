@@ -20,7 +20,7 @@ const Equipment = lazy(() => import('../../pages/Equipment'));
 const SignUp = lazy(() => import('../../pages/SignUp'));
 const SignIn = lazy(() => import('../../pages/SignIn'));
 const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
-const ExercisesList = lazy(() => import('../../components/ExercisesList'));
+import { AppWrapper } from './App.styled';
 
 function App() {
   const location = useLocation();
@@ -35,86 +35,92 @@ function App() {
     return <Navigate to="/welcome" />;
   }
 
-  return (
-    <Routes location={location} key={location.pathname}>
-      <Route
-        path="/welcome"
-        element={
-          <Suspense fallback={<Loader />}>
-            <RestrictedRoute redirectTo="/profile" component={<Welcome />} />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/signup"
-        element={
-          <Suspense fallback={<Loader />}>
-            <RestrictedRoute redirectTo="/profile" component={<SignUp />} />
-          </Suspense>
-        }
-      />
-
-      <Route
-        path="/signin"
-        element={
-          <Suspense fallback={<Loader />}>
-            <RestrictedRoute redirectTo="/profile" component={<SignIn />} />
-          </Suspense>
-        }
-      />
-      <Route path="/" element={<SharedLayout />}>
+  return isRefreshing ? (
+    <Loader />
+  ) : (
+    <AppWrapper>
+      <Routes location={location} key={location.pathname}>
         <Route
-          path="/profile"
+          path="/welcome"
           element={
             <Suspense fallback={<Loader />}>
-              <PrivateRoute redirectTo="/welcome" component={<Profile />} />
+              <RestrictedRoute redirectTo="/profile" component={<Welcome />} />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <Suspense fallback={<Loader />}>
+              <RestrictedRoute redirectTo="/profile" component={<SignUp />} />
             </Suspense>
           }
         />
 
         <Route
-          path="/products"
+          path="/signin"
           element={
             <Suspense fallback={<Loader />}>
-              <PrivateRoute redirectTo="/welcome" component={<Products />} />
+              <RestrictedRoute redirectTo="/profile" component={<SignIn />} />
             </Suspense>
           }
         />
+        <Route path="/" element={<SharedLayout />}>
+          <Route
+            path="/profile"
+            element={
+              <Suspense fallback={<Loader />}>
+                <PrivateRoute redirectTo="/welcome" component={<Profile />} />
+              </Suspense>
+            }
+          />
 
-        <Route
-          path="/diary"
-          element={
-            <Suspense fallback={<Loader />}>
-              <PrivateRoute redirectTo="/welcome" component={<Diary />} />
-            </Suspense>
-          }
-        />
+          <Route
+            path="/products"
+            element={
+              <Suspense fallback={<Loader />}>
+                <PrivateRoute redirectTo="/welcome" component={<Products />} />
+              </Suspense>
+            }
+          />
 
-        <Route
-          path="/exercises"
-          element={
-            <Suspense fallback={<Loader />}>
-              <PrivateRoute redirectTo="/welcome" component={<Exercises />} />
-            </Suspense>
-          }
-        >
-          <Route path="bodyparts" element={<BodyParts />}>
-            {/* <Route path="/part/:id">
+          <Route
+            path="/diary"
+            element={
+              <Suspense fallback={<Loader />}>
+                <PrivateRoute redirectTo="/welcome" component={<Diary />} />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/exercises"
+            element={
+              <Suspense fallback={<Loader />}>
+                <PrivateRoute redirectTo="/welcome" component={<Exercises />} />
+              </Suspense>
+            }
+          >
+            <Route path="bodyparts" element={<BodyParts />}>
+              {/* <Route path="/part/:id">
               <ExercisesList />
             </Route> */}
-          </Route>
-          <Route path="muscles" element={<Muscles />}>
-            {/* <Route path="/part/:id">
+            </Route>
+            <Route path="muscles" element={<Muscles />}>
+              {/* <Route path="/part/:id">
               <ExercisesList />
             </Route> */}
+
           </Route>
           <Route path="equipment" element={<Equipment />}></Route>
         </Route>
         <Route path="/exercises/part/:filter/:id" element={<ExercisesList />} />
       </Route>
 
-      <Route path="*" element={<ErrorPage />} />
-    </Routes>
+
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </AppWrapper>
   );
 }
 

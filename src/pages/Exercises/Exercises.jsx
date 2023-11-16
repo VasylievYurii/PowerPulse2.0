@@ -5,28 +5,28 @@ import BodyParts from '../BodyParts/BodyParts';
 import SectionTemplate from '../../components/SectionTemplate';
 import TitlePage from '../../components/TitlePage';
 import ChapterTemplate from '../../components/ChapterTemplate';
-import { ChaptersWrapper, GoBack } from './Exercises.styled';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { getExercises } from '../../redux/exercises/exeOperation';
+import { ChaptersWrapper, LinkStyled, GoBack } from './Exercises.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { getExercises } from '../../redux/exercises/exeOperation';
+import ExercisesItem from '../../components/ExercisesItem/ExercisesItem';
+import AddExerciseSuccess from '../../components/AddExerciseSuccess/index';
+import BasicModalWindow from '../../components/BasicModalWindow';
 
 const Exercises = () => {
-  // const { array } = useSelector((state) => state.exercises);
+  const { array } = useSelector((state) => state.exercises);
+  const [showModal, setShowModal] = useState(false);
   const location = useLocation();
+  const dispatch = useDispatch();
   const backLinkHref = useRef(location.state?.from ?? '/');
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getExercises());
-  // }, [dispatch]);
-  // console.log('arr', array);
 
-  // function filterArray(arr) {
-  //   if (arr) {
-  //     const filterArr = arr.filter((item) => item['target'] === 'delts');
-  //     console.log('tut', filterArr);
-  //     return filterArr;
-  //   }
-  // }
-  // filterArray(array);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => {
+    setIsModalOpen((prevState) => !prevState);
+  };
+
+  useEffect(() => {
+    dispatch(getExercises());
+  }, [dispatch]);
 
   return (
     <>
@@ -37,24 +37,30 @@ const Exercises = () => {
         <TitlePage>Exercises</TitlePage>
         <ChaptersWrapper>
           <li>
-            <Link to="bodyparts">
+            <LinkStyled to="bodyparts">
               {' '}
               <ChapterTemplate>Body parts</ChapterTemplate>
-            </Link>
+            </LinkStyled>
           </li>
           <li>
-            <Link to="muscles">
+            <LinkStyled to="muscles">
               {' '}
               <ChapterTemplate>Muscles</ChapterTemplate>
-            </Link>
+            </LinkStyled>
           </li>
           <li>
-            <Link to="equipment">
+            <LinkStyled to="equipment">
               <ChapterTemplate>Equipment</ChapterTemplate>
-            </Link>
+            </LinkStyled>
           </li>
         </ChaptersWrapper>
         <Suspense fallback={<p>Loader</p>}>
+          <button onClick={toggleModal}>Add to diary</button>
+          {isModalOpen && (
+            <BasicModalWindow onClick={toggleModal}>
+              <AddExerciseSuccess onClick={toggleModal} />
+            </BasicModalWindow>
+          )}
           <Outlet />
         </Suspense>
         <BodyParts />
