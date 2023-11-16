@@ -9,6 +9,7 @@ import {
   ImgThumbUp,
 } from './AddExerciseSuccess.styled';
 import sprite from '../../assets/sprite.svg';
+import image from '../../assets/thumb_up.png';
 
 const AddExerciseSuccess = ({ onClick }) => {
   const handleCloseClick = () => {
@@ -17,7 +18,7 @@ const AddExerciseSuccess = ({ onClick }) => {
 
   return (
     <ContainerExerStyled>
-      <ImgThumbUp src="../../assets/thumb_up_color.png" alt="Thumb up" />
+      <ImgThumbUp src={image} alt="Thumb up" />
       <TitleModalStyled>Well done</TitleModalStyled>
       <WrapTextExerStyled>
         <TextExerStyled>

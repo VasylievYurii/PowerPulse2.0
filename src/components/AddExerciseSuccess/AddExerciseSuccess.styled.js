@@ -78,4 +78,5 @@ margin-left: 6px;
 
 export const ImgThumbUp = styled.img`
 width: 118px;
+margin: auto;
 `
