@@ -14,8 +14,8 @@ export const getProducts = createAsyncThunk(
         queryParams.push(`recommended=${recommended}`);
       }
 
-      if (category && category !== '') {
-        queryParams.push(`categoryId=${category}`);
+      if (category && category !== 'all') {
+        queryParams.push(`category_id=${category}`);
       }
 
       if (query && query.trim() !== '') {
@@ -23,7 +23,7 @@ export const getProducts = createAsyncThunk(
       }
 
       const queryString = queryParams.join('&');
-      const url = `products?${queryString}`;
+      const url = `products?${queryString}&page=1&limit=20`;
       // console.log(url);
 
       const { data } = await instance.get(url);
@@ -42,7 +42,6 @@ export const getProductsCategories = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const { data } = await instance.get(`products/categories`);
-      // console.log('categories', data);
       return data;
     } catch (e) {
       console.log(e.message);

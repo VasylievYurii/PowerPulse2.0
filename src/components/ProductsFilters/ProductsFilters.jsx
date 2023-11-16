@@ -34,21 +34,23 @@ const options = [
 const ProductsFilters = () => {
   // const [page, setPage] = useState(1);
   const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState({
+    value: 'all',
+    label: 'All categories',
+  });
   const [recommended, setRecommended] = useState(options[0]);
-
-  // const limit = 20;
-
-  // const product = useSelector(selectProduct);
-  // console.log('product', product);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(getProductsCategories());
+  }, [dispatch]);
+
+  useEffect(() => {
     dispatch(
       getProducts({
-        recommended,
-        category,
+        recommended: recommended.value,
+        category: category.value,
         query,
         // page,
         // limit,
@@ -56,9 +58,6 @@ const ProductsFilters = () => {
     );
   }, [recommended, category, query, dispatch]);
   // page;
-  useEffect(() => {
-    dispatch(getProductsCategories());
-  }, [dispatch]);
 
   // Перетворюємо рядок так, щоб перший символ був у верхньому регістрі,
   // а решта рядка лишалася незмінною
@@ -67,13 +66,14 @@ const ProductsFilters = () => {
   };
 
   const categories = useSelector(selectCategoriesProducts);
-  // console.log('categories State', categories);
 
-  const categoriesList = categories.map(({ _id, name }) => ({
-    value: _id,
-    label: capitalizeString(name),
-  }));
-  // console.log('categoriesList===>', categoriesList);
+  const categoriesList = [
+    { value: 'all', label: 'All categories' },
+    ...categories.map(({ _id, name }) => ({
+      value: _id,
+      label: capitalizeString(name),
+    })),
+  ];
 
   // Відповідає за оновлення стану
   const handleChange = (e) => {
@@ -86,8 +86,6 @@ const ProductsFilters = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchValue = e.target.elements[0].value;
-    // console.log(e);
-    // console.log(searchValue);
     setQuery(searchValue);
   };
 
@@ -96,17 +94,11 @@ const ProductsFilters = () => {
   };
 
   const handleCategoriesChange = (e) => {
-    // console.log(e);
-    const { value } = e;
-    setCategory(value);
+    setCategory(e);
   };
-  // console.log('setCategory', category);
 
   const handleRecomendedChange = (e) => {
-    // console.log(e);
-    const { value } = e;
-    // console.log(value);
-    setRecommended(value);
+    setRecommended(e);
   };
 
   const isMobile = useMediaQuery({ minWidth: 375 });
@@ -178,7 +170,6 @@ const ProductsFilters = () => {
               value={category}
               onChange={handleCategoriesChange}
               options={categoriesList}
-              placeholder="Categories"
               components={animatedComponents}
               className="react-select-container"
               classNamePrefix="react-select"
