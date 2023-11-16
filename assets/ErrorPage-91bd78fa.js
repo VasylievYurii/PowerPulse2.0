@@ -1,4 +1,4 @@
-import{n as t,d as a,a as s,j as e,i as d,m as p,e as r,o as c,p as h}from"./index-ff0c76f4.js";import{S as x}from"./SectionTemplateNoAuth-3b9b80ee.js";const l=t.div`
+import{w as t,a,u as s,j as e,$ as d,a0 as r,c as p,l as c,a1 as h}from"./index-a5375b99.js";import{S as x}from"./SectionTemplateNoAuth-9db6d042.js";const l=t.div`
   position: relative;
   /*  background-image: */
   color: #efede8;
@@ -90,4 +90,4 @@ import{n as t,d as a,a as s,j as e,i as d,m as p,e as r,o as c,p as h}from"./ind
     width: 152px;
     height: 17px;
   }
-`;const f=({onClick:i})=>{const n=s(),o=()=>{n(c()),i()};return e.jsxs(d,{to:"/welcome",onClick:o,children:[e.jsx("span",{children:"Logout"}),e.jsx(p,{children:e.jsx("use",{href:`${r}#icon-logout`})})]})},v=()=>{const i=h(),n=()=>{i("/")};return console.log("404"),e.jsxs(x,{children:[" ",e.jsxs(l,{children:[e.jsx(b,{to:"/"}),e.jsx(g,{children:e.jsxs(m,{children:[e.jsx(u,{children:"404"}),e.jsx(w,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(f,{className:"Button",text:"Go Home",type:"button",onClick:n})]})})]})]})};export{v as default};
+`;const f=({onClick:i})=>{const n=s(),o=()=>{n(c()),i()};return e.jsxs(d,{to:"/welcome",onClick:o,children:[e.jsx("span",{children:"Logout"}),e.jsx(r,{children:e.jsx("use",{href:`${p}#icon-logout`})})]})},v=()=>{const i=h(),n=()=>{i("/")};return console.log("404"),e.jsxs(x,{children:[" ",e.jsxs(l,{children:[e.jsx(b,{to:"/"}),e.jsx(g,{children:e.jsxs(m,{children:[e.jsx(u,{children:"404"}),e.jsx(w,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(f,{className:"Button",text:"Go Home",type:"button",onClick:n})]})})]})]})};export{v as default};

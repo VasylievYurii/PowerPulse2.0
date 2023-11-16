@@ -1,4 +1,4 @@
-import{s as e,j as i,e as n}from"./index-ff0c76f4.js";const p=e.div`
+import{s as e,j as i,c as n}from"./index-a5375b99.js";const p=e.div`
   display: flex;
   flex-direction: column;
   height: 40%;
@@ -85,7 +85,7 @@ import{s as e,j as i,e as n}from"./index-ff0c76f4.js";const p=e.div`
     width: 40px;
     height: 40px;
   }
-`,h=e(o)`
+`,c=e(o)`
   margin-bottom: 4px;
   width: 20px;
   height: 20px;
@@ -100,7 +100,7 @@ import{s as e,j as i,e as n}from"./index-ff0c76f4.js";const p=e.div`
     width: 20px;
     height: 20px;
   }
-`,c=e.div`
+`,h=e.div`
   display: flex;
   gap: 8px;
   align-items: flex-end;
@@ -155,4 +155,4 @@ import{s as e,j as i,e as n}from"./index-ff0c76f4.js";const p=e.div`
   @media screen and (min-width: 1440px) {
     flex-direction: column;
   }
-`,f=({children:t})=>i.jsx(w,{children:t}),v=()=>i.jsx(f,{children:i.jsxs(g,{children:[i.jsxs(s,{children:[i.jsx(o,{children:i.jsx(a,{children:i.jsx("use",{href:`${n}#icon-play`})})}),i.jsxs("div",{children:[i.jsx(l,{children:"350+"}),i.jsx(d,{children:"Video tutorial"})]})]}),i.jsxs(x,{children:[i.jsx(h,{children:i.jsx(a,{children:i.jsx("use",{href:`${n}#icon-run`})})}),i.jsxs(c,{children:[i.jsx(m,{children:"500"}),i.jsx(d,{children:"cal"})]})]})]})});export{j as S,v as W,b as a};
+`,f=({children:t})=>i.jsx(w,{children:t}),v=()=>i.jsx(f,{children:i.jsxs(g,{children:[i.jsxs(s,{children:[i.jsx(o,{children:i.jsx(a,{children:i.jsx("use",{href:`${n}#icon-play`})})}),i.jsxs("div",{children:[i.jsx(l,{children:"350+"}),i.jsx(d,{children:"Video tutorial"})]})]}),i.jsxs(x,{children:[i.jsx(c,{children:i.jsx(a,{children:i.jsx("use",{href:`${n}#icon-run`})})}),i.jsxs(h,{children:[i.jsx(m,{children:"500"}),i.jsx(d,{children:"cal"})]})]})]})});export{j as S,v as W,b as a};
