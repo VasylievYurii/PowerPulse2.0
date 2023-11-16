@@ -28,21 +28,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logOutUser, updateAvatar } from '../../redux/auth/operations';
 import Loader from '../Loader';
 import { Link } from 'react-router-dom';
-import { selectIndicators } from '../../redux/selectors';
-import { getIndicatorsThunk } from '../../redux/userIndicators/userIndicOperations';
 
 const UserCard = () => {
   const [imageURL, setImageURL] = useState();
-  // const [colories, setColories] = useState('0');
-  // const [physical, setPhysical] = useState('0');
+  const [colories, setColories] = useState('0');
+  const [physical, setPhysical] = useState('0');
   const [user, setUser] = useState('Hello user!');
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
-  const { targetBmr, targetTime } = useSelector(selectIndicators);
-  console.log('colories', targetBmr);
-  console.log('physical', targetTime);
 
   useEffect(() => {
     if (userData) {
@@ -60,14 +55,10 @@ const UserCard = () => {
     e.preventDefault();
     const file = e.target.files[0];
     fileReader.readAsDataURL(file);
+
     setLoading(true);
-    try {
-      dispatch(updateAvatar(file));
-    } catch (error) {
-      if (error.response && error.response.status === 404) {
-        setImageURL(null);
-      }
-    }
+
+    dispatch(updateAvatar(file));
 
     setLoading(false);
   };
@@ -86,10 +77,6 @@ const UserCard = () => {
             <Img
               src={`https://powerpulse-t5-backend.onrender.com/${imageURL}`}
               sizes="90px"
-              onError={() => {
-                setImageURL(null);
-                setLoading(false);
-              }}
             />
           ) : (
             <IconWrapperUser>
@@ -103,7 +90,6 @@ const UserCard = () => {
           </IconPluse>
         </ButtonUser>
       </WrapperUserDiv>
-
       <WrapperName>
         <TextNameUser>{user}</TextNameUser>
         <TextUser>User</TextUser>
@@ -116,7 +102,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily calorie intake</p>
           </WrapperText>
-          <TextSpan>{Math.round(targetBmr)}</TextSpan>
+          <TextSpan>{colories}</TextSpan>
         </WrapperIndicators>
         <WrapperIndicators>
           <WrapperText>
@@ -125,7 +111,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily physical activity</p>
           </WrapperText>
-          <TextSpan>{targetTime} min</TextSpan>
+          <TextSpan>{physical} min</TextSpan>
         </WrapperIndicators>
       </WrapperTwoIndicators>
       <WrapperExclamation>
