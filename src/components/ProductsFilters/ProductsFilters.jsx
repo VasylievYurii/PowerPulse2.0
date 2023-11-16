@@ -33,11 +33,11 @@ const options = [
 
 const ProductsFilters = () => {
   // const [page, setPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [query, setQuery] = useState('');
   const [category, setCategory] = useState('');
   const [recommended, setRecommended] = useState(options[0]);
 
-  const limit = 16;
+  // const limit = 20;
 
   // const product = useSelector(selectProduct);
   // console.log('product', product);
@@ -49,12 +49,12 @@ const ProductsFilters = () => {
       getProducts({
         recommended,
         category,
-        searchQuery,
+        query,
         // page,
-        limit,
+        // limit,
       }),
     );
-  }, [limit, dispatch, recommended, category, searchQuery]);
+  }, [recommended, category, query, dispatch]);
   // page;
   useEffect(() => {
     dispatch(getProductsCategories());
@@ -67,20 +67,20 @@ const ProductsFilters = () => {
   };
 
   const categories = useSelector(selectCategoriesProducts);
-
   // console.log('categories State', categories);
 
   const categoriesList = categories.map(({ _id, name }) => ({
     value: _id,
     label: capitalizeString(name),
   }));
-
   // console.log('categoriesList===>', categoriesList);
 
   // Відповідає за оновлення стану
   const handleChange = (e) => {
     const { value } = e.target;
-    setSearchQuery(value);
+    setQuery(value);
+
+    console.log('setQuery.value', query);
   };
 
   const handleSubmit = (e) => {
@@ -88,17 +88,17 @@ const ProductsFilters = () => {
     const searchValue = e.target.elements[0].value;
     // console.log(e);
     // console.log(searchValue);
-    setSearchQuery(searchValue);
-    // Викликаємо dispatch для асинхронної операції відправлення запиту на сервер)
-    dispatch(getProducts({ searchQuery: searchValue, otherParams: '...' }));
+    setQuery(searchValue);
   };
 
   const resetForm = () => {
-    setSearchQuery('');
+    setQuery('');
   };
 
-  const handleCategoriesChange = (selectedCategory) => {
-    setCategory(selectedCategory.value);
+  const handleCategoriesChange = (e) => {
+    // console.log(e);
+    const { value } = e;
+    setCategory(value);
   };
   // console.log('setCategory', category);
 
@@ -153,10 +153,10 @@ const ProductsFilters = () => {
                 type="text"
                 name="productsSearch"
                 placeholder="Search"
-                value={searchQuery}
+                value={query}
                 onChange={handleChange}
               />
-              {searchQuery && (
+              {query && (
                 <SearchBtnClose type="button" onClick={resetForm}>
                   <SearchSvgClose>
                     <use href={sprite + '#icon-cross'}></use>
