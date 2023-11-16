@@ -1,4 +1,4 @@
-import{a,u as s,j as e,U as d,V as r,c as p,l as c,W as h}from"./index-c8b82dfd.js";import{n as t}from"./emotion-styled.browser.esm-97fd4097.js";import{S as x}from"./SectionTemplateNoAuth-e0f802ca.js";const l=t.div`
+import{w as t,a,u as s,j as e,$ as d,a0 as r,c as p,l as c,a1 as h}from"./index-e7f1c172.js";import{S as x}from"./SectionTemplateNoAuth-784c5d03.js";const l=t.div`
   position: relative;
   /*  background-image: */
   color: #efede8;
@@ -25,7 +25,7 @@ import{a,u as s,j as e,U as d,V as r,c as p,l as c,W as h}from"./index-c8b82dfd.
     height: 800px;
     /* background-image:  */
   }
-`,m=t.div`
+`,g=t.div`
   background: #e6533c;
   max-width: calc(64%);
   height: 100%;
@@ -43,7 +43,7 @@ import{a,u as s,j as e,U as d,V as r,c as p,l as c,W as h}from"./index-c8b82dfd.
     width: 669px;
     padding: 32px 96px;
   }
-`,g=t.div`
+`,m=t.div`
   margin-top: auto;
   margin-bottom: auto;
 `,u=t.h1`
@@ -74,7 +74,7 @@ import{a,u as s,j as e,U as d,V as r,c as p,l as c,W as h}from"./index-c8b82dfd.
   @media screen and (min-width: 1440px) {
     width: 477px;
   }
-`,f=t(a)`
+`,b=t(a)`
   position: absolute;
   left: 32px;
   top: 32px;
@@ -90,4 +90,4 @@ import{a,u as s,j as e,U as d,V as r,c as p,l as c,W as h}from"./index-c8b82dfd.
     width: 152px;
     height: 17px;
   }
-`;const b=({onClick:i})=>{const n=s(),o=()=>{n(c()),i()};return e.jsxs(d,{to:"/welcome",onClick:o,children:[e.jsx("span",{children:"Logout"}),e.jsx(r,{children:e.jsx("use",{href:`${p}#icon-logout`})})]})},y=()=>{const i=h(),n=()=>{i("/")};return console.log("404"),e.jsxs(x,{children:[" ",e.jsxs(l,{children:[e.jsx(f,{to:"/"}),e.jsx(m,{children:e.jsxs(g,{children:[e.jsx(u,{children:"404"}),e.jsx(w,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(b,{className:"Button",text:"Go Home",type:"button",onClick:n})]})})]})]})};export{y as default};
+`;const f=({onClick:i})=>{const n=s(),o=()=>{n(c()),i()};return e.jsxs(d,{to:"/welcome",onClick:o,children:[e.jsx("span",{children:"Logout"}),e.jsx(r,{children:e.jsx("use",{href:`${p}#icon-logout`})})]})},v=()=>{const i=h(),n=()=>{i("/")};return console.log("404"),e.jsxs(x,{children:[" ",e.jsxs(l,{children:[e.jsx(b,{to:"/"}),e.jsx(g,{children:e.jsxs(m,{children:[e.jsx(u,{children:"404"}),e.jsx(w,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(f,{className:"Button",text:"Go Home",type:"button",onClick:n})]})})]})]})};export{v as default};

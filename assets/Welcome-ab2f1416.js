@@ -1,6 +1,6 @@
-import{s as n,j as o,L as i,a as e}from"./index-c8b82dfd.js";import{S as t}from"./SectionTemplateNoAuth-e0f802ca.js";import{S as s,a,W as p}from"./WelcomeStats-a5d9d313.js";const d=n.h1`
+import{s as n,j as o,L as i,a as e}from"./index-e7f1c172.js";import{S as t}from"./SectionTemplateNoAuth-784c5d03.js";import{S as s,a,W as p}from"./WelcomeStats-7ea862f7.js";const d=n.h1`
   /* width: 335px; */
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   font-size: 38px;
   font-weight: 500;
   line-height: 1.05; /* 105.263% */
