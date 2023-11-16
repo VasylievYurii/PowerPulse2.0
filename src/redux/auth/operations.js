@@ -127,5 +127,7 @@ export const updateAvatar = createAsyncThunk(
     } catch (e) {
       return thunkApi.rejectWithValue(e.message);
     }
+
   },
+
 );
