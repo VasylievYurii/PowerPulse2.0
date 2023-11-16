@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect, Suspense, useRef } from 'react';
 import { Outlet, useParams, Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -8,17 +6,17 @@ import SectionTemplate from '../../components/SectionTemplate';
 import TitlePage from '../../components/TitlePage';
 import ChapterTemplate from '../../components/ChapterTemplate';
 import { ChaptersWrapper, LinkStyled, GoBack } from './Exercises.styled';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { getExercises } from '../../redux/exercises/exeOperation';
-// import ExercisesItem from '../../components/ExercisesItem/ExercisesItem';
+import { useDispatch, useSelector } from 'react-redux';
+import { getExercises } from '../../redux/exercises/exeOperation';
+import ExercisesItem from '../../components/ExercisesItem/ExercisesItem';
 import AddExerciseSuccess from '../../components/AddExerciseSuccess/index';
 import BasicModalWindow from '../../components/BasicModalWindow';
 
 const Exercises = () => {
-  // const { array } = useSelector((state) => state.exercises);
-  // const [showModal, setShowModal] = useState(false);
+  const { array } = useSelector((state) => state.exercises);
+  const [showModal, setShowModal] = useState(false);
   const location = useLocation();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const backLinkHref = useRef(location.state?.from ?? '/');
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,9 +24,9 @@ const Exercises = () => {
     setIsModalOpen((prevState) => !prevState);
   };
 
-  // useEffect(() => {
-  //   dispatch(getExercises());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getExercises());
+  }, [dispatch]);
 
   return (
     <>
@@ -66,7 +64,6 @@ const Exercises = () => {
           )}
           <Outlet />
         </Suspense>
-
       </SectionTemplate>
     </>
   );
