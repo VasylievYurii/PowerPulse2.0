@@ -1,4 +1,4 @@
-import{s as o,j as e,Q as d,c as u,b as g,R as j,u as f,r,S as b,T as k,a as v,U as y}from"./index-03e35c6b.js";import{S as E,T as S}from"./TitlePage-acfc71fd.js";import{B as w}from"./BasicModalWindow-d422ea68.js";const T=o.h3`
+import{s as o,j as e,Q as d,c as u,b as g,R as j,u as f,r,S as b,T as k,a as v,U as y}from"./index-b71fd40f.js";import{S as E,T as S}from"./TitlePage-034d3f41.js";import{B as w}from"./BasicModalWindow-ec7e4e96.js";const T=o.h3`
   color: inherit;
   font-size: 14px;
   font-style: normal;

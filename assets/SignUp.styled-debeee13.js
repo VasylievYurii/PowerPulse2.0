@@ -1,73 +1,73 @@
-import{s as o,Q as i}from"./index-03e35c6b.js";import{F as t}from"./index.esm-237ee77a.js";const a=o(t)`
-font-size: 14px;
-line-height: 18px;
-max-width: 335px;
-width: 100%;
-height: 46px;
-border-radius: 12px;
-border: 1px solid rgba(239, 237, 232, 0.30);
-padding-top: 14px;
-padding-bottom: 14px;
-padding-left: 14px;
-align-items: center;
-color: var(--color-text);
-background-color: transparent;
-transition: border 0.3s var(--timing-function);
-/* border-color: ${r=>r.$border_color}; */
-&:invalid {
+import{s as o,Q as i}from"./index-b71fd40f.js";import{F as t}from"./index.esm-476cf4d6.js";const a=o(t)`
+  font-size: 14px;
+  line-height: 18px;
+  max-width: 335px;
+  width: 100%;
+  height: 46px;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 14px;
+  align-items: center;
+  color: var(--color-text);
+  background-color: transparent;
+  transition: border 0.3s var(--timing-function);
+  /* border-color: ${r=>r.$border_color}; */
+  &:invalid {
     border: 2px solid var(--color-wrong-one);
-}
-&:required {
+  }
+  &:required {
     border: 1px solid var(--color-wrong-one);
-}
-/* &:valid{
+  }
+  /* &:valid{
     border: 1px solid var(--color-approved-one);
 } */
-&:hover, &:focus {
-    border: 1px solid var(--color-main-one)
-}
+  &:hover,
+  &:focus {
+    border: 1px solid var(--color-main-one);
+  }
 
-@media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: 1.5;
     max-width: 364px;
     height: 52px;
-}
+  }
 `,p=o.div`
-color: var(--color-wrong-one);
-margin-top: 4px;
-/* margin-left: 4px; */
-line-height: 1.5;
-letter-spacing: 0.12px;
+  color: var(--color-wrong-one);
+  margin-top: 4px;
+  /* margin-left: 4px; */
+  line-height: 1.5;
+  letter-spacing: 0.12px;
 `,d=o.div`
-display: flex;
-flex-direction: column;
-gap: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 
-@media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     gap: 20px;
-}
+  }
 `,l=o.svg`
-width: 20px;
-height: 20px;
-stroke: var(--color-text);
- 
+  width: 20px;
+  height: 20px;
+  stroke: var(--color-text);
 `,x=o.svg`
-width: 16px;
-height: 16px;
-margin-top: 4px;
-fill: var(--color-wrong-one);
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  fill: var(--color-wrong-one);
 `,s=o.div`
-display: flex;
-gap: 4px;
+  display: flex;
+  gap: 4px;
 `,c=o.label`
-position: relative;
+  position: relative;
 `,g=o.div`
-position: absolute;
- display: flex; 
- top: calc(50% - 20px / 2);
-align-items: center;
-right: 14px;
+  position: absolute;
+  display: flex;
+  top: calc(50% - 20px / 2);
+  align-items: center;
+  right: 14px;
 `,m=o.button`
   display: block;
   padding: 12px 40px;

@@ -1,4 +1,4 @@
-import{w as t,a,u as s,j as e,a1 as d,a2 as r,c as p,l as c,a3 as h}from"./index-03e35c6b.js";import{S as x}from"./SectionTemplateNoAuth-c44f49f0.js";const l=t.div`
+import{w as t,a,u as s,j as e,a1 as d,a2 as r,c as p,l as c,a3 as h}from"./index-b71fd40f.js";import{S as x}from"./SectionTemplateNoAuth-c5061ac8.js";const l=t.div`
   position: relative;
   /*  background-image: */
   color: #efede8;
@@ -90,4 +90,4 @@ import{w as t,a,u as s,j as e,a1 as d,a2 as r,c as p,l as c,a3 as h}from"./index
     width: 152px;
     height: 17px;
   }
-`;const f=({onClick:i})=>{const n=s(),o=()=>{n(c()),i()};return e.jsxs(d,{to:"/welcome",onClick:o,children:[e.jsx("span",{children:"Logout"}),e.jsx(r,{children:e.jsx("use",{href:`${p}#icon-logout`})})]})},v=()=>{const i=h(),n=()=>{i("/")};return console.log("404"),e.jsxs(x,{children:[" ",e.jsxs(l,{children:[e.jsx(b,{to:"/"}),e.jsx(g,{children:e.jsxs(m,{children:[e.jsx(u,{children:"404"}),e.jsx(w,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(f,{className:"Button",text:"Go Home",type:"button",onClick:n})]})})]})]})};export{v as default};
+`;const f=({onClick:i})=>{const n=s(),o=()=>{n(c()),i()};return e.jsxs(d,{to:"/welcome",onClick:o,children:[e.jsx("span",{children:"Logout"}),e.jsx(r,{children:e.jsx("use",{href:`${p}#icon-logout`})})]})},v=()=>{const i=h(),n=()=>{i("/")};return e.jsxs(x,{children:[" ",e.jsxs(l,{children:[e.jsx(b,{to:"/"}),e.jsx(g,{children:e.jsxs(m,{children:[e.jsx(u,{children:"404"}),e.jsx(w,{children:"Sorry, you have reached a page that we could not find. It seems that you are lost among the numbers and letters of our virtual space. Perhaps this page went on vacation or decided to disappear into another dimension. We apologize for this inconvenience."}),e.jsx(f,{className:"Button",text:"Go Home",type:"button",onClick:n})]})})]})]})};export{v as default};
