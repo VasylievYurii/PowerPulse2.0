@@ -6,6 +6,7 @@ import SectionTemplate from '../../components/SectionTemplate';
 import TitlePage from '../../components/TitlePage';
 import ChapterTemplate from '../../components/ChapterTemplate';
 import { ChaptersWrapper, GoBack } from './Exercises.styled';
+import ExercisesTabs from '../../components/ExercisesTabs/ExercisesTabs';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getExercises } from '../../redux/exercises/exeOperation';
 
@@ -57,6 +58,7 @@ const Exercises = () => {
         <Suspense fallback={<p>Loader</p>}>
           <Outlet />
         </Suspense>
+        <ExercisesTabs />
         <BodyParts />
       </SectionTemplate>
     </>
