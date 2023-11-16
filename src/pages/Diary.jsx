@@ -9,7 +9,7 @@ import DayDashboard from '../components/DayDashboard';
 import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
 import { getDiaryWorkoutThunk } from '../redux/workouts/workoutsOperations';
 import { getDiaryMealsThunk } from '../redux/meals/mealsOperations';
-import { DiaryWrapActivity, DiaryWrapTitle } from './Diary/Diary.styled';
+import { DiaryWrapActivity, DiaryWrapContent, DiaryWrapTitle } from './Diary/Diary.styled';
 
 const Diary = () => {
   const dispatch = useDispatch();
@@ -47,11 +47,13 @@ const Diary = () => {
         <DiaryCalendar onDateChange={handleDateChange} />
       </DiaryWrapTitle>
       {points >= 768 || <DayDashboard />}
-      <DiaryWrapActivity>
-        <DayProducts />
-        <DayExercises />
-      </DiaryWrapActivity>
-      {points < 768 || <DayDashboard />}
+      <DiaryWrapContent>
+        <DiaryWrapActivity>
+          <DayProducts />
+          <DayExercises />
+        </DiaryWrapActivity>
+        {points < 768 || <DayDashboard />}
+      </DiaryWrapContent>
     </SectionTemplate>
   );
 };

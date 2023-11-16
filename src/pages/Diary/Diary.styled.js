@@ -17,9 +17,20 @@ export const DiaryWrapActivity = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  margin-bottom: 64px;
 
   @media screen and (min-width: 768px) {
+    gap: 32px;
+  }
+`;
+
+export const DiaryWrapContent = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
     gap: 32px;
   }
 `;

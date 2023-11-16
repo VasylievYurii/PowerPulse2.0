@@ -1,29 +1,40 @@
 import styled from 'styled-components';
 
 export const DashSection = styled.section`
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 40px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 40px;
 
-  @media screen and (min-width: 768px) {
-    gap: 32px;
-  }
+    @media screen and (min-width: 768px) {
+        gap: 32px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        gap: 48px;
+    }
 `;
 
 export const DashList = styled.ul`
-  display: flex;
-  column-gap: 13px;
-  row-gap: 20px;
-  flex-wrap: wrap;
-  
-  @media screen and (min-width: 768px) {
-    width: 593px;
-    height: 250px;
-    flex-direction: column;
-    gap: 16px;
-  }
+    display: flex;
+    column-gap: 13px;
+    row-gap: 20px;
+    flex-wrap: wrap;
+    
+    @media screen and (min-width: 768px) {
+        width: 593px;
+        height: 250px;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        width: 390px;
+        height: 100%;
+        flex-direction: row;
+        gap: 16px;
+    }
 `;
 
 export const DashIndicators = styled.li`
@@ -70,6 +81,7 @@ export const WrapDashText = styled.div`
     display: flex;
     gap: 8px;
     color: rgba(239, 237, 232, 0.30);
+    font-weight: 400;
     font-size: 14px;
     line-height: 1.28;
     
@@ -77,6 +89,10 @@ export const WrapDashText = styled.div`
         width: 593px;
         font-size: 16px;
         line-height: 1.5;
+    }
+        
+    @media screen and (min-width: 1440px) {
+        width: 390px;
     }
 `;
 
