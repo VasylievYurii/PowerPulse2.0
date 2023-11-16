@@ -42,9 +42,9 @@ const ExercisesList = () => {
       <div>
         <ButtonGoBack>
           <IconWraperBack>
-            <use href={`${sprite}#con-next`} width={24} height={24} />
-            <LinkBtn to={backLinkLocation.current}>Back</LinkBtn>
+            <use href={`${sprite}#icon-next`} width={24} height={24} />
           </IconWraperBack>
+          <LinkBtn to={backLinkLocation.current}>Back</LinkBtn>
         </ButtonGoBack>
         <NameExersises>{ucFirst(current)}</NameExersises>
         <WrapperExercises>
