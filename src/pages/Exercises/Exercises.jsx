@@ -1,7 +1,7 @@
 import { Suspense, useRef } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-
+import BodyParts from '../BodyParts/BodyParts';
 import SectionTemplate from '../../components/SectionTemplate';
 import TitlePage from '../../components/TitlePage';
 import ChapterTemplate from '../../components/ChapterTemplate';
@@ -57,6 +57,7 @@ const Exercises = () => {
         <Suspense fallback={<p>Loader</p>}>
           <Outlet />
         </Suspense>
+        <BodyParts />
       </SectionTemplate>
     </>
   );

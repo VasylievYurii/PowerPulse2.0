@@ -1,15 +1,18 @@
 import { useEffect, useRef } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ExercisesItem from '../ExercisesItem/ExercisesItem';
 import { useParams } from 'react-router';
-import { WraperExercises, NameExercises } from './ExercisesList.styled';
-import { getExercisesFilter } from '../../redux/exercises/exeOperation';
 import {
-  IconWrapperStart,
-  TextStart,
-  WraperStart,
-} from '../ExercisesItem/ExercisesItem.styled';
+  WraperExercises,
+  NameExercises,
+  GeneralWraper,
+  ButtonGoBack,
+  LinkBtn,
+  IconWrapperBack,
+} from './ExercisesList.styled';
+import { getExercisesFilter } from '../../redux/exercises/exeOperation';
+
 import sprite from '../../assets/sprite.svg';
 
 const ExercisesList = () => {
@@ -56,31 +59,29 @@ const ExercisesList = () => {
     return str[0].toUpperCase() + str.slice(1);
   };
   return (
-    <>
-      {/* <WraperStart>
-        <IconWrapperStart>
-          <use href={`${sprite}#icon-arrow`} height={24} width={24} />
-        </IconWrapperStart>
-        <TextStart>Start</TextStart>
-      </WraperStart> */}
+    <GeneralWraper>
+      <div>
+        <ButtonGoBack>
+          <IconWrapperBack>
+            <use href={`${sprite}#icon-goBack`} height={24} width={24} />
+          </IconWrapperBack>
+          <LinkBtn to={backLinkLocation.current}>Back</LinkBtn>
+        </ButtonGoBack>
 
-      <button className="btnGoBack">
-        <Link to={backLinkLocation.current}>Go back</Link>
-      </button>
-
-      <NameExercises>{ucFirst(current)}</NameExercises>
-      <WraperExercises>
-        {exeFilter.map(({ bodyPart, name, target, _id, burnedCalories }) => (
-          <ExercisesItem
-            key={_id}
-            calories={burnedCalories}
-            target={ucFirst(target)}
-            NameBodyPart={ucFirst(bodyPart)}
-            name={ucFirst(name)}
-          />
-        ))}
-      </WraperExercises>
-    </>
+        <NameExercises>{ucFirst(current)}</NameExercises>
+        <WraperExercises>
+          {exeFilter.map(({ bodyPart, name, target, _id, burnedCalories }) => (
+            <ExercisesItem
+              key={_id}
+              calories={burnedCalories}
+              target={ucFirst(target)}
+              NameBodyPart={ucFirst(bodyPart)}
+              name={ucFirst(name)}
+            />
+          ))}
+        </WraperExercises>
+      </div>
+    </GeneralWraper>
   );
 };
 
