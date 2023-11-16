@@ -21,6 +21,7 @@ const SignUp = lazy(() => import('../../pages/SignUp'));
 const SignIn = lazy(() => import('../../pages/SignIn'));
 const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 import { AppWrapper } from './App.styled';
+import ExercisesList from '../ExercisesList/ExercisesList';
 
 function App() {
   const location = useLocation();
@@ -117,6 +118,10 @@ function App() {
             </Route> */}
             </Route>
           </Route>
+          <Route
+            path="/exercises/part/:filter/:id"
+            element={<ExercisesList />}
+          />
         </Route>
 
         <Route path="*" element={<ErrorPage />} />
