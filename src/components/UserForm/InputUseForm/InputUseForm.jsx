@@ -8,7 +8,7 @@ const InputUseForm = () => {
       <p className="text-info">Basic info</p>
       <div className="login-email">
         <label>
-          <Input type="text" name="login" className="login-email-input" />
+          <Input type="text" name="name" className="login-email-input" />
         </label>
         <label>
           <Input type="email" name="email" className="login-email-input" />

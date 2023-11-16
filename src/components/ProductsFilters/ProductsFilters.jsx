@@ -1,7 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCategoriesProducts } from '../../redux/selectors';
+// import { selectProduct } from '../../redux/selectors';
 import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
 import { useMediaQuery } from 'react-responsive';
 import sprite from '../../assets/sprite.svg';
+// import { productReducer } from '../../redux/products/productsSlice';
+import {
+  getProductsCategories,
+  getProducts,
+} from '../../redux/products/productsOperations';
+
+const animatedComponents = makeAnimated();
 
 import {
   ProductsFiltersList,
@@ -16,36 +27,38 @@ import {
 
 const options = [
   { value: 'all', label: 'All' },
-  { value: 'recommended', label: 'Recommended ' },
-  { value: 'notRecommended', label: 'Not recommended' },
-];
-
-const productsCategories = [
-  'alcoholic drinks',
-  'berries',
-  'cereals',
-  'dairy',
-  'dried fruits',
-  'eggs',
-  'fish',
-  'flour',
-  'fruits',
-  'meat',
-  'mushrooms',
-  'nuts',
-  'oils and fats',
-  'poppy',
-  'sausage',
-  'seeds',
-  'sesame',
-  'soft drinks',
-  'vegetables and herbs',
+  { value: 'true', label: 'Recommended ' },
+  { value: 'false', label: 'Not recommended' },
 ];
 
 const ProductsFilters = () => {
+  // const [page, setPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
-  const [category, setCategory] = useState(null);
+  const [category, setCategory] = useState('');
   const [recommended, setRecommended] = useState(options[0]);
+
+  const limit = 16;
+
+  // const product = useSelector(selectProduct);
+  // console.log('product', product);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      getProducts({
+        recommended,
+        category,
+        searchQuery,
+        // page,
+        limit,
+      }),
+    );
+  }, [limit, dispatch, recommended, category, searchQuery]);
+  // page;
+  useEffect(() => {
+    dispatch(getProductsCategories());
+  }, [dispatch]);
 
   // Перетворюємо рядок так, щоб перший символ був у верхньому регістрі,
   // а решта рядка лишалася незмінною
@@ -53,10 +66,16 @@ const ProductsFilters = () => {
     return `${string[0].toUpperCase()}${string.slice(1)}`;
   };
 
-  const categoriesList = productsCategories.map((product) => ({
-    value: product,
-    label: capitalizeString(product),
+  const categories = useSelector(selectCategoriesProducts);
+
+  // console.log('categories State', categories);
+
+  const categoriesList = categories.map(({ _id, name }) => ({
+    value: _id,
+    label: capitalizeString(name),
   }));
+
+  // console.log('categoriesList===>', categoriesList);
 
   // Відповідає за оновлення стану
   const handleChange = (e) => {
@@ -70,19 +89,23 @@ const ProductsFilters = () => {
     // console.log(e);
     // console.log(searchValue);
     setSearchQuery(searchValue);
+    // Викликаємо dispatch для асинхронної операції відправлення запиту на сервер)
+    dispatch(getProducts({ searchQuery: searchValue, otherParams: '...' }));
   };
 
   const resetForm = () => {
     setSearchQuery('');
   };
 
-  const handleCategoriesChange = (e) => {
-    const { value } = e.target;
-    setCategory(value);
+  const handleCategoriesChange = (selectedCategory) => {
+    setCategory(selectedCategory.value);
   };
+  // console.log('setCategory', category);
 
   const handleRecomendedChange = (e) => {
-    const { value } = e.target;
+    // console.log(e);
+    const { value } = e;
+    // console.log(value);
     setRecommended(value);
   };
 
@@ -97,41 +120,26 @@ const ProductsFilters = () => {
   isDesktop ? (height = '52px') : (height = '46px');
 
   const customStyles = {
-    option: (defaultStyles, { isFocused, isSelected }) => ({
+    option: (defaultStyles, state) => ({
       ...defaultStyles,
-      backgroundColor: isSelected
-        ? 'rgba(28, 28, 28, 1)'
-        : isFocused
-        ? 'rgba(28, 28, 28, 1)'
-        : 'rgba(28, 28, 28, 1)',
-      color: isSelected ? '#E6533C' : '#EFEDE8',
-      padding: '14px',
+
+      fontSize: '14px',
+      height: height,
+      color: state.isSelected ? '#E6533C' : '#EFEDE8',
+      background: '#1C1C1C',
     }),
+
     control: (defaultStyles) => ({
       ...defaultStyles,
-      background: 'trasparent',
+
+      background: 'transparent',
+      borderRadius: '12px',
+      border: '1px solid rgba(239, 237, 232, 0.3)',
       height: height,
-      appearance: 'none', // Вилучення стандартного вигляду
-      WebkitAppearance: 'none',
-      MozAppearance: 'none',
     }),
     singleValue: (defaultStyles) => ({
       ...defaultStyles,
       color: '#EFEDE8',
-    }),
-    indicatorSeparator: (defaultStyles) => ({
-      ...defaultStyles,
-      backgroundColor: 'transparent', // Прозорий колір розділювача
-    }),
-    dropdownIndicator: (defaultStyles) => ({
-      ...defaultStyles,
-      color: '#EFEDE8', // Колір стрілки розгортання списку
-    }),
-    container: (defaultStyles) => ({
-      ...defaultStyles,
-      border: '1px solid rgba(239, 237, 232, 0.30)',
-      borderRadius: '12px',
-      outline: 'none',
     }),
   };
 
@@ -169,8 +177,11 @@ const ProductsFilters = () => {
               styles={customStyles}
               value={category}
               onChange={handleCategoriesChange}
-              options={categoriesList || []}
+              options={categoriesList}
               placeholder="Categories"
+              components={animatedComponents}
+              className="react-select-container"
+              classNamePrefix="react-select"
             />
           </SelectContainer>
         </li>
@@ -181,6 +192,9 @@ const ProductsFilters = () => {
               value={recommended}
               onChange={handleRecomendedChange}
               options={options}
+              components={animatedComponents}
+              className="react-select-container"
+              classNamePrefix="react-select"
             />
           </SelectContainer>
         </li>

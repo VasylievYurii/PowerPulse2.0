@@ -1,9 +1,8 @@
-// import React from 'react';
 import {
   IconWrapper,
   WrapperIndicators,
   WrapperText,
-  Span,
+  TextSpan,
   WrapperTwoIndicators,
   IconWrapperUser,
   WrapperUser,
@@ -24,39 +23,52 @@ import {
   Input,
 } from './UserCard.styled';
 import sprite from '../../assets/sprite.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { logOutUser, updateAvatar } from '../../redux/auth/operations';
+import Loader from '../Loader';
+import { Link } from 'react-router-dom';
 
-const HOST_URL = 'https://powerpulse-t5-backend.onrender.com/api/users/avatars';
 const UserCard = () => {
-  const [image, setImage] = useState();
   const [imageURL, setImageURL] = useState();
   const [colories, setColories] = useState('0');
   const [physical, setPhysical] = useState('0');
-  const [user, setUser] = useState('Anna Rybachok');
+  const [user, setUser] = useState('Hello user!');
+  const [loading, setLoading] = useState(false);
+
+  const dispatch = useDispatch();
+  const { userData } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (userData) {
+      setUser(userData.name);
+      setImageURL(userData.avatarURL);
+    }
+  }, [userData]);
 
   const fileReader = new FileReader();
   fileReader.onloadend = () => {
     setImageURL(fileReader.result);
   };
+
   const uploadPhoto = async (e) => {
     e.preventDefault();
     const file = e.target.files[0];
-    setImage(file);
-    console.log(file);
     fileReader.readAsDataURL(file);
-    const formData = new FormData();
-    formData.append('avatar', file);
-    const res = await fetch(HOST_URL, {
-      method: 'PATCH',
-      body: formData,
-    });
-    const data = await res.json();
-    console.log(data);
+    setLoading(true);
+    try {
+      dispatch(updateAvatar(file));
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        setImageURL(null);
+      }
+    }
+
+    setLoading(false);
   };
+
   const logout = () => {
-    console.log('logout');
-    setColories(105);
-    setPhysical(200);
+    dispatch(logOutUser());
   };
 
   return (
@@ -65,8 +77,15 @@ const UserCard = () => {
 
       <WrapperUserDiv>
         <WrapperUser>
-          {image ? (
-            <Img src={imageURL} width={'90'} height={'90'} />
+          {imageURL ? (
+            <Img
+              src={`https://powerpulse-t5-backend.onrender.com/${imageURL}`}
+              sizes="90px"
+              onError={() => {
+                setImageURL(null);
+                setLoading(false);
+              }}
+            />
           ) : (
             <IconWrapperUser>
               <use href={`${sprite}#icon-user`} />
@@ -79,6 +98,7 @@ const UserCard = () => {
           </IconPluse>
         </ButtonUser>
       </WrapperUserDiv>
+
       <WrapperName>
         <TextNameUser>{user}</TextNameUser>
         <TextUser>User</TextUser>
@@ -91,7 +111,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily calorie intake</p>
           </WrapperText>
-          <Span>{colories}</Span>
+          <TextSpan>{colories}</TextSpan>
         </WrapperIndicators>
         <WrapperIndicators>
           <WrapperText>
@@ -100,7 +120,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily physical activity</p>
           </WrapperText>
-          <Span>{physical} min</Span>
+          <TextSpan>{physical} min</TextSpan>
         </WrapperIndicators>
       </WrapperTwoIndicators>
       <WrapperExclamation>
@@ -112,12 +132,17 @@ const UserCard = () => {
           to diet is relative and tailored to your unique body and goals.
         </TextExclamation>
       </WrapperExclamation>
-      <WrapperLogout>
-        <TextLogout>Logout</TextLogout>
+
+      <WrapperLogout onClick={logout}>
+        <Link to="/welcome">
+          <TextLogout>Logout</TextLogout>
+        </Link>
         <IconLogout onClick={logout}>
           <use href={`${sprite}#icon-logout`} />
         </IconLogout>
       </WrapperLogout>
+
+      {loading && <Loader />}
     </WrapperUseCard>
   );
 };

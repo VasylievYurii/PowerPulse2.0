@@ -1,12 +1,13 @@
-import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
+import SectionTemplate from '../components/SectionTemplate';
 import UserCard from '../components/UserCard/UserCard';
 import UserForm from '../components/UserForm/UserForm';
-import { Title, WrapperProfile } from '../components/UserCard/UserCard.styled';
+import { WrapperProfile } from '../components/UserCard/UserCard.styled';
+import TitlePage from '../components/TitlePage';
 
 const Profile = () => {
   return (
     <SectionTemplate>
-      <Title>Profile Settings</Title>
+      <TitlePage>Profile Settings</TitlePage>
       <WrapperProfile>
         <UserCard />
         <UserForm />

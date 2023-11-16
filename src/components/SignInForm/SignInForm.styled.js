@@ -8,7 +8,7 @@ export const ButtonSubmitStyled = styled.button`
   color: var(--color-text);
   font-size: 16px;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 1.12;
   text-align: center;
   background-color: var(--color-main-one);
   border-radius: 12px;
