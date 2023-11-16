@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import SectionTemplate from '../../components/SectionTemplate';
 import TitlePage from '../../components/TitlePage';
 import ChapterTemplate from '../../components/ChapterTemplate';
-import { ChaptersWrapper, GoBack } from './Exercises.styled';
+import { ChaptersWrapper, LinkStyled, GoBack } from './Exercises.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { getExercises } from '../../redux/exercises/exeOperation';
 import ExercisesItem from '../../components/ExercisesItem/ExercisesItem';
@@ -38,21 +38,21 @@ const Exercises = () => {
         <TitlePage>Exercises</TitlePage>
         <ChaptersWrapper>
           <li>
-            <Link to="bodyparts">
+            <LinkStyled to="bodyparts">
               {' '}
               <ChapterTemplate>Body parts</ChapterTemplate>
-            </Link>
+            </LinkStyled>
           </li>
           <li>
-            <Link to="muscles">
+            <LinkStyled to="muscles">
               {' '}
               <ChapterTemplate>Muscles</ChapterTemplate>
-            </Link>
+            </LinkStyled>
           </li>
           <li>
-            <Link to="equipment">
+            <LinkStyled to="equipment">
               <ChapterTemplate>Equipment</ChapterTemplate>
-            </Link>
+            </LinkStyled>
           </li>
         </ChaptersWrapper>
         <Suspense fallback={<p>Loader</p>}>
