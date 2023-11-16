@@ -12,7 +12,6 @@ const Muscles = () => {
   useEffect(() => {
     dispatch(getExercisesMuscles());
   }, [dispatch]);
-  console.log('bod', muscles);
   const exePerPage = 9;
   const lastExeIndex = currentPage * exePerPage;
   const firstExeIndex = lastExeIndex - exePerPage;

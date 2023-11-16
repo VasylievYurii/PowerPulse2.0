@@ -2,37 +2,37 @@ import {
   Indexes,
   IndexesText,
   IndexesValue,
-  WraperIndexes,
+  WrapperIndexes,
   HeaderIndexes,
   TextStart,
   NameExes,
-  WraperExercisesItem,
+  WrapperExercisesItem,
   IconWrapper,
-  WraperNameExes,
-  WraperStart,
+  WrapperNameExes,
+  WrapperStart,
   IconWrapperStart,
 } from './ExercisesItem.styled.js';
 import sprite from '../../assets/sprite.svg';
 
 const ExercisesItem = ({ calories, target, NameBodyPart, name }) => {
   return (
-    <WraperExercisesItem>
+    <WrapperExercisesItem>
       <HeaderIndexes>
         <p>WORKOUT</p>
-        <WraperStart>
+        <WrapperStart>
           <TextStart>Start</TextStart>
           <IconWrapperStart>
             <use href={`${sprite}#icon-arrow`} height={24} width={24} />
           </IconWrapperStart>
-        </WraperStart>
+        </WrapperStart>
       </HeaderIndexes>
-      <WraperNameExes>
+      <WrapperNameExes>
         <IconWrapper>
           <use href={`${sprite}#icon-run`} height={17} width={17} />
         </IconWrapper>
         <NameExes>{name}</NameExes>
-      </WraperNameExes>
-      <WraperIndexes>
+      </WrapperNameExes>
+      <WrapperIndexes>
         <Indexes>
           <IndexesText>Burned calories:</IndexesText>
           <IndexesValue>{calories}</IndexesValue>
@@ -45,8 +45,8 @@ const ExercisesItem = ({ calories, target, NameBodyPart, name }) => {
           <IndexesText>Target:</IndexesText>
           <IndexesValue>{target}</IndexesValue>
         </Indexes>
-      </WraperIndexes>
-    </WraperExercisesItem>
+      </WrapperIndexes>
+    </WrapperExercisesItem>
   );
 };
 

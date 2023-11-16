@@ -5,12 +5,12 @@ import ExercisesItem from '../ExercisesItem/ExercisesItem';
 import { useParams } from 'react-router-dom';
 import { getExercisesFilter } from '../../redux/exercises/exeOperation';
 import {
-  NameExersises,
-  GeneralWraper,
+  NameExercises,
+  GeneralWrapper,
   WrapperExercises,
   ButtonGoBack,
   LinkBtn,
-  IconWraperBack,
+  IconWrapperBack,
 } from './ExercisesList.styled';
 import sprite from '../../assets/sprite.svg';
 
@@ -18,7 +18,6 @@ const ExercisesList = () => {
   const location = useLocation();
   const backLinkLocation = useRef(location.state?.from ?? '/exercises');
   const dispatch = useDispatch();
-  // const [exersises, setExersises] = useState([]);
   const { exeFilter } = useSelector((state) => state.exercises);
   const params = useParams();
   const current = params.id;
@@ -31,22 +30,22 @@ const ExercisesList = () => {
       dispatch(getExercisesFilter(paramsExe));
     }
   }, [dispatch]);
-  console.log('tut', exeFilter);
+
   const ucFirst = (str) => {
     if (!str) return str;
     return str[0].toUpperCase() + str.slice(1);
   };
 
   return (
-    <GeneralWraper>
+    <GeneralWrapper>
       <div>
         <ButtonGoBack>
-          <IconWraperBack>
+          <IconWrapperBack>
             <use href={`${sprite}#con-next`} width={24} height={24} />
             <LinkBtn to={backLinkLocation.current}>Back</LinkBtn>
-          </IconWraperBack>
+          </IconWrapperBack>
         </ButtonGoBack>
-        <NameExersises>{ucFirst(current)}</NameExersises>
+        <NameExercises>{ucFirst(current)}</NameExercises>
         <WrapperExercises>
           {exeFilter.map(({ bodyPart, name, target, _id, burnedCalories }) => (
             <ExercisesItem
@@ -59,7 +58,7 @@ const ExercisesList = () => {
           ))}
         </WrapperExercises>
       </div>
-    </GeneralWraper>
+    </GeneralWrapper>
   );
 };
 

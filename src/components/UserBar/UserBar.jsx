@@ -1,12 +1,14 @@
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { IconSettings, UserWrapper, IconUser, Img } from './UserBar.styled';
+import Loader from '../Loader';
 import sprite from '../../assets/sprite.svg';
 
 const UserBar = () => {
   const { userData } = useSelector((state) => state.auth);
   const [loading, setLoading] = useState(false);
   const [imageURL, setImageURL] = useState();
+
   useEffect(() => {
     if (userData) {
       setLoading(true);
@@ -14,6 +16,7 @@ const UserBar = () => {
     }
     setLoading(false);
   }, [userData]);
+
   return (
     <>
       <IconSettings>
@@ -21,14 +24,21 @@ const UserBar = () => {
       </IconSettings>
       <UserWrapper>
         {imageURL ? (
-          <Img
-            src={`https://powerpulse-t5-backend.onrender.com/${imageURL}`}
-            sizes="90px"
-            onError={() => {
-              setImageURL(null);
-              setLoading(false);
-            }}
-          />
+          <>
+            {loading ?? (
+              <IconUser>
+                <use href={`${sprite}#icon-user`} />
+              </IconUser>
+            )}
+            <Img
+              src={`https://powerpulse-t5-backend.onrender.com/${imageURL}`}
+              sizes="90px"
+              onError={() => {
+                setImageURL(null);
+                setLoading(false);
+              }}
+            />
+          </>
         ) : (
           <IconUser>
             <use href={`${sprite}#icon-user`} />

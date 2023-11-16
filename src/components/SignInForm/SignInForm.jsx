@@ -11,9 +11,9 @@ import {
   ErrorDivStyled,
   SvgIconEyeStyled,
   SvgIconCheckBoxStyled,
-  WrapErrorStyled,
+  WrapperErrorStyled,
   LabelWrapStyled,
-  IconWrapdStyled,
+  IconWrappedStyled,
 } from '../SignUpForm/SignUpForm.styled';
 
 const SigninSchema = Yup.object().shape({
@@ -39,7 +39,7 @@ const initialValues = {
 const SignInForm = () => {
   const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye`);
   const [type, setType] = useState('password');
-  const [borderColor, setBorderColor] = useState('');
+  const [validColor, setValidColor] = useState('');
   // const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
@@ -58,16 +58,6 @@ const SignInForm = () => {
     }
   };
 
-  // const toggleInputBorder = () => {
-  //   const { errors, touched } = Formik;
-
-  //   if (errors && touched === true) {
-  //     setBorderColor('#D80027');
-  //   } else {
-  //     setBorderColor('#3CBF61');
-  //   }
-  // };
-
   return (
     <Formik
       initialValues={initialValues}
@@ -84,17 +74,17 @@ const SignInForm = () => {
                   name="email"
                   validate={validateEmail}
                   placeholder="Email"
-                  $border_color={borderColor}
+                  $border_color={validColor}
                 />
               </LabelWrapStyled>
 
               {errors.email && touched.email ? (
-                <WrapErrorStyled>
+                <WrapperErrorStyled>
                   <SvgIconCheckBoxStyled>
                     <use href={`${sprite}#icon-checkbox`} />
                   </SvgIconCheckBoxStyled>
                   <ErrorDivStyled>{errors.email}</ErrorDivStyled>
-                </WrapErrorStyled>
+                </WrapperErrorStyled>
               ) : null}
             </div>
             <div>
@@ -103,22 +93,21 @@ const SignInForm = () => {
                   type={type}
                   name="password"
                   placeholder="Password"
-                  // $border_color={borderColor}
                 />
-                <IconWrapdStyled>
+                <IconWrappedStyled>
                   <SvgIconEyeStyled onClick={togglePassInput}>
                     <use href={toggleIcon} />
                   </SvgIconEyeStyled>
-                </IconWrapdStyled>
+                </IconWrappedStyled>
               </LabelWrapStyled>
 
               {errors.password && touched.password ? (
-                <WrapErrorStyled>
+                <WrapperErrorStyled>
                   <SvgIconCheckBoxStyled>
                     <use href={`${sprite}#icon-checkbox`} />
                   </SvgIconCheckBoxStyled>
                   <ErrorDivStyled>{errors.password}</ErrorDivStyled>
-                </WrapErrorStyled>
+                </WrapperErrorStyled>
               ) : null}
             </div>
           </WrapFormStyled>

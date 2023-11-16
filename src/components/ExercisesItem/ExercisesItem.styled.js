@@ -16,7 +16,7 @@ export const IndexesValue = styled.p`
   font-weight: 400;
 `;
 
-export const WraperIndexes = styled.div`
+export const WrapperIndexes = styled.div`
   display: flex;
   gap: 16px;
   margin-top: 8px;
@@ -37,7 +37,7 @@ export const NameExes = styled.p`
   font-size: 20px;
   font-weight: 400;
 `;
-export const WraperExercisesItem = styled.div`
+export const WrapperExercisesItem = styled.div`
   padding: 16px;
   width: 335px;
   height: 141px;
@@ -55,11 +55,11 @@ export const IconWrapper = styled.svg`
   padding-top: 3px;
   padding-left: 2px;
 `;
-export const WraperNameExes = styled.div`
+export const WrapperNameExes = styled.div`
   display: flex;
   gap: 16px;
 `;
-export const WraperStart = styled.div`
+export const WrapperStart = styled.div`
   display: flex;
   gap: 8px;
 `;

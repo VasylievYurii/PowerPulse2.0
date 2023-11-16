@@ -24,10 +24,7 @@ export const getProducts = createAsyncThunk(
 
       const queryString = queryParams.join('&');
       const url = `products?${queryString}`;
-      // console.log(url);
-
       const { data } = await instance.get(url);
-      // console.log('getProducts---DATA', data);
 
       return data;
     } catch (e) {
@@ -42,7 +39,6 @@ export const getProductsCategories = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const { data } = await instance.get(`products/categories`);
-      // console.log('categories', data);
       return data;
     } catch (e) {
       console.log(e.message);

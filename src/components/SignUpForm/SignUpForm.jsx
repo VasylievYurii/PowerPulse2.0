@@ -9,10 +9,10 @@ import {
   InputStyled,
   ErrorDivStyled,
   WrapFormStyled,
-  WrapErrorStyled,
+  WrapperErrorStyled,
   SvgIconCheckBoxStyled,
   LabelWrapStyled,
-  IconWrapdStyled,
+  IconWrappedStyled,
   SvgIconEyeStyled,
 } from './SignUpForm.styled';
 import { ButtonSubmitStyled } from '../SignInForm/SignInForm.styled';
@@ -70,7 +70,7 @@ const initialValues = {
 const SignUpForm = () => {
   const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye`);
   const [type, setType] = useState('password');
-  const [borderColor, setBorderColor] = useState('red');
+  const [validColor, setValidColor] = useState('red');
 
   const dispatch = useDispatch();
 
@@ -78,7 +78,7 @@ const SignUpForm = () => {
     dispatch(registerUser(values));
     actions.resetForm();
     toastInfo(
-      'You have been sent a varification email. Follow the istructions in the email.',
+      'You have been sent a verification email. Follow the instructions in the email.',
     );
   };
 
@@ -109,12 +109,12 @@ const SignUpForm = () => {
                 validate={validateName}
               />
               {errors.name && touched.name ? (
-                <WrapErrorStyled>
+                <WrapperErrorStyled>
                   <SvgIconCheckBoxStyled>
                     <use href={`${sprite}#icon-checkbox`} />
                   </SvgIconCheckBoxStyled>
                   <ErrorDivStyled>{errors.name}</ErrorDivStyled>
-                </WrapErrorStyled>
+                </WrapperErrorStyled>
               ) : null}
             </div>
 
@@ -126,12 +126,12 @@ const SignUpForm = () => {
                 placeholder="Email"
               />
               {errors.email && touched.email ? (
-                <WrapErrorStyled>
+                <WrapperErrorStyled>
                   <SvgIconCheckBoxStyled>
                     <use href={`${sprite}#icon-checkbox`} />
                   </SvgIconCheckBoxStyled>
                   <ErrorDivStyled>{errors.email}</ErrorDivStyled>
-                </WrapErrorStyled>
+                </WrapperErrorStyled>
               ) : null}
             </div>
 
@@ -142,20 +142,20 @@ const SignUpForm = () => {
                   name="password"
                   placeholder="Password"
                 />
-                <IconWrapdStyled>
+                <IconWrappedStyled>
                   <SvgIconEyeStyled onClick={togglePassInput}>
                     <use href={toggleIcon} />
                   </SvgIconEyeStyled>
-                </IconWrapdStyled>
+                </IconWrappedStyled>
               </LabelWrapStyled>
 
               {errors.password && touched.password ? (
-                <WrapErrorStyled>
+                <WrapperErrorStyled>
                   <SvgIconCheckBoxStyled>
                     <use href={`${sprite}#icon-checkbox`} />
                   </SvgIconCheckBoxStyled>
                   <ErrorDivStyled>{errors.password}</ErrorDivStyled>
-                </WrapErrorStyled>
+                </WrapperErrorStyled>
               ) : null}
             </div>
           </WrapFormStyled>

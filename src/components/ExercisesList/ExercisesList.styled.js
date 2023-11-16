@@ -25,14 +25,14 @@ export const WrapperExercises = styled.div`
   }
 `;
 
-export const NameExersises = styled.p`
+export const NameExercises = styled.p`
   font-size: 32px;
   font-weight: 700;
   padding-left: 32px;
   padding-top: 14px;
 `;
 
-export const GeneralWraper = styled.div`
+export const GeneralWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
@@ -52,7 +52,7 @@ export const LinkBtn = styled(Link)`
   font-size: 14px;
 `;
 
-export const IconWraperBack = styled.svg`
+export const IconWrapperBack = styled.svg`
   fill: rgba(239, 237, 232, 1);
   padding-top: 2px;
   width: 36px;

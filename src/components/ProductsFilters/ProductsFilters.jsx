@@ -32,16 +32,9 @@ const options = [
 ];
 
 const ProductsFilters = () => {
-  // const [page, setPage] = useState(1);
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('');
   const [recommended, setRecommended] = useState(options[0]);
-
-  // const limit = 20;
-
-  // const product = useSelector(selectProduct);
-  // console.log('product', product);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -50,8 +43,6 @@ const ProductsFilters = () => {
         recommended,
         category,
         query,
-        // page,
-        // limit,
       }),
     );
   }, [recommended, category, query, dispatch]);
@@ -67,27 +58,20 @@ const ProductsFilters = () => {
   };
 
   const categories = useSelector(selectCategoriesProducts);
-  // console.log('categories State', categories);
-
   const categoriesList = categories.map(({ _id, name }) => ({
     value: _id,
     label: capitalizeString(name),
   }));
-  // console.log('categoriesList===>', categoriesList);
 
   // Відповідає за оновлення стану
   const handleChange = (e) => {
     const { value } = e.target;
     setQuery(value);
-
-    console.log('setQuery.value', query);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchValue = e.target.elements[0].value;
-    // console.log(e);
-    // console.log(searchValue);
     setQuery(searchValue);
   };
 
@@ -96,16 +80,12 @@ const ProductsFilters = () => {
   };
 
   const handleCategoriesChange = (e) => {
-    // console.log(e);
     const { value } = e;
     setCategory(value);
   };
-  // console.log('setCategory', category);
 
   const handleRecomendedChange = (e) => {
-    // console.log(e);
     const { value } = e;
-    // console.log(value);
     setRecommended(value);
   };
 

@@ -13,20 +13,18 @@ import {
   DiarySupTitleTablet,
   DiaryLists,
   SectionsWrapTitle,
-  EmptyText
+  EmptyText,
 } from '../../pages/Diary/Diary.styled';
 
 const DayProducts = () => {
   const meals = useSelector(selectMeals);
   const [points, setPoints] = useState(window.innerWidth);
-  console.log('meals ->', meals);
-
   const handleResize = () => setPoints(window.innerWidth);
-  
+
   useEffect(() => {
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <DiarySections>
@@ -41,19 +39,36 @@ const DayProducts = () => {
           </DiaryLink>
         </Link>
       </SectionsWrapTitle>
-        
-      {meals.length !== 0 ? <><WrapTitlesTablet>
-        <DiarySupTitleTablet width={(points < 1440) ? '206px' : '212px'}>Title</DiarySupTitleTablet>
-        <DiarySupTitleTablet width={(points < 1440) ? '130px' : '166px'}>Category</DiarySupTitleTablet>
-        <DiarySupTitleTablet width={(points < 1440) ? '92px' : '105px'}>Calories</DiarySupTitleTablet>
-        <DiarySupTitleTablet width={(points < 1440) ? '92px' : '105px'}>Weight</DiarySupTitleTablet>
-        <DiarySupTitleTablet width={(points < 1440) ? '82px' : '110px'}>Recommend</DiarySupTitleTablet>
-      </WrapTitlesTablet>
-        <DiaryLists> {meals.map((meal) =>
-          <DayProductItem meal={meal} points={points} key={meal._id} />
-        )} </DiaryLists></> :
+
+      {meals.length !== 0 ? (
+        <>
+          <WrapTitlesTablet>
+            <DiarySupTitleTablet width={points < 1440 ? '206px' : '212px'}>
+              Title
+            </DiarySupTitleTablet>
+            <DiarySupTitleTablet width={points < 1440 ? '130px' : '166px'}>
+              Category
+            </DiarySupTitleTablet>
+            <DiarySupTitleTablet width={points < 1440 ? '92px' : '105px'}>
+              Calories
+            </DiarySupTitleTablet>
+            <DiarySupTitleTablet width={points < 1440 ? '92px' : '105px'}>
+              Weight
+            </DiarySupTitleTablet>
+            <DiarySupTitleTablet width={points < 1440 ? '82px' : '110px'}>
+              Recommend
+            </DiarySupTitleTablet>
+          </WrapTitlesTablet>
+          <DiaryLists>
+            {' '}
+            {meals.map((meal) => (
+              <DayProductItem meal={meal} points={points} key={meal._id} />
+            ))}{' '}
+          </DiaryLists>
+        </>
+      ) : (
         <EmptyText>Not found products</EmptyText>
-      }
+      )}
     </DiarySections>
   );
 };

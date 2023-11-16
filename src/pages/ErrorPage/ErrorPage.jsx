@@ -10,15 +10,13 @@ import {
 import Button from '../../components/LogOutBtn';
 import SectionTemplateNoAuth from '../../components/SectionTemplateNoAuth';
 
-/* import svg */
-
 const ErrorPage = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
     navigate('/');
   };
-  console.log('404');
+
   return (
     <SectionTemplateNoAuth>
       {' '}

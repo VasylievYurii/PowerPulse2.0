@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const WraperPaginate = styled.div`
+export const WrapperPaginate = styled.div`
   display: flex;
   gap: 8px;
   margin-top: 32px;
