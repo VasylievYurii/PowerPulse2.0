@@ -9,10 +9,18 @@ import DayDashboard from '../components/DayDashboard';
 import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
 import { getDiaryWorkoutThunk } from '../redux/workouts/workoutsOperations';
 import { getDiaryMealsThunk } from '../redux/meals/mealsOperations';
-import { DiaryWrapTitle } from './Diary/Diary.styled';
+import { DiaryWrapActivity, DiaryWrapContent, DiaryWrapTitle } from './Diary/Diary.styled';
 
 const Diary = () => {
   const dispatch = useDispatch();
+  const [points, setPoints] = useState(window.innerWidth);
+
+  const handleResize = () => setPoints(window.innerWidth);
+  
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const [selectedDate, setSelectedDate] = useState(
     format(new Date(), 'yyyy-MM-dd'),
@@ -20,9 +28,10 @@ const Diary = () => {
 
   const handleDateChange = (date) => {
     const newDate = date.toISOString();
+    // const cutNewDate = newDate.split("", 10).join('');
     setSelectedDate(newDate);
   };
-
+  
   useEffect(() => {
     dispatch(getDiaryMealsThunk(selectedDate));
   }, [selectedDate]);
@@ -37,9 +46,14 @@ const Diary = () => {
         <TitlePage>Diary</TitlePage>
         <DiaryCalendar onDateChange={handleDateChange} />
       </DiaryWrapTitle>
-      <DayDashboard />
-      <DayProducts />
-      <DayExercises />
+      {points >= 768 || <DayDashboard />}
+      <DiaryWrapContent>
+        <DiaryWrapActivity>
+          <DayProducts />
+          <DayExercises />
+        </DiaryWrapActivity>
+        {points < 768 || <DayDashboard />}
+      </DiaryWrapContent>
     </SectionTemplate>
   );
 };

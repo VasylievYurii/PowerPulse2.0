@@ -30,3 +30,7 @@ export const selectProductsError = (state) => state.products.error;
 export const selectUserProfile = (state) => state.profile.userProfile;
 export const selectUserProfileIsLoading = (state) => state.profile.isLoading;
 export const selectUserProfileError = (state) => state.profile.Error;
+
+// =========== I N D I C A T O R S ==================
+
+export const selectIndicators = (state) => state.indicators.indicators;
