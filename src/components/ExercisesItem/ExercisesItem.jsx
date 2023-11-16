@@ -11,9 +11,12 @@ import {
   WraperNameExes,
   WraperStart,
   IconWrapperStart,
+  IndexesTextBody,
+  IndexesTextTarget,
+  IndexesValueBody,
 } from './ExercisesItem.styled.js';
 import sprite from '../../assets/sprite.svg';
-const ExercisesItem = ({ calories, target, NameBodyPart, equipment }) => {
+const ExercisesItem = ({ calories, target, NameBodyPart, name }) => {
   return (
     <WraperExercisesItem>
       <HeaderIndexes>
@@ -29,7 +32,7 @@ const ExercisesItem = ({ calories, target, NameBodyPart, equipment }) => {
         <IconWrapper>
           <use href={`${sprite}#icon-run`} height={17} width={17} />
         </IconWrapper>
-        <NameExes>{equipment}</NameExes>
+        <NameExes>{name}</NameExes>
       </WraperNameExes>
       <WraperIndexes>
         <Indexes>
@@ -37,12 +40,12 @@ const ExercisesItem = ({ calories, target, NameBodyPart, equipment }) => {
           <IndexesValue>{calories}</IndexesValue>
         </Indexes>
         <Indexes>
-          <IndexesText>Body part:</IndexesText>
-          <IndexesValue>{NameBodyPart}</IndexesValue>
+          <IndexesTextBody>Body part:</IndexesTextBody>
+          <IndexesValueBody>{NameBodyPart}</IndexesValueBody>
         </Indexes>
         <Indexes>
-          <IndexesText>Target:</IndexesText>
-          <IndexesValue>{target}</IndexesValue>
+          <IndexesTextTarget>Target:</IndexesTextTarget>
+          <IndexesValueBody>{target}</IndexesValueBody>
         </Indexes>
       </WraperIndexes>
     </WraperExercisesItem>

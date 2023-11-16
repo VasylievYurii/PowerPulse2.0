@@ -2,17 +2,24 @@ import styled from 'styled-components';
 
 export const ContainerItem = styled.div`
   position: relative;
-  width: 224px;
+  width: 335px;
   height: 206px;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
+  @media screen and (min-width: 768px) {
+    width: 224px;
+  }
 `;
 
 export const Img = styled.img`
-  width: 224px;
+  width: 335px;
   height: 206px;
   opacity: 0.3;
   border-radius: 12px;
+  object-fit: cover;
+  @media screen and (min-width: 768px) {
+    width: 224px;
+  }
 `;
 
 export const TextItem = styled.div`
