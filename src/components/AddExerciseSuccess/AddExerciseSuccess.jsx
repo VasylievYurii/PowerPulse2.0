@@ -5,7 +5,7 @@ import {
   TextExerStyled,
   WrapTextExerStyled,
   ContainerExerStyled,
-  SvgEferArrow,
+  SvgExerArrow,
   ImgThumbUp,
 } from './AddExerciseSuccess.styled';
 import sprite from '../../assets/sprite.svg';
@@ -32,9 +32,9 @@ const AddExerciseSuccess = ({ onClick }) => {
       </ButtonExerStyled>
       <NavLinkExStyled to="/diary">
         To the diary
-        <SvgEferArrow>
-          <use href={`${sprite}#icon-arrow`} />
-        </SvgEferArrow>
+        <SvgExerArrow>
+          <use href={`${sprite}#icon-arrow`} width={16} height={16} />
+        </SvgExerArrow>
       </NavLinkExStyled>
     </ContainerExerStyled>
   );

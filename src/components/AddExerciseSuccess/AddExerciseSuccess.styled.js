@@ -17,6 +17,8 @@ export const NavLinkExStyled = styled(NavLink)`
 color: rgba(239, 237, 232, 0.30);
 font-size: 14px;
 line-height: 1.28;
+display: flex;
+justify-content: center;
 `
 
 export const ButtonExerStyled = styled.button`
@@ -29,7 +31,7 @@ export const ButtonExerStyled = styled.button`
   text-align: center;
   margin-top: 24px;
   margin-bottom: 16px;
-  margin-left: auto;
+  margin-left: ${props => props.$nomarginleft ? "0" : "auto"};
   margin-right: auto;
   background-color: var(--color-main-one);
   border-radius: 12px;
@@ -67,8 +69,8 @@ gap: 4px;
 flex-direction: column;
 `
 
-export const SvgEferArrow = styled.svg`
-stroke: var(--color-text);
+export const SvgExerArrow = styled.svg`
+stroke: rgba(239, 237, 232, 0.30);
 width: 16px;
 height: 16px;
 margin-left: 6px;
