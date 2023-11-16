@@ -1,7 +1,9 @@
-import { Suspense, useRef, useState } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+
+
+import { useState, useEffect, Suspense, useRef } from 'react';
+import { Outlet, useParams, Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import BodyParts from '../BodyParts/BodyParts';
+
 import SectionTemplate from '../../components/SectionTemplate';
 import TitlePage from '../../components/TitlePage';
 import ChapterTemplate from '../../components/ChapterTemplate';
@@ -30,6 +32,7 @@ const Exercises = () => {
 
   return (
     <>
+      <ExercisesItem />
       <SectionTemplate>
         <Link to={backLinkHref.current}>
           <GoBack>Go Back</GoBack>
@@ -64,7 +67,6 @@ const Exercises = () => {
           <Outlet />
         </Suspense>
 
-        <BodyParts />
       </SectionTemplate>
     </>
   );

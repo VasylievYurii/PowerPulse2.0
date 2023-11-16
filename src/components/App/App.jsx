@@ -118,6 +118,8 @@ function App() {
             path="/exercises/part/:filter/:id"
             element={<ExercisesList />}
           />
+            
+
         </Route>
 
         <Route path="*" element={<ErrorPage />} />
