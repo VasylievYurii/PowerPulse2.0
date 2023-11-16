@@ -3,17 +3,17 @@ import { useDispatch } from 'react-redux';
 /* import sprite from '../../images/svg/sprite.svg'; */
 import PropTypes from 'prop-types';
 /* import Button from 'components/Button/Button'; */
-import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+/* import { CountdownCircleTimer } from 'react-countdown-circle-timer'; */
 /*  import { fetchDiarySaveExercise } from 'redux/operations';  */
 /* import toast from 'react-hot-toast'; */
 
-import {Container, GifWrapper, Gif, Timer, TimerTitle, TimerWrapper, TimerButton, Calories,  RightContainer, List, ListItem, ItemTitle, ItemValue, ButtonContainer, Button} from './AddExerciseForm.styled'
+import {Container, GifWrapper, Gif, Timer, TimerTitle,CountdownCircleTimer, TimerWrapper, TimerButton, Calories,  RightContainer, List, ListItem, ItemTitle, ItemValue, ButtonContainer, Button} from './AddExerciseForm.styled'
 
 
 
 
-const AddExerciseForm = ({ data, onSuccess }) => {
-   const { _id, bodyPart, equipment, gifUrl, name, target, burnedCalories, time } = date; 
+ const AddExerciseForm = ({ data, onSuccess }) => {
+  /*  const { _id, bodyPart, equipment, gifUrl, name, target, burnedCalories, time } = date; 
 
   const [currentTime, setCurrentTime] = useState(time * 60);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -23,7 +23,7 @@ const AddExerciseForm = ({ data, onSuccess }) => {
     setIsPlaying(!isPlaying);
   };
 
-  const calculatedCalories = Math.floor((currentTime / 60) * (burnedCalories / 3)); 
+  const calculatedCalories = Math.floor((currentTime / 60) * (burnedCalories / 3)); */
 
   const handleAddToDiary = () => {
     if (!calculatedCalories) {
@@ -43,7 +43,7 @@ const AddExerciseForm = ({ data, onSuccess }) => {
       });
   };
 
-  const renderTime = ({ remainingTime }) => {
+ /* const renderTime = ({ remainingTime }) => {
     setCurrentTime(time * 60 - remainingTime);
     const minutes = Math.floor(remainingTime / 60);
     const seconds = remainingTime % 60;
@@ -54,19 +54,19 @@ const AddExerciseForm = ({ data, onSuccess }) => {
   };
      onClick(); 
     // closeModal();
-  
-
+   */
+ 
   return (
     <Container>
       <div>
         <GifWrapper>
-         {/*  <Gif src={gifUrl} alt={name} /> */}
+          <Gif /* src={gifUrl} alt={name} */ /> 
         </GifWrapper>
         <Timer>
           <TimerTitle>Time</TimerTitle>
           <TimerWrapper>
-            <CountdownCircleTimer
-              isPlaying={isPlaying}
+             {/*  <CountdownCircleTimer
+               isPlaying={isPlaying}
               duration={time * 60}
               colors={'#e6533c'}
               size={125}
@@ -76,11 +76,11 @@ const AddExerciseForm = ({ data, onSuccess }) => {
               rotation={-1}
             >
               {({ remainingTime }) => renderTime({ remainingTime })}
-            </CountdownCircleTimer> 
+            </CountdownCircleTimer>  */}
           </TimerWrapper>
-          <TimerButton onClick={toggleIsPlaying}>
-          {/* <use href={`${sprite}#icon-pause`} /> */}
-          </TimerButton>
+           <TimerButton> {/* onClick={toggleIsPlaying}>
+          <use href={`${sprite}#icon-pause`} />  */}
+          </TimerButton> 
           <Calories>
             Burned calories: {/* <span className="caloriesSpan">{calculatedCalories}</span> */}
           </Calories>
@@ -90,23 +90,25 @@ const AddExerciseForm = ({ data, onSuccess }) => {
         <List>
           <ListItem>
             <ItemTitle>Name</ItemTitle>
-            <ItemValue>{name}</ItemValue>
+            {/* <ItemValue>{name}</ItemValue> */}
           </ListItem>
           <ListItem>
             <ItemTitle>Target</ItemTitle>
-            <ItemValue>{target}</ItemValue>
+            {/* <ItemValue>{target}</ItemValue> */}
           </ListItem>
           <ListItem>
             <ItemTitle>Body Part</ItemTitle>
-            <ItemValue>{bodyPart}</ItemValue>
+{/*             <ItemValue>{bodyPart}</ItemValue> */}
           </ListItem>
           <ListItem>
             <ItemTitle>Equipment</ItemTitle>
-            <ItemValue>{equipment}</ItemValue>
+           {/*  <ItemValue>{equipment}</ItemValue> */}
           </ListItem>
         </List>
         <ButtonContainer>
-          <Button title="Add to diary" onClick={handleAddToDiary} />
+           <Button type="button" onClick={handleAddToDiary}>
+            Add to diary 
+            </Button>
         </ButtonContainer>
       </RightContainer>
     </Container>
