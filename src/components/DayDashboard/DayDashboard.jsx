@@ -32,6 +32,14 @@ const DayDashboard = () => {
   // Скільки часу від денної норми залишилось потренуватись.
   const restWorkoutsTime = targetTime - totalWorkoutsTime;
 
+  let borderColorRestCalories = 'rgba(239, 237, 232, 0.20)';
+  let borderColorRestWorkoutsTime = 'rgba(239, 237, 232, 0.20)';
+
+  if (restCalories < 0) {
+    borderColorRestCalories = 'var(--color-wrong-two)';
+    borderColorRestWorkoutsTime = 'var(--color-approved-one)';
+  };
+
   return (
     <DashSection>
       <DashList>
@@ -71,7 +79,7 @@ const DayDashboard = () => {
           </DashTitle>
           {burnCalories}
         </DashIndicators>
-        <DashIndicators>
+        <DashIndicators borderColor={borderColorRestCalories}>
             <DashTitle>
               <DashIconWrapper fill='var(--color-main-two)' stroke='var(--color-main-two)'>
                 <use href={`${sprite}#icon-bubble`} />
@@ -80,14 +88,14 @@ const DayDashboard = () => {
           </DashTitle>
           {restCalories}
           </DashIndicators>
-          <DashIndicators>
+          <DashIndicators borderColor={borderColorRestWorkoutsTime}>
             <DashTitle>
               <DashIconWrapper fill='var(--color-main-two)' stroke='var(--color-main-two)'>
                 <use href={`${sprite}#icon-run`} />
               </DashIconWrapper>
               The rest of sports
           </DashTitle>
-          {restWorkoutsTime} min
+          {restCalories < 0 ? `+ ${restWorkoutsTime}` : restWorkoutsTime} min
           </DashIndicators>
       </DashList>
       <WrapDashText>

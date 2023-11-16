@@ -35,7 +35,7 @@ export const DashIndicators = styled.li`
     font-weight: 700;
     line-height: 1.11;
     border-radius: 12px;
-    border: 1px solid rgba(239, 237, 232, 0.20);
+    border: ${(props) => `1px solid ${props.borderColor}` || '1px solid rgba(239, 237, 232, 0.20)' };
     background: ${(props) => props.color || 'rgba(239, 237, 232, 0.05)' };
 
   @media screen and (min-width: 768px) {
