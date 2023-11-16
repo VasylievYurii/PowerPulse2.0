@@ -17,17 +17,30 @@ const ExercisesList = () => {
     return arrayExe;
   }
   return (
-    <div>
-      {exersises.map(({ bodyPart, equipment, target, _id, burnedCalories }) => (
-        <ExercisesItem
-          key={_id}
-          calories={burnedCalories}
-          target={target}
-          NameBodyPart={bodyPart}
-          equipment={equipment}
-        />
-      ))}
-    </div>
+
+    <GeneralWraper>
+      <div>
+        <ButtonGoBack>
+          <IconWraperBack>
+            <use href={`${sprite}#icon-next`} width={24} height={24} />
+          </IconWraperBack>
+          <LinkBtn to={backLinkLocation.current}>Back</LinkBtn>
+        </ButtonGoBack>
+        <NameExersises>{ucFirst(current)}</NameExersises>
+        <WrapperExercises>
+          {exeFilter.map(({ bodyPart, name, target, _id, burnedCalories }) => (
+            <ExercisesItem
+              key={_id}
+              calories={burnedCalories}
+              target={ucFirst(target)}
+              NameBodyPart={ucFirst(bodyPart)}
+              name={ucFirst(name)}
+            />
+          ))}
+        </WrapperExercises>
+      </div>
+    </GeneralWraper>
+ 
   );
 };
 
