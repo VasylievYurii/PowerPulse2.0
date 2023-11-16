@@ -70,7 +70,7 @@ export const WrapTextExerStyled = styled.div`
   flex-direction: column;
 `;
 
-export const SvgEferArrow = styled.svg`
+export const SvgExerArrow = styled.svg`
   stroke: var(--color-text);
   width: 16px;
   height: 16px;
