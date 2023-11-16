@@ -115,25 +115,3 @@ export const getExercisesBodyparts = createAsyncThunk(
     }
   },
 );
-
-export const getExercisesFilter = createAsyncThunk(
-  'exercises/getExercisesFilter',
-  async (paramsExe, thunkAPI) => {
-    try {
-      const state = thunkAPI.getState();
-      const persistedToken = state.auth.token;
-      token.set(persistedToken);
-
-      const response = await instance.get(
-        `/exercises?filter=${paramsExe.filter}&name=${paramsExe.name}`,
-      );
-
-      console.log(response);
-      return response.data;
-    } catch (e) {
-      console.log(e.message);
-      toastError(`Oops! Something was wrong.... ${e.message}`);
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  },
-);
