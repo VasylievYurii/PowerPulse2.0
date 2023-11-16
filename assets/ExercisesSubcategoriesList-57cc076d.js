@@ -1,8 +1,8 @@
-import{s as i,j as t,Q as p}from"./index-b71fd40f.js";const x=i.div`
+import{s as i,j as t,Q as x}from"./index-e75ba2dd.js";const d=i.div`
   display: flex;
   gap: 8px;
   margin-top: 32px;
-`,c=i.a`
+`,g=i.a`
   cursor: pointer;
   width: 12px;
   height: 12px;
@@ -27,39 +27,39 @@ import{s as i,j as t,Q as p}from"./index-b71fd40f.js";const x=i.div`
       transition: opacity 0.2s;
     }
   }
-`,j=({exePerPage:o,totalExe:s,paginate:e})=>{const a=[];for(let r=1;r<=Math.ceil(s/o);r++)a.push(r);return t.jsx("div",{style:{marginLeft:"auto",marginRight:"auto"},children:t.jsx(x,{children:a.map(r=>t.jsx("div",{children:t.jsx(c,{href:"#",onClick:()=>e(r)})},r))})})},d=i.div`
+`,v=({exePerPage:o,totalExe:s,paginate:e})=>{const a=[];for(let r=1;r<=Math.ceil(s/o);r++)a.push(r);return t.jsx("div",{style:{marginLeft:"auto",marginRight:"auto"},children:t.jsx(d,{children:a.map(r=>t.jsx("div",{children:t.jsx(g,{href:"#",onClick:()=>e(r)})},r))})})},l=i.div`
   width: 768px;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
   margin-top: 70px;
-`,g=i.div`
+`,h=i.div`
   position: relative;
   width: 224px;
   height: 206px;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.2);
-`,l=i.img`
+`,m=i.img`
   width: 224px;
   height: 206px;
   opacity: 0.3;
   border-radius: 12px;
-`,h=i.div`
+`,u=i.div`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 18px;
-`,m=i.p`
+`,f=i.p`
   margin-bottom: 2px;
   font-size: 24px;
   font-weight: 400;
   color: rgba(239, 237, 232, 1);
   text-align: center;
-`,u=i.p`
+`,b=i.p`
   margin: 0;
   font-size: 12px;
   font-weight: 400;
   color: rgba(239, 237, 232, 0.4);
   text-align: center;
-`,b=({fig:o,nameImg:s,category:e})=>t.jsxs(g,{children:[t.jsx(l,{src:o}),t.jsxs(h,{children:[t.jsx(m,{children:s}),t.jsx(u,{children:e})]})]}),v=({arr:o})=>{const s=e=>e&&e[0].toUpperCase()+e.slice(1);return t.jsx(d,{children:o.map(({name:e,imgURL:a,_id:r,filter:n})=>t.jsx(p,{to:`/exercises/part/${n}/${e}`,children:t.jsx(b,{fig:a,nameImg:s(e),category:n})},r))})};export{v as E,j as P};
+`,j=({fig:o,nameImg:s,category:e})=>t.jsxs(h,{children:[t.jsx(m,{src:o}),t.jsxs(u,{children:[t.jsx(f,{children:s}),t.jsx(b,{children:e})]})]}),y=({arr:o})=>{const s=e=>e&&e[0].toUpperCase()+e.slice(1);return t.jsx(l,{children:o.map(({name:e,imgURL:a,_id:r,filter:n})=>{const p=n.toLowerCase().replace(/\s/g,""),c=e.toLowerCase().replace(/\s/g,"");return t.jsx(x,{to:`/exercises/${p}/${c}`,children:t.jsx(j,{fig:a,nameImg:s(e),category:n})},r)})})};export{y as E,v as P};
