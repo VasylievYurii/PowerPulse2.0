@@ -8,9 +8,37 @@ import {
   DashTitle,
   WrapDashText
 } from './DayDashboard.styled';
+import { useSelector } from 'react-redux';
+import { selectIndicators, selectMeals, selectWorkouts } from '../../redux/selectors';
 
 
 const DayDashboard = () => {
+  const { targetBmr, targetTime } = useSelector(selectIndicators);
+  const meals = useSelector(selectMeals);
+  const workouts = useSelector(selectWorkouts);
+
+  console.log('meals DashBoard', meals);
+  console.log('workouts DashBoard', workouts);
+  const dayCalories = Math.round(targetBmr);
+  const consumedCalories = Math.round(meals.reduce((total, meal) => total + meal.calories, 0));
+  const burnCalories =  Math.round(workouts.reduce((total, workout) => total + workout.burnedCalories, 0)); 
+  const totalWorkoutsTime = workouts.reduce((total, workout) => total + workout.time, 0); 
+  console.log('totalWorkoutsTime', totalWorkoutsTime);
+
+  // Кількість калорій, що залишилось нажерти від добової норми =
+  // = калорії на добу - вже зіжрані калорії + спалені калорії під час воркауту 
+  const restCalories = dayCalories - consumedCalories + burnCalories;
+  
+  // Скільки часу від денної норми залишилось потренуватись.
+  const restWorkoutsTime = targetTime - totalWorkoutsTime;
+
+  let borderColorRestCalories = 'rgba(239, 237, 232, 0.20)';
+  let borderColorRestWorkoutsTime = 'rgba(239, 237, 232, 0.20)';
+
+  if (restCalories < 0) {
+    borderColorRestCalories = 'var(--color-wrong-two)';
+    borderColorRestWorkoutsTime = 'var(--color-approved-one)';
+  };
 
   return (
     <DashSection>
@@ -22,8 +50,7 @@ const DayDashboard = () => {
               </DashIconWrapper>
               Daily calorie intake
           </DashTitle>
-          5454
-            {/* <TextSpan>{colories}</TextSpan> */}
+          {dayCalories}
           </DashIndicators>
           <DashIndicators color='var(--color-main-one)'>
             <DashTitle color='rgba(239, 237, 232, 0.80)'>
@@ -32,8 +59,7 @@ const DayDashboard = () => {
               </DashIconWrapper>
               Daily norm of sports
           </DashTitle>
-          5454
-            {/* <TextSpan>{colories}</TextSpan> */}
+          {targetTime} min
         </DashIndicators>
         <DashIndicators>
             <DashTitle>
@@ -42,8 +68,7 @@ const DayDashboard = () => {
               </DashIconWrapper>
               Сalories consumed
           </DashTitle>
-          5454
-            {/* <TextSpan>{colories}</TextSpan> */}
+          {consumedCalories}
           </DashIndicators>
           <DashIndicators>
             <DashTitle>
@@ -52,28 +77,25 @@ const DayDashboard = () => {
               </DashIconWrapper>
               Сalories burned
           </DashTitle>
-          5454
-            {/* <TextSpan>{colories}</TextSpan> */}
+          {burnCalories}
         </DashIndicators>
-        <DashIndicators>
+        <DashIndicators borderColor={borderColorRestCalories}>
             <DashTitle>
               <DashIconWrapper fill='var(--color-main-two)' stroke='var(--color-main-two)'>
                 <use href={`${sprite}#icon-bubble`} />
               </DashIconWrapper>
               The rest of the calories
           </DashTitle>
-          5454
-            {/* <TextSpan>{colories}</TextSpan> */}
+          {restCalories}
           </DashIndicators>
-          <DashIndicators>
+          <DashIndicators borderColor={borderColorRestWorkoutsTime}>
             <DashTitle>
               <DashIconWrapper fill='var(--color-main-two)' stroke='var(--color-main-two)'>
                 <use href={`${sprite}#icon-run`} />
               </DashIconWrapper>
               The rest of sports
           </DashTitle>
-          5454
-            {/* <TextSpan>{colories}</TextSpan> */}
+          {restCalories < 0 ? `+ ${restWorkoutsTime}` : restWorkoutsTime} min
           </DashIndicators>
       </DashList>
       <WrapDashText>

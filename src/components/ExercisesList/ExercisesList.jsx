@@ -1,43 +1,23 @@
-import { useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import ExercisesItem from '../ExercisesItem/ExercisesItem';
-import { useParams } from 'react-router-dom';
-import { getExercisesFilter } from '../../redux/exercises/exeOperation';
-import {
-  NameExersises,
-  GeneralWraper,
-  WrapperExercises,
-  ButtonGoBack,
-  LinkBtn,
-  IconWraperBack,
-} from './ExercisesList.styled';
-import sprite from '../../assets/sprite.svg';
 
 const ExercisesList = () => {
-  const location = useLocation();
-  const backLinkLocation = useRef(location.state?.from ?? '/exercises');
-  const dispatch = useDispatch();
-  // const [exersises, setExersises] = useState([]);
-  const { exeFilter } = useSelector((state) => state.exercises);
-  const params = useParams();
-  const current = params.id;
+  const [exersises, setExersises] = useState([]);
+  const { array } = useSelector((state) => state.exercises);
   useEffect(() => {
-    const paramsExe = {
-      filter: params.filter,
-      name: params.id,
-    };
-    if (paramsExe) {
-      dispatch(getExercisesFilter(paramsExe));
+    if (array) {
+      const exersisesPart = arraybodyPart(array, 'chest');
+      setExersises(exersisesPart);
     }
-  }, [dispatch]);
-  console.log('tut', exeFilter);
-  const ucFirst = (str) => {
-    if (!str) return str;
-    return str[0].toUpperCase() + str.slice(1);
-  };
-
+  }, [array]);
+  function arraybodyPart(arr, text) {
+    const arrayExe = arr.filter((item) => item.bodyPart === text);
+    console.log(arrayExe);
+    return arrayExe;
+  }
   return (
+
     <GeneralWraper>
       <div>
         <ButtonGoBack>
@@ -60,6 +40,7 @@ const ExercisesList = () => {
         </WrapperExercises>
       </div>
     </GeneralWraper>
+ 
   );
 };
 
