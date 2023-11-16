@@ -1,4 +1,4 @@
-import{j as n,s as i}from"./index-2bd1b3f7.js";import{n as e}from"./emotion-styled.browser.esm-ec922d62.js";const o="/PowerPulse2.0/assets/products-desktop-75c3a380.jpg",d="/PowerPulse2.0/assets/products-desktop@2x-aa965045.jpg",a=e.section`
+import{I as i,j as n,s as a}from"./index-c8b82dfd.js";import{n as o}from"./emotion-styled.browser.esm-97fd4097.js";const p="/PowerPulse2.0/assets/products-desktop-75c3a380.jpg",d="/PowerPulse2.0/assets/products-desktop@2x-aa965045.jpg",s=o.section`
   padding-top: 20px;
   padding-bottom: 20px;
   margin: 0 auto;
@@ -8,14 +8,13 @@ import{j as n,s as i}from"./index-2bd1b3f7.js";import{n as e}from"./emotion-styl
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: contain;
-    background-image: url(${o});
-
+    background-image: ${t=>t.pathname==="/products"?`url(${p})`:"none"};
     @media only screen and (min-resolution: 192dpi),
       only screen and (min-resolution: 2dppx) {
-      background-image: url(${d});
+      background-image: ${t=>t.pathname==="/products"?`url(${d})`:"none"};
     }
   }
-`,p=e.div`
+`,r=o.div`
   max-width: 375px;
   margin: 0 auto;
   width: 100%;
@@ -36,7 +35,7 @@ import{j as n,s as i}from"./index-2bd1b3f7.js";import{n as e}from"./emotion-styl
     padding-left: 96px;
     padding-right: 96px;
   }
-`;function x({children:t}){return n.jsx(a,{children:n.jsx(p,{children:t})})}const s=i.h2`
+`;function x({children:t}){const e=i();return console.log(e.pathname),n.jsx(s,{pathname:e.pathname,children:n.jsx(r,{children:t})})}const c=a.h2`
     color: var(--color-text);
     font-size: 24px;
     font-weight: 700;
@@ -47,4 +46,4 @@ import{j as n,s as i}from"./index-2bd1b3f7.js";import{n as e}from"./emotion-styl
         font-size: 32px;
         line-height: 1.38;
     }
-`,c=({children:t})=>n.jsx(s,{children:t});export{x as S,c as T};
+`,h=({children:t})=>n.jsx(c,{children:t});export{x as S,h as T};

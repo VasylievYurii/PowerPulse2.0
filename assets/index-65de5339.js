@@ -1,4 +1,4 @@
-import{s,j as e,c as g,N as f,b,r as o,I as v,u as y,J as w,a as i,O as E}from"./index-2bd1b3f7.js";import{S as k,T as S}from"./TitlePage-3c7f8967.js";import{B as T}from"./BasicModalWindow-d50dea1c.js";import"./emotion-styled.browser.esm-ec922d62.js";const I=s.h3`
+import{s,j as e,c as g,N as f,b,r as o,I as v,u as y,J as w,a as i,O as E}from"./index-c8b82dfd.js";import{S as k,T as S}from"./TitlePage-bb22a851.js";import{B as T}from"./BasicModalWindow-b78618b0.js";import"./emotion-styled.browser.esm-97fd4097.js";const I=s.h3`
   color: var(--color-text);
   font-size: 14px;
   font-style: normal;
