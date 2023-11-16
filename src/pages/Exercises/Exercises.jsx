@@ -1,7 +1,7 @@
 import { useState, useEffect, Suspense, useRef } from 'react';
 import { Outlet, useParams, Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-
+import { ButtonExerStyled } from '../../components/AddExerciseSuccess/AddExerciseSuccess.styled';
 import SectionTemplate from '../../components/SectionTemplate';
 import TitlePage from '../../components/TitlePage';
 import ChapterTemplate from '../../components/ChapterTemplate';
@@ -11,6 +11,7 @@ import { getExercises } from '../../redux/exercises/exeOperation';
 import ExercisesItem from '../../components/ExercisesItem/ExercisesItem';
 import AddExerciseSuccess from '../../components/AddExerciseSuccess/index';
 import BasicModalWindow from '../../components/BasicModalWindow';
+import { ToastContainer } from 'react-toastify';
 
 const Exercises = () => {
   const { array } = useSelector((state) => state.exercises);
@@ -56,7 +57,9 @@ const Exercises = () => {
           </li>
         </ChaptersWrapper>
         <Suspense fallback={<p>Loader</p>}>
-          <button onClick={toggleModal}>Add to diary</button>
+          <ButtonExerStyled $nomarginleft onClick={toggleModal}>
+            Add to diary
+          </ButtonExerStyled>
           {isModalOpen && (
             <BasicModalWindow onClick={toggleModal}>
               <AddExerciseSuccess onClick={toggleModal} />
@@ -64,6 +67,7 @@ const Exercises = () => {
           )}
           <Outlet />
         </Suspense>
+        <ToastContainer />
       </SectionTemplate>
     </>
   );
