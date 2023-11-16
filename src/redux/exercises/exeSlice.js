@@ -4,6 +4,7 @@ import {
   getExercisesMuscles,
   getExercisesEquipment,
   getExercisesBodyparts,
+  getExercisesFilter,
 } from './exeOperation';
 
 const InitialState = {
@@ -13,6 +14,7 @@ const InitialState = {
   muscles: [],
   bodyparts: [],
   equipment: [],
+  exeFilter: [],
 };
 
 const exeSlice = createSlice({
@@ -22,6 +24,10 @@ const exeSlice = createSlice({
     builder
       .addCase(getExercises.fulfilled, (state, action) => {
         state.array = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(getExercisesFilter.fulfilled, (state, action) => {
+        state.exeFilter = action.payload;
         state.isLoading = false;
       })
       .addCase(getExercisesMuscles.fulfilled, (state, action) => {

@@ -1,33 +1,65 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import ExercisesItem from '../ExercisesItem/ExercisesItem';
+import { useParams } from 'react-router-dom';
+import { getExercisesFilter } from '../../redux/exercises/exeOperation';
+import {
+  NameExersises,
+  GeneralWraper,
+  WrapperExercises,
+  ButtonGoBack,
+  LinkBtn,
+  IconWraperBack,
+} from './ExercisesList.styled';
+import sprite from '../../assets/sprite.svg';
 
 const ExercisesList = () => {
-  const [exersises, setExersises] = useState([]);
-  const { array } = useSelector((state) => state.exercises);
+  const location = useLocation();
+  const backLinkLocation = useRef(location.state?.from ?? '/exercises');
+  const dispatch = useDispatch();
+  // const [exersises, setExersises] = useState([]);
+  const { exeFilter } = useSelector((state) => state.exercises);
+  const params = useParams();
+  const current = params.id;
   useEffect(() => {
-    if (array) {
-      const exersisesPart = arraybodyPart(array, 'chest');
-      setExersises(exersisesPart);
+    const paramsExe = {
+      filter: params.filter,
+      name: params.id,
+    };
+    if (paramsExe) {
+      dispatch(getExercisesFilter(paramsExe));
     }
-  }, [array]);
-  function arraybodyPart(arr, text) {
-    const arrayExe = arr.filter((item) => item.bodyPart === text);
-    console.log(arrayExe);
-    return arrayExe;
-  }
+  }, [dispatch]);
+  console.log('tut', exeFilter);
+  const ucFirst = (str) => {
+    if (!str) return str;
+    return str[0].toUpperCase() + str.slice(1);
+  };
+
   return (
-    <div>
-      {exersises.map(({ bodyPart, equipment, target, _id, burnedCalories }) => (
-        <ExercisesItem
-          key={_id}
-          calories={burnedCalories}
-          target={target}
-          NameBodyPart={bodyPart}
-          equipment={equipment}
-        />
-      ))}
-    </div>
+    <GeneralWraper>
+      <div>
+        <ButtonGoBack>
+          <IconWraperBack>
+            <use href={`${sprite}#con-next`} width={24} height={24} />
+            <LinkBtn to={backLinkLocation.current}>Back</LinkBtn>
+          </IconWraperBack>
+        </ButtonGoBack>
+        <NameExersises>{ucFirst(current)}</NameExersises>
+        <WrapperExercises>
+          {exeFilter.map(({ bodyPart, name, target, _id, burnedCalories }) => (
+            <ExercisesItem
+              key={_id}
+              calories={burnedCalories}
+              target={ucFirst(target)}
+              NameBodyPart={ucFirst(bodyPart)}
+              name={ucFirst(name)}
+            />
+          ))}
+        </WrapperExercises>
+      </div>
+    </GeneralWraper>
   );
 };
 
