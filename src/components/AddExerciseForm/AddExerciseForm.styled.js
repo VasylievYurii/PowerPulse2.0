@@ -25,6 +25,10 @@ export const TimerButtonIcon {
   background-color: var(--color-back-one);
   border: 1px solid #efede833;
   border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     min-width: 694px;
@@ -38,6 +42,8 @@ width: 270px;
  border-radius: 12px;
   border: 1px solid var(--color-text);
   margin-bottom: 14px;
+  margin-top: 48px;
+  
   
    
 `;
@@ -50,6 +56,10 @@ export const Timer = styled.div`
  /* display: flex;
   flex-direction: column;
   align-items: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const TimerTitle = styled.p`
@@ -73,7 +83,7 @@ export const CountdownCircleTimer = styled.div`
 `;
 
 export const TimerButton = styled.button`
-  color: var(--color-text);
+  stroke: var(--color-text);
   background-color: var( --color-main-one);
   width: 32px;
   height: 32px;
@@ -101,7 +111,7 @@ export const Calories = styled.p`
   color: var(--color-back-two);
   font-size: 12px;
   line-height: 1.5;
-  margin-bottom: 40px;
+  margin-bottom: 40px; 
 
   /* .caloriesSpan {
     color: var( --color-main-one)
@@ -116,35 +126,36 @@ export const Calories = styled.p`
 `;
 
 export const RightContainer = styled.div`
-  max-width: 302px;
+/*   max-width: 302px;
 
   @media screen and (min-width: 768px) {
     max-width: 344px;
-    /* display: flex;
-    flex-direction: column; */
-  }
+     display: flex;
+    flex-direction: column; 
+  } */
 `;
 
 export const List = styled.ul`
-  /* display: flex;  */
-/*   flex-wrap: wrap;
+   display: flex;  
+  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 24px; 
-  margin-top: 40px;
+  /* margin-top: 40px; */
 
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
     margin-top: 0;
-  } */
-margin-bottom: 24px;
+  } 
+  
 `;
 
 export const ListItem = styled.li`
   padding: 12px 18px;
   width: 147px;
- /*  justify-content: center; */
-
-  gap: 4px; 
+ /*  justify-content: center; 
+display: flex;
+flex-direction: column;
+  gap: 4px;  */
   border-radius: 12px;
   border: 1px solid var(--color-back-two);
   margin-bottom: 8px;

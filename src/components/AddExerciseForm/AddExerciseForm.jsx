@@ -1,4 +1,6 @@
+
 import React, { useState } from 'react';
+import sprite from '../../assets/sprite.svg';
 import { useDispatch } from 'react-redux';
 /* import sprite from '../../images/svg/sprite.svg'; */
 import PropTypes from 'prop-types';
@@ -76,10 +78,15 @@ import {Container, GifWrapper, Gif, Timer, TimerTitle,CountdownCircleTimer, Time
               rotation={-1}
             >
               {({ remainingTime }) => renderTime({ remainingTime })}
-            </CountdownCircleTimer>  */}
+            </CountdownCircleTimer> 
+             <CloseBtnWrapper onClick={handleCloseClick}>
+            <use href={`${sprite}#icon-cross`} />
+          </CloseBtnWrapper>
+            
+            */}
           </TimerWrapper>
-           <TimerButton> {/* onClick={toggleIsPlaying}>
-          <use href={`${sprite}#icon-pause`} />  */}
+           <TimerButton  /* nClick={toggleIsPlaying} */>
+          <use href={`${sprite}#icon-pause`} />
           </TimerButton> 
           <Calories>
             Burned calories: {/* <span className="caloriesSpan">{calculatedCalories}</span> */}
