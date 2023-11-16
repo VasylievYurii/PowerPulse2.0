@@ -14,11 +14,11 @@ const options = {
   theme: 'dark',
 };
 
-const toastError = (text) => {
+export const toastError = (text) => {
   toast.error(text, options);
 };
 
-const toastSuccess = (text) => {
+export const toastSuccess = (text) => {
   toast.success(text, options);
 };
 

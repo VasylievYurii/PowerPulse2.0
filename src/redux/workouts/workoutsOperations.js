@@ -2,25 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { instance } from '../auth/operations';
-
-const options = {
-  position: 'top-right',
-  autoClose: 4000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  theme: 'dark',
-};
-
-const toastError = (text) => {
-  toast.error(text, options);
-};
-
-const toastSuccess = (text) => {
-  toast.success(text, options);
-};
+import { toastError, toastSuccess } from '../meals/mealsOperations';
 
 const getWorkouts = async (diaryData, thunkAPI) => {
   try {
