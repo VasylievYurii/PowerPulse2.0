@@ -7,6 +7,7 @@ import {
   ModalChildrenWrapper,
   BackdropModal,
 } from './BasicModalWindow.styled';
+import AddExerciseForm from '../../components/AddExerciseForm'
 
 const BasicModalWindow = ({ onClick, children }) => {
   const handleKeyDown = (e) => {
@@ -34,6 +35,7 @@ const BasicModalWindow = ({ onClick, children }) => {
   });
 
   return (
+    
     <BasicModalPortal>
       <BackdropModal onClick={handleBackDropClick}>
         <ModalContainer>

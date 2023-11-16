@@ -13,6 +13,9 @@ import {
   IconWrapperStart,
 } from './ExercisesItem.styled.js';
 import sprite from '../../assets/sprite.svg';
+
+
+
 const ExercisesItem = ({ calories, target, NameBodyPart, equipment }) => {
   return (
     <WraperExercisesItem>

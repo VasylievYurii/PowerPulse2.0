@@ -27,7 +27,7 @@ import {Container, GifWrapper, Gif, Timer, TimerTitle,CountdownCircleTimer, Time
 
   const calculatedCalories = Math.floor((currentTime / 60) * (burnedCalories / 3)); */
 
-  const handleAddToDiary = () => {
+  const handleAddToDiary = ({/* onClick */}) => {
     if (!calculatedCalories) {
       return;
     }
@@ -52,17 +52,17 @@ import {Container, GifWrapper, Gif, Timer, TimerTitle,CountdownCircleTimer, Time
     const formattedMinutes = String(minutes).padStart(2, '0');
     const formattedSeconds = String(seconds).padStart(2, '0');
     return `${minutes}:${seconds}`
-       
-  };
-     onClick(); 
+     onClick();   
+  
+    */
     // closeModal();
-   */
+   
  
   return (
     <Container>
       <div>
         <GifWrapper>
-          <Gif /* src={gifUrl} alt={name} */ /> 
+          <Gif  /* src="../../assets/thumb_up_color.png" alt="Thumb up" */  /> 
         </GifWrapper>
         <Timer>
           <TimerTitle>Time</TimerTitle>
@@ -86,10 +86,10 @@ import {Container, GifWrapper, Gif, Timer, TimerTitle,CountdownCircleTimer, Time
             */}
           </TimerWrapper>
            <TimerButton  /* nClick={toggleIsPlaying} */>
-          <use href={`${sprite}#icon-pause`} />
+         {/*  <use href={`${sprite}#icon-pause`} /> */}
           </TimerButton> 
           <Calories>
-            Burned calories: {/* <span className="caloriesSpan">{calculatedCalories}</span> */}
+            Burned calories: {/* <span>150</span> */}
           </Calories>
         </Timer>
       </div>
