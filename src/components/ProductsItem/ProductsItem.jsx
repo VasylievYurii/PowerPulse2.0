@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import sprite from '../../assets/sprite.svg';
 import BasicModalWindow from '../BasicModalWindow/BasicModalWindow';
+import AddProductForm from '../AddProductForm/AddProductForm';
 import {
   ProductItemContainer,
   TopLineWrapper,
@@ -22,7 +23,7 @@ const ProductsItem = ({ title, calories, category, weight, recommended }) => {
 
   return (
     <ProductItemContainer>
-      {showModal && <BasicModalWindow onClick={toggleModal}></BasicModalWindow>}
+      {showModal && <BasicModalWindow onClick={toggleModal} ><AddProductForm calories={calories} onClick={toggleModal} /></BasicModalWindow>}
       <section>
         <TopLineWrapper>
           <LeftTopLabelWrapper>
