@@ -55,11 +55,8 @@ const UserCard = () => {
     e.preventDefault();
     const file = e.target.files[0];
     fileReader.readAsDataURL(file);
-
     setLoading(true);
-
     dispatch(updateAvatar(file));
-
     setLoading(false);
   };
 
@@ -90,6 +87,7 @@ const UserCard = () => {
           </IconPluse>
         </ButtonUser>
       </WrapperUserDiv>
+
       <WrapperName>
         <TextNameUser>{user}</TextNameUser>
         <TextUser>User</TextUser>

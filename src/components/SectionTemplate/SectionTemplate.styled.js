@@ -12,11 +12,12 @@ export const Section = styled.section`
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: contain;
-    background-image: url(${productsDesktop});
-
+    background-image: ${(props) =>
+      props.pathname === '/products' ? `url(${productsDesktop})` : 'none'};
     @media only screen and (min-resolution: 192dpi),
       only screen and (min-resolution: 2dppx) {
-      background-image: url(${productsDesktop2x});
+      background-image: ${(props) =>
+        props.pathname === '/products' ? `url(${productsDesktop2x})` : 'none'};
     }
   }
 `;
