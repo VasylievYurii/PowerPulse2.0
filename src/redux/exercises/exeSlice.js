@@ -14,7 +14,7 @@ const InitialState = {
   bodyparts: [],
   equipment: [],
 };
-
+console.log('555');
 const exeSlice = createSlice({
   name: 'exercises',
   initialState: InitialState,
