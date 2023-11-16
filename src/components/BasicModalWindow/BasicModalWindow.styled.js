@@ -14,6 +14,7 @@ export const ModalContainer = styled.div`
 `;
 export const CloseBtnWrapper = styled.svg`
   position: absolute;
+  cursor: pointer;
   width: 22px;
   height: 22px;
   stroke: var(--color-text);

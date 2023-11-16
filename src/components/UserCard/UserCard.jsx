@@ -55,10 +55,14 @@ const UserCard = () => {
     e.preventDefault();
     const file = e.target.files[0];
     fileReader.readAsDataURL(file);
-
     setLoading(true);
-
-    dispatch(updateAvatar(file));
+    try {
+      dispatch(updateAvatar(file));
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        setImageURL(null);
+      }
+    }
 
     setLoading(false);
   };
@@ -77,6 +81,10 @@ const UserCard = () => {
             <Img
               src={`https://powerpulse-t5-backend.onrender.com/${imageURL}`}
               sizes="90px"
+              onError={() => {
+                setImageURL(null);
+                setLoading(false);
+              }}
             />
           ) : (
             <IconWrapperUser>
@@ -90,6 +98,7 @@ const UserCard = () => {
           </IconPluse>
         </ButtonUser>
       </WrapperUserDiv>
+
       <WrapperName>
         <TextNameUser>{user}</TextNameUser>
         <TextUser>User</TextUser>

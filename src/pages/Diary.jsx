@@ -1,9 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { format } from 'date-fns';import TitlePage from '../components/TitlePage';
+import { format } from 'date-fns';
+import TitlePage from '../components/TitlePage';
 import DiaryCalendar from '../components/DiaryCalendar';
 import DayProducts from '../components/DayProducts';
 import DayExercises from '../components/DayExercises';
+import DayDashboard from '../components/DayDashboard';
 import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
 import { getDiaryWorkoutThunk } from '../redux/workouts/workoutsOperations';
 import { getDiaryMealsThunk } from '../redux/meals/mealsOperations';
@@ -17,14 +19,15 @@ const Diary = () => {
   );
 
   const handleDateChange = (date) => {
-    setSelectedDate(date);
+    const newDate = date.toISOString();
+    setSelectedDate(newDate);
   };
 
   useEffect(() => {
     dispatch(getDiaryMealsThunk(selectedDate));
   }, [selectedDate]);
 
-    useEffect(() => {
+  useEffect(() => {
     dispatch(getDiaryWorkoutThunk(selectedDate));
   }, [selectedDate]);
 
@@ -34,6 +37,7 @@ const Diary = () => {
         <TitlePage>Diary</TitlePage>
         <DiaryCalendar onDateChange={handleDateChange} />
       </DiaryWrapTitle>
+      <DayDashboard />
       <DayProducts />
       <DayExercises />
     </SectionTemplate>

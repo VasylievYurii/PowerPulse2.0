@@ -31,6 +31,7 @@ const SignIn = () => {
             Don&apos;t have an account?{' '}
             <NavLinkStyled to="/signup"> Sign Up</NavLinkStyled>
           </TextRedirectStyled>
+
           <ToastContainer />
         </SecondWrapperTemplate>
       </SectionTemplateLeft>

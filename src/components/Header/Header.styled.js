@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { LogoutIcon } from '../LogOutBtn/LogOutBtn.styled';
+import { NavLink } from 'react-router-dom';
 
 export const HeaderContainer = styled.div`
   border-bottom: 1px solid var(--color-text);
@@ -27,7 +28,7 @@ export const Navigation = styled.nav`
   align-items: center;
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(NavLink)`
   font-size: 16px;
   line-height: 24px;
   padding: 10px 27px;
@@ -39,6 +40,9 @@ export const StyledLink = styled(Link)`
 
   &:hover,
   &:focus {
+    background-color: var(--color-main-one);
+  }
+  &.active {
     background-color: var(--color-main-one);
   }
 `;

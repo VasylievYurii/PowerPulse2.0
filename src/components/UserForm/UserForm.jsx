@@ -29,21 +29,24 @@ const UserForm = () => {
   const { profile } = useSelector((state) => state.profile);
 
   useEffect(() => {
+    dispatch(getUserProfile());
+  }, [dispatch]);
+
+  useEffect(() => {
     if (userData) {
-      dispatch(getUserProfile());
       initialValues.name = userData.name;
       initialValues.email = userData.email;
-      if (profile) {
-        initialValues.height = profile.height;
-        initialValues.currentWeight = profile.currentWeight;
-        initialValues.desiredWeight = profile.desiredWeight;
-        initialValues.blood = profile.blood;
-        initialValues.sex = profile.sex;
-        initialValues.levelActivity = profile.levelActivity;
-        initialValues.birthday = profile.birthday;
-      }
     }
-  }, [userData]);
+    if (profile) {
+      initialValues.height = profile.height;
+      initialValues.currentWeight = profile.currentWeight;
+      initialValues.desiredWeight = profile.desiredWeight;
+      initialValues.blood = profile.blood;
+      initialValues.sex = profile.sex;
+      initialValues.levelActivity = profile.levelActivity;
+      initialValues.birthday = profile.birthday;
+    }
+  }, [userData, profile]);
 
   const handleSubmit = (values) => {
     const { name, email, ...rest } = values;

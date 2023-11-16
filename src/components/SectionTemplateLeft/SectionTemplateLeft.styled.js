@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const LeftSectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 50%;
+  height: 40%;
   justify-content: space-between;
   width: 100%;
 

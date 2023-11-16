@@ -3,6 +3,8 @@ export const selectUserData = (state) => state.auth.userData;
 export const selectUserIsLoading = (state) => state.auth.isLoading;
 export const selectUserError = (state) => state.auth.error;
 export const selectUserToken = (state) => state.auth.token;
+export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
+export const selectIsRefreshing = (state) => state.auth.isRefreshing;
 
 // =========== W O R K O U T ==================
 
@@ -18,10 +20,10 @@ export const selectMealsError = (state) => state.meals.error;
 
 // =========== P R O D U C T S ==================
 
-export const selectProduct = (state) => state.filters.allProducts;
-export const selectCategory = (state) => state.filters.categories;
-export const getIsLoading = (state) => state.filters.isLoading;
-export const getError = (state) => state.filters.error;
+export const selectProducts = (state) => state.products.products;
+export const selectCategoriesProducts = (state) => state.products.categories;
+export const selectProductsIsLoading = (state) => state.products.isLoading;
+export const selectProductsError = (state) => state.products.error;
 
 // =========== U S E R  P R O F I L E ============
 

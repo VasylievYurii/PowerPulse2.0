@@ -13,7 +13,10 @@ export const SectionNoAuth = styled.section`
   background-position: right bottom;
   background-size: contain;
   background-image: url(${welcomeMobile});
-
+  height: 100vh;
+  @media (orientation: portrait) {
+    background-size: 80%;
+  }
   @media only screen and (min-resolution: 192dpi),
     only screen and (min-resolution: 2dppx) {
     background-image: url(${welcomeMobile2x});
@@ -49,7 +52,9 @@ export const ContainerNoAuth = styled.div`
   padding-right: 20px;
   padding-top: 24px;
   padding-bottom: 40px;
-
+  @media screen and (orientation: portrait) {
+    height: 100vh;
+  }
   @media screen and (min-width: 768px) {
     max-width: 768px;
     padding-left: 32px;
