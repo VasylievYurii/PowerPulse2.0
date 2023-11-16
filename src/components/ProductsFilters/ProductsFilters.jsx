@@ -12,8 +12,6 @@ import {
   getProducts,
 } from '../../redux/products/productsOperations';
 
-const animatedComponents = makeAnimated();
-
 import {
   ProductsFiltersList,
   LabelEl,
@@ -24,6 +22,9 @@ import {
   SearchSvgClose,
   SelectContainer,
 } from './ProductsFilters.styled';
+import debounce from 'lodash.debounce';
+
+const animatedComponents = makeAnimated();
 
 const options = [
   { value: 'all', label: 'All' },
@@ -32,30 +33,35 @@ const options = [
 ];
 
 const ProductsFilters = () => {
+  // const limit = 16;
   // const [page, setPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [query, setQuery] = useState('');
+  console.log('1 state', query);
   const [category, setCategory] = useState('');
+  // console.log('category========', category);
   const [recommended, setRecommended] = useState(options[0]);
-
-  const limit = 16;
+  // console.log('recommended=====', recommended);
 
   // const product = useSelector(selectProduct);
   // console.log('product', product);
 
   const dispatch = useDispatch();
 
+  // const applyFilters = () => {
+  //   dispatch(getProducts(recommended, category, query, page, limit));
+  // };
+
+  const debouncedDispatch = debounce((query) => {
+    dispatch(getProducts(query));
+  }, 300);
+
   useEffect(() => {
-    dispatch(
-      getProducts({
-        recommended,
-        category,
-        searchQuery,
-        // page,
-        limit,
-      }),
-    );
-  }, [limit, dispatch, recommended, category, searchQuery]);
-  // page;
+    debouncedDispatch(query);
+
+    // очищення затриманої функції при розмонтажі компонента
+    return () => debouncedDispatch.cancel();
+  }, [query, debouncedDispatch, dispatch]);
+
   useEffect(() => {
     dispatch(getProductsCategories());
   }, [dispatch]);
@@ -67,46 +73,56 @@ const ProductsFilters = () => {
   };
 
   const categories = useSelector(selectCategoriesProducts);
-
   // console.log('categories State', categories);
 
   const categoriesList = categories.map(({ _id, name }) => ({
     value: _id,
     label: capitalizeString(name),
   }));
-
   // console.log('categoriesList===>', categoriesList);
 
   // Відповідає за оновлення стану
   const handleChange = (e) => {
     const { value } = e.target;
-    setSearchQuery(value);
+    setQuery(value);
+    // applyFilters();
+
+    console.log('setQuery.value', query);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchValue = e.target.elements[0].value;
-    // console.log(e);
-    // console.log(searchValue);
-    setSearchQuery(searchValue);
-    // Викликаємо dispatch для асинхронної операції відправлення запиту на сервер)
-    dispatch(getProducts({ searchQuery: searchValue, otherParams: '...' }));
+    setQuery(searchValue);
+    // console.log(query);
+
+    // applyFilters();
   };
 
   const resetForm = () => {
-    setSearchQuery('');
+    setQuery('');
+    // applyFilters();
   };
 
-  const handleCategoriesChange = (selectedCategory) => {
-    setCategory(selectedCategory.value);
+  const handleCategoriesChange = (e) => {
+    // console.log('e', e);
+    const { value } = e;
+
+    setCategory(value);
+    console.log('category', value);
+    // console.log(category);
+
+    // applyFilters();
   };
-  // console.log('setCategory', category);
 
   const handleRecomendedChange = (e) => {
-    // console.log(e);
+    // console.log('e', e);
     const { value } = e;
-    // console.log(value);
+
     setRecommended(value);
+    // console.log('recommended', recommended);
+
+    // applyFilters();
   };
 
   const isMobile = useMediaQuery({ minWidth: 375 });
@@ -153,10 +169,10 @@ const ProductsFilters = () => {
                 type="text"
                 name="productsSearch"
                 placeholder="Search"
-                value={searchQuery}
+                value={query}
                 onChange={handleChange}
               />
-              {searchQuery && (
+              {query && (
                 <SearchBtnClose type="button" onClick={resetForm}>
                   <SearchSvgClose>
                     <use href={sprite + '#icon-cross'}></use>
@@ -180,8 +196,6 @@ const ProductsFilters = () => {
               options={categoriesList}
               placeholder="Categories"
               components={animatedComponents}
-              className="react-select-container"
-              classNamePrefix="react-select"
             />
           </SelectContainer>
         </li>
@@ -193,8 +207,6 @@ const ProductsFilters = () => {
               onChange={handleRecomendedChange}
               options={options}
               components={animatedComponents}
-              className="react-select-container"
-              classNamePrefix="react-select"
             />
           </SelectContainer>
         </li>
