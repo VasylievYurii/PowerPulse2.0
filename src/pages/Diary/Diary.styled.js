@@ -5,10 +5,22 @@ export const DiaryWrapTitle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 40px; */
 
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;
+  }
+`;
+
+export const DiaryWrapActivity = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 64px;
+
+  @media screen and (min-width: 768px) {
+    gap: 32px;
   }
 `;
 
@@ -19,7 +31,7 @@ export const DiarySections = styled.section`
   min-height: 335px;
   max-height: ${(props) => props.height || '826px' } ;
   padding: 16px 8px 16px 16px;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   gap: 22px;
   border-radius: 12px;
   border: 1px solid rgba(239, 237, 232, 0.20);
@@ -27,13 +39,13 @@ export const DiarySections = styled.section`
   color: var(--color-text);
 
   @media screen and (min-width: 768px) {
+    min-height: 236px;
     height: 236px;
     gap: 16px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 826px;
-    height: 236px;
   }
 `;
 

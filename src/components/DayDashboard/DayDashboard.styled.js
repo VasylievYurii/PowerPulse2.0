@@ -8,7 +8,7 @@ export const DashSection = styled.section`
   margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
-    gap: 16px;
+    gap: 32px;
   }
 `;
 
@@ -19,6 +19,9 @@ export const DashList = styled.ul`
   flex-wrap: wrap;
   
   @media screen and (min-width: 768px) {
+    width: 593px;
+    height: 250px;
+    flex-direction: column;
     gap: 16px;
   }
 `;
@@ -35,40 +38,46 @@ export const DashIndicators = styled.li`
     font-weight: 700;
     line-height: 1.11;
     border-radius: 12px;
-    border: ${(props) => `1px solid ${props.borderColor}` || '1px solid rgba(239, 237, 232, 0.20)' };
+    border: ${(props) => props.borderColor ? `1px solid ${props.borderColor}` : '1px solid rgba(239, 237, 232, 0.20)'};
     background: ${(props) => props.color || 'rgba(239, 237, 232, 0.05)' };
 
   @media screen and (min-width: 768px) {
-    width: 214px;
-    height: 108px;
+    width: 187px;
+    height: 116px;
+    padding: 18px;
+    font-size: 24px;
+    line-height: 1.33;
   }
 `;
 
 export const DashTitle = styled.h3`
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  color: ${(props) => props.color || 'rgba(239, 237, 232, 0.40)' };
-font-weight: 400;
-line-height: 1.33;
-font-size: 12px;
-font-style: normal;
-margin: 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: ${(props) => props.color || 'rgba(239, 237, 232, 0.40)' };
+    font-weight: 400;
+    line-height: 1.33;
+    font-size: 12px;
+    font-style: normal;
+    margin: 0;
+
+    @media screen and (min-width: 768px) {
+        line-height: 1.5;
+    }
 `;
 
 export const WrapDashText = styled.div`
-  display: flex;
-  gap: 8px;
-  color: rgba(239, 237, 232, 0.30);
-font-size: 14px;
-line-height: 1.28;
-  
-  @media screen and (min-width: 768px) {
-    width: 420px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 439px;
-  }
+    display: flex;
+    gap: 8px;
+    color: rgba(239, 237, 232, 0.30);
+    font-size: 14px;
+    line-height: 1.28;
+    
+    @media screen and (min-width: 768px) {
+        width: 593px;
+        font-size: 16px;
+        line-height: 1.5;
+    }
 `;
 
 export const DashIconWrapper = styled.svg`
