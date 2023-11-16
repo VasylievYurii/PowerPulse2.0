@@ -20,6 +20,7 @@ import DayExercisesItem from '../DayExercisesItem';
 
 const DayExercises = () => {
   const workouts = useSelector(selectWorkouts);
+  console.log(workouts);
   const [points, setPoints] = useState(window.innerWidth);
 
   const handleResize = () => setPoints(window.innerWidth);

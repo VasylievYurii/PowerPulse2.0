@@ -19,6 +19,7 @@ import {
 const DayProducts = () => {
   const meals = useSelector(selectMeals);
   const [points, setPoints] = useState(window.innerWidth);
+  console.log('meals ->', meals);
 
   const handleResize = () => setPoints(window.innerWidth);
   

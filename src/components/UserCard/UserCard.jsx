@@ -28,16 +28,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logOutUser, updateAvatar } from '../../redux/auth/operations';
 import Loader from '../Loader';
 import { Link } from 'react-router-dom';
+import { selectIndicators } from '../../redux/selectors';
+import { getIndicatorsThunk } from '../../redux/userIndicators/userIndicOperations';
 
 const UserCard = () => {
   const [imageURL, setImageURL] = useState();
-  const [colories, setColories] = useState('0');
-  const [physical, setPhysical] = useState('0');
+  // const [colories, setColories] = useState('0');
+  // const [physical, setPhysical] = useState('0');
   const [user, setUser] = useState('Hello user!');
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
+  const { targetBmr, targetTime } = useSelector(selectIndicators);
+  console.log('colories', targetBmr);
+  console.log('physical', targetTime);
 
   useEffect(() => {
     if (userData) {
@@ -111,7 +116,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily calorie intake</p>
           </WrapperText>
-          <TextSpan>{colories}</TextSpan>
+          <TextSpan>{Math.round(targetBmr)}</TextSpan>
         </WrapperIndicators>
         <WrapperIndicators>
           <WrapperText>
@@ -120,7 +125,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily physical activity</p>
           </WrapperText>
-          <TextSpan>{physical} min</TextSpan>
+          <TextSpan>{targetTime} min</TextSpan>
         </WrapperIndicators>
       </WrapperTwoIndicators>
       <WrapperExclamation>
