@@ -11,11 +11,11 @@ import { getExercises } from '../../redux/exercises/exeOperation';
 import ExercisesItem from '../../components/ExercisesItem/ExercisesItem';
 import AddExerciseSuccess from '../../components/AddExerciseSuccess/index';
 import BasicModalWindow from '../../components/BasicModalWindow';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 
 const Exercises = () => {
   const { array } = useSelector((state) => state.exercises);
-  const [showModal, setShowModal] = useState(false);
+
   const location = useLocation();
   const dispatch = useDispatch();
   const backLinkHref = useRef(location.state?.from ?? '/');
@@ -67,7 +67,7 @@ const Exercises = () => {
           )}
           <Outlet />
         </Suspense>
-        <ToastContainer />
+        {/* <ToastContainer /> */}
       </SectionTemplate>
     </>
   );

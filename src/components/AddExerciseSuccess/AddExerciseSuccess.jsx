@@ -9,7 +9,7 @@ import {
   ImgThumbUp,
 } from './AddExerciseSuccess.styled';
 import sprite from '../../assets/sprite.svg';
-import image from '../../assets/thumb_up.png';
+import imageThumbUp from '../../assets/thumb_up.png';
 
 const AddExerciseSuccess = ({ onClick }) => {
   const handleCloseClick = () => {
@@ -18,7 +18,7 @@ const AddExerciseSuccess = ({ onClick }) => {
 
   return (
     <ContainerExerStyled>
-      <ImgThumbUp src={image} alt="Thumb up" />
+      <ImgThumbUp src={imageThumbUp} alt="Thumb up" />
       <TitleModalStyled>Well done</TitleModalStyled>
       <WrapTextExerStyled>
         <TextExerStyled>
@@ -34,7 +34,7 @@ const AddExerciseSuccess = ({ onClick }) => {
       <NavLinkExStyled to="/diary">
         To the diary
         <SvgExerArrow>
-          <use href={`${sprite}#icon-arrow`} width={16} height={16} />
+          <use href={`${sprite}#icon-arrow`} />
         </SvgExerArrow>
       </NavLinkExStyled>
     </ContainerExerStyled>
