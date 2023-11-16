@@ -102,26 +102,11 @@ function App() {
               </Suspense>
             }
           >
-            <Route path="bodyparts" element={<BodyParts />}>
-              {/* <Route path="/part/:id">
-              <ExercisesList />
-            </Route> */}
-            </Route>
-            <Route path="muscles" element={<Muscles />}>
-              {/* <Route path="/part/:id">
-              <ExercisesList />
-            </Route> */}
-            </Route>
-            <Route path="equipment" element={<Equipment />}>
-              {/* <Route path="/part/:id">
-              <ExercisesList />
-            </Route> */}
-            </Route>
+            <Route path="bodyparts" element={<BodyParts />}></Route>
+            <Route path="muscles" element={<Muscles />}></Route>
+            <Route path="equipment" element={<Equipment />}></Route>
           </Route>
-          <Route
-            path="/exercises/part/:filter/:id"
-            element={<ExercisesList />}
-          />
+          <Route path="/exercises/:filter/:id" element={<ExercisesList />} />
         </Route>
 
         <Route path="*" element={<ErrorPage />} />

@@ -9,15 +9,23 @@ const ExercisesSubcategoriesList = ({ arr }) => {
   };
   return (
     <WrapperStyled>
-      {arr.map(({ name, imgURL, _id, filter }) => (
-        <NavLink to={`/exercises/part/${filter}/${name}`} key={_id}>
-          <ExercisesSubcategoriesItem
-            fig={imgURL}
-            nameImg={ucFirst(name)}
-            category={filter}
-          />
-        </NavLink>
-      ))}
+      {arr.map(({ name, imgURL, _id, filter }) => {
+        const formattedFilter = filter.toLowerCase().replace(/\s/g, '');
+        const formattedName = name.toLowerCase().replace(/\s/g, '');
+
+        return (
+          <NavLink
+            to={`/exercises/${formattedFilter}/${formattedName}`}
+            key={_id}
+          >
+            <ExercisesSubcategoriesItem
+              fig={imgURL}
+              nameImg={ucFirst(name)}
+              category={filter}
+            />
+          </NavLink>
+        );
+      })}
     </WrapperStyled>
   );
 };
