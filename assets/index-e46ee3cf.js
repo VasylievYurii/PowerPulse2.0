@@ -1,4 +1,4 @@
-import{s,j as e,P as m,c as g,b,Q as v,u as y,r as o,R as w,a as k,S as E}from"./index-ff2fe944.js";import{S,T}from"./TitlePage-5408a01e.js";import{B as z}from"./BasicModalWindow-5eba2f00.js";const I=s.h3`
+import{s,j as e,Q as m,c as g,b,R as v,u as y,r as o,S as w,a as k,T as E}from"./index-22ed33f1.js";import{S,T}from"./TitlePage-1a513025.js";import{B as z}from"./BasicModalWindow-217779de.js";const I=s.h3`
   color: inherit;
   font-size: 14px;
   font-style: normal;
@@ -65,7 +65,7 @@ import{s,j as e,P as m,c as g,b,Q as v,u as y,r as o,R as w,a as k,S as E}from".
   height: 141px;
   border: 1px solid rgba(239, 237, 232, 0.2);
   border-radius: 12px;
-`,P=s.svg`
+`,R=s.svg`
   width: 24px;
   height: 24px;
   fill: rgba(239, 237, 232, 1);
@@ -74,17 +74,17 @@ import{s,j as e,P as m,c as g,b,Q as v,u as y,r as o,R as w,a as k,S as E}from".
   background: rgba(239, 160, 130, 1);
   padding-top: 3px;
   padding-left: 2px;
-`,R=s.div`
-  display: flex;
-  gap: 16px;
 `,$=s.div`
   display: flex;
+  gap: 16px;
+`,A=s.div`
+  display: flex;
   gap: 8px;
-`,A=s.svg`
+`,P=s.svg`
   padding-top: 3px;
   width: 20px;
   height: 20px;
-`,U=({calories:r,target:t,NameBodyPart:i,equipment:n})=>e.jsxs(O,{children:[e.jsxs(L,{children:[e.jsx("p",{children:"WORKOUT"}),e.jsxs($,{children:[e.jsx(M,{children:"Start"}),e.jsx(A,{children:e.jsx("use",{href:`${g}#icon-arrow`,height:24,width:24})})]})]}),e.jsxs(R,{children:[e.jsx(P,{children:e.jsx("use",{href:`${g}#icon-run`,height:17,width:17})}),e.jsx(N,{children:n})]}),e.jsxs(B,{children:[e.jsxs(d,{children:[e.jsx(p,{children:"Burned calories:"}),e.jsx(h,{children:r})]}),e.jsxs(d,{children:[e.jsx(p,{children:"Body part:"}),e.jsx(h,{children:i})]}),e.jsxs(d,{children:[e.jsx(p,{children:"Target:"}),e.jsx(h,{children:t})]})]})]}),q=s.div`
+`,U=({calories:r,target:t,NameBodyPart:i,equipment:n})=>e.jsxs(O,{children:[e.jsxs(L,{children:[e.jsx("p",{children:"WORKOUT"}),e.jsxs(A,{children:[e.jsx(M,{children:"Start"}),e.jsx(P,{children:e.jsx("use",{href:`${g}#icon-arrow`,height:24,width:24})})]})]}),e.jsxs($,{children:[e.jsx(R,{children:e.jsx("use",{href:`${g}#icon-run`,height:17,width:17})}),e.jsx(N,{children:n})]}),e.jsxs(B,{children:[e.jsxs(d,{children:[e.jsx(p,{children:"Burned calories:"}),e.jsx(h,{children:r})]}),e.jsxs(d,{children:[e.jsx(p,{children:"Body part:"}),e.jsx(h,{children:i})]}),e.jsxs(d,{children:[e.jsx(p,{children:"Target:"}),e.jsx(h,{children:t})]})]})]}),q=s.div`
   padding-top: 48px;
   padding-bottom: 48px;
 `,G=s.h1`
