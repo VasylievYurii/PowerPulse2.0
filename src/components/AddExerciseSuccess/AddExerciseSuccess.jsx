@@ -5,11 +5,13 @@ import {
   TextExerStyled,
   WrapTextExerStyled,
   ContainerExerStyled,
-  SvgExerArrow,
+  SvgEferArrow,
   ImgThumbUp,
 } from './AddExerciseSuccess.styled';
 import sprite from '../../assets/sprite.svg';
+
 import imageThumbUp from '../../assets/thumb_up.png';
+
 
 const AddExerciseSuccess = ({ onClick }) => {
   const handleCloseClick = () => {
@@ -18,7 +20,9 @@ const AddExerciseSuccess = ({ onClick }) => {
 
   return (
     <ContainerExerStyled>
+
       <ImgThumbUp src={imageThumbUp} alt="Thumb up" />
+
       <TitleModalStyled>Well done</TitleModalStyled>
       <WrapTextExerStyled>
         <TextExerStyled>

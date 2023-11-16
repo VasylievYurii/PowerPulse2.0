@@ -5,12 +5,16 @@ export const ModalContainer = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 10px;
+  padding: 14px;
   min-width: 335px;
   min-height: 384px;
   background-color: var(--color-back-one);
   border: 1px solid #efede833;
   border-radius: 12px;
+
+  @media screen and (min-width: 768px) {
+    padding: 16px;
+  }
 `;
 export const CloseBtnWrapper = styled.svg`
   position: absolute;
