@@ -1,4 +1,4 @@
-import{s as n,j as o,L as i,a as e}from"./index-14707b59.js";import{S as t}from"./SectionTemplateNoAuth-894268ed.js";import{S as s,a,W as p}from"./WelcomeStats-23e8998b.js";const d=n.h1`
+import{s as n,j as o,L as r,a as e}from"./index-ef62d420.js";import{S as t,a as s,b as a,W as p}from"./WelcomeStats-a499ccca.js";const d=n.h1`
   /* width: 335px; */
   /* margin-bottom: 40px; */
   font-size: 38px;
@@ -21,7 +21,7 @@ import{s as n,j as o,L as i,a as e}from"./index-14707b59.js";import{S as t}from"
   @media screen and (min-width: 768px) {
     gap: 20px;
   }
-`,r=n.button`
+`,i=n.button`
   display: block;
   min-width: 136px;
   padding: 12px 40px;
@@ -37,7 +37,7 @@ import{s as n,j as o,L as i,a as e}from"./index-14707b59.js";import{S as t}from"
     padding: 16px 60px;
     font-size: 20px;
   }
-`,x=n(r)`
+`,x=n(i)`
   background-color: var(--color-main-one);
   border: 1px solid var(--color-main-one);
 
@@ -46,7 +46,7 @@ import{s as n,j as o,L as i,a as e}from"./index-14707b59.js";import{S as t}from"
     background-color: var(--color-main-two);
     border: 1px solid var(--color-main-two);
   }
-`,l=n(r)`
+`,l=n(i)`
   background-color: transparent;
   border: 1px solid rgba(239, 237, 232, 0.3);
 
@@ -54,4 +54,4 @@ import{s as n,j as o,L as i,a as e}from"./index-14707b59.js";import{S as t}from"
   &:focus {
     border: 1px solid var(--color-main-one);
   }
-`,u=()=>o.jsxs(t,{children:[o.jsxs(s,{children:[o.jsx(i,{}),o.jsxs(a,{children:[o.jsx(d,{children:"Transforming your body shape with Power Pulse"}),o.jsxs(c,{children:[o.jsx(e,{to:"/signup",children:o.jsx(x,{children:"Sign Up"})}),o.jsx(e,{to:"/signin",children:o.jsx(l,{children:"Sign In"})})]})]})]}),o.jsx(p,{})]});export{u as default};
+`,g=()=>o.jsxs(t,{children:[o.jsxs(s,{children:[o.jsx(r,{}),o.jsxs(a,{children:[o.jsx(d,{children:"Transforming your body shape with Power Pulse"}),o.jsxs(c,{children:[o.jsx(e,{to:"/signup",children:o.jsx(x,{children:"Sign Up"})}),o.jsx(e,{to:"/signin",children:o.jsx(l,{children:"Sign In"})})]})]})]}),o.jsx(p,{})]});export{g as default};
