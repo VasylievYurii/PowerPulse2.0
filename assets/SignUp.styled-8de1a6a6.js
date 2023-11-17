@@ -1,4 +1,4 @@
-import{s as o,Q as i}from"./index-b8198c9e.js";import{F as t}from"./index.esm-bd09720a.js";const a=o(t)`
+import{s as o,Q as e}from"./index-13f107bf.js";import{F as t}from"./index.esm-578e27d8.js";const p=o(t)`
   font-size: 14px;
   line-height: 18px;
   max-width: 335px;
@@ -13,7 +13,7 @@ import{s as o,Q as i}from"./index-b8198c9e.js";import{F as t}from"./index.esm-bd
   color: var(--color-text);
   background-color: transparent;
   transition: border 0.3s var(--timing-function);
-  /* border-color: ${r=>r.$border_color}; */
+  /* border-color: ${i=>i.$border_color}; */
   &:invalid {
     border: 2px solid var(--color-wrong-one);
   }
@@ -34,13 +34,13 @@ import{s as o,Q as i}from"./index-b8198c9e.js";import{F as t}from"./index.esm-bd
     max-width: 364px;
     height: 52px;
   }
-`,p=o.div`
+`,d=o.div`
   color: var(--color-wrong-one);
   margin-top: 4px;
   /* margin-left: 4px; */
   line-height: 1.5;
   letter-spacing: 0.12px;
-`,d=o.div`
+`,l=o.div`
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -48,7 +48,7 @@ import{s as o,Q as i}from"./index-b8198c9e.js";import{F as t}from"./index.esm-bd
   @media screen and (min-width: 768px) {
     gap: 20px;
   }
-`,l=o.svg`
+`,s=o.svg`
   width: 20px;
   height: 20px;
   stroke: var(--color-text);
@@ -57,18 +57,18 @@ import{s as o,Q as i}from"./index-b8198c9e.js";import{F as t}from"./index.esm-bd
   height: 16px;
   margin-top: 4px;
   fill: var(--color-wrong-one);
-`,s=o.div`
+`,c=o.div`
   display: flex;
   gap: 4px;
-`,c=o.label`
+`,g=o.label`
   position: relative;
-`,g=o.div`
+`,m=o.div`
   position: absolute;
   display: flex;
   top: calc(50% - 20px / 2);
   align-items: center;
   right: 14px;
-`,m=o.button`
+`,h=o.button`
   display: block;
   padding: 12px 40px;
   margin-top: 28px;
@@ -94,7 +94,7 @@ import{s as o,Q as i}from"./index-b8198c9e.js";import{F as t}from"./index.esm-bd
     padding: 16px 60px;
     margin-top: 64px;
   }
-`,h=o.h1`
+`;function v(i){let r;return i?/^[\w-.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/i.test(i)||(r="Invalid email address"):r="Required",r}const b=o.h1`
 font-size: 24px;
 line-height: 1.16;
 color: var(--color-text);
@@ -105,7 +105,7 @@ margin-bottom: 14px;
     line-height: 1.37;
     margin-bottom: 16px;
 }
-`,v=o.p`
+`,f=o.p`
 font-size: 14px;
 line-height: 1.28;
 color: rgba(239, 237, 232, 0.30);
@@ -117,19 +117,19 @@ margin-bottom: 28px;
     margin-bottom: 32px;
     max-width: 496px;
 }
-`,b=o(i)`
+`,u=o(e)`
 line-height: 1.5;
 color:  var(--color-text);
 text-decoration: underline;
-`,f=o.p`
+`,w=o.p`
 line-height: 1.5;
 color: rgba(239, 237, 232, 0.60);
 margin-top: 12px;
-margin-bottom: ${r=>r.$margin?"121px":"35px"};
+margin-bottom: ${i=>i.$margin?"121px":"35px"};
 
 
 @media screen and (min-width: 768px){
     margin-left: 10px;
-    margin-bottom: ${r=>r.$margin?"135px":"39px"};
+    margin-bottom: ${i=>i.$margin?"135px":"39px"};
 }
-`;export{m as B,p as E,a as I,c as L,b as N,v as P,x as S,h as T,d as W,s as a,g as b,l as c,f as d};
+`;export{h as B,d as E,p as I,g as L,u as N,f as P,x as S,b as T,l as W,c as a,m as b,s as c,w as d,v};
