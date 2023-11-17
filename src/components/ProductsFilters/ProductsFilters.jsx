@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectCategoriesProducts } from '../../redux/selectors';
 // import { selectProduct } from '../../redux/selectors';
 import Select from 'react-select';
-import makeAnimated from 'react-select/animated';
 import { useMediaQuery } from 'react-responsive';
 import sprite from '../../assets/sprite.svg';
 // import { productReducer } from '../../redux/products/productsSlice';
@@ -11,8 +10,6 @@ import {
   getProductsCategories,
   getProducts,
 } from '../../redux/products/productsOperations';
-
-const animatedComponents = makeAnimated();
 
 import {
   ProductsFiltersList,
