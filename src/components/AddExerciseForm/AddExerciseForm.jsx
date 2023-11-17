@@ -3,10 +3,10 @@
 import {Container, GifWrapper, Gif,  TimerWrapper,  ButtonContainer, Button} from './AddExerciseForm.styled'
 
 import Timer from '../Timer/Timer';
-import { getUserParams } from '../../redux/auth/operations';
-import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
+// import { getUserParams } from '../../redux/auth/operations';
+// import { useDispatch } from 'react-redux';
+// import { useEffect, useState } from 'react';
+// import { toast } from 'react-toastify';
 // import { addExercise } from '../../redux/auth/operations';
 
 
@@ -17,7 +17,7 @@ const formatDate = date => {
   return `${day}/${month}/${year}`;
 };
 
- export const AddExerciseForm = ({data, onClick, }) => {
+ export const AddExerciseForm = ({ data, onClick  }) => {
   const {
     bodyPart,
     equipment,
@@ -40,7 +40,7 @@ const formatDate = date => {
   }, [dispatch]);
 
   const amount = Math.round((burnedCalories / (time * 60)) * 180);
-  // ;
+  
 
   const savedDate = localStorage.getItem('selectedDate');
   let date = new Date(); // Default to current date
@@ -74,13 +74,13 @@ const formatDate = date => {
      );
      onClick();
      
-   };
+    };
 
  
   return (
     <Container>
         <GifWrapper>
-          {/* <Gif  src={gifUrl} alt={name}   />  */}
+           <Gif  src={gifUrl} alt={name}   /> 
         </GifWrapper>
           <TimerWrapper>
                <Timer
@@ -93,11 +93,11 @@ const formatDate = date => {
           
       <div>
         <ExersiceList
-        name={name}
-          bodypart={bodyPart}
-          target={target}
-          equipment={equipment}
-          time={time}
+         name={name}
+         bodypart={bodyPart}
+        target={target}
+        equipment={equipment}
+        time={time}
         />
         <ButtonContainer>
            <Button type="button" onClick={handleAddToDiary}>
