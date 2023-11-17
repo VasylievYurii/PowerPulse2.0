@@ -5,16 +5,18 @@ import Pagination from '../../components/Pagination/Pagination';
 import ExercisesSubcategoriesList from '../../components/ExercisesSubcategoriesList/ExercisesSubcategoriesList';
 
 const Muscles = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const { muscles } = useSelector((state) => state.exercises);
   const dispatch = useDispatch();
+  const [currentPage, setCurrentPage] = useState(1);
+  const { muscles } = useSelector((state) => state.exercises);
+
   useEffect(() => {
     dispatch(getExercisesMuscles());
   }, [dispatch]);
-  const exePerPage = 9;
+
+  const exePerPage = 10;
   const lastExeIndex = currentPage * exePerPage;
   const firstExeIndex = lastExeIndex - exePerPage;
+
   function arrayPerPage() {
     const currentExe = muscles.slice(firstExeIndex, lastExeIndex);
     return currentExe;

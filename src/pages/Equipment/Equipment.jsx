@@ -13,7 +13,7 @@ const Equipment = () => {
     dispatch(getExercisesEquipment());
   }, [dispatch]);
 
-  const exePerPage = 9;
+  const exePerPage = 10;
   const lastExeIndex = currentPage * exePerPage;
   const firstExeIndex = lastExeIndex - exePerPage;
   function arrayPerPage() {
