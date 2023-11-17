@@ -2,10 +2,28 @@ import React, { useState } from 'react';
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { format } from 'date-fns';
-import { InputEl } from './AddProductForm.styled';
+import {
+  Container,
+  InputsContainer,
+  // InputEl,
+  Calories,
+  CaloriesValue,
+  ButtonsContainer,
+  PFPrimaryBtn,
+  PFOutlinedBtn,
+  ProductInput,
+  WeightInput,
+  FieldLabel,
+  WeightInputLabel,
+  // WeightInputLabel,
+} from './AddProductForm.styled';
+import { useDispatch } from 'react-redux';
+import { setFormValues } from '../../redux/productForm/productFormSlice';
 
 const AddProductForm = ({ onCloseModal, productData }) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
+
+  const dispatch = useDispatch();
 
   const INITIAL_VALUES = {
     product: productData._id,
@@ -36,18 +54,12 @@ const AddProductForm = ({ onCloseModal, productData }) => {
   };
 
   const hendleSubmit = (values, actions) => {
-    console.log(values);
-    console.log("Type of 'date':", typeof values.date);
-    console.log("Type of 'amount':", typeof values.amount);
-    console.log("Type of 'calories':", typeof values.calories);
+    dispatch(setFormValues(values));
 
-    // resetForm();
     // onCloseModal();
   };
 
   const handleCancel = () => {
-    //  dispatch(resetForm());
-
     onCloseModal();
   };
 
@@ -59,47 +71,52 @@ const AddProductForm = ({ onCloseModal, productData }) => {
     >
       {({ values, setFieldValue }) => (
         <Form autoComplete="off">
-          <div>
-            <label htmlFor="product">
-              JSON Data:
-              <InputEl
-                name="product"
-                type="text"
-                value={JSON.stringify(productData.title)}
-                readOnly
-              />
-            </label>
-          </div>
+          <Container>
+            <InputsContainer>
+              <div>
+                <label htmlFor="product">
+                  <ProductInput
+                    name="product"
+                    type="text"
+                    value={JSON.stringify(productData.title)}
+                    readOnly
+                  />
+                </label>
+              </div>
 
-          <div>
-            <label htmlFor="amount">
-              Weight:
-              <InputEl
-                name="amount"
-                type="text"
-                onChange={(e) => handleWeightChange(e, setFieldValue)}
-                onKeyPress={(e) => {
-                  const onlyDigits = /^[0-9\b]+$/;
-                  if (!onlyDigits.test(e.key)) {
-                    e.preventDefault();
-                  }
-                }}
-                value={values.amount}
-              />
-              <ErrorMessage name="amount" component="p" />
-            </label>
-          </div>
+              <div>
+                <WeightInputLabel htmlFor="amount">
+                  <WeightInput
+                    name="amount"
+                    type="text"
+                    onChange={(e) => handleWeightChange(e, setFieldValue)}
+                    onKeyPress={(e) => {
+                      const onlyDigits = /^[0-9\b]+$/;
+                      if (!onlyDigits.test(e.key)) {
+                        e.preventDefault();
+                      }
+                    }}
+                    value={values.amount}
+                  />
+                  <FieldLabel>grams</FieldLabel>
+                  <ErrorMessage name="amount" component="p" />
+                </WeightInputLabel>
+              </div>
+            </InputsContainer>
 
-          <p>Calories: {calculatedCalories}</p>
+            <Calories>
+              Calories: <CaloriesValue>{calculatedCalories}</CaloriesValue>
+            </Calories>
 
-          <div>
-            <button type="submit" onClick={hendleSubmit}>
-              Add to diary
-            </button>
-            <button type="button" onClick={handleCancel}>
-              Cancel
-            </button>
-          </div>
+            <ButtonsContainer>
+              <PFPrimaryBtn type="submit" onClick={hendleSubmit}>
+                Add to diary
+              </PFPrimaryBtn>
+              <PFOutlinedBtn type="button" onClick={handleCancel}>
+                Cancel
+              </PFOutlinedBtn>
+            </ButtonsContainer>
+          </Container>
         </Form>
       )}
     </Formik>
