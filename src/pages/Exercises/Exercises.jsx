@@ -11,7 +11,7 @@ import { getExercises } from '../../redux/exercises/exeOperation';
 import ExercisesItem from '../../components/ExercisesItem/ExercisesItem';
 import AddExerciseSuccess from '../../components/AddExerciseSuccess/index';
 import BasicModalWindow from '../../components/BasicModalWindow';
-import AddExerciseForm from '../../components/AddExerciseForm/AddExerciseForm';
+
 
 const Exercises = () => {
   const { array } = useSelector((state) => state.exercises);
