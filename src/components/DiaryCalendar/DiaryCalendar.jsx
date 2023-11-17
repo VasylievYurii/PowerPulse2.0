@@ -8,7 +8,8 @@ import {
   IconWrapper,
   IconCalendar,
 } from './DiaryCalendar.styled';
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+import 'react-datepicker/dist/react-datepicker.css';
+// import '../../../node_modules/react-datepicker/dist/react-datepicker.css';
 import sprite from '../../assets/sprite.svg';
 
 const DiaryCalendar = ({ onDateChange }) => {
@@ -45,6 +46,7 @@ const DiaryCalendar = ({ onDateChange }) => {
         dateFormat={'dd MM yyyy'}
         calendarStartDay={1}
         formatWeekDay={(day) => day.substr(0, 2)}
+        className="my-cal"
       />
       <CalendarGlobalStyles />
     </>
