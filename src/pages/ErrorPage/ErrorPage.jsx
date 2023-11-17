@@ -6,7 +6,6 @@ import {
   Text,
   StyledLink,
   Section404,
-  ButtonStyled,
   LogoText,
   ButtonWrapper,
   LinkStyled,
@@ -35,9 +34,7 @@ const ErrorPage = () => {
             another dimension. We apologize for this inconvenience.
           </Text>
           <LinkStyled to="/welcome">
-            <ButtonWrapper>
-              <ButtonStyled>Go Home</ButtonStyled>
-            </ButtonWrapper>
+            <ButtonWrapper>Go Home</ButtonWrapper>
           </LinkStyled>
         </Content>
       </Container>

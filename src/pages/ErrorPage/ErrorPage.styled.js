@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { SectionNoAuth } from '../../components/SectionTemplateNoAuth/SectionTemplateNoAuth.styled';
-// import { WelcomePrimaryBtn } from '../Welcome/Welcome.styled';
 import {
   IconWrapper,
   SecondaryIconWrapper,
@@ -14,7 +13,6 @@ export const Container = styled.div`
   top: 0;
   left: 0;
   width: 57vw;
-  /* max-width: calc(64%); */
   height: 100vh;
   padding: 24px 20px;
   color: var(--color-text);
@@ -38,7 +36,6 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h1`
-  /* margin-top: 260px; */
   font-size: 66px;
   line-height: 1;
   letter-spacing: 0.66px;
@@ -97,6 +94,7 @@ export const ButtonWrapper = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(---color-main-one);
 
   transition: border 0.3s var(--timing-function);
 
