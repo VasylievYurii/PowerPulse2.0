@@ -7,7 +7,7 @@ import { getUserParams } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { addExercise } from '../../redux/auth/operations';
+import { addExercise } from '../../redux/workouts/workoutsOperations';
 
 
 const formatDate = date => {
