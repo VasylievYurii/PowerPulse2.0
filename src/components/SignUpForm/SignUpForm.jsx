@@ -1,8 +1,7 @@
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
+import signupSchema from '../../schema/signupSchema';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/auth/operations';
-import sprite from '../../assets/sprite.svg';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import {
@@ -16,6 +15,9 @@ import {
   SvgIconEyeStyled,
 } from './SignUpForm.styled';
 import { ButtonSubmitStyled } from '../SignInForm/SignInForm.styled';
+import sprite from '../../assets/sprite.svg';
+import validateEmail from '../../js/validateEmail';
+import validateName from '../../js/validateName';
 
 const toastInfo = (text) => {
   toast.info(text, {
@@ -29,37 +31,6 @@ const toastInfo = (text) => {
     theme: 'light',
   });
 };
-
-const SignupSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, 'Too Short! Must be minimum 6 symbols')
-    .max(50, 'Too Long! 50 symbols - is maximum.')
-    .required('Name is required'),
-  email: Yup.string()
-    .email('Invalid email. Here is an example: example@mail.com')
-    .required('Email is required'),
-  password: Yup.string()
-    .min(6, 'Too Short! Must be minimum 6 symbols')
-    .required('Password is required'),
-});
-
-function validateEmail(value) {
-  let error;
-  if (!value) {
-    error = 'Required';
-  } else if (!/^[\w-.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/i.test(value)) {
-    error = 'Invalid email address';
-  }
-  return error;
-}
-
-function validateName(value) {
-  let error;
-  if (value === 'admin' || value === 'god') {
-    error = 'Nice try!';
-  }
-  return error;
-}
 
 const initialValues = {
   name: '',
@@ -95,7 +66,7 @@ const SignUpForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={SignupSchema}
+      validationSchema={signupSchema}
       onSubmit={handleSubmit}
     >
       {({ errors, touched }) => (

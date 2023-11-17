@@ -1,10 +1,8 @@
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../redux/auth/operations';
-import { ButtonSubmitStyled } from './SignInForm.styled';
-import sprite from '../../assets/sprite.svg';
 import { useState } from 'react';
+import signinSchema from '../../schema/signinSchema';
 import {
   InputStyled,
   WrapFormStyled,
@@ -15,21 +13,9 @@ import {
   LabelWrapStyled,
   IconWrappedStyled,
 } from '../SignUpForm/SignUpForm.styled';
-
-const SigninSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Required!'),
-  password: Yup.string().min(6, 'Too Short!').required('Required!'),
-});
-
-function validateEmail(value) {
-  let error;
-  if (!value) {
-    error = 'Required';
-  } else if (!/^[\w-.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/i.test(value)) {
-    error = 'Invalid email address';
-  }
-  return error;
-}
+import { ButtonSubmitStyled } from './SignInForm.styled';
+import sprite from '../../assets/sprite.svg';
+import validateEmail from '../../js/validateEmail';
 
 const initialValues = {
   email: '',
@@ -40,7 +26,6 @@ const SignInForm = () => {
   const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye`);
   const [type, setType] = useState('password');
   const [validColor, setValidColor] = useState('');
-  // const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
@@ -61,7 +46,7 @@ const SignInForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={SigninSchema}
+      validationSchema={signinSchema}
       onSubmit={handleSubmit}
     >
       {({ errors, touched }) => (
