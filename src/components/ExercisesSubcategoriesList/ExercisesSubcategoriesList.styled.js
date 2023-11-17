@@ -12,5 +12,6 @@ export const WrapperStyled = styled.div`
     gap: 16px;
   }
   @media screen and (min-width: 1440px) {
+    width: 1300px;
   }
 `;

@@ -9,7 +9,7 @@ export const WrapperExercises = styled.div`
   flex-wrap: wrap;
   margin-top: 32px;
   @media screen and (min-width: 768px) {
-    width: 768px;
+    width: 710px;
     overflow-y: scroll;
     &::-webkit-scrollbar {
       width: 8px;
@@ -21,6 +21,9 @@ export const WrapperExercises = styled.div`
       background: rgba(239, 137, 100, 1);
       border-radius: 12px;
     }
+  }
+  @media screen and (min-width: 1440px) {
+    width: 850px;
   }
 `;
 

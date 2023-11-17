@@ -1,5 +1,5 @@
 import { useState, useEffect, Suspense } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import SectionTemplate from '../../components/SectionTemplate';
 import TitlePage from '../../components/TitlePage';
@@ -10,17 +10,18 @@ import BasicModalWindow from '../../components/BasicModalWindow';
 import { ChaptersWrapper, LinkStyled } from './Exercises.styled';
 
 const Exercises = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  // const { array } = useSelector((state) => state.exercises);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpen((prevState) => !prevState);
   };
 
-  useEffect(() => {
-    dispatch(getExercises());
-  }, [dispatch]);
-
+  // useEffect(() => {
+  //   dispatch(getExercises());
+  // }, [dispatch]);
+  // console.log('all', array);
   return (
     <SectionTemplate>
       <TitlePage>Exercises</TitlePage>
