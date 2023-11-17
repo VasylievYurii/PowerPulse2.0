@@ -9,8 +9,11 @@ const getIndicators = async (_, thunkApi) => {
     return response.data;
   } catch (e) {
     toastError(`Oops! Something was wrong.... ${e.message}`);
-    return thunkAPI.rejectWithValue(e.message);
+    return thunkApi.rejectWithValue(e.message);
   }
 };
 
-export const getIndicatorsThunk = createAsyncThunk('indicators/getIndicators', getIndicators);
+export const getIndicatorsThunk = createAsyncThunk(
+  'indicators/getIndicators',
+  getIndicators,
+);
