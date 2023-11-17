@@ -83,6 +83,7 @@ const UserCard = () => {
                 setImageURL(null);
                 setLoading(false);
               }}
+              loading="lazy"
             />
           ) : (
             <IconWrapperUser>
