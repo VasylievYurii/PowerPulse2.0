@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const WrapperExercises = styled.div`
+export const WrapperExercises = styled.ul`
   width: 335px;
-  height: 726px;
+  max-height: 726px;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
   margin-top: 32px;
+
   @media screen and (min-width: 768px) {
     width: 710px;
     overflow-y: scroll;
