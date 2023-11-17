@@ -42,7 +42,7 @@ const Exercises = () => {
         </li>
       </ChaptersWrapper>
       <Suspense fallback={<p>Loader</p>}>
-        <button onClick={toggleModal}>Add to diary</button>
+        {/* <button onClick={toggleModal}>Add to diary</button> */}
         {isModalOpen && (
           <BasicModalWindow onClick={toggleModal}>
             <AddExerciseSuccess onClick={toggleModal} />
