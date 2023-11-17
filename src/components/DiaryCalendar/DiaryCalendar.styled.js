@@ -13,33 +13,48 @@ export const CalendarGlobalStyles = createGlobalStyle`
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* width: 215px; */
-    /* height: 236px; */
+    width: 215px; 
+   height: 236px;
     padding: 14px;
-  background-color: var(--color-main-two);
+  background-color: var(--color-main-two) !important;
      font-family: Roboto;
     border-radius: 8px;
+    font-size: 14px !important;
+    border: none !important;
+    z-index: 2 !important;
   }
 
   .react-datepicker__month-container {
-    float: inherit;
+    /* float: inherit; */
     box-sizing: border-box;
+    width: 187px;
+    margin: 0 !important;
+    /* outline: 1px solid blue; */
   }
+
+.react-datepicker__month {
+  margin: 0 !important;
+  text-align: center;
+}
 
   .react-datepicker__header {
     position: relative;
-    background-color: var(--color-main-two);
+    width: 187px;
+    background-color: var(--color-main-two) !important;
+  
   }
 
   .react-datepicker__day-names {
     display: flex;
+    width: 187px;
     justify-content: space-between;
     align-items: center;
-    gap:11px;
+    /* gap:11px; */
     padding-top: 14px;
     /* padding: 8px 8px; */
     border-top: 1px solid rgba(255, 255, 255, 0.4);
-    
+  
+    background-color: var(--color-main-two) !important;
   }
 
   .react-datepicker__header:not(.react-datepicker__header--has-time-select) {
@@ -56,17 +71,19 @@ export const CalendarGlobalStyles = createGlobalStyle`
     font-family: Roboto;
     font-style: normal;
     text-align: center;
-    color: var(--color-text);
-    font-size: 16px;
+    color: var(--color-text) !important;
+    font-size: 16px !important;
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.32px;
+    margin:0px !important;
+    margin-bottom: 14px !important;
   }
 
   .react-datepicker__day-name {
-    color: rgba(239, 237, 232, 0.50);
+    color: rgba(239, 237, 232, 0.50)  !important;
 font-family: Roboto;
-font-size: 14px;
+font-size: 14px !important;
 font-style: normal;
 font-weight: 500;
 line-height: normal;
@@ -98,7 +115,9 @@ letter-spacing: -0.28px;
     display: flex;
     align-items: center;
     /* justify-content: center; */
-    color: var(--color-text);
+    color: var(--color-text) !important;
+    width: 187px;
+        /* outline: 1px solid red; */
   }
 
   .react-datepicker__day {
@@ -106,24 +125,26 @@ letter-spacing: -0.28px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 11px;
-    flex-shrink: 0;
+    /* gap: 11px; */
+    /* flex-shrink: 0; */
     margin: 0;
     width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    color: white;
-    font-family: Roboto;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px;
+    /* height: 32px; */
+    border-radius: 50% !important;
     text-align: center;
+    color: var(--color-text) !important;
+font-family: Roboto;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px;
+letter-spacing: -0.28px;
   }
 
   .react-datepicker__month {
     display: flex;
-    gap: 11px;
+    width: 187px;
+    /* gap: 11px; */
     flex-direction: column;
     justify-content: space-between;
     padding-top: 11px;
@@ -131,19 +152,19 @@ letter-spacing: -0.28px;
   }
 
   .react-datepicker__day--selected {
-    background-color:white;
+    background-color: black !important;
     color:#3e85f3;
     font-size: 14px;
   }
 
   .react-datepicker__day--selected:hover {
     border-radius: 50%;
-  background-color:white;
+   background-color: black !important;
   }
 
   .react-datepicker__day:hover {
     border-radius: 50%;
-    background-color:white;
+    background-color: black !important;
     color:#3e85f3;
   }
 
@@ -171,6 +192,16 @@ letter-spacing: -0.28px;
   .react-datepicker__triangle {
     visibility: hidden;
   }
+
+  .react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+  color: #000;
+  display: inline-block;
+  width: 1.7rem;
+  line-height: 1.7rem;
+  text-align: center;
+  margin: 0 !important;
+  }
+
 `;
 
 export const TitleWrapper = styled.button`
