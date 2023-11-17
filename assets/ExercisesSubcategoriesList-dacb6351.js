@@ -1,4 +1,4 @@
-import{s as i,j as t,Q as c}from"./index-13f107bf.js";const x=i.div`
+import{s as i,j as e,Q as c}from"./index-39e9d848.js";const x=i.div`
   display: flex;
   gap: 8px;
   margin-top: 32px;
@@ -27,12 +27,19 @@ import{s as i,j as t,Q as c}from"./index-13f107bf.js";const x=i.div`
       transition: opacity 0.2s;
     }
   }
-`,v=({exePerPage:o,totalExe:s,paginate:e})=>{const a=[];for(let r=1;r<=Math.ceil(s/o);r++)a.push(r);return t.jsx("div",{style:{marginLeft:"auto",marginRight:"auto"},children:t.jsx(x,{children:a.map(r=>t.jsx("div",{children:t.jsx(d,{href:"#",onClick:()=>e(r)})},r))})})},g=i.div`
-  width: 768px;
+`,w=({exePerPage:o,totalExe:a,paginate:t})=>{const n=[];for(let r=1;r<=Math.ceil(a/o);r++)n.push(r);return e.jsx("div",{style:{marginLeft:"auto",marginRight:"auto"},children:e.jsx(x,{children:n.map(r=>e.jsx("div",{children:e.jsx(d,{href:"#",onClick:()=>t(r)})},r))})})},g=i.div`
   display: flex;
-  gap: 16px;
+  flex-direction: column;
+  gap: 20px;
   flex-wrap: wrap;
-  margin-top: 70px;
+  margin-top: 40px;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 16px;
+  }
+  @media screen and (min-width: 1440px) {
+  }
 `,l=i.div`
   position: relative;
   width: 224px;
@@ -62,4 +69,4 @@ import{s as i,j as t,Q as c}from"./index-13f107bf.js";const x=i.div`
   font-weight: 400;
   color: rgba(239, 237, 232, 0.4);
   text-align: center;
-`,b=({fig:o,nameImg:s,category:e})=>t.jsxs(l,{children:[t.jsx(h,{src:o}),t.jsxs(m,{children:[t.jsx(u,{children:s}),t.jsx(f,{children:e})]})]}),w=({arr:o})=>{const s=e=>e&&e[0].toUpperCase()+e.slice(1);return t.jsx(g,{children:o.map(({name:e,imgURL:a,_id:r,filter:n})=>{const p=n.toLowerCase().replace(/\s/g,"");return t.jsx(c,{to:`/exercises/${p}/${e}`,children:t.jsx(b,{fig:a,nameImg:s(e),category:n})},r)})})};export{w as E,v as P};
+`,b=({fig:o,nameImg:a,category:t})=>e.jsxs(l,{children:[e.jsx(h,{src:o}),e.jsxs(m,{children:[e.jsx(u,{children:a}),e.jsx(f,{children:t})]})]}),v=({arr:o})=>{const a=t=>t&&t[0].toUpperCase()+t.slice(1);return e.jsx(g,{children:o.map(({name:t,imgURL:n,_id:r,filter:s})=>{const p=s.toLowerCase().replace(/\s/g,"");return e.jsx(c,{to:`/exercises/${p}/${t}`,children:e.jsx(b,{fig:n,nameImg:a(t),category:s})},r)})})};export{v as E,w as P};
