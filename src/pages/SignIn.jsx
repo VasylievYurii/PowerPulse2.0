@@ -32,7 +32,7 @@ const SignIn = () => {
             <NavLinkStyled to="/signup"> Sign Up</NavLinkStyled>
           </TextRedirectStyled>
 
-          <ToastContainer />
+          {/* <ToastContainer /> */}
         </SecondWrapperTemplate>
       </SectionTemplateLeft>
 

@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { refreshUser } from '../../redux/auth/operations';
 import { useAuth } from '../../hooks/useAuth';
 import Loader from '../Loader';
-
+import { ToastContainer } from 'react-toastify';
 import RestrictedRoute from '../RestrictedRoute';
 import PrivateRoute from '../PrivateRoute';
 import SharedLayout from '../SharedLayout';
@@ -44,6 +44,7 @@ function App() {
     <Loader />
   ) : (
     <AppWrapper>
+      <ToastContainer />
       <Routes location={location} key={location.pathname}>
         <Route
           path="/welcome"
