@@ -24,7 +24,7 @@ export const FormattedTitle = styled.p`
 `;
 
 export const TimerBtn = styled.button`
-  background-color: var(--orange-color);
+  background-color: var(--color-main-one);
   margin-top: 14px;
   padding: 5px;
   border-radius: 5px;
@@ -45,7 +45,7 @@ export const TimerText = styled.p`
 `;
 
 export const TimerSub = styled.span`
-  color: var(--orange-color);
+  color: var(--color-main-one);
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;

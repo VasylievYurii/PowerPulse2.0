@@ -7,10 +7,10 @@ import {
   TimerText,
   TimerTitle,
   TimerWrapper,
-} from './Timer.styles';
-import symbolDefs from '../../../src/images/sprite.svg';
+} from './Timer.styled';
+import symbolDefs from '../../assets/sprite.svg';
 import { useState } from 'react';
-import _ from 'lodash.throttle';
+// import _ from 'lodash.throttle';
 // import { duration } from '@mui/material';
 
 const Timer = ({ data, setDinamicBurnCal, dinamicBurnCal, setDinamicTime }) => {
@@ -43,12 +43,12 @@ const Timer = ({ data, setDinamicBurnCal, dinamicBurnCal, setDinamicTime }) => {
         size={124}
         isPlaying={isPlaying}
         duration={data.time * 60}
-        colors={'var(--orange-color)'}
+        colors={'var(--color-main-one)'}
         remainingTime={data.time * 60}
         // colorsTime={[7, 5, 2, 0]}
       >
         {({ remainingTime }) => (
-          <div style={{ color: '#fff' }} role="timer" aria-live="assertive">
+          <div style={{ color: '#efede8' }} role="timer" aria-live="assertive">
             {children({ remainingTime })}
           </div>
         )}
@@ -59,7 +59,7 @@ const Timer = ({ data, setDinamicBurnCal, dinamicBurnCal, setDinamicTime }) => {
           <use
             href={
               isPlaying
-                ? `${symbolDefs}#icon-pause-square`
+                ? `${symbolDefs}#icon-pause`
                 : `${symbolDefs}#icon-play`
             }
           ></use>

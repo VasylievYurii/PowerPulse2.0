@@ -7,12 +7,7 @@ import styled from 'styled-components'
   line-height: 1.5;
   transform: rotate(180deg);
 }
-export const TimerButtonIcon {
-  fill: currentColor;
-  stroke: currentColor;
-  width: 32px;
-  height: 32px;
-} */
+*/
 
  export const Container = styled.div`
   /* position: absolute;
@@ -53,79 +48,21 @@ width: 270px;
 export const Gif = styled.img`
 object-fit: cover; 
 `;
-
-export const Timer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const TimerTitle = styled.p`
-   color: var(--color-back-two);
-  font-size: 10px;
-  line-height: 1.4;
-  margin-bottom: 4px; 
- 
-`;
-
 export const TimerWrapper = styled.div`
- width: 125px;
-height: 124px;
-border-radius: 12px;
-  border: 1px solid var(--color-text);
-  margin-bottom: 14px; 
-  
-`;
-export const CountdownCircleTimer = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
 
-`;
-
-export const TimerButton = styled.button`
-  /* stroke: var(--color-text);*/
-   background-color: var( --color-main-one); 
-  width: 32px;
-  height: 32px;
-  border: none;
-  border-radius: 5px;
-  padding: 0;
-  margin-top: 14px;
-  margin-bottom: 8px;
-  cursor: pointer; 
-   transition: background-color var( --color-main-one);
-   svg {
-    width: 24px;
-    height: 24px;
-  } 
-  &:hover {
-    background: var(--color-main-two);
-    color: var(--color-text);
-  } 
-  @media screen and (min-width: 768px) {
-    /* align-self: flex-end; */
-  }
-`;
-
-export const Calories = styled.p`
-  color: var(--color-back-two);
-  font-size: 12px;
-  line-height: 1.5;
-  margin-bottom: 40px; 
-
-  >span{
-    color: var(--color-main-one);
+@media screen and (min-width: 768px) {
+  align-items: start;
+  width: 125px;
+  height: 125px;
+  margin-left: 105px;
+  margin-right: none;
 }
-
-  @media screen and (min-width: 768px) {
-    font-size: 14px;
-    line-height: 1.28;
-  }
 `;
 
-export const RightContainer = styled.div`
-
-
-`;
 
 export const List = styled.ul`
    display: flex;  

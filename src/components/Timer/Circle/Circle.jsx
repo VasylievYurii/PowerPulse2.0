@@ -1,4 +1,4 @@
-import { TimerProgress, TimerProgressCircle } from './Circle.styles';
+import { TimerProgress, TimerProgressCircle } from './Circle.styled';
 
 const Circle = () => {
   return (
