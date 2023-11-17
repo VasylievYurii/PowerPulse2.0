@@ -1,4 +1,4 @@
-import{q as d,s as n,r as c,j as o,c as l}from"./index-b29b4ad2.js";const p=({children:t})=>{const e=document.getElementById("portal-root");return e?d.createPortal(t,e):(console.error("Portal root element not found. Please create a div with id='portal-root' in your HTML."),null)},x=n.div`
+import{q as d,s as n,r as c,j as o,c as l}from"./index-0de86a50.js";const p=({children:t})=>{const e=document.getElementById("portal-root");return e?d.createPortal(t,e):(console.error("Portal root element not found. Please create a div with id='portal-root' in your HTML."),null)},x=n.div`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -21,6 +21,7 @@ import{q as d,s as n,r as c,j as o,c as l}from"./index-b29b4ad2.js";const p=({ch
   stroke: var(--color-text);
   top: 14px;
   right: 14px;
+  cursor: pointer;
 `,u=n.div`
   margin: 0 auto;
   text-align: center;
