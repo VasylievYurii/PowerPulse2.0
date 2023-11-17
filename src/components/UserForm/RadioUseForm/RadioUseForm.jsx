@@ -1,22 +1,28 @@
-import '../useForm.css';
 import RadioBtn from '../RadioBtn/RadioBtn';
+import {
+  TextBlood,
+  ContentBloodGender,
+  ContentBlood,
+  ContentGender,
+  LifestyleBtn,
+} from './RadioUseForm.styled';
 const RadioUseForm = () => {
   return (
     <div>
-      <p className="text-blood">Blood</p>
-      <div className="content-blood-gender">
-        <div className="content-blood">
+      <TextBlood>Blood</TextBlood>
+      <ContentBloodGender>
+        <ContentBlood>
           <RadioBtn name="blood" value="1" text="1" />
           <RadioBtn name="blood" value="2" text="2" />
           <RadioBtn name="blood" value="3" text="3" />
           <RadioBtn name="blood" value="4" text="4" />
-        </div>
-        <div className="content-gender">
+        </ContentBlood>
+        <ContentGender>
           <RadioBtn name="sex" value="male" text="Male" />
           <RadioBtn name="sex" value="female" text="Female" />
-        </div>
-      </div>
-      <div className="lifestyle-btn">
+        </ContentGender>
+      </ContentBloodGender>
+      <LifestyleBtn>
         <RadioBtn
           name="levelActivity"
           value="1"
@@ -42,7 +48,7 @@ const RadioUseForm = () => {
           value="5"
           text="Extremely active (very strenuous exercises/sports and physical work)"
         />
-      </div>
+      </LifestyleBtn>
     </div>
   );
 };
