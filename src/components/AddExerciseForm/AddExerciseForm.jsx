@@ -1,73 +1,93 @@
 
-import React, { useState } from 'react';
-import sprite from '../../assets/sprite.svg';
-import { useDispatch } from 'react-redux';
-/* import sprite from '../../images/svg/sprite.svg'; */
-import PropTypes from 'prop-types';
-/* import Button from 'components/Button/Button'; */
-/* import { CountdownCircleTimer } from 'react-countdown-circle-timer'; */
-/*  import { fetchDiarySaveExercise } from 'redux/operations';  */
-/* import toast from 'react-hot-toast'; */
 
-import {Container, GifWrapper, Gif, Timer, TimerTitle,CountdownCircleTimer, TimerWrapper, TimerButton, Calories,  RightContainer, List, ListItem, ItemTitle, ItemValue, ButtonContainer, Button} from './AddExerciseForm.styled'
+import {Container, GifWrapper, Gif,  Timer,  TimerTitle,CountdownCircleTimer, TimerWrapper, TimerButton, Calories,  RightContainer, List, ListItem, ItemTitle, ItemValue, ButtonContainer, Button} from './AddExerciseForm.styled'
 
 
+// import Timer from '../Timer/Timer';
+// import { getUserParams } from '../../redux/auth/operations';
+// import { useDispatch } from 'react-redux';
+// import { useEffect, useState } from 'react';
+// import { toast } from 'react-toastify';
+// import { addExercise } from '../../redux/diary/operations';
+// const AddProductForm = ({ eldata, onClick, closeModal }) => {
 
+// const formatDate = date => {
+//   const day = String(date.getDate()).padStart(2, '0');
+//   const month = String(date.getMonth() + 1).padStart(2, '0');
+//   const year = date.getFullYear();
+//   return `${day}/${month}/${year}`;
+// };
 
- const AddExerciseForm = ({ data, onSuccess }) => {
-  /*  const { _id, bodyPart, equipment, gifUrl, name, target, burnedCalories, time } = date; 
+ export const AddExerciseForm = ({name, target, bodyPart, equipment }) => {
+  // const {
+  //   bodyPart,
+  //   equipment,
+  //   burnedCalories,
+  //   gifUrl,
+  //   name,
+  //   target,
+  //   _id,
+  //   time,
+  // } = data;
 
-  const [currentTime, setCurrentTime] = useState(time * 60);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const dispatch = useDispatch();
+//   const [dinamicBurnCal, setDinamicBurnCal] = useState(0);
+//   const [dinamicTime, setDinamicTime] = useState(0);
 
-  const toggleIsPlaying = () => {
-    setIsPlaying(!isPlaying);
-  };
+//   const dispatch = useDispatch();
+//   // const [quantity, setQuantity] = useState(1);
 
-  const calculatedCalories = Math.floor((currentTime / 60) * (burnedCalories / 3)); */
+//   useEffect(() => {
+//     dispatch(getUserParams());
+//   }, [dispatch]);
 
-  const handleAddToDiary = ({/* onClick */}) => {
-    if (!calculatedCalories) {
-      return;
-    }
+//   const amount = Math.round((burnedCalories / (time * 60)) * 180);
+//   // ;
 
-    dispatch(
-      fetchDiarySaveExercise({
-        exercise: _id,
-        time: Math.ceil(currentTime / 60),
-        calories: calculatedCalories,
-      }),
-    )
-      .then(onSuccess(currentTime, calculatedCalories))
-      .catch((error) => {
-        toast(error.message);
-      });
-  };
+//   const savedDate = localStorage.getItem('selectedDate');
+//   let date = new Date(); // Default to current date
 
- /* const renderTime = ({ remainingTime }) => {
-    setCurrentTime(time * 60 - remainingTime);
-    const minutes = Math.floor(remainingTime / 60);
-    const seconds = remainingTime % 60;
-    const formattedMinutes = String(minutes).padStart(2, '0');
-    const formattedSeconds = String(seconds).padStart(2, '0');
-    return `${minutes}:${seconds}`
-     onClick();   
-  
-    */
-    // closeModal();
-   
+//   if (savedDate) {
+//     const parsedDate = new Date(savedDate);
+//     if (!isNaN(parsedDate.getTime())) {
+//       date = parsedDate; // Use parsed date if valid
+//     }
+//   }
+
+  //  const formattedDate = formatDate(date);
+
+   const handleAddToDiary = () => {
+     if (!amount) {
+       toast.error('Must be greater than 0');
+       return;
+     }
+
+    //  dispatch(
+    //    addExercise({
+    //      date: formattedDate, // Use the formatted date
+    //      bodyPart,
+    //      target,
+    //      time: dinamicTime,
+    //      exerciseId: _id,
+    //      equipment,
+    //      name,
+    //      burnedCalories: dinamicBurnCal,
+    //    }),
+    //  );
+     onClick();
+     // closeModal();
+   };
+
  
   return (
     <Container>
       <div>
         <GifWrapper>
-          <Gif  /* src="../../assets/thumb_up_color.png" alt="Thumb up" */  /> 
+          <Gif   src="../../assets/" alt=""   /> 
         </GifWrapper>
         <Timer>
           <TimerTitle>Time</TimerTitle>
           <TimerWrapper>
-             {/*  <CountdownCircleTimer
+              {/* <CountdownCircleTimer
                isPlaying={isPlaying}
               duration={time * 60}
               colors={'#e6533c'}
@@ -78,18 +98,16 @@ import {Container, GifWrapper, Gif, Timer, TimerTitle,CountdownCircleTimer, Time
               rotation={-1}
             >
               {({ remainingTime }) => renderTime({ remainingTime })}
-            </CountdownCircleTimer> 
-             <CloseBtnWrapper onClick={handleCloseClick}>
+            </CountdownCircleTimer>  */}
+             {/* <CloseBtnWrapper onClick={handleCloseClick} >
             <use href={`${sprite}#icon-cross`} />
-          </CloseBtnWrapper>
-            
-            */}
+          </CloseBtnWrapper>  */}
           </TimerWrapper>
-           <TimerButton  /* nClick={toggleIsPlaying} */>
-         {/*  <use href={`${sprite}#icon-pause`} /> */}
+           <TimerButton  /* nClick={toggleIsPlaying} */ >
+            {/* <use href={`${sprite}#icon-pause`} />   */}
           </TimerButton> 
           <Calories>
-            Burned calories: {/* <span>150</span> */}
+            Burned calories:  <span>150</span> 
           </Calories>
         </Timer>
       </div>
@@ -97,19 +115,19 @@ import {Container, GifWrapper, Gif, Timer, TimerTitle,CountdownCircleTimer, Time
         <List>
           <ListItem>
             <ItemTitle>Name</ItemTitle>
-            {/* <ItemValue>{name}</ItemValue> */}
+             <ItemValue>{name}</ItemValue> 
           </ListItem>
           <ListItem>
             <ItemTitle>Target</ItemTitle>
-            {/* <ItemValue>{target}</ItemValue> */}
+            <ItemValue>{target}</ItemValue>
           </ListItem>
           <ListItem>
             <ItemTitle>Body Part</ItemTitle>
-{/*             <ItemValue>{bodyPart}</ItemValue> */}
+            <ItemValue>{bodyPart}</ItemValue>
           </ListItem>
           <ListItem>
             <ItemTitle>Equipment</ItemTitle>
-           {/*  <ItemValue>{equipment}</ItemValue> */}
+            <ItemValue>{equipment}</ItemValue>
           </ListItem>
         </List>
         <ButtonContainer>
