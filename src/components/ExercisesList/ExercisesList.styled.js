@@ -7,8 +7,7 @@ export const WrapperExercises = styled.div`
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  padding: 32px;
-  margin-top: 70px;
+  margin-top: 32px;
   @media screen and (min-width: 768px) {
     width: 768px;
     overflow-y: scroll;
@@ -28,22 +27,15 @@ export const WrapperExercises = styled.div`
 export const NameExercises = styled.p`
   font-size: 32px;
   font-weight: 700;
-  padding-left: 32px;
   padding-top: 14px;
 `;
 
-export const GeneralWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-`;
 export const ButtonGoBack = styled.button`
   width: 65px;
   display: flex;
+  align-items: center;
   background: none;
   border: 0;
-  margin-top: 10px;
-  margin-left: 32px;
 `;
 
 export const LinkBtn = styled(Link)`
@@ -53,8 +45,12 @@ export const LinkBtn = styled(Link)`
 `;
 
 export const IconWrapperBack = styled.svg`
-  fill: rgba(239, 237, 232, 1);
-  padding-top: 2px;
-  width: 36px;
-  height: 24px;
+  stroke: rgba(239, 237, 232, 0.4);
+  width: 13px;
+  height: 13px;
+  transform: rotate(180deg);
+  @media screen and (min-width: 1440px) {
+    width: 16px;
+    height: 16px;
+  }
 `;

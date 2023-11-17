@@ -37,6 +37,7 @@ const UserBar = () => {
                 setImageURL(null);
                 setLoading(false);
               }}
+              loading="lazy"
             />
           </>
         ) : (

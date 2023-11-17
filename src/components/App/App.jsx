@@ -36,6 +36,10 @@ function App() {
     return <Navigate to="/welcome" />;
   }
 
+  if (location.pathname === '/exercises') {
+    return <Navigate to="/exercises/bodyparts" />;
+  }
+
   return isRefreshing ? (
     <Loader />
   ) : (

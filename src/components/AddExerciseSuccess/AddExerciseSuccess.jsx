@@ -19,7 +19,7 @@ const AddExerciseSuccess = ({ onClick }) => {
 
   return (
     <ContainerExerStyled>
-      <ImgThumbUp src={imageThumbUp} alt="Thumb up" />
+      <ImgThumbUp src={imageThumbUp} alt="Thumb up" loading="lazy" />
 
       <TitleModalStyled>Well done</TitleModalStyled>
       <WrapTextExerStyled>

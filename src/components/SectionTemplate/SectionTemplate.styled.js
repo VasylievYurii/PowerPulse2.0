@@ -3,8 +3,8 @@ import productsDesktop from '../../assets/backgroundImages/products-desktop.jpg'
 import productsDesktop2x from '../../assets/backgroundImages/products-desktop@2x.jpg';
 
 export const Section = styled.section`
-  padding-top: 20px;
-  padding-bottom: 20px;
+  /* padding-top: 20px;
+  padding-bottom: 20px; */
   margin: 0 auto;
   width: 100%;
   height: 100vh;

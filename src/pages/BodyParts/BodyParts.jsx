@@ -13,9 +13,10 @@ const BodyParts = () => {
     dispatch(getExercisesBodyparts());
   }, [dispatch]);
 
-  const exePerPage = 9;
+  const exePerPage = 10;
   const lastExeIndex = currentPage * exePerPage;
   const firstExeIndex = lastExeIndex - exePerPage;
+
   function arrayPerPage() {
     const currentExe = bodyparts.slice(firstExeIndex, lastExeIndex);
     return currentExe;

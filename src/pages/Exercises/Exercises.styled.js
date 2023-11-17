@@ -3,10 +3,9 @@ import styled from 'styled-components';
 
 export const ChaptersWrapper = styled.ul`
   display: flex;
+  justify-content: end;
   gap: 28px;
 `;
-
-export const GoBack = styled.button``;
 
 export const LinkStyled = styled(NavLink)`
   position: relative;
