@@ -66,17 +66,6 @@ const Exercises = () => {
           )}
           <Outlet />
         </Suspense>
-
-        <Suspense fallback={<p>Loader</p>}>
-          <button onClick={toggleModal}>AddExerciseForm</button>
-          {isModalOpen && (
-            <BasicModalWindow onClick={toggleModal}>
-              <AddExerciseForm onClick={toggleModal} />
-            </BasicModalWindow>
-            
-          )}
-          <Outlet />
-        </Suspense>
       </SectionTemplate>
     </>
   );
