@@ -17,7 +17,7 @@ const formatDate = date => {
   return `${day}/${month}/${year}`;
 };
 
- export const AddExerciseForm = ({ data, onClick  }) => {
+ export const AddExerciseForm = ({ data, onClick, closeModal  }) => {
   const {
     bodyPart,
     equipment,
