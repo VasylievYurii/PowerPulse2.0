@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectCategoriesProducts } from '../../redux/selectors';
 // import { selectProduct } from '../../redux/selectors';
 import Select from 'react-select';
-import makeAnimated from 'react-select/animated';
 import { useMediaQuery } from 'react-responsive';
 import sprite from '../../assets/sprite.svg';
 // import { productReducer } from '../../redux/products/productsSlice';
@@ -11,8 +10,6 @@ import {
   getProductsCategories,
   getProducts,
 } from '../../redux/products/productsOperations';
-
-const animatedComponents = makeAnimated();
 
 import {
   ProductsFiltersList,
@@ -62,6 +59,7 @@ const ProductsFilters = () => {
   };
 
   const categories = useSelector(selectCategoriesProducts);
+  // console.log('categories', categories);
 
   const categoriesList = [
     { value: 'all', label: 'All categories' },
@@ -114,7 +112,12 @@ const ProductsFilters = () => {
       fontSize: '14px',
       height: height,
       color: state.isSelected ? '#E6533C' : '#EFEDE8',
-      background: '#1C1C1C',
+      backgroundColor: state.isSelected
+        ? 'rgba(28, 28, 28, 1)'
+        : state.isFocused
+        ? 'rgba(28, 28, 28, 1)'
+        : 'rgba(28, 28, 28, 1)', // Стилізація фона активної опції и ховера
+      padding: '14px',
     }),
 
     control: (defaultStyles) => ({
@@ -124,10 +127,41 @@ const ProductsFilters = () => {
       borderRadius: '12px',
       border: '1px solid rgba(239, 237, 232, 0.3)',
       height: height,
+      appearance: 'none', // Removing default appearance
+      WebkitAppearance: 'none',
+      MozAppearance: 'none',
     }),
     singleValue: (defaultStyles) => ({
       ...defaultStyles,
       color: '#EFEDE8',
+    }),
+    menu: (defaultStyles) => ({
+      ...defaultStyles,
+      backgroundColor: 'rgba(28, 28, 28, 1)', //фон списку
+      overflowY: 'auto',
+    }),
+    indicatorSeparator: (defaultStyles) => ({
+      ...defaultStyles,
+      backgroundColor: 'transparent', // колір розділювача
+    }),
+    dropdownIndicator: (defaultStyles) => ({
+      ...defaultStyles,
+      color: '#EFEDE8',
+    }),
+    container: (defaultStyles) => ({
+      ...defaultStyles,
+      border: '1px solid rgba(239, 237, 232, 0.30)',
+      borderRadius: '12px',
+      outline: 'none',
+    }),
+    menuList: (base) => ({
+      ...base,
+      borderRadius: '12px', // Бордер при скроле
+
+      '::-webkit-scrollbar': {
+        display: 'none',
+      },
+      // overflowY: 'scroll',
     }),
   };
 
@@ -167,9 +201,20 @@ const ProductsFilters = () => {
               onChange={handleCategoriesChange}
               options={categoriesList}
               placeholder="Categories"
-              components={animatedComponents}
-              className="react-select-container"
-              classNamePrefix="react-select"
+              theme={(theme) => ({
+                ...theme,
+
+                colors: {
+                  ...theme.colors,
+                  primary50: 'rgba(255, 255, 255, 0.10)', // Цвет фона при нажатии на селект в меню
+                  primary: 'transparent',
+                  neutral40: '#EFEDE8', // ховер на птичку
+                  neutral20: 'transparent', // дефолтный бордер
+                  neutral30: 'transparent', // дефолтный ховер бордер
+                  neutral50: 'rgba(239, 237, 232, 1)', // цвет плейсхолдера
+                  neutral80: 'rgba(239, 237, 232, 1)',
+                },
+              })}
             />
           </SelectContainer>
         </li>
@@ -180,9 +225,20 @@ const ProductsFilters = () => {
               value={recommended}
               onChange={handleRecomendedChange}
               options={options}
-              components={animatedComponents}
-              className="react-select-container"
-              classNamePrefix="react-select"
+              theme={(theme) => ({
+                ...theme,
+
+                colors: {
+                  ...theme.colors,
+                  primary50: 'rgba(255, 255, 255, 0.10)', // Цвет фона при нажатии на селект в меню
+                  primary: 'transparent',
+                  neutral40: '#EFEDE8', // ховер на птичку
+                  neutral20: 'transparent', // дефолтный бордер
+                  neutral30: 'transparent', // дефолтный ховер бордер
+                  neutral50: 'rgba(239, 237, 232, 1)', // цвет плейсхолдера
+                  neutral80: 'rgba(239, 237, 232, 1)',
+                },
+              })}
             />
           </SelectContainer>
         </li>

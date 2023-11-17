@@ -13,9 +13,17 @@ const Muscles = () => {
     dispatch(getExercisesMuscles());
   }, [dispatch]);
 
-  const exePerPage = 10;
-  const lastExeIndex = currentPage * exePerPage;
-  const firstExeIndex = lastExeIndex - exePerPage;
+  function perPage() {
+    let exePerPage;
+    if (window.matchMedia('(min-width: 1440px)').matches) {
+      exePerPage = 10;
+    } else {
+      exePerPage = 9;
+    }
+    return exePerPage;
+  }
+  const lastExeIndex = currentPage * perPage();
+  const firstExeIndex = lastExeIndex - perPage();
 
   function arrayPerPage() {
     const currentExe = muscles.slice(firstExeIndex, lastExeIndex);
@@ -28,7 +36,7 @@ const Muscles = () => {
     <>
       <ExercisesSubcategoriesList arr={arrayPerPage()} />
       <Pagination
-        exePerPage={exePerPage}
+        exePerPage={perPage()}
         totalExe={muscles.length}
         paginate={paginate}
       />

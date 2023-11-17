@@ -4,6 +4,9 @@ export const WrapperPaginate = styled.div`
   display: flex;
   gap: 8px;
   margin-top: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 6em;
 `;
 export const SpanPagination = styled.a`
   cursor: pointer;

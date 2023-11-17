@@ -26,7 +26,9 @@ const ExercisesList = () => {
 
   const params = useParams();
   const current = params.id;
-  const category = params.filter;
+
+  // const category = params.filter;
+
   // console.log(current, category, exeFilter);
 
   useEffect(() => {
@@ -57,7 +59,7 @@ const ExercisesList = () => {
   //   console.log(arrayExe);
   //   return arrayExe;
   // }
-  const onClickStart = (e) => {
+  const onClickStart = () => {
     console.log('start');
     setIsModalOpen((prevState) => !prevState);
   };
