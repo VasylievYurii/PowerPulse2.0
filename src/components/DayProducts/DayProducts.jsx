@@ -34,7 +34,7 @@ const DayProducts = () => {
           <DiaryLink>
             Add product
             <NextIconWrapper>
-              <use href={`${sprite}#icon-next`} />
+              <use href={`${sprite}#icon-arrow`} />
             </NextIconWrapper>
           </DiaryLink>
         </Link>

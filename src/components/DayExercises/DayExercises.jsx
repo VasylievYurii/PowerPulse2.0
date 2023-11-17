@@ -35,7 +35,7 @@ const DayExercises = () => {
           <DiaryLink>
             Add exercise
             <NextIconWrapper>
-              <use href={`${sprite}#icon-next`} />
+              <use href={`${sprite}#icon-arrow`} />
             </NextIconWrapper>
           </DiaryLink>
         </Link>
