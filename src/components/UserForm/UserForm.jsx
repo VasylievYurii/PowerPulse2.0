@@ -9,7 +9,7 @@ import {
 import userSchema from '../../schema/userProfileSchema';
 import RadioUseForm from './RadioUseForm/RadioUseForm';
 import InputUseForm from './InputUseForm/InputUseForm';
-import './useForm.css';
+import { ErrorMess, SubmitBtn } from './UserForm.styled';
 
 const initialValues = {
   name: '',
@@ -63,24 +63,22 @@ const UserForm = () => {
       validationSchema={userSchema}
     >
       {({ errors, touched }) => (
-        <Form autoComplete="off" className="formik">
+        <Form autoComplete="off">
           {errors.email && touched.email && (
-            <div className="error-mess">{errors.email}</div>
+            <ErrorMess>{errors.email}</ErrorMess>
           )}
           {errors.height && touched.height && (
-            <div className="error-mess">{errors.height}</div>
+            <ErrorMess>{errors.height}</ErrorMess>
           )}
           {errors.currentWeight && touched.currentWeight && (
-            <div className="error-mess">{errors.currentWeight}</div>
+            <ErrorMess>{errors.currentWeight}</ErrorMess>
           )}
           {errors.desiredWeight && touched.desiredWeight && (
-            <div className="error-mess">{errors.desiredWeight}</div>
+            <ErrorMess>{errors.desiredWeight}</ErrorMess>
           )}
           <InputUseForm />
           <RadioUseForm />
-          <button type="submit" className="submit-btn">
-            Save
-          </button>
+          <SubmitBtn type="submit">Save</SubmitBtn>
         </Form>
       )}
     </Formik>
