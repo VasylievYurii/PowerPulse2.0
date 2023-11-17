@@ -1,4 +1,4 @@
-import{w as t,a,u as s,j as e,a1 as d,a2 as r,c as p,l as c,a3 as h}from"./index-b08cfc53.js";import{S as x}from"./SectionTemplateNoAuth-ee8da84f.js";const l=t.div`
+import{w as t,a,u as s,j as e,a1 as d,a2 as r,c as p,l as c,a3 as h}from"./index-c4a0aa1b.js";import{S as x}from"./SectionTemplateNoAuth-094620b9.js";const l=t.div`
   position: relative;
   /*  background-image: */
   color: #efede8;
