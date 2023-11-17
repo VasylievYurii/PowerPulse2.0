@@ -26,7 +26,7 @@ export const getProducts = createAsyncThunk(
       const url = `products?${queryString}&page=1&limit=20`;
 
       const { data } = await instance.get(url);
-      console.log('data', data.data);
+      // console.log('data', data.data);
       return data.data;
     } catch (e) {
       console.log(e.message);
