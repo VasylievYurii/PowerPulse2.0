@@ -8,6 +8,7 @@ import Loader from '../Loader';
 import RestrictedRoute from '../RestrictedRoute';
 import PrivateRoute from '../PrivateRoute';
 import SharedLayout from '../SharedLayout';
+import ErrorPage from '../../pages/ErrorPage/ErrorPage';
 
 const Welcome = lazy(() => import('../../pages/Welcome/Welcome'));
 const Profile = lazy(() => import('../../pages/Profile'));
@@ -19,7 +20,6 @@ const Muscles = lazy(() => import('../../pages/Muscles'));
 const Equipment = lazy(() => import('../../pages/Equipment'));
 const SignUp = lazy(() => import('../../pages/SignUp'));
 const SignIn = lazy(() => import('../../pages/SignIn'));
-const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 import { AppWrapper } from './App.styled';
 import ExercisesList from '../ExercisesList';
 
