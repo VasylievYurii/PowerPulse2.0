@@ -24,6 +24,7 @@ export const CloseBtnWrapper = styled.svg`
   stroke: var(--color-text);
   top: 14px;
   right: 14px;
+  cursor: pointer;
 `;
 export const ModalChildrenWrapper = styled.div`
   margin: 0 auto;
