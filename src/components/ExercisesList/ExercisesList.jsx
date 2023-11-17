@@ -26,7 +26,9 @@ const ExercisesList = () => {
 
   const params = useParams();
   const current = params.id;
+
   // const category = params.filter;
+
   // console.log(current, category, exeFilter);
 
   useEffect(() => {
