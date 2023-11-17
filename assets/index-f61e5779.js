@@ -1,4 +1,4 @@
-import{s as o,j as e,Q as d,c as u,b as g,R as j,u as f,r,S as b,T as k,a as v,U as y}from"./index-1148102b.js";import{S as E,T as S}from"./TitlePage-640c275c.js";import{B as w}from"./BasicModalWindow-8bf290e1.js";const T=o.h3`
+import{s as o,j as e,Q as d,c as u,b as g,R as j,u as b,r,S as f,T as k,a as v,U as y}from"./index-b8198c9e.js";import{S as E,T as S}from"./TitlePage-3ee3a2c2.js";import{B as w}from"./BasicModalWindow-8f508a8c.js";const T=o.h3`
   color: inherit;
   font-size: 14px;
   font-style: normal;
@@ -77,7 +77,7 @@ import{s as o,j as e,Q as d,c as u,b as g,R as j,u as f,r,S as b,T as k,a as v,U
     padding: 14px 32px;
     margin-top: 32px;
   }
-`,x=o.p`
+`,l=o.p`
   color: rgba(239, 237, 232, 0.3);
   font-size: 14px;
   line-height: 1.28;
@@ -90,12 +90,12 @@ import{s as o,j as e,Q as d,c as u,b as g,R as j,u as f,r,S as b,T as k,a as v,U
   gap: 4px;
   flex-direction: column;
 `,I=o.svg`
-  stroke: var(--color-text);
+  stroke: rgba(239, 237, 232, 0.3);
   width: 16px;
   height: 16px;
-  margin-left: 6px;
+  margin-left: 8px;
 `,N=o.img`
   width: 118px;
   height: 73px;
   margin: 0 auto;
-`,O="/PowerPulse2.0/assets/thumb_up_color-00c95acb.png",P=({onClick:t})=>{const s=()=>{t()};return e.jsxs(B,{children:[e.jsx(N,{src:O,alt:"Thumb up"}),e.jsx(L,{children:"Well done"}),e.jsxs(A,{children:[e.jsxs(x,{children:["Your time: ",e.jsx("span",{children:"3 minutes"})]}),e.jsxs(x,{children:["Burned calories: ",e.jsx("span",{children:"250"})]})]}),e.jsx(W,{onClick:s,children:"Next Exercise"}),e.jsxs(M,{to:"/diary",children:["To the diary",e.jsx(I,{children:e.jsx("use",{href:`${u}#icon-arrow`})})]})]})},R=()=>{var l;g(n=>n.exercises);const t=j(),s=f(),p=r.useRef(((l=t.state)==null?void 0:l.from)??"/"),[h,m]=r.useState(!1),i=()=>{m(n=>!n)};return r.useEffect(()=>{s(b())},[s]),e.jsxs(e.Fragment,{children:[e.jsx(k,{}),e.jsxs(E,{children:[e.jsx(v,{to:p.current,children:e.jsx(z,{children:"Go Back"})}),e.jsx(S,{children:"Exercises"}),e.jsxs(C,{children:[e.jsx("li",{children:e.jsxs(a,{to:"bodyparts",children:[" ",e.jsx(c,{children:"Body parts"})]})}),e.jsx("li",{children:e.jsxs(a,{to:"muscles",children:[" ",e.jsx(c,{children:"Muscles"})]})}),e.jsx("li",{children:e.jsx(a,{to:"equipment",children:e.jsx(c,{children:"Equipment"})})})]}),e.jsxs(r.Suspense,{fallback:e.jsx("p",{children:"Loader"}),children:[e.jsx("button",{onClick:i,children:"Add to diary"}),h&&e.jsx(w,{onClick:i,children:e.jsx(P,{onClick:i})}),e.jsx(y,{})]})]})]})},_=R;export{_ as default};
+`,O="/PowerPulse2.0/assets/thumb_up_color-00c95acb.png",P=({onClick:t})=>{const s=()=>{t()};return e.jsxs(B,{children:[e.jsx(N,{src:O,alt:"Thumb up"}),e.jsx(L,{children:"Well done"}),e.jsxs(A,{children:[e.jsxs(l,{children:["Your time: ",e.jsx("span",{children:"3 minutes"})]}),e.jsxs(l,{children:["Burned calories: ",e.jsx("span",{children:"250"})]})]}),e.jsx(W,{onClick:s,children:"Next Exercise"}),e.jsxs(M,{to:"/diary",children:[e.jsx(l,{children:"To the diary"}),e.jsx(I,{children:e.jsx("use",{href:`${u}#icon-arrow`})})]})]})},R=()=>{var x;g(n=>n.exercises);const t=j(),s=b(),p=r.useRef(((x=t.state)==null?void 0:x.from)??"/"),[h,m]=r.useState(!1),i=()=>{m(n=>!n)};return r.useEffect(()=>{s(f())},[s]),e.jsxs(e.Fragment,{children:[e.jsx(k,{}),e.jsxs(E,{children:[e.jsx(v,{to:p.current,children:e.jsx(z,{children:"Go Back"})}),e.jsx(S,{children:"Exercises"}),e.jsxs(C,{children:[e.jsx("li",{children:e.jsxs(a,{to:"bodyparts",children:[" ",e.jsx(c,{children:"Body parts"})]})}),e.jsx("li",{children:e.jsxs(a,{to:"muscles",children:[" ",e.jsx(c,{children:"Muscles"})]})}),e.jsx("li",{children:e.jsx(a,{to:"equipment",children:e.jsx(c,{children:"Equipment"})})})]}),e.jsxs(r.Suspense,{fallback:e.jsx("p",{children:"Loader"}),children:[e.jsx("button",{onClick:i,children:"Add to diary"}),h&&e.jsx(w,{onClick:i,children:e.jsx(P,{onClick:i})}),e.jsx(y,{})]})]})]})},_=R;export{_ as default};
