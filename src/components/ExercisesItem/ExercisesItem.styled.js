@@ -31,6 +31,7 @@ export const TextStart = styled.p`
   color: rgba(230, 83, 60, 1);
   font-size: 14px;
   font-weight: 400;
+  line-height: 24px;
 `;
 export const NameExes = styled.p`
   color: rgba(239, 237, 232, 1);
@@ -61,11 +62,13 @@ export const WrapperNameExes = styled.div`
 `;
 export const WrapperStart = styled.div`
   display: flex;
+  align-items: center;
   gap: 8px;
 `;
 
 export const IconWrapperStart = styled.svg`
   padding-top: 3px;
-  width: 20px;
-  height: 20px;
+  width: 13px;
+  height: 13px;
+  stroke: var(--color-main-one);
 `;

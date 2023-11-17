@@ -34,7 +34,7 @@ const AddExerciseSuccess = ({ onClick }) => {
         Next Exercise
       </ButtonExerStyled>
       <NavLinkExStyled to="/diary">
-        To the diary
+        <TextExerStyled>To the diary</TextExerStyled>
         <SvgExerArrow>
           <use href={`${sprite}#icon-arrow`} />
         </SvgExerArrow>

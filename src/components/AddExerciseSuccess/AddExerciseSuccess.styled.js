@@ -71,10 +71,10 @@ export const WrapTextExerStyled = styled.div`
 `;
 
 export const SvgExerArrow = styled.svg`
-  stroke: var(--color-text);
+  stroke: rgba(239, 237, 232, 0.3);
   width: 16px;
   height: 16px;
-  margin-left: 6px;
+  margin-left: 8px;
 `;
 
 export const ImgThumbUp = styled.img`

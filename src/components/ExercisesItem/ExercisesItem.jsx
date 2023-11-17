@@ -22,7 +22,7 @@ const ExercisesItem = ({ calories, target, NameBodyPart, name }) => {
         <WrapperStart>
           <TextStart>Start</TextStart>
           <IconWrapperStart>
-            <use href={`${sprite}#icon-arrow`} height={24} width={24} />
+            <use href={`${sprite}#icon-arrow`} />
           </IconWrapperStart>
         </WrapperStart>
       </HeaderIndexes>

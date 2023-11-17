@@ -7,17 +7,14 @@ const ExercisesSubcategoriesList = ({ arr }) => {
     if (!str) return str;
     return str[0].toUpperCase() + str.slice(1);
   };
+
   return (
     <WrapperStyled>
       {arr.map(({ name, imgURL, _id, filter }) => {
         const formattedFilter = filter.toLowerCase().replace(/\s/g, '');
-        const formattedName = name.toLowerCase().replace(/\s/g, '');
 
         return (
-          <NavLink
-            to={`/exercises/${formattedFilter}/${formattedName}`}
-            key={_id}
-          >
+          <NavLink to={`/exercises/${formattedFilter}/${name}`} key={_id}>
             <ExercisesSubcategoriesItem
               fig={imgURL}
               nameImg={ucFirst(name)}
