@@ -11,10 +11,10 @@ const ExercisesSubcategoriesList = ({ arr }) => {
   return (
     <WrapperStyled>
       {arr.map(({ name, imgURL, _id, filter }) => {
-        const formattedFilter = filter.toLowerCase().replace(/\s/g, '');
+        // const formattedFilter = filter.toLowerCase().replace(/\s/g, '');
 
         return (
-          <NavLink to={`/exercises/${formattedFilter}/${name}`} key={_id}>
+          <NavLink to={`/exercises/${filter}/${name}`} key={_id}>
             <ExercisesSubcategoriesItem
               fig={imgURL}
               nameImg={ucFirst(name)}

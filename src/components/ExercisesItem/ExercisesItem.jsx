@@ -11,15 +11,24 @@ import {
   WrapperNameExes,
   WrapperStart,
   IconWrapperStart,
+  IndexesTextBody,
+  IndexesTextTarget,
+  IndexesValueBody,
 } from './ExercisesItem.styled.js';
 import sprite from '../../assets/sprite.svg';
 
-const ExercisesItem = ({ calories, target, NameBodyPart, name }) => {
+const ExercisesItem = ({
+  calories,
+  target,
+  NameBodyPart,
+  name,
+  onClickStart,
+}) => {
   return (
     <WrapperExercisesItem>
       <HeaderIndexes>
         <p>WORKOUT</p>
-        <WrapperStart>
+        <WrapperStart onClick={onClickStart}>
           <TextStart>Start</TextStart>
           <IconWrapperStart>
             <use href={`${sprite}#icon-arrow`} />
@@ -38,12 +47,12 @@ const ExercisesItem = ({ calories, target, NameBodyPart, name }) => {
           <IndexesValue>{calories}</IndexesValue>
         </Indexes>
         <Indexes>
-          <IndexesText>Body part:</IndexesText>
-          <IndexesValue>{NameBodyPart}</IndexesValue>
+          <IndexesTextBody>Body part:</IndexesTextBody>
+          <IndexesValueBody>{NameBodyPart}</IndexesValueBody>
         </Indexes>
         <Indexes>
-          <IndexesText>Target:</IndexesText>
-          <IndexesValue>{target}</IndexesValue>
+          <IndexesTextTarget>Target:</IndexesTextTarget>
+          <IndexesValueBody>{target}</IndexesValueBody>
         </Indexes>
       </WrapperIndexes>
     </WrapperExercisesItem>
