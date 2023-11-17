@@ -87,7 +87,7 @@ export const NameExes = styled.p`
     font-size: 24px;
   }
 `;
-export const WrapperExercisesItem = styled.div`
+export const WrapperExercisesItem = styled.li`
   padding: 16px;
   width: 335px;
   height: 141px;

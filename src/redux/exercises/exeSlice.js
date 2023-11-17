@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
   getExercises,
   getExercisesMuscles,
@@ -17,6 +17,25 @@ const InitialState = {
   exeFilter: [],
 };
 
+const onPending = (state) => {
+  state.isLoading = true;
+  state.error = null;
+};
+
+const onRejected = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = payload;
+};
+
+const arrOfActs = [
+  getExercises,
+  getExercisesMuscles,
+  getExercisesEquipment,
+  getExercisesBodyparts,
+  getExercisesFilter,
+];
+
+const addStatusToActs = (status) => arrOfActs.map((el) => el[status]);
 const exeSlice = createSlice({
   name: 'exercises',
   initialState: InitialState,
@@ -38,36 +57,9 @@ const exeSlice = createSlice({
       })
       .addCase(getExercisesBodyparts.fulfilled, (state, action) => {
         state.bodyparts = action.payload;
-      }),
+      })
+      .addMatcher(isAnyOf(...addStatusToActs('pending')), onPending)
+      .addMatcher(isAnyOf(...addStatusToActs('rejected')), onRejected),
 });
-
-// const onPending = (state) => {
-//   state.isLoading = true;
-//   state.error = null;
-// };
-
-// const onRejected = (state, { payload }) => {
-//   state.isLoading = false;
-//   state.error = payload;
-// };
-
-// const arrOfActs = [getExercises];
-
-// const addStatusToActs = (status) => arrOfActs.map((el) => el[status]);
-
-// export const exeSlice = createSlice({
-//   name: 'exercises',
-//   initialState: InitialState,
-//   extraReducers: (builder) => {
-//     builder
-//       .addCase(getExercises.fulfilled, (state, { payload }) => {
-//         state.isLoading = true;
-//         state.array = payload;
-//         state.error = null;
-//       })
-//       .addMatcher(isAnyOf(...addStatusToActs('pending')), onPending)
-//       .addMatcher(isAnyOf(...addStatusToActs('rejected')), onRejected);
-//   },
-// });
 
 export const exeReducer = exeSlice.reducer;
