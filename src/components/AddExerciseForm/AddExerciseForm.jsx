@@ -1,6 +1,6 @@
 
 
-import {Container, GifWrapper, Gif,  TimerWrapper, List, ListItem, ItemTitle, ItemValue, ButtonContainer, Button} from './AddExerciseForm.styled'
+import {Container, GifWrapper, Gif,  TimerWrapper,  ButtonContainer, Button} from './AddExerciseForm.styled'
 
 import Timer from '../Timer/Timer';
 import { getUserParams } from '../../redux/auth/operations';
@@ -92,24 +92,13 @@ const formatDate = date => {
           </TimerWrapper>
           
       <div>
-        <List>
-          <ListItem>
-            <ItemTitle>Name</ItemTitle>
-             <ItemValue>{name}</ItemValue> 
-          </ListItem>
-          <ListItem>
-            <ItemTitle>Target</ItemTitle>
-            <ItemValue>{target}</ItemValue>
-          </ListItem>
-          <ListItem>
-            <ItemTitle>Body Part</ItemTitle>
-            <ItemValue>{bodyPart}</ItemValue>
-          </ListItem>
-          <ListItem>
-            <ItemTitle>Equipment</ItemTitle>
-            <ItemValue>{equipment}</ItemValue>
-          </ListItem>
-        </List>
+        <ExersiceList
+        name={name}
+          bodypart={bodyPart}
+          target={target}
+          equipment={equipment}
+          time={time}
+        />
         <ButtonContainer>
            <Button type="button" onClick={handleAddToDiary}>
             Add to diary 

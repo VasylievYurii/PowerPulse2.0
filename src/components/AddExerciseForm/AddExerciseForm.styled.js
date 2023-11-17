@@ -64,59 +64,6 @@ align-items: center;
 `;
 
 
-export const List = styled.ul`
-   display: flex;  
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 24px; 
-  /* margin-top: 40px; */
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 0;
-    margin-top: 0;
-  } 
-  
-`;
-
-export const ListItem = styled.li`
-  padding: 12px 18px;
-  width: 147px;
- /*  justify-content: center; 
-display: flex;
-flex-direction: column;
-  gap: 4px;  */
-  border-radius: 12px;
-  border: 1px solid var(--color-back-two);
-  margin-bottom: 8px;
- 
-  
-
-  @media screen and (min-width: 768px) {
-    width: 168px;
-  }
-`;
-
-export const ItemTitle = styled.p`
-  color: var(--color-back-two);
-  font-size: 12px;
-  line-height: 1.33;
-  margin-bottom: 4px;
-
-  @media screen and (min-width: 768px) {
-    line-height: 1.5;
-  }
-`;
-
-export const ItemValue = styled.p`
- color: rgba(239, 237, 232, 1);
-  font-size: 12px;
-  font-weight: 400;
-
-  @media screen and (min-width: 768px) {
-  font-size: 16px;
-    line-height: 1.5;
-  }
-`;
 
 export const CloseBtnWrapper = styled.svg`
  position: absolute;
