@@ -1,26 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 import { instance } from '../auth/operations';
-
-const options = {
-  position: 'top-right',
-  autoClose: 4000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-  theme: 'dark',
-};
-
-const toastError = (text) => {
-  toast.error(text, options);
-};
-
-const toastSuccess = (text) => {
-  toast.success(text, options);
-};
+import { toastError, toastSuccess } from '../meals/mealsOperations';
 
 const getWorkouts = async (diaryData, thunkAPI) => {
   try {
@@ -43,9 +25,27 @@ const delWorkout = async (workoutId, thunkAPI) => {
   }
 };
 
-export const getDiaryWorkoutThunk = createAsyncThunk('workouts/getWorkouts', getWorkouts);
-export const delDiaryWorkoutThunk = createAsyncThunk('workouts/delWorkout', delWorkout);
+export const getDiaryWorkoutThunk = createAsyncThunk(
+  'workouts/getWorkouts',
+  getWorkouts,
+);
+export const delDiaryWorkoutThunk = createAsyncThunk(
+  'workouts/delWorkout',
+  delWorkout,
+);
 
+export const addWorkout = createAsyncThunk(
+  'workouts/addWorkout',
+  async (currentWorkout, thunkAPI) => {
+    try {
+      const { data } = await instance.post('diaries/workouts', currentWorkout);
+      return data;
+    } catch (error) {
+      toastError(`Oops! Something was wrong... ${error.response.data}`);
+      thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
 
 export const addExercise = createAsyncThunk(
   'addExercise',
@@ -62,7 +62,7 @@ export const addExercise = createAsyncThunk(
       burnedCalories,
     } = exercise;
     try {
-      const response = await axios.post('/diaries/addexercise', {
+      const response = await axios.post('/diary/addexercise', {
         date,
         bodyPart,
         target,

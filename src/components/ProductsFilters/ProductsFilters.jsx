@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectCategoriesProducts } from '../../redux/selectors';
 // import { selectProduct } from '../../redux/selectors';
 import Select from 'react-select';
-import makeAnimated from 'react-select/animated';
 import { useMediaQuery } from 'react-responsive';
 import sprite from '../../assets/sprite.svg';
 // import { productReducer } from '../../redux/products/productsSlice';
@@ -11,8 +10,6 @@ import {
   getProductsCategories,
   getProducts,
 } from '../../redux/products/productsOperations';
-
-const animatedComponents = makeAnimated();
 
 import {
   ProductsFiltersList,
@@ -32,30 +29,25 @@ const options = [
 ];
 
 const ProductsFilters = () => {
-  // const [page, setPage] = useState(1);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [category, setCategory] = useState('');
+  const [query, setQuery] = useState('');
+  const [category, setCategory] = useState({
+    value: 'all',
+    label: 'All categories',
+  });
   const [recommended, setRecommended] = useState(options[0]);
-
-  const limit = 16;
-
-  // const product = useSelector(selectProduct);
-  // console.log('product', product);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(
       getProducts({
-        recommended,
-        category,
-        searchQuery,
-        // page,
-        limit,
+        recommended: recommended.value,
+        category: category.value,
+        query,
       }),
     );
-  }, [limit, dispatch, recommended, category, searchQuery]);
-  // page;
+  }, [recommended, category, query, dispatch]);
+
   useEffect(() => {
     dispatch(getProductsCategories());
   }, [dispatch]);
@@ -67,46 +59,40 @@ const ProductsFilters = () => {
   };
 
   const categories = useSelector(selectCategoriesProducts);
+  // console.log('categories', categories);
 
-  // console.log('categories State', categories);
-
-  const categoriesList = categories.map(({ _id, name }) => ({
-    value: _id,
-    label: capitalizeString(name),
-  }));
-
-  // console.log('categoriesList===>', categoriesList);
+  const categoriesList = [
+    { value: 'all', label: 'All categories' },
+    ...categories.map(({ _id, name }) => ({
+      value: _id,
+      label: capitalizeString(name),
+    })),
+  ];
 
   // Відповідає за оновлення стану
   const handleChange = (e) => {
     const { value } = e.target;
-    setSearchQuery(value);
+    setQuery(value);
+
+    console.log('setQuery.value', query);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchValue = e.target.elements[0].value;
-    // console.log(e);
-    // console.log(searchValue);
-    setSearchQuery(searchValue);
-    // Викликаємо dispatch для асинхронної операції відправлення запиту на сервер)
-    dispatch(getProducts({ searchQuery: searchValue, otherParams: '...' }));
+    setQuery(searchValue);
   };
 
   const resetForm = () => {
-    setSearchQuery('');
+    setQuery('');
   };
 
-  const handleCategoriesChange = (selectedCategory) => {
-    setCategory(selectedCategory.value);
+  const handleCategoriesChange = (e) => {
+    setCategory(e);
   };
-  // console.log('setCategory', category);
 
   const handleRecomendedChange = (e) => {
-    // console.log(e);
-    const { value } = e;
-    // console.log(value);
-    setRecommended(value);
+    setRecommended(e);
   };
 
   const isMobile = useMediaQuery({ minWidth: 375 });
@@ -126,7 +112,12 @@ const ProductsFilters = () => {
       fontSize: '14px',
       height: height,
       color: state.isSelected ? '#E6533C' : '#EFEDE8',
-      background: '#1C1C1C',
+      backgroundColor: state.isSelected
+        ? 'rgba(28, 28, 28, 1)'
+        : state.isFocused
+        ? 'rgba(28, 28, 28, 1)'
+        : 'rgba(28, 28, 28, 1)', // Стилізація фона активної опції и ховера
+      padding: '14px',
     }),
 
     control: (defaultStyles) => ({
@@ -136,10 +127,41 @@ const ProductsFilters = () => {
       borderRadius: '12px',
       border: '1px solid rgba(239, 237, 232, 0.3)',
       height: height,
+      appearance: 'none', // Removing default appearance
+      WebkitAppearance: 'none',
+      MozAppearance: 'none',
     }),
     singleValue: (defaultStyles) => ({
       ...defaultStyles,
       color: '#EFEDE8',
+    }),
+    menu: (defaultStyles) => ({
+      ...defaultStyles,
+      backgroundColor: 'rgba(28, 28, 28, 1)', //фон списку
+      overflowY: 'auto',
+    }),
+    indicatorSeparator: (defaultStyles) => ({
+      ...defaultStyles,
+      backgroundColor: 'transparent', // колір розділювача
+    }),
+    dropdownIndicator: (defaultStyles) => ({
+      ...defaultStyles,
+      color: '#EFEDE8',
+    }),
+    container: (defaultStyles) => ({
+      ...defaultStyles,
+      border: '1px solid rgba(239, 237, 232, 0.30)',
+      borderRadius: '12px',
+      outline: 'none',
+    }),
+    menuList: (base) => ({
+      ...base,
+      borderRadius: '12px', // Бордер при скроле
+
+      '::-webkit-scrollbar': {
+        display: 'none',
+      },
+      // overflowY: 'scroll',
     }),
   };
 
@@ -153,10 +175,10 @@ const ProductsFilters = () => {
                 type="text"
                 name="productsSearch"
                 placeholder="Search"
-                value={searchQuery}
+                value={query}
                 onChange={handleChange}
               />
-              {searchQuery && (
+              {query && (
                 <SearchBtnClose type="button" onClick={resetForm}>
                   <SearchSvgClose>
                     <use href={sprite + '#icon-cross'}></use>
@@ -179,9 +201,20 @@ const ProductsFilters = () => {
               onChange={handleCategoriesChange}
               options={categoriesList}
               placeholder="Categories"
-              components={animatedComponents}
-              className="react-select-container"
-              classNamePrefix="react-select"
+              theme={(theme) => ({
+                ...theme,
+
+                colors: {
+                  ...theme.colors,
+                  primary50: 'rgba(255, 255, 255, 0.10)', // Цвет фона при нажатии на селект в меню
+                  primary: 'transparent',
+                  neutral40: '#EFEDE8', // ховер на птичку
+                  neutral20: 'transparent', // дефолтный бордер
+                  neutral30: 'transparent', // дефолтный ховер бордер
+                  neutral50: 'rgba(239, 237, 232, 1)', // цвет плейсхолдера
+                  neutral80: 'rgba(239, 237, 232, 1)',
+                },
+              })}
             />
           </SelectContainer>
         </li>
@@ -192,9 +225,20 @@ const ProductsFilters = () => {
               value={recommended}
               onChange={handleRecomendedChange}
               options={options}
-              components={animatedComponents}
-              className="react-select-container"
-              classNamePrefix="react-select"
+              theme={(theme) => ({
+                ...theme,
+
+                colors: {
+                  ...theme.colors,
+                  primary50: 'rgba(255, 255, 255, 0.10)', // Цвет фона при нажатии на селект в меню
+                  primary: 'transparent',
+                  neutral40: '#EFEDE8', // ховер на птичку
+                  neutral20: 'transparent', // дефолтный бордер
+                  neutral30: 'transparent', // дефолтный ховер бордер
+                  neutral50: 'rgba(239, 237, 232, 1)', // цвет плейсхолдера
+                  neutral80: 'rgba(239, 237, 232, 1)',
+                },
+              })}
             />
           </SelectContainer>
         </li>

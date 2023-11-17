@@ -11,6 +11,7 @@ export const selectIsRefreshing = (state) => state.auth.isRefreshing;
 export const selectWorkouts = (state) => state.workouts.workouts;
 export const selectWorkoutsIsLoading = (state) => state.workouts.isLoading;
 export const selectWorkoutsError = (state) => state.workouts.error;
+export const selectOneWorkout = (state) => state.workouts.oneWorkout;
 
 // =========== M E A L S ==================
 
@@ -30,3 +31,7 @@ export const selectProductsError = (state) => state.products.error;
 export const selectUserProfile = (state) => state.profile.userProfile;
 export const selectUserProfileIsLoading = (state) => state.profile.isLoading;
 export const selectUserProfileError = (state) => state.profile.Error;
+
+// =========== I N D I C A T O R S ==================
+
+export const selectIndicators = (state) => state.indicators.indicators;

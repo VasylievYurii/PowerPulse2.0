@@ -1,4 +1,4 @@
-import { SpanPagination, WraperPaginate } from './Pagination.styled';
+import { SpanPagination, WrapperPaginate } from './Pagination.styled';
 
 const Pagination = ({ exePerPage, totalExe, paginate }) => {
   const pageNumbers = [];
@@ -8,13 +8,13 @@ const Pagination = ({ exePerPage, totalExe, paginate }) => {
 
   return (
     <div style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-      <WraperPaginate>
+      <WrapperPaginate>
         {pageNumbers.map((number) => (
           <div key={number}>
             <SpanPagination href="#" onClick={() => paginate(number)} />
           </div>
         ))}
-      </WraperPaginate>
+      </WrapperPaginate>
     </div>
   );
 };

@@ -46,7 +46,26 @@ export const getExercises = createAsyncThunk(
 
       const response = await instance.get('/exercises');
 
-      console.log(response);
+      return response.data;
+    } catch (e) {
+      console.log(e.message);
+      toastError(`Oops! Something was wrong.... ${e.message}`);
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  },
+);
+
+export const getExercisesFilter = createAsyncThunk(
+  'exercises/getExercisesFilter',
+  async (paramsExe, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const persistedToken = state.auth.token;
+      token.set(persistedToken);
+
+      const response = await instance.get(
+        `/exercises?filter=${paramsExe.filter}&name=${paramsExe.name}`,
+      );
       return response.data;
     } catch (e) {
       console.log(e.message);
@@ -65,8 +84,6 @@ export const getExercisesMuscles = createAsyncThunk(
       token.set(persistedToken);
 
       const response = await instance.get('/exercises/groups/muscles');
-
-      console.log(response);
       return response.data;
     } catch (e) {
       console.log(e.message);
@@ -83,10 +100,7 @@ export const getExercisesEquipment = createAsyncThunk(
       const state = thunkAPI.getState();
       const persistedToken = state.auth.token;
       token.set(persistedToken);
-
       const response = await instance.get('/exercises/groups/equipment');
-
-      console.log(response);
       return response.data;
     } catch (e) {
       console.log(e.message);
@@ -103,10 +117,7 @@ export const getExercisesBodyparts = createAsyncThunk(
       const state = thunkAPI.getState();
       const persistedToken = state.auth.token;
       token.set(persistedToken);
-
       const response = await instance.get('/exercises/groups/bodyparts');
-
-      console.log(response);
       return response.data;
     } catch (e) {
       console.log(e.message);

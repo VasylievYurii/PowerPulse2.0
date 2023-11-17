@@ -1,10 +1,11 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit'
-import { delDiaryWorkoutThunk, getDiaryWorkoutThunk } from './workoutsOperations';
+import { delDiaryWorkoutThunk, getDiaryWorkoutThunk, addWorkout } from './workoutsOperations';
 
 const workoutsInitialState = {
     isLoading: false,
     error: null,
     workouts: [],
+    oneWorkout: null,
 };
 
 const onPending = (state) => {
@@ -35,6 +36,11 @@ export const workoutsSlice = createSlice({
             .addCase(delDiaryWorkoutThunk.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
                 state.workouts = state.workouts.filter(workout => workout._id !== payload._id)
+                state.error = null;
+            })
+            .addCase(addWorkout.fulfilled, (state, { payload }) => {
+                state.isLoading = false;
+                state.oneWorkout = payload;
                 state.error = null;
             })
             .addMatcher(isAnyOf(...addStatusToActs('pending')), onPending)

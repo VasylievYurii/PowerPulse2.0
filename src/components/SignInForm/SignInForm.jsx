@@ -1,35 +1,21 @@
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../redux/auth/operations';
-import { ButtonSubmitStyled } from './SignInForm.styled';
-import sprite from '../../assets/sprite.svg';
 import { useState } from 'react';
+import signinSchema from '../../schema/signinSchema';
 import {
   InputStyled,
   WrapFormStyled,
   ErrorDivStyled,
   SvgIconEyeStyled,
   SvgIconCheckBoxStyled,
-  WrapErrorStyled,
+  WrapperErrorStyled,
   LabelWrapStyled,
-  IconWrapdStyled,
+  IconWrappedStyled,
 } from '../SignUpForm/SignUpForm.styled';
-
-const SigninSchema = Yup.object().shape({
-  email: Yup.string().email('Invalid email').required('Required!'),
-  password: Yup.string().min(6, 'Too Short!').required('Required!'),
-});
-
-function validateEmail(value) {
-  let error;
-  if (!value) {
-    error = 'Required';
-  } else if (!/^[\w-.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/i.test(value)) {
-    error = 'Invalid email address';
-  }
-  return error;
-}
+import { ButtonSubmitStyled } from './SignInForm.styled';
+import sprite from '../../assets/sprite.svg';
+import validateEmail from '../../js/validateEmail';
 
 const initialValues = {
   email: '',
@@ -39,8 +25,7 @@ const initialValues = {
 const SignInForm = () => {
   const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye`);
   const [type, setType] = useState('password');
-  const [borderColor, setBorderColor] = useState('');
-  // const [error, setError] = useState(null);
+  const [validColor, setValidColor] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
@@ -58,20 +43,10 @@ const SignInForm = () => {
     }
   };
 
-  // const toggleInputBorder = () => {
-  //   const { errors, touched } = Formik;
-
-  //   if (errors && touched === true) {
-  //     setBorderColor('#D80027');
-  //   } else {
-  //     setBorderColor('#3CBF61');
-  //   }
-  // };
-
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={SigninSchema}
+      validationSchema={signinSchema}
       onSubmit={handleSubmit}
     >
       {({ errors, touched }) => (
@@ -84,17 +59,17 @@ const SignInForm = () => {
                   name="email"
                   validate={validateEmail}
                   placeholder="Email"
-                  $border_color={borderColor}
+                  $border_color={validColor}
                 />
               </LabelWrapStyled>
 
               {errors.email && touched.email ? (
-                <WrapErrorStyled>
+                <WrapperErrorStyled>
                   <SvgIconCheckBoxStyled>
                     <use href={`${sprite}#icon-checkbox`} />
                   </SvgIconCheckBoxStyled>
                   <ErrorDivStyled>{errors.email}</ErrorDivStyled>
-                </WrapErrorStyled>
+                </WrapperErrorStyled>
               ) : null}
             </div>
             <div>
@@ -103,22 +78,21 @@ const SignInForm = () => {
                   type={type}
                   name="password"
                   placeholder="Password"
-                  // $border_color={borderColor}
                 />
-                <IconWrapdStyled>
+                <IconWrappedStyled>
                   <SvgIconEyeStyled onClick={togglePassInput}>
                     <use href={toggleIcon} />
                   </SvgIconEyeStyled>
-                </IconWrapdStyled>
+                </IconWrappedStyled>
               </LabelWrapStyled>
 
               {errors.password && touched.password ? (
-                <WrapErrorStyled>
+                <WrapperErrorStyled>
                   <SvgIconCheckBoxStyled>
                     <use href={`${sprite}#icon-checkbox`} />
                   </SvgIconCheckBoxStyled>
                   <ErrorDivStyled>{errors.password}</ErrorDivStyled>
-                </WrapErrorStyled>
+                </WrapperErrorStyled>
               ) : null}
             </div>
           </WrapFormStyled>

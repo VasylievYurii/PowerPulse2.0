@@ -1,15 +1,21 @@
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { IconSettings, UserWrapper, IconUser, Img } from './UserBar.styled';
+import Loader from '../Loader';
 import sprite from '../../assets/sprite.svg';
 
 const UserBar = () => {
-  const [imageError, setImageError] = useState(false);
   const { userData } = useSelector((state) => state.auth);
+  const [loading, setLoading] = useState(false);
+  const [imageURL, setImageURL] = useState();
 
-  const handleImageError = () => {
-    setImageError(true);
-  };
+  useEffect(() => {
+    if (userData) {
+      setLoading(true);
+      setImageURL(userData.avatarURL);
+    }
+    setLoading(false);
+  }, [userData]);
 
   return (
     <>
@@ -17,13 +23,23 @@ const UserBar = () => {
         <use href={`${sprite}#icon-settings`} />
       </IconSettings>
       <UserWrapper>
-        {userData ? (
-          <Img
-            src={`https://powerpulse-t5-backend.onrender.com/${userData.avatarURL}`}
-            sizes="90px"
-            onError={handleImageError}
-            hidden={imageError}
-          />
+        {imageURL ? (
+          <>
+            {loading ?? (
+              <IconUser>
+                <use href={`${sprite}#icon-user`} />
+              </IconUser>
+            )}
+            <Img
+              src={`https://powerpulse-t5-backend.onrender.com/${imageURL}`}
+              sizes="90px"
+              onError={() => {
+                setImageURL(null);
+                setLoading(false);
+              }}
+              loading="lazy"
+            />
+          </>
         ) : (
           <IconUser>
             <use href={`${sprite}#icon-user`} />

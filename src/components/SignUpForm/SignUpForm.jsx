@@ -1,21 +1,23 @@
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
+import signupSchema from '../../schema/signupSchema';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/auth/operations';
-import sprite from '../../assets/sprite.svg';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import {
   InputStyled,
   ErrorDivStyled,
   WrapFormStyled,
-  WrapErrorStyled,
+  WrapperErrorStyled,
   SvgIconCheckBoxStyled,
   LabelWrapStyled,
-  IconWrapdStyled,
+  IconWrappedStyled,
   SvgIconEyeStyled,
 } from './SignUpForm.styled';
 import { ButtonSubmitStyled } from '../SignInForm/SignInForm.styled';
+import sprite from '../../assets/sprite.svg';
+import validateEmail from '../../js/validateEmail';
+import validateName from '../../js/validateName';
 
 const toastInfo = (text) => {
   toast.info(text, {
@@ -30,37 +32,6 @@ const toastInfo = (text) => {
   });
 };
 
-const SignupSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, 'Too Short! Must be minimum 6 symbols')
-    .max(50, 'Too Long! 50 symbols - is maximum.')
-    .required('Name is required'),
-  email: Yup.string()
-    .email('Invalid email. Here is an example: example@mail.com')
-    .required('Email is required'),
-  password: Yup.string()
-    .min(6, 'Too Short! Must be minimum 6 symbols')
-    .required('Password is required'),
-});
-
-function validateEmail(value) {
-  let error;
-  if (!value) {
-    error = 'Required';
-  } else if (!/^[\w-.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/i.test(value)) {
-    error = 'Invalid email address';
-  }
-  return error;
-}
-
-function validateName(value) {
-  let error;
-  if (value === 'admin' || value === 'god') {
-    error = 'Nice try!';
-  }
-  return error;
-}
-
 const initialValues = {
   name: '',
   email: '',
@@ -70,7 +41,7 @@ const initialValues = {
 const SignUpForm = () => {
   const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye`);
   const [type, setType] = useState('password');
-  const [borderColor, setBorderColor] = useState('red');
+  const [validColor, setValidColor] = useState('red');
 
   const dispatch = useDispatch();
 
@@ -78,7 +49,7 @@ const SignUpForm = () => {
     dispatch(registerUser(values));
     actions.resetForm();
     toastInfo(
-      'You have been sent a varification email. Follow the istructions in the email.',
+      'You have been sent a verification email. Follow the instructions in the email.',
     );
   };
 
@@ -95,7 +66,7 @@ const SignUpForm = () => {
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={SignupSchema}
+      validationSchema={signupSchema}
       onSubmit={handleSubmit}
     >
       {({ errors, touched }) => (
@@ -109,12 +80,12 @@ const SignUpForm = () => {
                 validate={validateName}
               />
               {errors.name && touched.name ? (
-                <WrapErrorStyled>
+                <WrapperErrorStyled>
                   <SvgIconCheckBoxStyled>
                     <use href={`${sprite}#icon-checkbox`} />
                   </SvgIconCheckBoxStyled>
                   <ErrorDivStyled>{errors.name}</ErrorDivStyled>
-                </WrapErrorStyled>
+                </WrapperErrorStyled>
               ) : null}
             </div>
 
@@ -126,12 +97,12 @@ const SignUpForm = () => {
                 placeholder="Email"
               />
               {errors.email && touched.email ? (
-                <WrapErrorStyled>
+                <WrapperErrorStyled>
                   <SvgIconCheckBoxStyled>
                     <use href={`${sprite}#icon-checkbox`} />
                   </SvgIconCheckBoxStyled>
                   <ErrorDivStyled>{errors.email}</ErrorDivStyled>
-                </WrapErrorStyled>
+                </WrapperErrorStyled>
               ) : null}
             </div>
 
@@ -142,20 +113,20 @@ const SignUpForm = () => {
                   name="password"
                   placeholder="Password"
                 />
-                <IconWrapdStyled>
+                <IconWrappedStyled>
                   <SvgIconEyeStyled onClick={togglePassInput}>
                     <use href={toggleIcon} />
                   </SvgIconEyeStyled>
-                </IconWrapdStyled>
+                </IconWrappedStyled>
               </LabelWrapStyled>
 
               {errors.password && touched.password ? (
-                <WrapErrorStyled>
+                <WrapperErrorStyled>
                   <SvgIconCheckBoxStyled>
                     <use href={`${sprite}#icon-checkbox`} />
                   </SvgIconCheckBoxStyled>
                   <ErrorDivStyled>{errors.password}</ErrorDivStyled>
-                </WrapErrorStyled>
+                </WrapperErrorStyled>
               ) : null}
             </div>
           </WrapFormStyled>

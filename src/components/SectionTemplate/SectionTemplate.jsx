@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 
 function SectionTemplate({ children }) {
   const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <Section pathname={location.pathname}>

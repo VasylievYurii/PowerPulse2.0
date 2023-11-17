@@ -1,4 +1,3 @@
-import React from 'react';
 import sprite from '../../assets/sprite.svg';
 import {
   DashIconWrapper,
@@ -6,84 +5,131 @@ import {
   DashList,
   DashSection,
   DashTitle,
-  WrapDashText
+  WrapDashText,
 } from './DayDashboard.styled';
-
+import { useSelector } from 'react-redux';
+import {
+  selectIndicators,
+  selectMeals,
+  selectWorkouts,
+} from '../../redux/selectors';
 
 const DayDashboard = () => {
+  const { targetBmr, targetTime } = useSelector(selectIndicators);
+  const meals = useSelector(selectMeals);
+  const workouts = useSelector(selectWorkouts);
+  const dayCalories = Math.round(targetBmr);
+  const consumedCalories = Math.round(
+    meals.reduce((total, meal) => total + meal.calories, 0),
+  );
+  const burnCalories = Math.round(
+    workouts.reduce((total, workout) => total + workout.burnedCalories, 0),
+  );
+  const totalWorkoutsTime = workouts.reduce(
+    (total, workout) => total + workout.time,
+    0,
+  );
+
+  // Кількість калорій, що залишилось нажерти від добової норми =
+  // = калорії на добу - вже зіжрані калорії + спалені калорії під час воркауту
+  const restCalories = dayCalories - consumedCalories + burnCalories;
+
+  // Скільки часу від денної норми залишилось потренуватись.
+  const restWorkoutsTime = targetTime - totalWorkoutsTime;
+
+  let borderColorRestCalories = 'rgba(239, 237, 232, 0.20)';
+  let borderColorRestWorkoutsTime = 'rgba(239, 237, 232, 0.20)';
+
+  if (restCalories < 0) {
+    borderColorRestCalories = 'var(--color-wrong-two)';
+    borderColorRestWorkoutsTime = 'var(--color-approved-one)';
+  }
 
   return (
     <DashSection>
       <DashList>
-          <DashIndicators color='var(--color-main-one)'>
-            <DashTitle color='rgba(239, 237, 232, 0.80)'>
-              <DashIconWrapper fill='var(--color-main-two)' stroke='var(--color-main-two)'>
-                <use href={`${sprite}#icon-food`} />
-              </DashIconWrapper>
-              Daily calorie intake
+        <DashIndicators color="var(--color-main-one)">
+          <DashTitle color="rgba(239, 237, 232, 0.80)">
+            <DashIconWrapper
+              fill="var(--color-main-two)"
+              stroke="var(--color-main-two)"
+            >
+              <use href={`${sprite}#icon-food`} />
+            </DashIconWrapper>
+            Daily calorie intake
           </DashTitle>
-          5454
-            {/* <TextSpan>{colories}</TextSpan> */}
-          </DashIndicators>
-          <DashIndicators color='var(--color-main-one)'>
-            <DashTitle color='rgba(239, 237, 232, 0.80)'>
-              <DashIconWrapper fill='var(--color-main-two)' stroke='var(--color-main-two)'>
-                <use href={`${sprite}#icon-dumbbell`} />
-              </DashIconWrapper>
-              Daily norm of sports
+          {dayCalories}
+        </DashIndicators>
+        <DashIndicators color="var(--color-main-one)">
+          <DashTitle color="rgba(239, 237, 232, 0.80)">
+            <DashIconWrapper
+              fill="var(--color-main-two)"
+              stroke="var(--color-main-two)"
+            >
+              <use href={`${sprite}#icon-dumbbell`} />
+            </DashIconWrapper>
+            Daily norm of sports
           </DashTitle>
-          5454
-            {/* <TextSpan>{colories}</TextSpan> */}
+          {targetTime} min
         </DashIndicators>
         <DashIndicators>
-            <DashTitle>
-              <DashIconWrapper fill='var(--color-main-two)' stroke='var(--color-main-two)'>
-                <use href={`${sprite}#icon-apple`} />
-              </DashIconWrapper>
-              Сalories consumed
+          <DashTitle>
+            <DashIconWrapper
+              fill="var(--color-main-two)"
+              stroke="var(--color-main-two)"
+            >
+              <use href={`${sprite}#icon-apple`} />
+            </DashIconWrapper>
+            Calories consumed
           </DashTitle>
-          5454
-            {/* <TextSpan>{colories}</TextSpan> */}
-          </DashIndicators>
-          <DashIndicators>
-            <DashTitle>
-              <DashIconWrapper fill='var(--color-main-two)' stroke='var(--color-main-two)'>
-                <use href={`${sprite}#icon-calories`} />
-              </DashIconWrapper>
-              Сalories burned
-          </DashTitle>
-          5454
-            {/* <TextSpan>{colories}</TextSpan> */}
+          {consumedCalories}
         </DashIndicators>
         <DashIndicators>
-            <DashTitle>
-              <DashIconWrapper fill='var(--color-main-two)' stroke='var(--color-main-two)'>
-                <use href={`${sprite}#icon-bubble`} />
-              </DashIconWrapper>
-              The rest of the calories
+          <DashTitle>
+            <DashIconWrapper
+              fill="var(--color-main-two)"
+              stroke="var(--color-main-two)"
+            >
+              <use href={`${sprite}#icon-calories`} />
+            </DashIconWrapper>
+            Calories burned
           </DashTitle>
-          5454
-            {/* <TextSpan>{colories}</TextSpan> */}
-          </DashIndicators>
-          <DashIndicators>
-            <DashTitle>
-              <DashIconWrapper fill='var(--color-main-two)' stroke='var(--color-main-two)'>
-                <use href={`${sprite}#icon-run`} />
-              </DashIconWrapper>
-              The rest of sports
+          {burnCalories}
+        </DashIndicators>
+        <DashIndicators $borderColor={borderColorRestCalories}>
+          <DashTitle>
+            <DashIconWrapper
+              fill="var(--color-main-two)"
+              stroke="var(--color-main-two)"
+            >
+              <use href={`${sprite}#icon-bubble`} />
+            </DashIconWrapper>
+            The rest of the calories
           </DashTitle>
-          5454
-            {/* <TextSpan>{colories}</TextSpan> */}
-          </DashIndicators>
+          {restCalories}
+        </DashIndicators>
+        <DashIndicators $borderColor={borderColorRestWorkoutsTime}>
+          <DashTitle>
+            <DashIconWrapper
+              fill="var(--color-main-two)"
+              stroke="var(--color-main-two)"
+            >
+              <use href={`${sprite}#icon-run`} />
+            </DashIconWrapper>
+            The rest of sports
+          </DashTitle>
+          {restCalories < 0 ? `+ ${restWorkoutsTime}` : restWorkoutsTime} min
+        </DashIndicators>
       </DashList>
       <WrapDashText>
-          <DashIconWrapper size='24px' fill='green' stroke='red'>
-            <use href={`${sprite}#icon-exclamation`} />
-          </DashIconWrapper>
-            Record all your meals in a calorie diary every day. This will help me be aware of my nutrition and make me responsible for my choices.
-        </WrapDashText>
+        <DashIconWrapper size="24px" fill="green" stroke="red">
+          <use href={`${sprite}#icon-exclamation`} />
+        </DashIconWrapper>
+        Record all your meals in a calorie diary every day. This will help me be
+        aware of my nutrition and make me responsible for my choices.
+      </WrapDashText>
     </DashSection>
-  )
+  );
 };
 
 export default DayDashboard;

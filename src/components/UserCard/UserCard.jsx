@@ -30,14 +30,13 @@ import Loader from '../Loader';
 import { Link } from 'react-router-dom';
 
 const UserCard = () => {
+  const dispatch = useDispatch();
+  const { userData } = useSelector((state) => state.auth);
   const [imageURL, setImageURL] = useState();
   const [colories, setColories] = useState('0');
   const [physical, setPhysical] = useState('0');
   const [user, setUser] = useState('Hello user!');
   const [loading, setLoading] = useState(false);
-
-  const dispatch = useDispatch();
-  const { userData } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (userData) {
@@ -63,7 +62,6 @@ const UserCard = () => {
         setImageURL(null);
       }
     }
-
     setLoading(false);
   };
 
@@ -85,6 +83,7 @@ const UserCard = () => {
                 setImageURL(null);
                 setLoading(false);
               }}
+              loading="lazy"
             />
           ) : (
             <IconWrapperUser>
@@ -98,7 +97,6 @@ const UserCard = () => {
           </IconPluse>
         </ButtonUser>
       </WrapperUserDiv>
-
       <WrapperName>
         <TextNameUser>{user}</TextNameUser>
         <TextUser>User</TextUser>

@@ -2,54 +2,62 @@ import {
   Indexes,
   IndexesText,
   IndexesValue,
-  WraperIndexes,
+  WrapperIndexes,
   HeaderIndexes,
   TextStart,
   NameExes,
-  WraperExercisesItem,
+  WrapperExercisesItem,
   IconWrapper,
-  WraperNameExes,
-  WraperStart,
+  WrapperNameExes,
+  WrapperStart,
   IconWrapperStart,
+  IndexesTextBody,
+  IndexesTextTarget,
+  IndexesValueBody,
 } from './ExercisesItem.styled.js';
 import sprite from '../../assets/sprite.svg';
 
-
-
-const ExercisesItem = ({ calories, target, NameBodyPart, equipment }) => {
+const ExercisesItem = ({
+  calories,
+  target,
+  NameBodyPart,
+  name,
+  onClickStart,
+}) => {
   return (
-    <WraperExercisesItem>
+    <WrapperExercisesItem>
       <HeaderIndexes>
         <p>WORKOUT</p>
-        <WraperStart>
+        <WrapperStart onClick={onClickStart}>
           <TextStart>Start</TextStart>
           <IconWrapperStart>
-            <use href={`${sprite}#icon-arrow`} height={24} width={24} />
+            <use href={`${sprite}#icon-arrow`} />
           </IconWrapperStart>
-        </WraperStart>
+        </WrapperStart>
       </HeaderIndexes>
-      <WraperNameExes>
+      <WrapperNameExes>
         <IconWrapper>
           <use href={`${sprite}#icon-run`} height={17} width={17} />
         </IconWrapper>
-        <NameExes>{equipment}</NameExes>
-      </WraperNameExes>
-      <WraperIndexes>
+        <NameExes>{name}</NameExes>
+      </WrapperNameExes>
+      <WrapperIndexes>
         <Indexes>
           <IndexesText>Burned calories:</IndexesText>
           <IndexesValue>{calories}</IndexesValue>
         </Indexes>
         <Indexes>
-          <IndexesText>Body part:</IndexesText>
-          <IndexesValue>{NameBodyPart}</IndexesValue>
+          <IndexesTextBody>Body part:</IndexesTextBody>
+          <IndexesValueBody>{NameBodyPart}</IndexesValueBody>
         </Indexes>
         <Indexes>
-          <IndexesText>Target:</IndexesText>
-          <IndexesValue>{target}</IndexesValue>
+          <IndexesTextTarget>Target:</IndexesTextTarget>
+          <IndexesValueBody>{target}</IndexesValueBody>
         </Indexes>
-      </WraperIndexes>
-    </WraperExercisesItem>
+      </WrapperIndexes>
+    </WrapperExercisesItem>
   );
 };
+
 
 export default ExercisesItem;

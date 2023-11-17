@@ -8,6 +8,7 @@ import Loader from '../Loader';
 import RestrictedRoute from '../RestrictedRoute';
 import PrivateRoute from '../PrivateRoute';
 import SharedLayout from '../SharedLayout';
+import ErrorPage from '../../pages/ErrorPage/ErrorPage';
 
 const Welcome = lazy(() => import('../../pages/Welcome/Welcome'));
 const Profile = lazy(() => import('../../pages/Profile'));
@@ -19,8 +20,8 @@ const Muscles = lazy(() => import('../../pages/Muscles'));
 const Equipment = lazy(() => import('../../pages/Equipment'));
 const SignUp = lazy(() => import('../../pages/SignUp'));
 const SignIn = lazy(() => import('../../pages/SignIn'));
-const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 import { AppWrapper } from './App.styled';
+import ExercisesList from '../ExercisesList';
 
 function App() {
   const location = useLocation();
@@ -33,6 +34,10 @@ function App() {
 
   if (location.pathname === '/') {
     return <Navigate to="/welcome" />;
+  }
+
+  if (location.pathname === '/exercises') {
+    return <Navigate to="/exercises/bodyparts" />;
   }
 
   return isRefreshing ? (
@@ -101,22 +106,11 @@ function App() {
               </Suspense>
             }
           >
-            <Route path="bodyparts" element={<BodyParts />}>
-              {/* <Route path="/part/:id">
-              <ExercisesList />
-            </Route> */}
-            </Route>
-            <Route path="muscles" element={<Muscles />}>
-              {/* <Route path="/part/:id">
-              <ExercisesList />
-            </Route> */}
-            </Route>
-            <Route path="equipment" element={<Equipment />}>
-              {/* <Route path="/part/:id">
-              <ExercisesList />
-            </Route> */}
-            </Route>
+            <Route path="bodyparts" element={<BodyParts />}></Route>
+            <Route path="muscles" element={<Muscles />}></Route>
+            <Route path="equipment" element={<Equipment />}></Route>
           </Route>
+          <Route path="/exercises/:filter/:id" element={<ExercisesList />} />
         </Route>
 
         <Route path="*" element={<ErrorPage />} />

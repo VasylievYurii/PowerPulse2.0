@@ -1,52 +1,44 @@
-import { useNavigate } from 'react-router-dom';
 import {
   Container,
-  Left,
+  Svg,
   Content,
   Title,
   Text,
   StyledLink,
+  Section404,
+  LogoText,
+  ButtonWrapper,
+  LinkStyled,
 } from './ErrorPage.styled';
-import Button from '../../components/LogOutBtn';
-import SectionTemplateNoAuth from '../../components/SectionTemplateNoAuth';
-
-/* import svg */
+import sprite from '../../assets/sprite.svg';
 
 const ErrorPage = () => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate('/');
-  };
-  console.log('404');
   return (
-    <SectionTemplateNoAuth>
-      {' '}
+    <Section404>
       <Container>
-        <StyledLink to="/">
-          {/*  <Svg>
-          <use href={`$`} />
-        </Svg> */}
+        <StyledLink to="/welcome">
+          <Svg>
+            <use href={`${sprite}#icon-vector`} />
+          </Svg>
+          <LogoText>
+            <use href={`${sprite}#icon-powerpulse`} />
+          </LogoText>
         </StyledLink>
-        <Left>
-          <Content>
-            <Title>404</Title>
-            <Text>
-              Sorry, you have reached a page that we could not find. It seems
-              that you are lost among the numbers and letters of our virtual
-              space. Perhaps this page went on vacation or decided to disappear
-              into another dimension. We apologize for this inconvenience.
-            </Text>
-            <Button
-              className="Button"
-              text="Go Home"
-              type="button"
-              onClick={handleClick}
-            />
-          </Content>
-        </Left>
+
+        <Content>
+          <Title>404</Title>
+          <Text>
+            Sorry, you have reached a page that we could not find. It seems that
+            you are lost among the numbers and letters of our virtual space.
+            Perhaps this page went on vacation or decided to disappear into
+            another dimension. We apologize for this inconvenience.
+          </Text>
+          <LinkStyled to="/welcome">
+            <ButtonWrapper>Go Home</ButtonWrapper>
+          </LinkStyled>
+        </Content>
       </Container>
-    </SectionTemplateNoAuth>
+    </Section404>
   );
 };
 

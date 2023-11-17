@@ -13,63 +13,64 @@ import {
   DiarySupTitleTablet,
   DiaryLists,
   SectionsWrapTitle,
-  EmptyText
+  EmptyText,
 } from '../../pages/Diary/Diary.styled';
 
 const DayProducts = () => {
   const meals = useSelector(selectMeals);
   const [points, setPoints] = useState(window.innerWidth);
-
   const handleResize = () => setPoints(window.innerWidth);
-  
+
   useEffect(() => {
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-  // const dispatch = useDispatch();
-  // const [load, setLoad] = useState(true);
-  // const date = useSelector(selectDate);
+  return (
+    <DiarySections>
+      <SectionsWrapTitle>
+        <DiaryTitle>Products</DiaryTitle>
+        <Link to="/products">
+          <DiaryLink>
+            Add product
+            <NextIconWrapper>
+              <use href={`${sprite}#icon-arrow`} />
+            </NextIconWrapper>
+          </DiaryLink>
+        </Link>
+      </SectionsWrapTitle>
 
-  // useEffect(() => {
-  //     setLoad(false);
-  // }, [])
-
-  // useEffect(() => {
-  //     dispatch(getContactsThunk())
-  // }, [dispatch]);
-
-  // const mealsByDate = meals.filter(({ meal.date }) =>
-  //   (meal.date === date));
-
-    return (
-      <DiarySections>
-        <SectionsWrapTitle>
-          <DiaryTitle>Products</DiaryTitle>
-          <Link to="/products">
-            <DiaryLink>
-              Add product
-              <NextIconWrapper>
-                <use href={`${sprite}#icon-next`} />
-              </NextIconWrapper>
-            </DiaryLink>
-          </Link>
-        </SectionsWrapTitle>
-        <WrapTitlesTablet>
-          <DiarySupTitleTablet width={(points < 1440) ? '206px' : '212px'}>Title</DiarySupTitleTablet>
-          <DiarySupTitleTablet width={(points < 1440) ? '130px' : '166px'}>Category</DiarySupTitleTablet>
-          <DiarySupTitleTablet width={(points < 1440) ? '92px' : '105px'}>Calories</DiarySupTitleTablet>
-          <DiarySupTitleTablet width={(points < 1440) ? '92px' : '105px'}>Weight</DiarySupTitleTablet>
-          <DiarySupTitleTablet width={(points < 1440) ? '82px' : '110px'}>Recommend</DiarySupTitleTablet>
-        </WrapTitlesTablet>
-        {meals.length !== 0 ? <DiaryLists>
-          {meals.map((meal) =>
-            <DayProductItem meal={meal} points={points} key={meal._id} />
-          )}
-        </DiaryLists> : <EmptyText>Not found products</EmptyText>
-        }
-      </DiarySections>
-    );
+      {meals.length !== 0 ? (
+        <>
+          <WrapTitlesTablet>
+            <DiarySupTitleTablet width={points < 1440 ? '206px' : '212px'}>
+              Title
+            </DiarySupTitleTablet>
+            <DiarySupTitleTablet width={points < 1440 ? '130px' : '166px'}>
+              Category
+            </DiarySupTitleTablet>
+            <DiarySupTitleTablet width={points < 1440 ? '92px' : '105px'}>
+              Calories
+            </DiarySupTitleTablet>
+            <DiarySupTitleTablet width={points < 1440 ? '92px' : '105px'}>
+              Weight
+            </DiarySupTitleTablet>
+            <DiarySupTitleTablet width={points < 1440 ? '82px' : '110px'}>
+              Recommend
+            </DiarySupTitleTablet>
+          </WrapTitlesTablet>
+          <DiaryLists>
+            {' '}
+            {meals.map((meal) => (
+              <DayProductItem meal={meal} points={points} key={meal._id} />
+            ))}{' '}
+          </DiaryLists>
+        </>
+      ) : (
+        <EmptyText>Not found products</EmptyText>
+      )}
+    </DiarySections>
+  );
 };
 
 export default DayProducts;

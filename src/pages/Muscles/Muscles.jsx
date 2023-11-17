@@ -5,17 +5,26 @@ import Pagination from '../../components/Pagination/Pagination';
 import ExercisesSubcategoriesList from '../../components/ExercisesSubcategoriesList/ExercisesSubcategoriesList';
 
 const Muscles = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const { muscles } = useSelector((state) => state.exercises);
   const dispatch = useDispatch();
+  const [currentPage, setCurrentPage] = useState(1);
+  const { muscles } = useSelector((state) => state.exercises);
+
   useEffect(() => {
     dispatch(getExercisesMuscles());
   }, [dispatch]);
-  console.log('bod', muscles);
-  const exePerPage = 9;
-  const lastExeIndex = currentPage * exePerPage;
-  const firstExeIndex = lastExeIndex - exePerPage;
+
+  function perPage() {
+    let exePerPage;
+    if (window.matchMedia('(min-width: 1440px)').matches) {
+      exePerPage = 10;
+    } else {
+      exePerPage = 9;
+    }
+    return exePerPage;
+  }
+  const lastExeIndex = currentPage * perPage();
+  const firstExeIndex = lastExeIndex - perPage();
+
   function arrayPerPage() {
     const currentExe = muscles.slice(firstExeIndex, lastExeIndex);
     return currentExe;
@@ -27,7 +36,7 @@ const Muscles = () => {
     <>
       <ExercisesSubcategoriesList arr={arrayPerPage()} />
       <Pagination
-        exePerPage={exePerPage}
+        exePerPage={perPage()}
         totalExe={muscles.length}
         paginate={paginate}
       />
