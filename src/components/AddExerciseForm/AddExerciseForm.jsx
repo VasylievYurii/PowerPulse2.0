@@ -3,11 +3,11 @@
 import {Container, GifWrapper, Gif,  TimerWrapper,  ButtonContainer, Button} from './AddExerciseForm.styled'
 
 import Timer from '../Timer/Timer';
-// import { getUserParams } from '../../redux/auth/operations';
-// import { useDispatch } from 'react-redux';
-// import { useEffect, useState } from 'react';
-// import { toast } from 'react-toastify';
-// import { addExercise } from '../../redux/auth/operations';
+import { getUserParams } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import { addExercise } from '../../redux/auth/operations';
 
 
 const formatDate = date => {
