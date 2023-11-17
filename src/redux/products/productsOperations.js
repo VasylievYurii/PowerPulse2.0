@@ -14,7 +14,7 @@ export const getProducts = createAsyncThunk(
         queryParams.push(`recommended=${recommended}`);
       }
 
-      if (category && category !== '') {
+      if (category && category !== 'all') {
         queryParams.push(`categoryId=${category}`);
       }
 
@@ -23,7 +23,8 @@ export const getProducts = createAsyncThunk(
       }
 
       const queryString = queryParams.join('&');
-      const url = `products?${queryString}`;
+      const url = `products?${queryString}&page=1&limit=20`;
+
       const { data } = await instance.get(url);
 
       return data;

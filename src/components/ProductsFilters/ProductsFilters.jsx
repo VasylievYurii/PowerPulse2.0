@@ -33,20 +33,24 @@ const options = [
 
 const ProductsFilters = () => {
   const [query, setQuery] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState({
+    value: 'all',
+    label: 'All categories',
+  });
   const [recommended, setRecommended] = useState(options[0]);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(
       getProducts({
-        recommended,
-        category,
+        recommended: recommended.value,
+        category: category.value,
         query,
       }),
     );
   }, [recommended, category, query, dispatch]);
-  // page;
+
   useEffect(() => {
     dispatch(getProductsCategories());
   }, [dispatch]);
@@ -58,15 +62,21 @@ const ProductsFilters = () => {
   };
 
   const categories = useSelector(selectCategoriesProducts);
-  const categoriesList = categories.map(({ _id, name }) => ({
-    value: _id,
-    label: capitalizeString(name),
-  }));
+
+  const categoriesList = [
+    { value: 'all', label: 'All categories' },
+    ...categories.map(({ _id, name }) => ({
+      value: _id,
+      label: capitalizeString(name),
+    })),
+  ];
 
   // Відповідає за оновлення стану
   const handleChange = (e) => {
     const { value } = e.target;
     setQuery(value);
+
+    console.log('setQuery.value', query);
   };
 
   const handleSubmit = (e) => {
@@ -80,13 +90,11 @@ const ProductsFilters = () => {
   };
 
   const handleCategoriesChange = (e) => {
-    const { value } = e;
-    setCategory(value);
+    setCategory(e);
   };
 
   const handleRecomendedChange = (e) => {
-    const { value } = e;
-    setRecommended(value);
+    setRecommended(e);
   };
 
   const isMobile = useMediaQuery({ minWidth: 375 });
