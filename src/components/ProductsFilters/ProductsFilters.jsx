@@ -165,7 +165,6 @@ const ProductsFilters = () => {
           />
         </SelectWrapper>
       </ProductsFiltersWrapper>
-      <NoProductSearchResult />
     </>
   );
 };
