@@ -111,3 +111,18 @@ export const DashIconWrapper = styled.svg`
     stroke: var(--color-main-one);
   }
 `;
+
+export const DashIconExclamationWrapper = styled.svg`
+  fill: var(--color-main-two);
+  stroke: var(--color-text);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--color-main-two);
+`;
+
+export const IconWrapper = styled.div`
+  display: block;
+  width: 24px;
+  height: 24px;
+`;

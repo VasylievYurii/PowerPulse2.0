@@ -6,6 +6,8 @@ import {
   DashSection,
   DashTitle,
   WrapDashText,
+  DashIconExclamationWrapper,
+  IconWrapper,
 } from './DayDashboard.styled';
 import { useSelector } from 'react-redux';
 import {
@@ -122,9 +124,11 @@ const DayDashboard = () => {
         </DashIndicators>
       </DashList>
       <WrapDashText>
-        <DashIconWrapper size="24px" fill="green" stroke="red">
-          <use href={`${sprite}#icon-exclamation`} />
-        </DashIconWrapper>
+        <IconWrapper>
+          <DashIconExclamationWrapper>
+            <use href={`${sprite}#icon-exclamation`} />
+          </DashIconExclamationWrapper>
+        </IconWrapper>
         Record all your meals in a calorie diary every day. This will help me be
         aware of my nutrition and make me responsible for my choices.
       </WrapDashText>

@@ -14,6 +14,7 @@ import {
   IndexesTextBody,
   IndexesTextTarget,
   IndexesValueBody,
+  ExercisesTitle,
 } from './ExercisesItem.styled.js';
 import sprite from '../../assets/sprite.svg';
 
@@ -27,7 +28,7 @@ const ExercisesItem = ({
   return (
     <WrapperExercisesItem>
       <HeaderIndexes>
-        <p>WORKOUT</p>
+        <ExercisesTitle>WORKOUT</ExercisesTitle>
         <WrapperStart onClick={onClickStart}>
           <TextStart>Start</TextStart>
           <IconWrapperStart>
@@ -58,6 +59,5 @@ const ExercisesItem = ({
     </WrapperExercisesItem>
   );
 };
-
 
 export default ExercisesItem;
