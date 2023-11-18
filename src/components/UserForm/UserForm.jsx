@@ -41,9 +41,9 @@ const UserForm = () => {
       initialValues.height = profile.height;
       initialValues.currentWeight = profile.currentWeight;
       initialValues.desiredWeight = profile.desiredWeight;
-      initialValues.blood = profile.blood;
+      initialValues.blood = String(profile.blood);
       initialValues.sex = profile.sex;
-      initialValues.levelActivity = profile.levelActivity;
+      initialValues.levelActivity = String(profile.levelActivity);
       initialValues.birthday = profile.birthday;
     }
   }, [userData, profile]);
