@@ -61,3 +61,18 @@ export const updateUserProfile = createAsyncThunk(
     }
   },
 );
+
+export const getTarget = createAsyncThunk(
+  'profile/getTarget',
+  async (_, thunkApi) => {
+    try {
+      const state = thunkApi.getState();
+      const userToken = state.auth.token;
+      token.set(userToken);
+      const { data } = await instance.get('profiles/targets');
+      return data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  },
+);
