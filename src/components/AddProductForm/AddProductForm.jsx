@@ -19,11 +19,8 @@ import {
 } from './AddProductForm.styled';
 import { useDispatch } from 'react-redux';
 import { postDiaryMealsThunk } from '../../redux/meals/mealsOperations';
-// import { setFormValues } from '../../redux/productForm/productFormSlice';
 
-const AddProductForm = ({ id, title, calories, onClick,
-  // productData
-}) => {
+const AddProductForm = ({ id, title, calories, onClick }) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
 
   const dispatch = useDispatch();
@@ -60,7 +57,6 @@ const AddProductForm = ({ id, title, calories, onClick,
     delete values.calories;
     console.log(values);
     dispatch(postDiaryMealsThunk(values));
-    // dispatch(setFormValues(values));
 
     // handleCloseClick();
   };
