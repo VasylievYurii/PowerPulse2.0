@@ -1,11 +1,11 @@
-import{s as o,a2 as e}from"./index-7c2c8f97.js";import{F as t}from"./index.esm-b2ab5f14.js";const p=o(t)`
+import{s as o,a2 as e}from"./index-4ec4d62b.js";import{F as r}from"./index.esm-7443ab03.js";const p=o(r)`
   font-size: 14px;
   line-height: 18px;
   max-width: 335px;
   width: 100%;
   height: 46px;
   border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.3);
+  border: ${i=>i.border||"1px solid rgba(239, 237, 232, 0.3)"};
   padding-top: 14px;
   padding-bottom: 14px;
   padding-left: 14px;
@@ -13,13 +13,6 @@ import{s as o,a2 as e}from"./index-7c2c8f97.js";import{F as t}from"./index.esm-b
   color: var(--color-text);
   background-color: transparent;
   transition: border 0.3s var(--timing-function);
-  /* border-color: ${i=>i.$border_color}; */
-  &:invalid {
-    border: 2px solid var(--color-wrong-one);
-  }
-  &:required {
-    border: 1px solid var(--color-wrong-one);
-  }
   /* &:valid{
     border: 1px solid var(--color-approved-one);
 } */
@@ -35,7 +28,7 @@ import{s as o,a2 as e}from"./index-7c2c8f97.js";import{F as t}from"./index.esm-b
     height: 52px;
   }
 `,d=o.div`
-  color: var(--color-wrong-one);
+  color: ${i=>i.color||"var(--color-wrong-one)"};
   margin-top: 4px;
   /* margin-left: 4px; */
   line-height: 1.5;
@@ -52,11 +45,12 @@ import{s as o,a2 as e}from"./index-7c2c8f97.js";import{F as t}from"./index.esm-b
   width: 20px;
   height: 20px;
   stroke: var(--color-text);
+  cursor: pointer;
 `,x=o.svg`
   width: 16px;
   height: 16px;
   margin-top: 4px;
-  fill: var(--color-wrong-one);
+  fill: ${i=>i.fill||"var(--color-wrong-one)"};
 `,c=o.div`
   display: flex;
   gap: 4px;
@@ -94,7 +88,7 @@ import{s as o,a2 as e}from"./index-7c2c8f97.js";import{F as t}from"./index.esm-b
     padding: 16px 60px;
     margin-top: 64px;
   }
-`;function v(i){let r;return i?/^[\w-.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/i.test(i)||(r="Invalid email address"):r="Required",r}const b=o.h1`
+`;function v(i){let t;return i?/^[\w-.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/i.test(i)||(t="Invalid email address"):t="Required",t}const b=o.h1`
 font-size: 24px;
 line-height: 1.16;
 color: var(--color-text);

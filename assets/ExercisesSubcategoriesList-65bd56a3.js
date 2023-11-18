@@ -1,4 +1,4 @@
-import{s as r,j as i,a2 as p}from"./index-7c2c8f97.js";const d=r.div`
+import{s as r,j as i,a2 as p}from"./index-4ec4d62b.js";const d=r.div`
   display: flex;
   gap: 8px;
   margin-top: 32px;
