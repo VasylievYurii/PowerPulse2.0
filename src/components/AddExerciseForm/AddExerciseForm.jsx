@@ -1,123 +1,110 @@
 
-import React, { useState } from 'react';
-import sprite from '../../assets/sprite.svg';
+
+import {Container, GifWrapper, Gif,  TimerWrapper,  ButtonContainer, Button} from './AddExerciseForm.styled'
+
+import Timer from '../Timer/Timer';
+import { getUserParams } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
-/* import sprite from '../../images/svg/sprite.svg'; */
-import PropTypes from 'prop-types';
-/* import Button from 'components/Button/Button'; */
-/* import { CountdownCircleTimer } from 'react-countdown-circle-timer'; */
-/*  import { fetchDiarySaveExercise } from 'redux/operations';  */
-/* import toast from 'react-hot-toast'; */
-
-import {Container, GifWrapper, Gif, Timer, TimerTitle,CountdownCircleTimer, TimerWrapper, TimerButton, Calories,  RightContainer, List, ListItem, ItemTitle, ItemValue, ButtonContainer, Button} from './AddExerciseForm.styled'
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import { addExercise } from '../../redux/workouts/workoutsOperations';
 
 
+const formatDate = date => {
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}/${month}/${year}`;
+};
 
+ export const AddExerciseForm = ({ data, onClick, closeModal  }) => {
+  const {
+    bodyPart,
+    equipment,
+    burnedCalories,
+    gifUrl,
+    name,
+    target,
+    _id,
+    time,
+  } = data;
 
- const AddExerciseForm = ({ data, onSuccess }) => {
-  /*  const { _id, bodyPart, equipment, gifUrl, name, target, burnedCalories, time } = date; 
+  const [dinamicBurnCal, setDinamicBurnCal] = useState(0);
+  const [dinamicTime, setDinamicTime] = useState(0);
 
-  const [currentTime, setCurrentTime] = useState(time * 60);
-  const [isPlaying, setIsPlaying] = useState(false);
   const dispatch = useDispatch();
+  // const [quantity, setQuantity] = useState(1);
 
-  const toggleIsPlaying = () => {
-    setIsPlaying(!isPlaying);
-  };
+  useEffect(() => {
+    dispatch(getUserParams());
+  }, [dispatch]);
 
-  const calculatedCalories = Math.floor((currentTime / 60) * (burnedCalories / 3)); */
+  const amount = Math.round((burnedCalories / (time * 60)) * 180);
+  
 
-  const handleAddToDiary = () => {
-    if (!calculatedCalories) {
-      return;
+  const savedDate = localStorage.getItem('selectedDate');
+  let date = new Date(); // Default to current date
+
+  if (savedDate) {
+    const parsedDate = new Date(savedDate);
+    if (!isNaN(parsedDate.getTime())) {
+      date = parsedDate; // Use parsed date if valid
     }
+  }
 
-    dispatch(
-      fetchDiarySaveExercise({
-        exercise: _id,
-        time: Math.ceil(currentTime / 60),
-        calories: calculatedCalories,
-      }),
-    )
-      .then(onSuccess(currentTime, calculatedCalories))
-      .catch((error) => {
-        toast(error.message);
-      });
-  };
+   const formattedDate = formatDate(date);
 
- /* const renderTime = ({ remainingTime }) => {
-    setCurrentTime(time * 60 - remainingTime);
-    const minutes = Math.floor(remainingTime / 60);
-    const seconds = remainingTime % 60;
-    const formattedMinutes = String(minutes).padStart(2, '0');
-    const formattedSeconds = String(seconds).padStart(2, '0');
-    return `${minutes}:${seconds}`
-       
-  };
-     onClick(); 
-    // closeModal();
-   */
+   const handleAddToDiary = () => {
+     if (!amount) {
+       toast.error('Must be greater than 0');
+       return;
+     }
+
+     dispatch(
+       addExercise({
+         date: formattedDate, // Use the formatted date
+         bodyPart,
+         target,
+         time: dinamicTime,
+         exerciseId: _id,
+         equipment,
+         name,
+         burnedCalories: dinamicBurnCal,
+       }),
+     );
+     onClick();
+     
+    };
+
  
   return (
     <Container>
-      <div>
         <GifWrapper>
-          <Gif /* src={gifUrl} alt={name} */ /> 
+           <Gif  src={gifUrl} alt={name}   /> 
         </GifWrapper>
-        <Timer>
-          <TimerTitle>Time</TimerTitle>
           <TimerWrapper>
-             {/*  <CountdownCircleTimer
-               isPlaying={isPlaying}
-              duration={time * 60}
-              colors={'#e6533c'}
-              size={125}
-              strokeWidth={4}
-              trailColor={'#040404'}
-              strokeLinecap="round"
-              rotation={-1}
-            >
-              {({ remainingTime }) => renderTime({ remainingTime })}
-            </CountdownCircleTimer> 
-             <CloseBtnWrapper onClick={handleCloseClick}>
-            <use href={`${sprite}#icon-cross`} />
-          </CloseBtnWrapper>
-            
-            */}
+               <Timer
+            data={data}
+            setDinamicBurnCal={setDinamicBurnCal}
+            dinamicBurnCal={dinamicBurnCal}
+            setDinamicTime={setDinamicTime}
+            />
           </TimerWrapper>
-           <TimerButton  /* nClick={toggleIsPlaying} */>
-          <use href={`${sprite}#icon-pause`} />
-          </TimerButton> 
-          <Calories>
-            Burned calories: {/* <span className="caloriesSpan">{calculatedCalories}</span> */}
-          </Calories>
-        </Timer>
-      </div>
-      <RightContainer>
-        <List>
-          <ListItem>
-            <ItemTitle>Name</ItemTitle>
-            {/* <ItemValue>{name}</ItemValue> */}
-          </ListItem>
-          <ListItem>
-            <ItemTitle>Target</ItemTitle>
-            {/* <ItemValue>{target}</ItemValue> */}
-          </ListItem>
-          <ListItem>
-            <ItemTitle>Body Part</ItemTitle>
-{/*             <ItemValue>{bodyPart}</ItemValue> */}
-          </ListItem>
-          <ListItem>
-            <ItemTitle>Equipment</ItemTitle>
-           {/*  <ItemValue>{equipment}</ItemValue> */}
-          </ListItem>
-        </List>
+          
+      <div>
+        <ExersiceList
+         name={name}
+         bodypart={bodyPart}
+        target={target}
+        equipment={equipment}
+        time={time}
+        />
         <ButtonContainer>
            <Button type="button" onClick={handleAddToDiary}>
             Add to diary 
             </Button>
         </ButtonContainer>
-      </RightContainer>
+      </div>
     </Container>
   );
 };

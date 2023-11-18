@@ -9,6 +9,7 @@ import AddExerciseSuccess from '../../components/AddExerciseSuccess/index';
 import BasicModalWindow from '../../components/BasicModalWindow';
 import { ChaptersWrapper, LinkStyled } from './Exercises.styled';
 
+
 const Exercises = () => {
   // const dispatch = useDispatch();
   // const { array } = useSelector((state) => state.exercises);
