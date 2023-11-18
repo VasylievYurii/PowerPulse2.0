@@ -72,7 +72,7 @@ export const logOutUser = createAsyncThunk(
 
       return;
     } catch (error) {
-      toastError(`Oops! Something was wrong.... ${error.message}`);
+      toastError(`Oops! Something was wrong.... ${error.response.data}`);
       return thunkApi.rejectWithValue(error.message);
     }
   },
