@@ -1,69 +1,87 @@
-// import React from 'react';
+import { useEffect } from 'react';
 import { Formik, Form } from 'formik';
-import './useForm.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateUser } from '../../redux/auth/operations';
+import {
+  updateUserProfile,
+  getUserProfile,
+} from '../../redux/userProfile/userProfileOperations';
+import userSchema from '../../schema/userProfileSchema';
 import RadioUseForm from './RadioUseForm/RadioUseForm';
-import { object, string, number, date } from 'yup';
 import InputUseForm from './InputUseForm/InputUseForm';
+import { ErrorMess, SubmitBtn } from './UserForm.styled';
 
-let userSchema = object({
-  login: string().required(),
-  email: string().email(),
-  sex: string().required(),
-  blood: number().required().positive().integer(),
-  height: number().required().positive().integer().min(150),
-  levelActivity: number().required().positive().integer(),
-  currentWeight: number().required().positive().integer().min(35),
-  desiredWeight: number().required().positive().integer().min(35),
-  birthday: date().default(() => new Date()),
-});
 const initialValues = {
-  login: 'Anna Rybachok',
-  email: 'annarybachok@gmail.com',
+  name: '',
+  email: '',
   height: 0,
   currentWeight: 0,
   desiredWeight: 0,
   blood: 0,
   sex: '',
   levelActivity: 0,
-  birthday: '05.05.2020',
+  birthday: '2004-11-14',
 };
 
 const UserForm = () => {
+  const dispatch = useDispatch();
+  const { userData } = useSelector((state) => state.auth);
+  const { profile } = useSelector((state) => state.profile);
+
+  useEffect(() => {
+    dispatch(getUserProfile());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (userData) {
+      initialValues.name = userData.name;
+      initialValues.email = userData.email;
+    }
+    if (profile) {
+      initialValues.height = profile.height;
+      initialValues.currentWeight = profile.currentWeight;
+      initialValues.desiredWeight = profile.desiredWeight;
+      initialValues.blood = profile.blood;
+      initialValues.sex = profile.sex;
+      initialValues.levelActivity = profile.levelActivity;
+      initialValues.birthday = profile.birthday;
+    }
+  }, [userData, profile]);
+
   const handleSubmit = (values) => {
-    console.log(values);
-    console.log(values.blood);
+    const { name, email, ...rest } = values;
+    const nameEmailObject = { name };
+    const restObject = { ...rest };
+    dispatch(updateUser(nameEmailObject));
+    dispatch(updateUserProfile(restObject));
   };
 
   return (
-    <div>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-        validationSchema={userSchema}
-      >
-        {({ errors, touched }) => (
-          <Form autoComplete="off" className="formik">
-            {errors.email && touched.email && (
-              <div className="error-mess">{errors.email}</div>
-            )}
-            {errors.height && touched.height && (
-              <div className="error-mess">{errors.height}</div>
-            )}
-            {errors.currentWeight && touched.currentWeight && (
-              <div className="error-mess">{errors.currentWeight}</div>
-            )}
-            {errors.desiredWeight && touched.desiredWeight && (
-              <div className="error-mess">{errors.desiredWeight}</div>
-            )}
-            <InputUseForm />
-            <RadioUseForm />
-            <button type="submit" className="submit-btn">
-              Save
-            </button>
-          </Form>
-        )}
-      </Formik>
-    </div>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+      validationSchema={userSchema}
+    >
+      {({ errors, touched }) => (
+        <Form autoComplete="off">
+          {errors.email && touched.email && (
+            <ErrorMess>{errors.email}</ErrorMess>
+          )}
+          {errors.height && touched.height && (
+            <ErrorMess>{errors.height}</ErrorMess>
+          )}
+          {errors.currentWeight && touched.currentWeight && (
+            <ErrorMess>{errors.currentWeight}</ErrorMess>
+          )}
+          {errors.desiredWeight && touched.desiredWeight && (
+            <ErrorMess>{errors.desiredWeight}</ErrorMess>
+          )}
+          <InputUseForm />
+          <RadioUseForm />
+          <SubmitBtn type="submit">Save</SubmitBtn>
+        </Form>
+      )}
+    </Formik>
   );
 };
 

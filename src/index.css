@@ -1,4 +1,4 @@
-/* @import 'node_modules/modern-normalize/modern-normalize.css'; */
+@import '../node_modules/modern-normalize/modern-normalize.css';
 
 :root {
   --color-back-one: #040404;
@@ -10,13 +10,12 @@
   --color-approved-one: #3cbf61;
   --color-approved-two: #419b09;
   --color-wrong-one: #d80027;
-  --color-wrong-one: #e9101d;
+  --color-wrong-two: #e9101d;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
   background-color: var(--color-back-one);
-  /* background-image: url('./assets/background.png'); */
   background-size: auto 100%;
   background-position: center center;
   background-repeat: no-repeat;
@@ -36,7 +35,7 @@ h4,
 h5,
 h6,
 p {
-  margin-top: 0;
+  margin: 0;
 }
 a {
   text-decoration: none;
@@ -51,4 +50,7 @@ img {
 }
 button {
   cursor: pointer;
+}
+* {
+  box-sizing: border-box;
 }

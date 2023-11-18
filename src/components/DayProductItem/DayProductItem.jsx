@@ -1,50 +1,72 @@
-import React from 'react';
-import { DiarySupTitle, DescriptionItem, ValueBox, DiaryProductCard, WrapLastDescrBox, Circle, TrashIconWrapper, DiaryTrashButton } from './DayProductItem.styled';
+import React, { useEffect, useState } from 'react';
 import sprite from '../../assets/sprite.svg';
 import { useDispatch } from 'react-redux';
-import { delDiaryMealsThunk } from '../../redux/diary/diaryOperations';
+import {
+  DiaryCard,
+  DescriptionItem,
+  DiarySupTitle,
+  ValueBox,
+  WrapLastDescrBox,
+  TrashIconWrapper,
+  DiaryTrashButton,
+} from '../../pages/Diary/Diary.styled';
+import { Circle } from './DayProductItem.styled';
+import { delDiaryMealsThunk } from '../../redux/meals/mealsOperations';
 
-const DayProductItem = () => {
+const DayProductItem = ({ meal, points }) => {
+  let { _id,
+    product: { title, category:{ name }, groupBloodNotAllowed },
+    profile: { blood },
+    calories,
+    weight
+  } = meal;
 
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const deleteProductItem = (productId) => {
-        dispatch(delDiaryMealsThunk(productId))
-    };
+  const deleteProductItem = (productId) => {
+    dispatch(delDiaryMealsThunk(productId));
+  };
 
   return (
-        <DiaryProductCard>
-          <DescriptionItem>
-            <DiarySupTitle>Title</DiarySupTitle>
-            <ValueBox>Bread Hercules grain</ValueBox>
-          </DescriptionItem>
-          <DescriptionItem>
-            <DiarySupTitle>Category</DiarySupTitle>
-            <ValueBox>Flour</ValueBox>
-          </DescriptionItem>
-          <WrapLastDescrBox>
-            <DescriptionItem>
-              <DiarySupTitle>Calories</DiarySupTitle>
-              <ValueBox>100</ValueBox>
-            </DescriptionItem>
-            <DescriptionItem>
-              <DiarySupTitle>Weight</DiarySupTitle>
-              <ValueBox>500</ValueBox>
-            </DescriptionItem>
-            <DescriptionItem>
-              <DiarySupTitle>Recommend</DiarySupTitle>
-              <ValueBox>
-                <Circle />
-                fff</ValueBox>
-            </DescriptionItem>
-                      <DiaryTrashButton type="button" onClick={() => deleteProductItem(id)}>
-          <TrashIconWrapper stroke='var(--color-main-two)' >
+    <DiaryCard key={_id}>     
+      <DescriptionItem>
+        <DiarySupTitle>Title</DiarySupTitle>
+        <ValueBox width={(points < 1440 && points >= 768) ? '204px' : ((points >= 1440) ? '212px' : '100%')}>{title}</ValueBox>
+      </DescriptionItem>
+      <DescriptionItem>
+        <DiarySupTitle>Category</DiarySupTitle>
+        <ValueBox width={(points < 1440 && points >= 768) ? '128px' : ((points >= 1440) ? '166px' : '100%')}>{name}</ValueBox>
+      </DescriptionItem>
+      <WrapLastDescrBox>
+        <DescriptionItem>
+          <DiarySupTitle>Calories</DiarySupTitle>
+          <ValueBox width={(points < 1440 && points >= 768) ? '90px' : ((points >= 1440) ? '105px' : '100%')}>
+            {calories}
+          </ValueBox>
+        </DescriptionItem>
+        <DescriptionItem>
+          <DiarySupTitle>Weight</DiarySupTitle>
+          <ValueBox width={(points < 1440 && points >= 768) ? '90px' : ((points >= 1440) ? '105px' : '100%')}>
+            {weight}
+          </ValueBox>
+        </DescriptionItem>
+        <DescriptionItem>
+          <DiarySupTitle>Recommend</DiarySupTitle>
+          <ValueBox display='flex' width={(points < 1440 && points >= 768) ? '80px' : ((points >= 1440) ? '110px' : '100%')}>
+            <Circle color={`${groupBloodNotAllowed[blood]}`} />
+            {groupBloodNotAllowed[blood] ? 'Yes' : 'No'}
+          </ValueBox>
+        </DescriptionItem>
+        <DiaryTrashButton
+          type="button"
+          onClick={() => deleteProductItem(_id)}>
+          <TrashIconWrapper>
             <use href={`${sprite}#icon-trash`} />
           </TrashIconWrapper>
-            </DiaryTrashButton>
-          </WrapLastDescrBox>
-        </DiaryProductCard>
-  )
+        </DiaryTrashButton>
+      </WrapLastDescrBox>
+    </DiaryCard>
+  );
 };
 
 export default DayProductItem;

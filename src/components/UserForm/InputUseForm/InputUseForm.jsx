@@ -1,61 +1,56 @@
-import { Field } from 'formik';
-import '../useForm.css';
-import styled from 'styled-components';
+import {
+  ContantUseForm,
+  TextInfo,
+  LoginEmail,
+  LoginEmailInput,
+  TabletInput,
+  HeighWeight,
+  WhInput,
+} from './InputUseForm.styled';
 
 const InputUseForm = () => {
   return (
-    <div className="contant-useForm">
-      <p className="text-info">Basic info</p>
-      <div className="login-email">
+    <ContantUseForm>
+      <TextInfo>Basic info</TextInfo>
+      <LoginEmail>
         <label>
-          <Input type="text" name="login" className="login-email-input" />
+          <LoginEmailInput type="text" name="name" />
         </label>
         <label>
-          <Input type="email" name="email" className="login-email-input" />
+          <LoginEmailInput type="email" name="email" />
         </label>
-      </div>
+      </LoginEmail>
 
-      <div className="tablet-input">
-        <div className="heigh-weight">
+      <TabletInput>
+        <HeighWeight>
           <div>
-            <p className="text-info">Height</p>
+            <TextInfo>Height</TextInfo>
             <label>
-              <Input name="height" className="wh-input" />
+              <WhInput name="height" />
             </label>
           </div>
 
           <div>
-            <p className="text-info">Current Weight</p>
+            <TextInfo>Current Weight</TextInfo>
             <label>
-              <Input type="text" name="currentWeight" className="wh-input" />
+              <WhInput type="text" name="currentWeight" />
             </label>
           </div>
-        </div>
-        <div className="heigh-weight">
+        </HeighWeight>
+        <HeighWeight>
           <label>
-            <p className="text-info">Desired Weight</p>
-            <Input type="text" name="desiredWeight" className="wh-input" />
+            <TextInfo>Desired Weight</TextInfo>
+            <WhInput type="text" name="desiredWeight" />
           </label>
           <label>
-            <p className="calendar">Calendar</p>
+            <TextInfo>Date of birth</TextInfo>
 
-            <Input
-              type="text"
-              name="birthday"
-              className="wh-input datepicker"
-            />
+            <WhInput type="text" name="birthday" />
           </label>
-        </div>
-      </div>
-    </div>
+        </HeighWeight>
+      </TabletInput>
+    </ContantUseForm>
   );
 };
-
-const Input = styled(Field)`
-  border-radius: 12px;
-  border-color: rgba(239, 237, 232, 0.3);
-  background-color: #000;
-  color: #efede8;
-`;
 
 export default InputUseForm;

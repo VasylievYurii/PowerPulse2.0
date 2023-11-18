@@ -1,35 +1,36 @@
 import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
+import signupSchema from '../../schema/signupSchema';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/auth/operations';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 import {
   InputStyled,
   ErrorDivStyled,
   WrapFormStyled,
+  WrapperErrorStyled,
+  SvgIconCheckBoxStyled,
+  LabelWrapStyled,
+  IconWrappedStyled,
+  SvgIconEyeStyled,
 } from './SignUpForm.styled';
 import { ButtonSubmitStyled } from '../SignInForm/SignInForm.styled';
+import sprite from '../../assets/sprite.svg';
+import validateEmail from '../../js/validateEmail';
+import validateName from '../../js/validateName';
 
-const SignupSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-  email: Yup.string().email('Invalid email').required('Required'),
-  password: Yup.string().min(6, 'Too Short!').required('Required'),
-});
-
-function validateEmail(value) {
-  let error;
-  if (!value) {
-    error = 'Required';
-  } else if (!/^[\w-.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/i.test(value)) {
-    error = 'Invalid email address';
-  }
-  return error;
-}
-//     /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
-
-//    /^[\w-.]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
+const toastInfo = (text) => {
+  toast.info(text, {
+    position: 'top-center',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: 'dark',
+  });
+};
 
 const initialValues = {
   name: '',
@@ -38,26 +39,53 @@ const initialValues = {
 };
 
 const SignUpForm = () => {
+  const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye`);
+  const [type, setType] = useState('password');
+  const [validColor, setValidColor] = useState('red');
+
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
     dispatch(registerUser(values));
     actions.resetForm();
+    toastInfo(
+      'You have been sent a verification email. Follow the instructions in the email.',
+    );
+  };
+
+  const togglePassInput = () => {
+    if (type === 'password') {
+      setType('text');
+      setToggleIcon(`${sprite}#icon-eye-off`);
+    } else {
+      setType('password');
+      setToggleIcon(`${sprite}#icon-eye`);
+    }
   };
 
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={SignupSchema}
+      validationSchema={signupSchema}
       onSubmit={handleSubmit}
     >
       {({ errors, touched }) => (
         <Form autoComplete="off">
           <WrapFormStyled>
             <div>
-              <InputStyled type="text" name="name" placeholder="Name" />
+              <InputStyled
+                type="text"
+                name="name"
+                placeholder="Name"
+                validate={validateName}
+              />
               {errors.name && touched.name ? (
-                <ErrorDivStyled>{errors.name}</ErrorDivStyled>
+                <WrapperErrorStyled>
+                  <SvgIconCheckBoxStyled>
+                    <use href={`${sprite}#icon-checkbox`} />
+                  </SvgIconCheckBoxStyled>
+                  <ErrorDivStyled>{errors.name}</ErrorDivStyled>
+                </WrapperErrorStyled>
               ) : null}
             </div>
 
@@ -69,14 +97,36 @@ const SignUpForm = () => {
                 placeholder="Email"
               />
               {errors.email && touched.email ? (
-                <ErrorDivStyled>{errors.email}</ErrorDivStyled>
+                <WrapperErrorStyled>
+                  <SvgIconCheckBoxStyled>
+                    <use href={`${sprite}#icon-checkbox`} />
+                  </SvgIconCheckBoxStyled>
+                  <ErrorDivStyled>{errors.email}</ErrorDivStyled>
+                </WrapperErrorStyled>
               ) : null}
             </div>
 
             <div>
-              <InputStyled type="text" name="password" placeholder="Password" />
+              <LabelWrapStyled>
+                <InputStyled
+                  type={type}
+                  name="password"
+                  placeholder="Password"
+                />
+                <IconWrappedStyled>
+                  <SvgIconEyeStyled onClick={togglePassInput}>
+                    <use href={toggleIcon} />
+                  </SvgIconEyeStyled>
+                </IconWrappedStyled>
+              </LabelWrapStyled>
+
               {errors.password && touched.password ? (
-                <ErrorDivStyled>{errors.password}</ErrorDivStyled>
+                <WrapperErrorStyled>
+                  <SvgIconCheckBoxStyled>
+                    <use href={`${sprite}#icon-checkbox`} />
+                  </SvgIconCheckBoxStyled>
+                  <ErrorDivStyled>{errors.password}</ErrorDivStyled>
+                </WrapperErrorStyled>
               ) : null}
             </div>
           </WrapFormStyled>

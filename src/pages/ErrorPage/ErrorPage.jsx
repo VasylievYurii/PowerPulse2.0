@@ -1,31 +1,30 @@
-import { useNavigate } from 'react-router-dom';
 import {
   Container,
-  Left,
+  Svg,
   Content,
   Title,
   Text,
   StyledLink,
+  Section404,
+  LogoText,
+  ButtonWrapper,
+  LinkStyled,
 } from './ErrorPage.styled';
-import Button from '../../components/LogOutBtn';
-
-/* import svg */
+import sprite from '../../assets/sprite.svg';
 
 const ErrorPage = () => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate('/');
-  };
-  console.log('404');
   return (
-    <Container>
-      <StyledLink to="/">
-        {/*  <Svg>
-          <use href={`$`} />
-        </Svg> */}
-      </StyledLink>
-      <Left>
+    <Section404>
+      <Container>
+        <StyledLink to="/welcome">
+          <Svg>
+            <use href={`${sprite}#icon-vector`} />
+          </Svg>
+          <LogoText>
+            <use href={`${sprite}#icon-powerpulse`} />
+          </LogoText>
+        </StyledLink>
+
         <Content>
           <Title>404</Title>
           <Text>
@@ -34,15 +33,12 @@ const ErrorPage = () => {
             Perhaps this page went on vacation or decided to disappear into
             another dimension. We apologize for this inconvenience.
           </Text>
-          <Button
-            className="Button"
-            text="Go Home"
-            type="button"
-            onClick={handleClick}
-          />
+          <LinkStyled to="/welcome">
+            <ButtonWrapper>Go Home</ButtonWrapper>
+          </LinkStyled>
         </Content>
-      </Left>
-    </Container>
+      </Container>
+    </Section404>
   );
 };
 

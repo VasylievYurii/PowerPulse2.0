@@ -37,14 +37,13 @@ export const IconWrapper = styled.svg`
   fill: rgba(239, 137, 100, 1);
 `;
 
-export const Span = styled.use`
+export const TextSpan = styled.span`
   font-size: 18px;
   font-weight: 700;
   color: rgba(239, 237, 232, 1);
 `;
 
 export const WrapperUser = styled.div`
-  border: 1px solid rgba(230, 83, 60, 1);
   border-radius: 50%;
   width: 90px;
   height: 90px;
@@ -59,6 +58,8 @@ export const Img = styled.img`
   width: 90px;
   height: 90px;
   position: relative;
+  object-fit: cover;
+  border: 1px solid var(--color-main-one);
   @media screen and (min-width: 768px) {
     width: 150px;
     height: 150px;
@@ -68,6 +69,8 @@ export const IconWrapperUser = styled.svg`
   width: 90px;
   height: 90px;
   fill: rgba(239, 237, 232, 0.1);
+  border: 1px solid var(--color-main-one);
+  border-radius: 50%;
   @media screen and (min-width: 768px) {
     width: 150px;
     height: 150px;
@@ -83,16 +86,13 @@ export const ButtonUser = styled.label`
   width: 24px;
   height: 24px;
   position: absolute;
-  left: 47%;
-  bottom: -9px;
-  align-items: center;
-  display: flex;
+  bottom: 0;
+  transform: translateY(50%);
   background-color: transparent;
+  cursor: pointer;
   @media screen and (min-width: 768px) {
     width: 32px;
     height: 32px;
-    left: 47%;
-    bottom: -13px;
   }
 `;
 

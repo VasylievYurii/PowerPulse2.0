@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 export const Heading = styled.h1`
-  width: 335px;
-  margin-bottom: 40px;
+  /* width: 335px; */
+  /* margin-bottom: 40px; */
   font-size: 38px;
   font-weight: 500;
   line-height: 1.05; /* 105.263% */
   letter-spacing: 0.38px;
 
   @media screen and (min-width: 768px) {
-    width: 598px;
+    /* width: 598px; */
+    margin-bottom: 64px;
     font-size: 70px;
     line-height: 1.11; /* 111.429% */
     letter-spacing: 0.7px;
@@ -19,7 +20,7 @@ export const Heading = styled.h1`
 export const Buttons = styled.div`
   display: flex;
   gap: 14px;
-  margin-bottom: 231px;
+  /* margin-bottom: 231px; */
 
   @media screen and (min-width: 768px) {
     gap: 20px;

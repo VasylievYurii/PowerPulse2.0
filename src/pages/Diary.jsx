@@ -1,42 +1,68 @@
 import { useDispatch } from 'react-redux';
-import { DayProducts } from '../components/DayProducts';
-import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
-import TitlePage from '../components/TitlePage';
-import { getDiaryMealsThunk } from '../redux/diary/diaryOperations';
-import DiaryCalendar from '../components/DiaryCalendar';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { format } from 'date-fns';
+import TitlePage from '../components/TitlePage';
+import DaySwitch from '../components/DaySwitch';
+import DayProducts from '../components/DayProducts';
+import DayExercises from '../components/DayExercises';
+import DayDashboard from '../components/DayDashboard';
+import SectionTemplate from '../components/SectionTemplate/SectionTemplate';
+import { getDiaryWorkoutThunk } from '../redux/workouts/workoutsOperations';
+import { getDiaryMealsThunk } from '../redux/meals/mealsOperations';
+import {
+  DiaryWrapActivity,
+  DiaryWrapContent,
+  DiaryWrapTitle,
+} from './Diary/Diary.styled';
+import { getIndicatorsThunk } from '../redux/userIndicators/userIndicOperations';
 
 const Diary = () => {
   const dispatch = useDispatch();
+  const [points, setPoints] = useState(window.innerWidth);
 
-  const getMeal = (diaryData) => {
-    dispatch(getDiaryMealsThunk(diaryData));
-  };
+  const handleResize = () => setPoints(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const [selectedDate, setSelectedDate] = useState(
-    format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"),
+    format(new Date(), 'yyyy-MM-dd'),
   );
 
-  let newDate = format(new Date(selectedDate), "yyyy-MM-dd'T'HH:mm:ss.SSSxxx");
-  console.log('selectedDate:', newDate);
-
   const handleDateChange = (date) => {
-    setSelectedDate(date);
+    const newDate = date.toISOString();
+    // const cutNewDate = newDate.split("", 10).join('');
+    setSelectedDate(newDate);
   };
+
+  useEffect(() => {
+    dispatch(getDiaryMealsThunk(selectedDate));
+  }, [selectedDate]);
+
+  useEffect(() => {
+    dispatch(getDiaryWorkoutThunk(selectedDate));
+  }, [selectedDate]);
+
+  useEffect(() => {
+    dispatch(getIndicatorsThunk());
+  }, []);
+
   return (
     <SectionTemplate>
-      <DiaryCalendar onDateChange={handleDateChange} />
-      <TitlePage>Diary</TitlePage>
-      <button
-        type="button"
-        onClick={() => getMeal('2023-10-10T00:00:00.000+00:00')}
-        // onClick={() => getMeal(selectedDate)}
-      >
-        GetMeal
-      </button>
-
-      <DayProducts />
+      <DiaryWrapTitle>
+        <TitlePage>Diary</TitlePage>
+        <DaySwitch onDateChange={handleDateChange} />
+      </DiaryWrapTitle>
+      {points >= 768 || <DayDashboard />}
+      <DiaryWrapContent>
+        <DiaryWrapActivity>
+          <DayProducts />
+          <DayExercises />
+        </DiaryWrapActivity>
+        {points < 768 || <DayDashboard />}
+      </DiaryWrapContent>
     </SectionTemplate>
   );
 };

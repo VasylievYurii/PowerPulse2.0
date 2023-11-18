@@ -1,9 +1,14 @@
+import { lazy, Suspense, useEffect } from 'react';
 import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
-import { lazy, Suspense, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { refreshUser } from '../../redux/auth/operations';
+import { useAuth } from '../../hooks/useAuth';
 import Loader from '../Loader';
-// import RestrictedRoute from '../RestrictedRoute';
-// import PrivateRoute from '../PrivateRoute';
+
+import RestrictedRoute from '../RestrictedRoute';
+import PrivateRoute from '../PrivateRoute';
 import SharedLayout from '../SharedLayout';
+import ErrorPage from '../../pages/ErrorPage/ErrorPage';
 
 const Welcome = lazy(() => import('../../pages/Welcome/Welcome'));
 const Profile = lazy(() => import('../../pages/Profile'));
@@ -15,81 +20,147 @@ const Muscles = lazy(() => import('../../pages/Muscles'));
 const Equipment = lazy(() => import('../../pages/Equipment'));
 const SignUp = lazy(() => import('../../pages/SignUp'));
 const SignIn = lazy(() => import('../../pages/SignIn'));
-const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
+import { AppWrapper, ToastContainerStyled } from './App.styled';
+import ExercisesList from '../ExercisesList';
+import { selectUserAuthenticated } from '../../redux/selectors.js';
 
 function App() {
   const location = useLocation();
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+  const { profile } = useSelector((state) => state.profile);
+  const auth = useSelector(selectUserAuthenticated);
+
+  let isFilled = true;
+
+  if (auth) {
+    const profileArray = profile
+      ? [
+          profile.height,
+          profile.currentWeight,
+          profile.desiredWeight,
+          profile.blood,
+          profile.sex,
+          profile.levelActivity,
+          profile.birthday,
+        ]
+      : [];
+
+    for (let item of profileArray) {
+      if (item) {
+        isFilled = true;
+      } else {
+        isFilled = false;
+        break;
+      }
+    }
+  }
+  console.log(isFilled);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   if (location.pathname === '/') {
     return <Navigate to="/welcome" />;
   }
 
-  return (
-    <Routes location={location} key={location.pathname}>
-      <Route path="/" element={<SharedLayout />}>
-        <Route path="/welcome" element={<Welcome />} />
+  if (location.pathname === '/exercises') {
+    return <Navigate to="/exercises/bodyparts" />;
+  }
 
+  return isRefreshing ? (
+    <Loader />
+  ) : (
+    <AppWrapper> 
+      <ToastContainerStyled />
+      <Routes location={location} key={location.pathname}>
         <Route
-          path="/profile"
+          path="/welcome"
           element={
             <Suspense fallback={<Loader />}>
-              <Profile />
+              {isFilled ? (
+                <RestrictedRoute redirectTo="/diary" component={<Welcome />} />
+              ) : (
+                <RestrictedRoute
+                  redirectTo="/profile"
+                  component={<Welcome />}
+                />
+              )}
             </Suspense>
           }
         />
-
-        <Route
-          path="/products"
-          element={
-            <Suspense fallback={<Loader />}>
-              <Products />
-            </Suspense>
-          }
-        />
-
-        <Route
-          path="/diary"
-          element={
-            <Suspense fallback={<Loader />}>
-              <Diary />
-            </Suspense>
-          }
-        />
-
-        <Route
-          path="/exercises"
-          element={
-            <Suspense fallback={<Loader />}>
-              <Exercises />
-            </Suspense>
-          }
-        >
-          <Route path="bodyparts" element={<BodyParts />} />
-          <Route path="muscles" element={<Muscles />} />
-          <Route path="equipment" element={<Equipment />} />
-        </Route>
-
         <Route
           path="/signup"
           element={
             <Suspense fallback={<Loader />}>
-              <SignUp />
+              {isFilled ? (
+                <RestrictedRoute redirectTo="/diary" component={<SignUp />} />
+              ) : (
+                <RestrictedRoute redirectTo="/profile" component={<SignUp />} />
+              )}
             </Suspense>
           }
-        ></Route>
+        />
 
         <Route
           path="/signin"
           element={
             <Suspense fallback={<Loader />}>
-              <SignIn />
+              {isFilled ? (
+                <RestrictedRoute redirectTo="/diary" component={<SignIn />} />
+              ) : (
+                <RestrictedRoute redirectTo="/profile" component={<SignIn />} />
+              )}
             </Suspense>
           }
         />
-      </Route>
+        <Route path="/" element={<SharedLayout />}>
+          <Route
+            path="/profile"
+            element={
+              <Suspense fallback={<Loader />}>
+                <PrivateRoute redirectTo="/welcome" component={<Profile />} />
+              </Suspense>
+            }
+          />
 
-      <Route path="*" element={<ErrorPage />} />
-    </Routes>
+          <Route
+            path="/products"
+            element={
+              <Suspense fallback={<Loader />}>
+                <PrivateRoute redirectTo="/welcome" component={<Products />} />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/diary"
+            element={
+              <Suspense fallback={<Loader />}>
+                <PrivateRoute redirectTo="/welcome" component={<Diary />} />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/exercises"
+            element={
+              <Suspense fallback={<Loader />}>
+                <PrivateRoute redirectTo="/welcome" component={<Exercises />} />
+              </Suspense>
+            }
+          >
+            <Route path="bodyparts" element={<BodyParts />}></Route>
+            <Route path="muscles" element={<Muscles />}></Route>
+            <Route path="equipment" element={<Equipment />}></Route>
+          </Route>
+          <Route path="/exercises/:filter/:id" element={<ExercisesList />} />
+        </Route>
+
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </AppWrapper>
   );
 }
 
