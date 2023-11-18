@@ -28,10 +28,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logOutUser, updateAvatar } from '../../redux/auth/operations';
 import Loader from '../Loader';
 import { Link } from 'react-router-dom';
+import { getTarget } from '../../redux/userProfile/userProfileOperations';
 
 const UserCard = () => {
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
+  const { target } = useSelector((state) => state.profile);
   const [imageURL, setImageURL] = useState();
   const [colories, setColories] = useState('0');
   const [physical, setPhysical] = useState('0');
@@ -42,8 +44,16 @@ const UserCard = () => {
     if (userData) {
       setUser(userData.name);
       setImageURL(userData.avatarURL);
+      setColories(target.targetBmr);
+      setPhysical(target.targetTime);
     }
   }, [userData]);
+
+  useEffect(() => {
+    dispatch(getTarget());
+  }, [dispatch]);
+
+  console.log('target', target);
 
   const fileReader = new FileReader();
   fileReader.onloadend = () => {
@@ -109,7 +119,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily calorie intake</p>
           </WrapperText>
-          <TextSpan>{colories}</TextSpan>
+          <TextSpan>{Math.round(colories)}</TextSpan>
         </WrapperIndicators>
         <WrapperIndicators>
           <WrapperText>
