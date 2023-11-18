@@ -20,7 +20,7 @@ const Muscles = lazy(() => import('../../pages/Muscles'));
 const Equipment = lazy(() => import('../../pages/Equipment'));
 const SignUp = lazy(() => import('../../pages/SignUp'));
 const SignIn = lazy(() => import('../../pages/SignIn'));
-import { AppWrapper } from './App.styled';
+import { AppWrapper, ToastContainerStyled } from './App.styled';
 import ExercisesList from '../ExercisesList';
 import { selectUserAuthenticated } from '../../redux/selectors.js';
 
@@ -72,7 +72,8 @@ function App() {
   return isRefreshing ? (
     <Loader />
   ) : (
-    <AppWrapper>
+    <AppWrapper> 
+      <ToastContainerStyled />
       <Routes location={location} key={location.pathname}>
         <Route
           path="/welcome"
