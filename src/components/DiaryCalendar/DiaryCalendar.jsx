@@ -54,7 +54,7 @@ const DiaryCalendar = ({ onDateChange }) => {
   return (
     <>
       <DatePicker
-        minDate={new Date()}
+        // minDate={new Date()}
         selected={startDate}
         onChange={(date) => {
           setStartDate(date);
