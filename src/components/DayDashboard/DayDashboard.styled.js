@@ -39,6 +39,7 @@ export const DashList = styled.ul`
 
 export const DashIndicators = styled.li`
   width: 159px;
+  flex-basis: calc((100% - 1*13px) / 2);
   height: 96px;
   display: flex;
   flex-direction: column;
@@ -56,6 +57,7 @@ export const DashIndicators = styled.li`
   background: ${(props) => props.color || 'rgba(239, 237, 232, 0.05)'};
 
   @media screen and (min-width: 768px) {
+    flex-basis: auto;
     width: 187px;
     height: 116px;
     padding: 18px;

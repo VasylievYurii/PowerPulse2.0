@@ -40,19 +40,19 @@ const DayProductItem = ({ meal, points }) => {
       <WrapLastDescrBox>
         <DescriptionItem>
           <DiarySupTitle>Calories</DiarySupTitle>
-          <ValueBox width={(points < 1440 && points >= 768) ? '90px' : ((points >= 1440) ? '105px' : '100%')}>
+          <ValueBox $maxwidth='81px' width={(points < 1440 && points >= 768) ? '90px' : ((points >= 1440) ? '105px' : '100%')}>
             {calories}
           </ValueBox>
         </DescriptionItem>
         <DescriptionItem>
           <DiarySupTitle>Weight</DiarySupTitle>
-          <ValueBox width={(points < 1440 && points >= 768) ? '90px' : ((points >= 1440) ? '105px' : '100%')}>
+          <ValueBox $maxwidth='80px' width={(points < 1440 && points >= 768) ? '90px' : ((points >= 1440) ? '105px' : '100%')}>
             {weight}
           </ValueBox>
         </DescriptionItem>
         <DescriptionItem>
           <DiarySupTitle>Recommend</DiarySupTitle>
-          <ValueBox display='flex' width={(points < 1440 && points >= 768) ? '80px' : ((points >= 1440) ? '110px' : '100%')}>
+          <ValueBox $maxwidth='76px' display='flex' width={(points < 1440 && points >= 768) ? '80px' : ((points >= 1440) ? '110px' : '100%')}>
             <Circle color={`${groupBloodNotAllowed[blood]}`} />
             {groupBloodNotAllowed[blood] ? 'Yes' : 'No'}
           </ValueBox>

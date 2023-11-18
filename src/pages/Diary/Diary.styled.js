@@ -171,6 +171,11 @@ export const DescriptionItem = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex-basis: calc((100% - 2*16px) / 3);
+
+  @media screen and (min-width: 768px) {
+    flex-basis: auto;
+  }
 `;
 
 export const DiarySupTitle = styled.h4`
@@ -192,7 +197,8 @@ export const ValueBox = styled.div`
   display: ${(props) => props.display || 'inline-block'};
   gap: 8px;
   width: ${(props) => props.width || '100%'};
-  min-width: 59px;
+  /* min-width: 59px; */
+  max-width: ${(props) => props.$maxwidth || '100%'};;
   height: 38px;
   padding: 10px 14px;
   border-radius: 12px;
@@ -205,6 +211,7 @@ export const ValueBox = styled.div`
   align-items: center;
 
   @media screen and (min-width: 768px) {
+    max-width: none;
     height: 40px;
     padding: 8px 14px;
     line-height: 1.5;
@@ -215,15 +222,9 @@ export const ValueBox = styled.div`
 export const WrapLastDescrBox = styled.div`
   position: relative;
   display: flex;
-  justify-content: space-between;
   padding-right: 28px;
-  /* gap: 16px; */
+  gap: 16px;
   align-items: center;
-
-  @media screen and (min-width: 375px) {
-    justify-content: start;
-    gap: 16px;
-  }
 
   @media screen and (min-width: 768px) {
     padding-right: 32px;
