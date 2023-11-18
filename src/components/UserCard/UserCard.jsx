@@ -35,16 +35,16 @@ const UserCard = () => {
   const { userData } = useSelector((state) => state.auth);
   const { target } = useSelector((state) => state.profile);
   const [imageURL, setImageURL] = useState();
-  const [colories, setColories] = useState('0');
-  const [physical, setPhysical] = useState('0');
+  // const [colories, setColories] = useState(target.targetBmr ?? '0');
+  // const [physical, setPhysical] = useState(target.targetTime ?? '0');
   const [user, setUser] = useState('Hello user!');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (userData) {
       setUser(userData.name);
-      setColories(target.targetBmr);
-      setPhysical(target.targetTime);
+      // setColories(target.targetBmr);
+      // setPhysical(target.targetTime);
     }
     if (userData.avatarURL) {
       setImageURL();
@@ -124,7 +124,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily calorie intake</p>
           </WrapperText>
-          <TextSpan>{Math.round(colories)}</TextSpan>
+          <TextSpan>{Math.round(target.targetBmr) ?? '0'}</TextSpan>
         </WrapperIndicators>
         <WrapperIndicators>
           <WrapperText>
@@ -133,7 +133,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily physical activity</p>
           </WrapperText>
-          <TextSpan>{physical} min</TextSpan>
+          <TextSpan>{target.targetTime ?? '0'} min</TextSpan>
         </WrapperIndicators>
       </WrapperTwoIndicators>
       <WrapperExclamation>
