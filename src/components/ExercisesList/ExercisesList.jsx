@@ -15,6 +15,7 @@ import SectionTemplate from '../SectionTemplate';
 import sprite from '../../assets/sprite.svg';
 import AddExerciseSuccess from '../../components/AddExerciseSuccess/index';
 import BasicModalWindow from '../../components/BasicModalWindow';
+import AddExerciseForm from '../../components/AddExerciseForm/index';
 
 const ExercisesList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,7 +61,7 @@ const ExercisesList = () => {
   //   return arrayExe;
   // }
   const onClickStart = () => {
-    console.log('start');
+    // console.log('start');
     setIsModalOpen((prevState) => !prevState);
   };
   const ucFirst = (str) => {
@@ -95,7 +96,7 @@ const ExercisesList = () => {
       </WrapperExercises>
       {isModalOpen && (
         <BasicModalWindow onClick={onClickStart}>
-          <AddExerciseSuccess onClick={onClickStart} />
+          <AddExerciseForm onClick={onClickStart} />
         </BasicModalWindow>
       )}
     </SectionTemplate>

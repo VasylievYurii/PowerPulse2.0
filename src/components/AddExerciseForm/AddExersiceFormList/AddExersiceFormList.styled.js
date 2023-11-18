@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ExersiceFormList = styled.ul`
+export const ExersiceList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;

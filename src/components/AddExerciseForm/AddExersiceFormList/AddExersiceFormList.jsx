@@ -1,4 +1,4 @@
-import { ExersiceFormlLink, ExersiceFormlLinkSub, ExersiceFormlLinkTitle, ExersiceFormlList } from "./AddExersiceFormList.styled";
+// import { ExersiceFormlLink, ExersiceFormlLinkSub, ExersiceFormlLinkTitle, ExersiceList } from "./AddExersiceFormList.styled";
 
 const ExersiceFormList = ({ name, bodypart, target, equipment, time }) => {
   const firstLetterToUppercase = (title) => {
@@ -6,7 +6,7 @@ const ExersiceFormList = ({ name, bodypart, target, equipment, time }) => {
   };
   
   return (
-    <ExersiceFormlList>
+    <ExersiceList>
       <ExersiceFormlLink>
         <ExersiceFormlLinkSub >Name</ExersiceFormlLinkSub>
         <ExersiceFormlLinkTitle >{firstLetterToUppercase(name)}</ExersiceFormlLinkTitle>
@@ -27,7 +27,7 @@ const ExersiceFormList = ({ name, bodypart, target, equipment, time }) => {
         <ExersiceFormlLinkSub >Time</ExersiceFormlLinkSub>
         <ExersiceFormlLinkTitle>{time} minutes</ExersiceFormlLinkTitle>
       </ExersiceFormlLink>
-    </ExersiceFormlList>
+    </ExersiceList>
   );
 };
 

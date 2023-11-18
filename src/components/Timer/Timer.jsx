@@ -38,7 +38,7 @@ const Timer = ({ data, setDinamicBurnCal, dinamicBurnCal, setDinamicTime }) => {
   return (
     <TimerWrapper>
       <TimerTitle>Time</TimerTitle>
-      <CountdownCircleTimer
+      {/* <CountdownCircleTimer
         strokeWidth={2}
         size={124}
         isPlaying={isPlaying}
@@ -51,9 +51,9 @@ const Timer = ({ data, setDinamicBurnCal, dinamicBurnCal, setDinamicTime }) => {
           <div style={{ color: '#efede8' }} role="timer" aria-live="assertive">
             {children({ remainingTime })}
           </div>
-        )}
-      </CountdownCircleTimer>
-      <FormattedTitle>{data.time} minutes</FormattedTitle>
+        )} */}
+      {/* </CountdownCircleTimer> */}
+      {/* <FormattedTitle>{data.time} minutes</FormattedTitle> */}
       <TimerBtn onClick={handlePlay}>
         <PlayIcon>
           <use

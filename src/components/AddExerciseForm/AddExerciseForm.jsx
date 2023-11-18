@@ -1,4 +1,4 @@
-
+import ExersiceFormList from './AddExersiceFormList/AddExersiceFormList';
 
 import {Container, GifWrapper, Gif,  TimerWrapper,  ButtonContainer, Button} from './AddExerciseForm.styled'
 
@@ -18,16 +18,16 @@ const formatDate = date => {
 };
 
  export const AddExerciseForm = ({ data, onClick, closeModal  }) => {
-  const {
-    bodyPart,
-    equipment,
-    burnedCalories,
-    gifUrl,
-    name,
-    target,
-    _id,
-    time,
-  } = data;
+  // const {
+  //   bodyPart,
+  //   equipment,
+  //   burnedCalories,
+  //   gifUrl,
+  //   name,
+  //   target,
+  //   _id,
+  //   time
+  // } = data;
 
   const [dinamicBurnCal, setDinamicBurnCal] = useState(0);
   const [dinamicTime, setDinamicTime] = useState(0);
@@ -39,7 +39,7 @@ const formatDate = date => {
     dispatch(getUserParams());
   }, [dispatch]);
 
-  const amount = Math.round((burnedCalories / (time * 60)) * 180);
+  // const amount = Math.round((burnedCalories / (time * 60)) * 180);
   
 
   const savedDate = localStorage.getItem('selectedDate');
@@ -63,13 +63,13 @@ const formatDate = date => {
      dispatch(
        addExercise({
          date: formattedDate, // Use the formatted date
-         bodyPart,
-         target,
+        //  bodyPart,
+        //  target,
          time: dinamicTime,
          exerciseId: _id,
-         equipment,
-         name,
-         burnedCalories: dinamicBurnCal,
+        //  equipment,
+        //  name,
+        //  burnedCalories: dinamicBurnCal,
        }),
      );
      onClick();
@@ -80,7 +80,7 @@ const formatDate = date => {
   return (
     <Container>
         <GifWrapper>
-           <Gif  src={gifUrl} alt={name}   /> 
+           <Gif  /* src={gifUrl} alt={name}  */  /> 
         </GifWrapper>
           <TimerWrapper>
                <Timer
@@ -92,13 +92,13 @@ const formatDate = date => {
           </TimerWrapper>
           
       <div>
-        <ExersiceList
+        {/* <ExersiceFormList
          name={name}
          bodypart={bodyPart}
         target={target}
         equipment={equipment}
         time={time}
-        />
+        /> */}
         <ButtonContainer>
            <Button type="button" onClick={handleAddToDiary}>
             Add to diary 
