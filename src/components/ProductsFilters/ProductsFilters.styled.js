@@ -24,6 +24,10 @@ export const ProductsFiltersWrapper = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
+    position: absolute;
+    top: -6px;
+    right: 0;
+
     align-items: center;
     justify-content: flex-end;
     margin-bottom: 28px;

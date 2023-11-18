@@ -88,7 +88,6 @@ export const firstSelectStyles = {
       fontSize: '16px',
       lineHeight: '1.5',
     },
-    '@media screen and (max-width: 1439px)': {},
   }),
 };
 
@@ -119,6 +118,5 @@ export const secondSelectStyles = {
       fontSize: '16px',
       lineHeight: '1.5',
     },
-    '@media screen and (min-width: 1440px)': {},
   }),
 };
