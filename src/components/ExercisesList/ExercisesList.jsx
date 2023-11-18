@@ -29,7 +29,7 @@ const ExercisesList = () => {
   const location = useLocation();
   const backLinkLocation = useRef(location.state?.from ?? '/exercises');
   const backLinkBodyparts = useRef(
-    location.state?.from ?? '/exercises/bodyparts',
+    location.state?.from ?? '/exercises/body parts',
   );
   const backLinkMuscles = useRef(location.state?.from ?? '/exercises/muscles');
   const backLinkEquipment = useRef(
