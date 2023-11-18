@@ -26,7 +26,7 @@ import ExercisesList from '../ExercisesList';
 function App() {
   const location = useLocation();
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing, isAuthenticated } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -39,6 +39,9 @@ function App() {
   if (location.pathname === '/exercises') {
     return <Navigate to="/exercises/bodyparts" />;
   }
+  if (isAuthenticated) {
+    return <Navigate to="/diary" />;
+  }
 
   return isRefreshing ? (
     <Loader />
@@ -49,7 +52,7 @@ function App() {
           path="/welcome"
           element={
             <Suspense fallback={<Loader />}>
-              <RestrictedRoute redirectTo="/profile" component={<Welcome />} />
+              <RestrictedRoute redirectTo="/diary" component={<Welcome />} />
             </Suspense>
           }
         />
@@ -57,7 +60,7 @@ function App() {
           path="/signup"
           element={
             <Suspense fallback={<Loader />}>
-              <RestrictedRoute redirectTo="/profile" component={<SignUp />} />
+              <RestrictedRoute redirectTo="/diary" component={<SignUp />} />
             </Suspense>
           }
         />
@@ -66,7 +69,7 @@ function App() {
           path="/signin"
           element={
             <Suspense fallback={<Loader />}>
-              <RestrictedRoute redirectTo="/profile" component={<SignIn />} />
+              <RestrictedRoute redirectTo="/diary" component={<SignIn />} />
             </Suspense>
           }
         />
