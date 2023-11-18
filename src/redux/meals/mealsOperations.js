@@ -43,5 +43,17 @@ const delMeal = async (mealId, thunkAPI) => {
   }
 };
 
+const postMeal = async (currentProduct, thunkAPI) => {
+  try {
+    const response = await instance.post(`diaries/meals`, currentProduct);
+    return response.data;
+  } catch (e) {
+    toastError(`Oops! Something was wrong.... ${e.message}`);
+    return thunkAPI.rejectWithValue(e.message);
+  }
+};
+
 export const getDiaryMealsThunk = createAsyncThunk('meals/getMeals', getMeals);
 export const delDiaryMealsThunk = createAsyncThunk('meals/delMeal', delMeal);
+export const postDiaryMealsThunk = createAsyncThunk('meals/postMeal', postMeal);
+
