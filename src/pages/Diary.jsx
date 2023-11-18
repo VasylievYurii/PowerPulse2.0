@@ -14,6 +14,7 @@ import {
   DiaryWrapContent,
   DiaryWrapTitle,
 } from './Diary/Diary.styled';
+import { getIndicatorsThunk } from '../redux/userIndicators/userIndicOperations';
 
 const Diary = () => {
   const dispatch = useDispatch();
@@ -43,6 +44,10 @@ const Diary = () => {
   useEffect(() => {
     dispatch(getDiaryWorkoutThunk(selectedDate));
   }, [selectedDate]);
+
+  useEffect(() => {
+    dispatch(getIndicatorsThunk());
+  }, []);
 
   return (
     <SectionTemplate>

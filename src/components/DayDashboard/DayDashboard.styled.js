@@ -80,6 +80,11 @@ export const DashTitle = styled.h3`
   }
 `;
 
+export const Message = styled.p`
+    font-size: 12px;
+    font-weight: 400;
+`;
+
 export const WrapDashText = styled.div`
   display: flex;
   gap: 8px;

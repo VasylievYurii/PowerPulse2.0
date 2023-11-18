@@ -2,7 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getIndicatorsThunk } from './userIndicOperations';
 
 const initialIndState = {
-  indicators: {},
+  indicators: {
+        targetBmr: 0,
+        targetTime: 110
+  },
   isLoading: false,
   error: null,
 };
