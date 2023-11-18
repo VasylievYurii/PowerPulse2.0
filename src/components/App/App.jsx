@@ -26,7 +26,7 @@ import ExercisesList from '../ExercisesList';
 function App() {
   const location = useLocation();
   const dispatch = useDispatch();
-  const { isRefreshing, isAuthenticated } = useAuth();
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -38,9 +38,6 @@ function App() {
 
   if (location.pathname === '/exercises') {
     return <Navigate to="/exercises/bodyparts" />;
-  }
-  if (isAuthenticated) {
-    return <Navigate to="/diary" />;
   }
 
   return isRefreshing ? (
