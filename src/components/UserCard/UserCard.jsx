@@ -55,8 +55,6 @@ const UserCard = () => {
     dispatch(getTarget());
   }, [dispatch]);
 
-  console.log('target', target);
-
   const fileReader = new FileReader();
   fileReader.onloadend = () => {
     setImageURL(fileReader.result);
