@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { refreshUser } from '../../redux/auth/operations';
 import { useAuth } from '../../hooks/useAuth';
 import Loader from '../Loader';
-import { ToastContainer } from 'react-toastify';
+
 import RestrictedRoute from '../RestrictedRoute';
 import PrivateRoute from '../PrivateRoute';
 import SharedLayout from '../SharedLayout';
@@ -20,7 +20,7 @@ const Muscles = lazy(() => import('../../pages/Muscles'));
 const Equipment = lazy(() => import('../../pages/Equipment'));
 const SignUp = lazy(() => import('../../pages/SignUp'));
 const SignIn = lazy(() => import('../../pages/SignIn'));
-import { AppWrapper } from './App.styled';
+import { AppWrapper, ToastContainerStyled } from './App.styled';
 import ExercisesList from '../ExercisesList';
 
 function App() {
@@ -44,7 +44,7 @@ function App() {
     <Loader />
   ) : (
     <AppWrapper>
-      <ToastContainer />
+      <ToastContainerStyled />
       <Routes location={location} key={location.pathname}>
         <Route
           path="/welcome"
