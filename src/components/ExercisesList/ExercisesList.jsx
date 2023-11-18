@@ -16,11 +16,13 @@ import SectionTemplate from '../SectionTemplate';
 import sprite from '../../assets/sprite.svg';
 import AddExerciseSuccess from '../../components/AddExerciseSuccess/index';
 import BasicModalWindow from '../../components/BasicModalWindow';
+import AddExerciseForm from '../../components/AddExerciseForm/index';
 import {
   ChaptersWrapper,
   LinkStyled,
 } from '../../pages/Exercises/Exercises.styled';
 import ChapterTemplate from '../ChapterTemplate/ChapterTemplate';
+
 
 const ExercisesList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -72,7 +74,7 @@ const ExercisesList = () => {
   //   return arrayExe;
   // }
   const onClickStart = () => {
-    console.log('start');
+    // console.log('start');
     setIsModalOpen((prevState) => !prevState);
   };
   const ucFirst = (str) => {
@@ -128,7 +130,7 @@ const ExercisesList = () => {
       <div></div>
       {isModalOpen && (
         <BasicModalWindow onClick={onClickStart}>
-          <AddExerciseSuccess onClick={onClickStart} />
+          <AddExerciseForm onClick={onClickStart} />
         </BasicModalWindow>
       )}
     </SectionTemplate>
