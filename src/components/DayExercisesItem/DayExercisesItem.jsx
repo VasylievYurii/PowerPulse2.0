@@ -29,34 +29,34 @@ const DayExercisesItem = ({ workout, points }) => {
     <DiaryCard key={_id}>     
       <DescriptionItem>
         <DiarySupTitle>Body Part</DiarySupTitle>
-        <ValueBox width={(points < 1440 && points >= 768) ? '204px' : ((points >= 1440) ? '212px' : '100%')}>{bodyPart}</ValueBox>
+        <ValueBox width={(points < 1440 && points >= 768) ? '90px' : ((points >= 1440) ? '115px' : '100%')}>
+          {bodyPart}</ValueBox>
       </DescriptionItem>
       <DescriptionItem>
         <DiarySupTitle>Equipment</DiarySupTitle>
-        <ValueBox width={(points < 1440 && points >= 768) ? '128px' : ((points >= 1440) ? '166px' : '100%')}>{equipment}</ValueBox>
+        <ValueBox width={(points < 1440 && points >= 768) ? '132px' : ((points >= 1440) ? '157px' : '100%')}>
+          {equipment}</ValueBox>
           </DescriptionItem>
           <DescriptionItem>
         <DiarySupTitle>Name</DiarySupTitle>
-        <ValueBox width={(points < 1440 && points >= 768) ? '128px' : ((points >= 1440) ? '166px' : '100%')}>{name}</ValueBox>
+        <ValueBox width={(points < 1440 && points >= 768) ? '128px' : ((points >= 1440) ? '131px' : '100%')}>
+          {name}</ValueBox>
       </DescriptionItem>
       <WrapLastDescrBox>
         <DescriptionItem>
           <DiarySupTitle>Target</DiarySupTitle>
-          <ValueBox width={(points < 1440 && points >= 768) ? '90px' : ((points >= 1440) ? '105px' : '100%')}>
-            {target}
-          </ValueBox>
+          <ValueBox width={(points < 1440 && points >= 768) ? '84px' : ((points >= 1440) ? '106px' : '100%')}>
+            {target}</ValueBox>
         </DescriptionItem>
         <DescriptionItem>
           <DiarySupTitle size="80px">Burned Calories</DiarySupTitle>
-          <ValueBox width={(points < 1440 && points >= 768) ? '90px' : ((points >= 1440) ? '105px' : '100%')}>
-            {burnedCalories}
-          </ValueBox>
+          <ValueBox width={(points < 1440 && points >= 768) ? '78px' : ((points >= 1440) ? '91px' : '100%')}>
+            {burnedCalories}</ValueBox>
         </DescriptionItem>
         <DescriptionItem>
           <DiarySupTitle>Time</DiarySupTitle>
-          <ValueBox width={(points < 1440 && points >= 768) ? '80px' : ((points >= 1440) ? '110px' : '100%')}>
-            {time}
-          </ValueBox>
+          <ValueBox width={(points < 1440 && points >= 768) ? '72px' : ((points >= 1440) ? '82px' : '100%')}>
+            {time}</ValueBox>
         </DescriptionItem>
         <DiaryTrashButton
           type="button"

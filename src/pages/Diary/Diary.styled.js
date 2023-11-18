@@ -120,7 +120,11 @@ export const WrapTitlesTablet = styled.ul`
 `;
 
 export const DiarySupTitleTablet = styled.li`
+  display: inline-block;
   width: ${(props) => props.width || '100%'};
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 export const DiaryLists = styled.ul`
