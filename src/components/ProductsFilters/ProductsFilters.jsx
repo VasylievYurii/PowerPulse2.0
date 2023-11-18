@@ -20,6 +20,8 @@ import {
   SelectWrapper,
 } from './ProductsFilters.styled';
 
+import { NoProductSearchResult } from '../NoProductSearchResults/NoProductSearchResults';
+
 const options = [
   { value: 'all', label: 'All' },
   { value: 'true', label: 'Recommended ' },
@@ -163,6 +165,7 @@ const ProductsFilters = () => {
           />
         </SelectWrapper>
       </ProductsFiltersWrapper>
+      <NoProductSearchResult />
     </>
   );
 };
