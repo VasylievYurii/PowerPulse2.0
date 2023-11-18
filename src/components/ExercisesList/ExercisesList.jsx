@@ -16,16 +16,15 @@ import SectionTemplate from '../SectionTemplate';
 import sprite from '../../assets/sprite.svg';
 import AddExerciseSuccess from '../../components/AddExerciseSuccess/index';
 import BasicModalWindow from '../../components/BasicModalWindow';
-import AddExerciseForm from '../../components/AddExerciseForm/index';
+
 import {
   ChaptersWrapper,
   LinkStyled,
 } from '../../pages/Exercises/Exercises.styled';
 import ChapterTemplate from '../ChapterTemplate/ChapterTemplate';
 
-
 const ExercisesList = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+ 
   const dispatch = useDispatch();
   const location = useLocation();
   const backLinkLocation = useRef(location.state?.from ?? '/exercises');
@@ -73,10 +72,7 @@ const ExercisesList = () => {
   //   console.log(arrayExe);
   //   return arrayExe;
   // }
-  const onClickStart = () => {
-    // console.log('start');
-    setIsModalOpen((prevState) => !prevState);
-  };
+
   const ucFirst = (str) => {
     if (!str) return str;
     return str[0].toUpperCase() + str.slice(1);
@@ -121,18 +117,14 @@ const ExercisesList = () => {
                 target={ucFirst(target)}
                 NameBodyPart={ucFirst(bodyPart)}
                 name={ucFirst(name)}
-                onClickStart={onClickStart}
+               
               />
             );
           },
         )}
       </WrapperExercises>
-      <div></div>
-      {isModalOpen && (
-        <BasicModalWindow onClick={onClickStart}>
-          <AddExerciseForm onClick={onClickStart} />
-        </BasicModalWindow>
-      )}
+      
+     
     </SectionTemplate>
   );
 };
