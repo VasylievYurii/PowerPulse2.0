@@ -3,8 +3,13 @@ import styled from 'styled-components';
 
 export const ChaptersWrapper = styled.ul`
   display: flex;
-  justify-content: end;
   gap: 28px;
+  @media screen and (min-width: 768px) {
+    padding-top: 14px;
+  }
+  @media screen and (min-width: 1440px) {
+    justify-content: end;
+  }
 `;
 
 export const LinkStyled = styled(NavLink)`
