@@ -5,14 +5,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const toastError = (text) => {
   toast.error(text, {
-    position: 'top-right',
+    position: 'top-center',
     autoClose: 7000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
     progress: undefined,
-    theme: 'light',
+    theme: 'dark',
   });
 };
 
