@@ -45,17 +45,17 @@ const DayExercisesItem = ({ workout, points }) => {
       <WrapLastDescrBox>
         <DescriptionItem>
           <DiarySupTitle>Target</DiarySupTitle>
-          <ValueBox width={(points < 1440 && points >= 768) ? '84px' : ((points >= 1440) ? '106px' : '100%')}>
+          <ValueBox $maxwidth='81px' width={(points < 1440 && points >= 768) ? '84px' : ((points >= 1440) ? '106px' : '100%')}>
             {target}</ValueBox>
         </DescriptionItem>
         <DescriptionItem>
           <DiarySupTitle size="80px">Burned Calories</DiarySupTitle>
-          <ValueBox width={(points < 1440 && points >= 768) ? '78px' : ((points >= 1440) ? '91px' : '100%')}>
+          <ValueBox $maxwidth='80px' width={(points < 1440 && points >= 768) ? '78px' : ((points >= 1440) ? '91px' : '100%')}>
             {burnedCalories}</ValueBox>
         </DescriptionItem>
         <DescriptionItem>
           <DiarySupTitle>Time</DiarySupTitle>
-          <ValueBox width={(points < 1440 && points >= 768) ? '72px' : ((points >= 1440) ? '82px' : '100%')}>
+          <ValueBox $maxwidth='76px' width={(points < 1440 && points >= 768) ? '72px' : ((points >= 1440) ? '82px' : '100%')}>
             {time}</ValueBox>
         </DescriptionItem>
         <DiaryTrashButton
