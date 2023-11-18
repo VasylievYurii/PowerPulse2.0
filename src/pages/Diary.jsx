@@ -15,6 +15,7 @@ import {
   DiaryWrapTitle,
 } from './Diary/Diary.styled';
 import { getIndicatorsThunk } from '../redux/userIndicators/userIndicOperations';
+import { ToastContainer } from 'react-toastify';
 
 const Diary = () => {
   const dispatch = useDispatch();
@@ -63,6 +64,7 @@ const Diary = () => {
         </DiaryWrapActivity>
         {points < 768 || <DayDashboard />}
       </DiaryWrapContent>
+      <ToastContainer />
     </SectionTemplate>
   );
 };
