@@ -13,8 +13,8 @@ import {
 
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
-
-// import { diaryReducer } from './diary/diarySlice';
+import { diaryReducer } from './diary/diarySlice';
+import { productFormReducer } from './productForm/productFormSlice';
 // import { userReducer } from './user/userSlice';
 import { profileReducer } from './userProfile/userProfileSlice';
 import { exeReducer } from './exercises/exeSlice';
@@ -42,6 +42,7 @@ const combinedReducers = combineReducers({
   workouts: workoutsReducer,
   meals: mealsReducer,
   auth: persistReducer(authPersistConfig, authReducer),
+  productForm: productFormReducer,
 });
 
 export const store = configureStore({
