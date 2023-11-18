@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getUserProfile, updateUserProfile } from './userProfileOperations';
+import { getUserDayTargets } from '../targets/targetsOperations';
 
 const initialState = {
   profile: null,
@@ -22,12 +23,18 @@ const userProfileSlice = createSlice({
         state.profile = action.payload;
         state.error = null;
       })
+      .addCase(getUserDayTargets.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.target = action.payload;
+        state.error = false;
+      })
       .addCase(getUserProfile.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(updateUserProfile.pending, (state) => {
         state.isLoading = true;
       })
+
       .addCase(getUserProfile.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;

@@ -30,6 +30,13 @@ export const selectProductsError = (state) => state.products.error;
 export const selectUserProfile = (state) => state.profile.userProfile;
 export const selectUserProfileIsLoading = (state) => state.profile.isLoading;
 export const selectUserProfileError = (state) => state.profile.Error;
+export const selectUserTargets = (state) => state.profile.target;
+
+//============= U S E R  T A R G E T S ==============
+
+// export const selectUserCalories = (state) => state.targets.calories;
+// export const selectUserCaloriesIsLoading = (state) => state.targets.isLoading;
+// export const selectUserCaloriesError = (state) => state.targets.error;
 
 // =========== I N D I C A T O R S ==================
 

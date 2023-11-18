@@ -26,12 +26,14 @@ import sprite from '../../assets/sprite.svg';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutUser, updateAvatar } from '../../redux/auth/operations';
+import { getUserDayTargets } from '../../redux/targets/targetsOperations';
 import Loader from '../Loader';
 import { Link } from 'react-router-dom';
 
 const UserCard = () => {
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
+  const { target } = useSelector((state) => state.profile);
   const [imageURL, setImageURL] = useState();
   const [colories, setColories] = useState('0');
   const [physical, setPhysical] = useState('0');
@@ -42,8 +44,14 @@ const UserCard = () => {
     if (userData) {
       setUser(userData.name);
       setImageURL(userData.avatarURL);
+      setColories(target.targetBmr);
+      setPhysical(target.targetTime);
     }
   }, [userData]);
+
+  useEffect(() => {
+    dispatch(getUserDayTargets);
+  }, [dispatch]);
 
   const fileReader = new FileReader();
   fileReader.onloadend = () => {
