@@ -4,6 +4,19 @@ export const Indexes = styled.div`
   display: flex;
   gap: 4px;
 `;
+
+export const ExercisesTitle = styled.p`
+  color: #fff;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  padding: 5px 7.5px;
+  border-radius: 4px;
+  background: rgba(239, 237, 232, 0.05);
+`;
+
 export const IndexesText = styled.p`
   color: rgba(239, 237, 232, 0.4);
   font-size: 12px;
@@ -121,7 +134,6 @@ export const WrapperStart = styled.button`
 `;
 
 export const IconWrapperStart = styled.svg`
-  padding-top: 3px;
   width: 13px;
   height: 13px;
   stroke: var(--color-main-one);
