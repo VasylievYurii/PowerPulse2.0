@@ -43,9 +43,11 @@ const UserCard = () => {
   useEffect(() => {
     if (userData) {
       setUser(userData.name);
-      setImageURL(userData.avatarURL);
       setColories(target.targetBmr);
       setPhysical(target.targetTime);
+    }
+    if (userData.avatarURL) {
+      setImageURL();
     }
   }, [userData]);
 
@@ -85,9 +87,12 @@ const UserCard = () => {
 
       <WrapperUserDiv>
         <WrapperUser>
-          {imageURL ? (
+          {imageURL || userData.avatarURL ? (
             <Img
-              src={`https://powerpulse-t5-backend.onrender.com/${imageURL}`}
+              src={
+                imageURL ||
+                `https://powerpulse-t5-backend.onrender.com/${userData.avatarURL}`
+              }
               sizes="90px"
               onError={() => {
                 setImageURL(null);
