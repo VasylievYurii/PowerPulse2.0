@@ -39,6 +39,7 @@ export const DashList = styled.ul`
 
 export const DashIndicators = styled.li`
   width: 159px;
+  flex-basis: calc((100% - 1*13px) / 2);
   height: 96px;
   display: flex;
   flex-direction: column;
@@ -56,6 +57,7 @@ export const DashIndicators = styled.li`
   background: ${(props) => props.color || 'rgba(239, 237, 232, 0.05)'};
 
   @media screen and (min-width: 768px) {
+    flex-basis: auto;
     width: 187px;
     height: 116px;
     padding: 18px;
@@ -78,6 +80,11 @@ export const DashTitle = styled.h3`
   @media screen and (min-width: 768px) {
     line-height: 1.5;
   }
+`;
+
+export const Message = styled.p`
+    font-size: 12px;
+    font-weight: 400;
 `;
 
 export const WrapDashText = styled.div`
@@ -110,4 +117,19 @@ export const DashIconWrapper = styled.svg`
   &:focus {
     stroke: var(--color-main-one);
   }
+`;
+
+export const DashIconExclamationWrapper = styled.svg`
+  fill: var(--color-main-two);
+  stroke: var(--color-text);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--color-main-two);
+`;
+
+export const IconWrapper = styled.div`
+  display: block;
+  width: 24px;
+  height: 24px;
 `;

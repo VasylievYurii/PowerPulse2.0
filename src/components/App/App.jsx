@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { refreshUser } from '../../redux/auth/operations';
 import { useAuth } from '../../hooks/useAuth';
 import Loader from '../Loader';
@@ -20,13 +20,42 @@ const Muscles = lazy(() => import('../../pages/Muscles'));
 const Equipment = lazy(() => import('../../pages/Equipment'));
 const SignUp = lazy(() => import('../../pages/SignUp'));
 const SignIn = lazy(() => import('../../pages/SignIn'));
-import { AppWrapper } from './App.styled';
+import { AppWrapper, ToastContainerStyled } from './App.styled';
 import ExercisesList from '../ExercisesList';
+import { selectUserAuthenticated } from '../../redux/selectors.js';
 
 function App() {
   const location = useLocation();
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
+  const { profile } = useSelector((state) => state.profile);
+  const auth = useSelector(selectUserAuthenticated);
+
+  let isFilled = true;
+
+  if (auth) {
+    const profileArray = profile
+      ? [
+          profile.height,
+          profile.currentWeight,
+          profile.desiredWeight,
+          profile.blood,
+          profile.sex,
+          profile.levelActivity,
+          profile.birthday,
+        ]
+      : [];
+
+    for (let item of profileArray) {
+      if (item) {
+        isFilled = true;
+      } else {
+        isFilled = false;
+        break;
+      }
+    }
+  }
+  console.log(isFilled);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -43,13 +72,21 @@ function App() {
   return isRefreshing ? (
     <Loader />
   ) : (
-    <AppWrapper>
+    <AppWrapper> 
+      <ToastContainerStyled />
       <Routes location={location} key={location.pathname}>
         <Route
           path="/welcome"
           element={
             <Suspense fallback={<Loader />}>
-              <RestrictedRoute redirectTo="/profile" component={<Welcome />} />
+              {isFilled ? (
+                <RestrictedRoute redirectTo="/diary" component={<Welcome />} />
+              ) : (
+                <RestrictedRoute
+                  redirectTo="/profile"
+                  component={<Welcome />}
+                />
+              )}
             </Suspense>
           }
         />
@@ -57,7 +94,11 @@ function App() {
           path="/signup"
           element={
             <Suspense fallback={<Loader />}>
-              <RestrictedRoute redirectTo="/profile" component={<SignUp />} />
+              {isFilled ? (
+                <RestrictedRoute redirectTo="/diary" component={<SignUp />} />
+              ) : (
+                <RestrictedRoute redirectTo="/profile" component={<SignUp />} />
+              )}
             </Suspense>
           }
         />
@@ -66,7 +107,11 @@ function App() {
           path="/signin"
           element={
             <Suspense fallback={<Loader />}>
-              <RestrictedRoute redirectTo="/profile" component={<SignIn />} />
+              {isFilled ? (
+                <RestrictedRoute redirectTo="/diary" component={<SignIn />} />
+              ) : (
+                <RestrictedRoute redirectTo="/profile" component={<SignIn />} />
+              )}
             </Suspense>
           }
         />

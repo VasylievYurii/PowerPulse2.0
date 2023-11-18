@@ -8,7 +8,7 @@ export const InputStyled = styled(Field)`
   width: 100%;
   height: 46px;
   border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.3);
+  border: ${props => props.border || '1px solid rgba(239, 237, 232, 0.3)'};
   padding-top: 14px;
   padding-bottom: 14px;
   padding-left: 14px;
@@ -16,13 +16,6 @@ export const InputStyled = styled(Field)`
   color: var(--color-text);
   background-color: transparent;
   transition: border 0.3s var(--timing-function);
-  /* border-color: ${(props) => props.$border_color}; */
-  &:invalid {
-    border: 2px solid var(--color-wrong-one);
-  }
-  &:required {
-    border: 1px solid var(--color-wrong-one);
-  }
   /* &:valid{
     border: 1px solid var(--color-approved-one);
 } */
@@ -39,7 +32,7 @@ export const InputStyled = styled(Field)`
   }
 `;
 export const ErrorDivStyled = styled.div`
-  color: var(--color-wrong-one);
+  color: ${props => props.color || 'var(--color-wrong-one)'};
   margin-top: 4px;
   /* margin-left: 4px; */
   line-height: 1.5;
@@ -59,13 +52,14 @@ export const SvgIconEyeStyled = styled.svg`
   width: 20px;
   height: 20px;
   stroke: var(--color-text);
+  cursor: pointer;
 `;
 
 export const SvgIconCheckBoxStyled = styled.svg`
   width: 16px;
   height: 16px;
   margin-top: 4px;
-  fill: var(--color-wrong-one);
+  fill: ${props => props.fill || 'var(--color-wrong-one)'};
 `;
 
 export const WrapperErrorStyled = styled.div`

@@ -1,106 +1,139 @@
-import { Link } from 'react-router-dom';
+import { Field } from 'formik';
 import styled from 'styled-components';
 
-export const ProductForm = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+export const Container = styled.div`
+  padding: 38px 22px;
 `;
 
-export const ImgProduct = styled.img`
-    width: 123px;
-    height: 84px;
+export const InputsContainer = styled.div`
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
-export const Title = styled.h2`
-    font-family: Roboto;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 32px;
-    letter-spacing: 0em;
-    text-align: left;
+export const InputEl = styled(Field)`
+  box-sizing: border-box;
+
+  width: 100%;
+  padding: 8px 14px;
+  background-color: transparent;
+  font-size: 14px;
+  line-height: 1.28; /* 128.571% */
+  color: var(--color-text);
+  border-radius: 12px;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+  transition: border-color 0.3s var(--timing-function);
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border-color: var(--color-main-one);
+  }
+
+  &::placeholder {
     color: var(--color-text);
+  }
 
-    margin-top: 16px;
-    
-    @media screen and (min-width: 768px) {
-        text-align: center;
-        margin-top: 32px;
-    }
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.5; /* 150% */
+  }
+`;
+
+export const ProductInput = styled(InputEl)`
+  color: rgba(239, 237, 232, 0.3);
+  border: 1px solid var(--color-main-one);
+
+  @media screen and (min-width: 768px) {
+    width: 244px;
+  }
+`;
+
+export const WeightInputLabel = styled.label`
+  display: block;
+  position: relative;
+`;
+
+export const WeightInput = styled(InputEl)`
+  @media screen and (min-width: 768px) {
+    width: 155px;
+  }
+`;
+
+export const FieldLabel = styled.span`
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  color: rgba(239, 237, 232, 0.4);
+  transform: translate(0, -50%);
+  /* color:; */
 `;
 
 export const Calories = styled.p`
-    font-family: Roboto;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0px;
-    text-align: left;
-    color: #EFEDE84D;
+  margin-bottom: 24px;
+  text-align: left;
+  line-height: 1.5; /* 150% */
+  color: rgba(239, 237, 232, 0.4);
 
-    margin-top: 16px;
-
-    > span {
-        font-family: Roboto;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 18px;
-        letter-spacing: 0px;
-        text-align: left;
-        color: var(--color-main-one);
-    }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 64px;
+  }
 `;
 
-export const Next = styled.button`
-    width: 157px;
-    height: 42px;
-    padding: 12px 32px 12px 32px;
-    border-radius: 12px;
-    border: none;
-    gap: 10px;
-
-    font-family: Roboto;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 18px;
-    letter-spacing: 0em;
-    text-align: left;
-    color: var(--color-text);
-    background-color: var(--color-main-one);
-
-    margin-top: 24px;
-    
-    @media screen and (min-width: 768px) {
-        margin-top: 32px;
-        line-height: 24px;
-        height: 52px;
-        padding: 14px 32px 14px 32px;
-    }
+export const CaloriesValue = styled.span`
+  color: var(--color-text);
 `;
 
-export const ToTheDairy = styled(Link)`
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    border: none;
-    gap: 8px;
-    padding: 0;
-    margin-top: 16px;
+export const ButtonsContainer = styled.div`
+  display: flex;
+  gap: 14px;
+`;
 
-    > span {
-        font-family: Roboto;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 18px;
-        letter-spacing: 0px;
-        text-align: left;
-        color: #EFEDE84D;
-    }
+export const PFButton = styled.button`
+  display: block;
 
-    > svg {
-        width: 16px;
-        height: 16px;
-        stroke: #EFEDE84D;
-    }
+  padding: 12px 32px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5; /* 150% */
+  color: var(--color-text);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border 0.3s var(--timing-function);
+
+  @media screen and (min-width: 768px) {
+    padding: 14px 32px;
+  }
+`;
+
+export const PFPrimaryBtn = styled(PFButton)`
+  background-color: var(--color-main-one);
+  border: 1px solid var(--color-main-one);
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-main-two);
+    border: 1px solid var(--color-main-two);
+  }
+`;
+
+export const PFOutlinedBtn = styled(PFButton)`
+  width: 121px;
+  background-color: transparent;
+  border: 1px solid rgba(239, 237, 232, 0.3);
+
+  &:hover,
+  &:focus {
+    border: 1px solid var(--color-main-one);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 142px;
+  }
 `;

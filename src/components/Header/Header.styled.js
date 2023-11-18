@@ -4,7 +4,8 @@ import { LogoutIcon } from '../LogOutBtn/LogOutBtn.styled';
 import { NavLink } from 'react-router-dom';
 
 export const HeaderContainer = styled.div`
-  border-bottom: 1px solid var(--color-text);
+  /* border-bottom: 1px solid var(--color-text); */
+  border-bottom: 1px solid rgba(239, 237, 232, 0.2);
   @media (max-width: 374px) {
     padding: 12px 18px;
   }

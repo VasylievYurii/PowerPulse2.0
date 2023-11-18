@@ -5,8 +5,7 @@ export const DiaryWrapTitle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px; */
-
+  margin-bottom: 40px;
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;
   }
@@ -40,12 +39,12 @@ export const DiarySections = styled.section`
   display: flex;
   flex-direction: column;
   min-height: 335px;
-  max-height: ${(props) => props.height || '826px' } ;
+  max-height: ${(props) => props.height || '826px'};
   padding: 16px 8px 16px 16px;
   /* margin-bottom: 40px; */
   gap: 22px;
   border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.20);
+  border: 1px solid rgba(239, 237, 232, 0.2);
   background: rgba(239, 237, 232, 0.05);
   color: var(--color-text);
 
@@ -68,7 +67,7 @@ export const SectionsWrapTitle = styled.div`
 `;
 
 export const DiaryTitle = styled.h3`
-  color: rgba(239, 237, 232, 0.50);
+  color: rgba(239, 237, 232, 0.5);
   margin: 0;
   font-weight: 400;
   font-size: 14px;
@@ -83,6 +82,7 @@ export const DiaryLink = styled.div`
   font-weight: 500;
   line-height: 1.29;
   font-size: 14px;
+  margin-right: 4px;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -120,7 +120,11 @@ export const WrapTitlesTablet = styled.ul`
 `;
 
 export const DiarySupTitleTablet = styled.li`
-  width: ${(props) => props.width || '100%' };
+  display: inline-block;
+  width: ${(props) => props.width || '100%'};
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 export const DiaryLists = styled.ul`
@@ -131,14 +135,14 @@ export const DiaryLists = styled.ul`
   padding-right: 8px;
   overflow-y: auto;
   &::-webkit-scrollbar {
-      width: 6px;
-    };
+    width: 6px;
+  }
   &::-webkit-scrollbar-track {
     background-color: none;
-  };
+  }
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(239, 237, 232, 0.10);
-        border-radius: 12px;
+    background-color: rgba(239, 237, 232, 0.1);
+    border-radius: 12px;
   }
 
   @media screen and (min-width: 768px) {
@@ -147,10 +151,9 @@ export const DiaryLists = styled.ul`
   }
 
   @media screen and (min-width: 1440px) {
-    width:
-      margin-left: 16px;
-      padding-right: 16px;
-    } 
+    margin-left: 16px;
+    padding-right: 16px;
+  }
 `;
 
 export const DiaryCard = styled.li`
@@ -168,10 +171,15 @@ export const DescriptionItem = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex-basis: calc((100% - 2*16px) / 3);
+
+  @media screen and (min-width: 768px) {
+    flex-basis: auto;
+  }
 `;
 
 export const DiarySupTitle = styled.h4`
-  max-width: ${(props) => props.size || 'inherit' };
+  max-width: ${(props) => props.size || 'inherit'};
   font-weight: 400;
   line-height: 1.5;
   margin: 0;
@@ -181,26 +189,29 @@ export const DiarySupTitle = styled.h4`
   text-overflow: ellipsis;
 
   @media screen and (min-width: 768px) {
-    display: none; 
+    display: none;
   }
 `;
 
 export const ValueBox = styled.div`
-  display: ${(props) => props.display || 'inline-block' };
+  display: ${(props) => props.display || 'inline-block'};
   gap: 8px;
-  width: ${(props) => props.width || '100%' };
-  min-width: 59px;
+  width: ${(props) => props.width || '100%'};
+  /* min-width: 59px; */
+  max-width: ${(props) => props.$maxwidth || '100%'};;
   height: 38px;
   padding: 10px 14px;
   border-radius: 12px;
-  border: 1px solid rgba(239, 237, 232, 0.30);
+  border: 1px solid rgba(239, 237, 232, 0.3);
   font-size: 14px;
   line-height: 1.29;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
+    max-width: none;
     height: 40px;
     padding: 8px 14px;
     line-height: 1.5;
@@ -211,15 +222,9 @@ export const ValueBox = styled.div`
 export const WrapLastDescrBox = styled.div`
   position: relative;
   display: flex;
-  justify-content: space-between;
   padding-right: 28px;
-  /* gap: 16px; */
+  gap: 16px;
   align-items: center;
-
-  @media screen and (min-width: 375px) {
-    justify-content: start;
-    gap: 16px;
-  }
 
   @media screen and (min-width: 768px) {
     padding-right: 32px;
@@ -257,7 +262,7 @@ export const TrashIconWrapper = styled.svg`
 export const EmptyText = styled.p`
   margin: auto;
   display: block;
-  color: rgba(239, 237, 232, 0.30);
+  color: rgba(239, 237, 232, 0.3);
   font-size: 14px;
   line-height: 1.28;
 `;
