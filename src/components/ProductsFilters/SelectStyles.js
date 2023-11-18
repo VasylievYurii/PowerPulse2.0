@@ -75,7 +75,7 @@ export const firstSelectStyles = {
     WebkitAppearance: 'none',
     MozAppearance: 'none',
 
-    '@media screen and (min-width: 335px)': {
+    '@media screen and (min-width: 375px)': {
       width: '146px',
       height: '46px',
       fontSize: '14px',
@@ -88,7 +88,6 @@ export const firstSelectStyles = {
       fontSize: '16px',
       lineHeight: '1.5',
     },
-    '@media screen and (max-width: 1439px)': {},
   }),
 };
 
@@ -106,16 +105,18 @@ export const secondSelectStyles = {
     WebkitAppearance: 'none',
     MozAppearance: 'none',
 
-    width: '173px',
-    height: '46px',
-    fontSize: '14px',
-    lineHeight: '1.28',
+    '@media screen and (min-width: 375px)': {
+      width: '173px',
+      height: '46px',
+      fontSize: '14px',
+      lineHeight: '1.28',
+    },
+
     '@media screen and (min-width: 768px)': {
       width: '204px',
       height: '52px',
       fontSize: '16px',
       lineHeight: '1.5',
     },
-    '@media screen and (min-width: 1440px)': {},
   }),
 };

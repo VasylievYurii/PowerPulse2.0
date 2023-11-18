@@ -142,7 +142,6 @@ const ProductsFilters = () => {
               },
             })}
           />
-
           <Select
             styles={secondSelectStyles}
             value={recommended}
