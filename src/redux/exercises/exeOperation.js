@@ -5,7 +5,7 @@ import { instance, token } from '../auth/operations';
 // import axios from 'axios';
 
 const options = {
-  position: 'top-right',
+  position: 'top-center',
   autoClose: 4000,
   hideProgressBar: false,
   closeOnClick: true,
