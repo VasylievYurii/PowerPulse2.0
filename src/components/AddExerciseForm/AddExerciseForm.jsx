@@ -1,15 +1,22 @@
 import ExersiceFormList from './AddExersiceFormList/AddExersiceFormList';
-import BasicModalWindow from '../BasicModalWindow/BasicModalWindow';
-import AddExerciseSuccess from '../AddExerciseSuccess/AddExerciseSuccess';
-import {Container,  Gif,  TimerWrapper,  ButtonContainer, Button, Title} from './AddExerciseForm.styled'
+// import BasicModalWindow from '../BasicModalWindow/BasicModalWindow';
+// import AddExerciseSuccess from '../AddExerciseSuccess/AddExerciseSuccess';
+import {
+  Container,
+  Gif,
+  TimerWrapper,
+  ButtonContainer,
+  Button,
+  Title,
+} from './AddExerciseForm.styled';
 import Timer from '../Timer/Timer';
 import { getUserParams } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { addWorkout } from '../../redux/workouts/workoutsOperations';
-import { selectOneWorkout } from '../../redux/selectors';
-import { useSelector } from 'react-redux';
+// import { selectOneWorkout } from '../../redux/selectors';
+// import { useSelector } from 'react-redux';
 
 // const formatDate = date => {
 //   const day = String(date.getDate()).padStart(2, '0');
@@ -17,7 +24,6 @@ import { useSelector } from 'react-redux';
 //   const year = date.getFullYear();
 //   return `${day}/${month}/${year}`;
 // };
-
 
 export const AddExerciseForm = ({
   onClick,
@@ -27,17 +33,18 @@ export const AddExerciseForm = ({
   bodyPart,
   target,
   equipment,
+  onClickToggle,
 }) => {
-  const oneWorkout = useSelector(selectOneWorkout);
+  // const oneWorkout = useSelector(selectOneWorkout);
   //  console.log(oneWorkout);
 
   const [dinamicBurnCal, setDinamicBurnCal] = useState(0);
   const [dinamicTime, setDinamicTime] = useState(0);
-  const [showModal, setShowModal] = useState(false);
+
   const dispatch = useDispatch();
 
   const handleOpenSuccessModal = () => {
-    setShowModal((prevState) => !prevState);
+    onClickToggle();
     dispatch(
       addWorkout({
         date: new Date(),
@@ -54,8 +61,7 @@ export const AddExerciseForm = ({
       <Title>Time</Title>
 
       <TimerWrapper>
-      
-               {/* <Timer
+        {/* <Timer
 
             data={data}
             setDinamicBurnCal={setDinamicBurnCal}
@@ -76,14 +82,6 @@ export const AddExerciseForm = ({
             Add to diary
           </Button>
         </ButtonContainer>
-        {showModal && (
-          <BasicModalWindow>
-            <AddExerciseSuccess
-              exeId={exeId}
-              onClick={handleOpenSuccessModal}
-            />
-          </BasicModalWindow>
-        )}
       </div>
     </Container>
   );
