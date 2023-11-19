@@ -1,6 +1,6 @@
 import { useState, forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
-import { format, subDays, addDays } from 'date-fns';
+import { format, subDays, addDays, parseISO } from 'date-fns';
 import {
   CalendarGlobalStyles,
   TitleWrapper,
@@ -14,9 +14,11 @@ import {
 } from './DaySwitch.styled';
 import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../assets/sprite.svg';
+// import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 const DaySwitch = ({ onDateChange }) => {
   const [startDate, setStartDate] = useState(new Date());
+  // const { userData } = useSelector((state) => state.auth);
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
@@ -37,6 +39,7 @@ const DaySwitch = ({ onDateChange }) => {
       </CalendarWrapper>
     );
   });
+
   const handleDateChange = (newDate) => {
     setStartDate(newDate);
     if (onDateChange) {
@@ -47,14 +50,14 @@ const DaySwitch = ({ onDateChange }) => {
   const CustomHeader = ({ date, decreaseMonth, increaseMonth }) => {
     return (
       <CustomHeaderWrapper>
-        <CircleWrapper>
-          <IconWrapperHeader onClick={decreaseMonth}>
+        <CircleWrapper onClick={decreaseMonth}>
+          <IconWrapperHeader>
             <use href={`${sprite}#icon-left`} />
           </IconWrapperHeader>
         </CircleWrapper>
         <HeaderData>{format(date, 'MMMM yyyy')}</HeaderData>
-        <CircleWrapper>
-          <IconWrapperHeader onClick={increaseMonth}>
+        <CircleWrapper onClick={increaseMonth}>
+          <IconWrapperHeader>
             <use href={`${sprite}#icon-right`} />
           </IconWrapperHeader>
         </CircleWrapper>
@@ -65,10 +68,11 @@ const DaySwitch = ({ onDateChange }) => {
   return (
     <>
       <DatePicker
-        // minDate={new Date()}
+        // minDate={userData.createdAt}
+        maxDate={new Date()}
         selected={startDate}
         onChange={(date) => {
-          // setStartDate(date);
+          setStartDate(date);
           onDateChange(date);
         }}
         customInput={<CustomInput />}
