@@ -65,7 +65,7 @@ function App() {
   }
 
   if (location.pathname === '/exercises') {
-    return <Navigate to="/exercises/bodyparts" />;
+    return <Navigate to="/exercises/body parts" />;
   }
 
   return isRefreshing ? (
@@ -150,7 +150,7 @@ function App() {
               </Suspense>
             }
           >
-            <Route path="bodyparts" element={<BodyParts />}></Route>
+            <Route path="body parts" element={<BodyParts />}></Route>
             <Route path="muscles" element={<Muscles />}></Route>
             <Route path="equipment" element={<Equipment />}></Route>
           </Route>
