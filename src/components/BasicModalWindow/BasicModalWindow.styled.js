@@ -7,7 +7,6 @@ export const ModalContainer = styled.div`
   transform: translate(-50%, -50%);
   padding: 14px;
   min-width: 335px;
-  min-height: 384px;
   background-color: var(--color-back-one);
   border: 1px solid #efede833;
   border-radius: 12px;
