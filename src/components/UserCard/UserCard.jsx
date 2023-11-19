@@ -144,11 +144,9 @@ const UserCard = () => {
         </TextExclamation>
       </WrapperExclamation>
 
-      <WrapperLogout onClick={logout}>
-        <Link to="/welcome">
-          <TextLogout>Logout</TextLogout>
-        </Link>
-        <IconLogout onClick={logout}>
+      <WrapperLogout to="/welcome" onClick={logout}>
+        <TextLogout>Logout</TextLogout>
+        <IconLogout>
           <use href={`${sprite}#icon-logout`} />
         </IconLogout>
       </WrapperLogout>
