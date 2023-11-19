@@ -64,7 +64,7 @@ const Diary = () => {
         </DiaryWrapActivity>
         {points < 768 || <DayDashboard />}
       </DiaryWrapContent>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </SectionTemplate>
   );
 };

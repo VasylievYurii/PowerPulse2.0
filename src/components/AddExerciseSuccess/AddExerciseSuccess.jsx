@@ -15,12 +15,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import imageThumbUp from '../../assets/thumb_up_color.png';
 
-const AddExerciseSuccess = ({ onClick }) => {
+const AddExerciseSuccess = ({ onClick, exeId }) => {
   // const dispatch = useDispatch();
   const oneWorkout = useSelector(selectOneWorkout);
 
   // const exerObject = {
-  //   exercise_id: '64f2458d6f67bc34bae4f7f4',
+  //   exercise_id: exeId,
   //   time: 2,
   //   date: new Date(),
   // };
@@ -47,7 +47,7 @@ const AddExerciseSuccess = ({ onClick }) => {
       <ButtonExerStyled onClick={handleCloseClick}>
         Next Exercise
       </ButtonExerStyled>
-      <NavLinkExStyled to="/diary">
+      <NavLinkExStyled to="/diary" onClick={onClick}>
         <TextExerStyled>To the diary</TextExerStyled>
         <SvgExerArrow>
           <use href={`${sprite}#icon-arrow`} />

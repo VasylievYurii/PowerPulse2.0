@@ -108,7 +108,15 @@ const ExercisesList = () => {
 
       <WrapperExercises>
         {exeFilter.data?.map(
-          ({ bodyPart, name, target, _id, burnedCalories }) => {
+          ({
+            bodyPart,
+            name,
+            target,
+            _id,
+            burnedCalories,
+            equipment,
+            gifUrl,
+          }) => {
             return (
               <ExercisesItem
                 key={_id}
@@ -116,6 +124,8 @@ const ExercisesList = () => {
                 target={ucFirst(target)}
                 NameBodyPart={ucFirst(bodyPart)}
                 name={ucFirst(name)}
+                equipment={equipment}
+                gifUrl={gifUrl}
                 exeId={_id}
               />
             );

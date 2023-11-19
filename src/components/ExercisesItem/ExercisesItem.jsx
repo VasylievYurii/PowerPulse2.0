@@ -20,22 +20,23 @@ import {
 import sprite from '../../assets/sprite.svg';
 import AddExerciseForm from '../../components/AddExerciseForm/index';
 import BasicModalWindow from '../BasicModalWindow/BasicModalWindow.jsx';
-import { useDispatch } from 'react-redux';
-import { addWorkout } from '../../redux/workouts/workoutsOperations';
+// import { useDispatch } from 'react-redux';
+// import { addWorkout } from '../../redux/workouts/workoutsOperations';
 
-const ExercisesItem = ({ calories, target, NameBodyPart, name, exeId }) => {
+const ExercisesItem = ({
+  calories,
+  target,
+  NameBodyPart,
+  name,
+  exeId,
+  equipment,
+  gifUrl,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const onClickStart = () => {
     // console.log('start');
     setIsModalOpen((prevState) => !prevState);
-    dispatch(
-      addWorkout({
-        date: new Date(),
-        time: 2,
-        exercise_id: exeId,
-      }),
-    );
   };
   return (
     <>
@@ -72,7 +73,15 @@ const ExercisesItem = ({ calories, target, NameBodyPart, name, exeId }) => {
       </WrapperExercisesItem>
       {isModalOpen && (
         <BasicModalWindow onClick={onClickStart}>
-          <AddExerciseForm onClick={onClickStart} />
+          <AddExerciseForm
+            onClick={onClickStart}
+            exeId={exeId}
+            gifUrl={gifUrl}
+            name={name}
+            bodyPart={NameBodyPart}
+            target={target}
+            equipment={equipment}
+          />
         </BasicModalWindow>
       )}
     </>
