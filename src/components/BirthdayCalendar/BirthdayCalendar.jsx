@@ -9,6 +9,7 @@ import {
   CustomHeaderWrapper,
   IconWrapperHeader,
   HeaderData,
+  CircleWrapper,
 } from './BirthdayCalendar.styled';
 import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../assets/sprite.svg';
@@ -53,9 +54,13 @@ const BirthdayCalendar = ({ onDateChange }) => {
   }) => {
     return (
       <CustomHeaderWrapper>
-        <IconWrapperHeader onClick={decreaseMonth}>
-          <use href={`${sprite}#icon-left`} />
-        </IconWrapperHeader>
+        <CircleWrapper>
+          {' '}
+          <IconWrapperHeader onClick={decreaseMonth}>
+            <use href={`${sprite}#icon-left`} />
+          </IconWrapperHeader>
+        </CircleWrapper>
+
         <HeaderData>
           <select
             className="custom-select-style"
@@ -82,9 +87,11 @@ const BirthdayCalendar = ({ onDateChange }) => {
             ))}
           </select>
         </HeaderData>
-        <IconWrapperHeader onClick={increaseMonth}>
-          <use href={`${sprite}#icon-right`} />
-        </IconWrapperHeader>
+        <CircleWrapper>
+          <IconWrapperHeader onClick={increaseMonth}>
+            <use href={`${sprite}#icon-right`} />
+          </IconWrapperHeader>
+        </CircleWrapper>
       </CustomHeaderWrapper>
     );
   };
