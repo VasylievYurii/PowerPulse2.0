@@ -1,6 +1,6 @@
 import ExersiceFormList from './AddExersiceFormList/AddExersiceFormList';
 
-import {Container,  Gif,  TimerWrapper,  ButtonContainer, Button} from './AddExerciseForm.styled'
+import {Container,  Gif,  TimerWrapper,  ButtonContainer, Button, Title} from './AddExerciseForm.styled'
 
 import Timer from '../Timer/Timer';
 import { getUserParams } from '../../redux/auth/operations';
@@ -18,7 +18,7 @@ import { useSelector } from 'react-redux';
 //   return `${day}/${month}/${year}`;
 // };
 
- export const AddExerciseForm = ({ onClick, closeModal  }) => {
+ export const AddExerciseForm = ({ onClick }) => {
 
    const oneWorkout = useSelector(selectOneWorkout);
   //  console.log(oneWorkout.exercise_id);
@@ -45,8 +45,10 @@ import { useSelector } from 'react-redux';
   return (
     <Container>
       
-        <Gif   src="https://ftp.goit.study/img/power-pulse/gifs/0003.gif" alt="name" /> 
-          <TimerWrapper>
+      <Gif src="https://ftp.goit.study/img/power-pulse/gifs/0003.gif" alt="name" /> 
+      <Title>Time</Title>
+      <TimerWrapper>
+      
                {/* <Timer
             data={data}
             setDinamicBurnCal={setDinamicBurnCal}
