@@ -130,21 +130,21 @@ export const updateAvatar = createAsyncThunk(
 );
 
 
-export const getUserParams = createAsyncThunk(
-  'auth/getparams',
-  async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+// export const getUserParams = createAsyncThunk(
+//   'auth/getparams',
+//   async (_, thunkAPI) => {
+//     const state = thunkAPI.getState();
+//     const persistedToken = state.auth.token;
 
-    if (persistedToken === null) {
-      return thunkAPI.rejectWithValue('Unable to fetch user');
-    }
+//     if (persistedToken === null) {
+//       return thunkAPI.rejectWithValue('Unable to fetch user');
+//     }
 
-    try {
-      const res = await axios.get('/api/auth/getuser');
-      return res.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  },
-);
+//     try {
+//       const res = await axios.get('/api/auth/getuser');
+//       return res.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   },
+// );

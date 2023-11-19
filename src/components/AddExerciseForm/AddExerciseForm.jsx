@@ -12,15 +12,13 @@ import {
 } from './AddExerciseForm.styled';
 
 import Timer from '../Timer/Timer';
-import { getUserParams } from '../../redux/auth/operations';
+// import { getUserParams } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { addWorkout } from '../../redux/workouts/workoutsOperations';
 // import { selectOneWorkout } from '../../redux/selectors';
 // import { useSelector } from 'react-redux';
-
-
 
 export const AddExerciseForm = ({
   onClick,
@@ -54,13 +52,11 @@ export const AddExerciseForm = ({
 
   return (
     <Container>
-
       <Gif src={gifUrl} alt={name} />
 
       <Title>Time</Title>
 
       <TimerWrapper>
-
         <Timer
         // data={data}
         // setDinamicBurnCal={setDinamicBurnCal}

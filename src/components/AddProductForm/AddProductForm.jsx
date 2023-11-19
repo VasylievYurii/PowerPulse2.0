@@ -19,29 +19,26 @@ import {
 } from './AddProductForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { postDiaryMealsThunk } from '../../redux/meals/mealsOperations';
-import { selectIsMealAdd } from '../../redux/selectors';
-import AddProductSuccess from '../AddProductSuccess/AddProductSuccess';
-import BasicModalWindow from '../BasicModalWindow/BasicModalWindow';
 import { ToastContainer } from 'react-toastify';
 
-const AddProductForm = ({ id, title, calories, onClick }) => {
+const AddProductForm = ({ id, title, calories, onClick, onClickSuccess }) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
-  const isMealAdd = useSelector(selectIsMealAdd);
-  const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    if (isMealAdd) {
-      toggleModal();
-    }
-  }, [isMealAdd]);
+  // const [showModal, setShowModal] = useState(false);
 
-  const closeAllModal = () => {
-    onClick();
-  };
+  // useEffect(() => {
+  //   if (isMealAdd) {
+  //     toggleModal();
+  //   }
+  // }, [isMealAdd]);
 
-  const toggleModal = () => {
-    setShowModal((prevState) => !prevState);
-  };
+  // const closeAllModal = () => {
+  //   onClick();
+  // };
+
+  // const toggleModal = () => {
+  //   setShowModal((prevState) => !prevState);
+  // };
 
   const dispatch = useDispatch();
 
@@ -73,9 +70,11 @@ const AddProductForm = ({ id, title, calories, onClick }) => {
   };
 
   const handleSubmit = (values, actions) => {
+    onClickSuccess();
     dispatch(postDiaryMealsThunk(values));
     actions.resetForm();
-    // setCalculatedCalories(0);
+
+    onClick();
   };
 
   const handleCloseClick = () => {
@@ -85,15 +84,7 @@ const AddProductForm = ({ id, title, calories, onClick }) => {
   return (
     <>
       <ToastContainer />
-      {showModal && (
-        <BasicModalWindow onClick={toggleModal}>
-          <AddProductSuccess
-            closeAllModal={closeAllModal}
-            calories={calculatedCalories}
-            onClick={toggleModal}
-          />
-        </BasicModalWindow>
-      )}
+
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
