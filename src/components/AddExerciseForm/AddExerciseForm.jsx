@@ -1,13 +1,5 @@
 import ExersiceFormList from './AddExersiceFormList/AddExersiceFormList';
-
-import {
-  Container,
-  Gif,
-  TimerWrapper,
-  ButtonContainer,
-  Button,
-} from './AddExerciseForm.styled';
-
+import {Container,  Gif,  TimerWrapper,  ButtonContainer, Button, Title} from './AddExerciseForm.styled'
 import Timer from '../Timer/Timer';
 import { getUserParams } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
@@ -24,8 +16,9 @@ import { useSelector } from 'react-redux';
 //   return `${day}/${month}/${year}`;
 // };
 
-export const AddExerciseForm = ({ onClick, closeModal }) => {
-  const oneWorkout = useSelector(selectOneWorkout);
+ export const AddExerciseForm = ({ onClick }) => {
+
+   const oneWorkout = useSelector(selectOneWorkout);
   //  console.log(oneWorkout.exercise_id);
 
   const [dinamicBurnCal, setDinamicBurnCal] = useState(0);
@@ -46,12 +39,14 @@ export const AddExerciseForm = ({ onClick, closeModal }) => {
 
   return (
     <Container>
-      <Gif
-        src={oneWorkout?.exercise_id.gifUrl}
-        alt={oneWorkout?.exercise_id.name}
-      />
+
+      
+      <Gif src="https://ftp.goit.study/img/power-pulse/gifs/0003.gif" alt="name" /> 
+      <Title>Time</Title>
       <TimerWrapper>
-        {/* <Timer
+      
+               {/* <Timer
+
             data={data}
             setDinamicBurnCal={setDinamicBurnCal}
             dinamicBurnCal={dinamicBurnCal}
