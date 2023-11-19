@@ -1,4 +1,4 @@
-import{s as o,ab as e}from"./index-ebf768cf.js";import{F as r}from"./index.esm-8c01a81f.js";const p=o(r)`
+import{s as o,ab as e}from"./index-1240e5c3.js";import{F as r}from"./index.esm-79d2b7b6.js";const p=o(r)`
   font-size: 14px;
   line-height: 18px;
   max-width: 335px;
