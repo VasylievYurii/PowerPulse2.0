@@ -10,10 +10,9 @@ import {
 import avocado from '../../assets/avocado.png';
 
 const AddProductSuccess = ({ closeAllModal, calories }) => {
-
   return (
     <ProductForm>
-      <ImgProduct src={avocado} alt="avocado" loading="lazy"/>
+      <ImgProduct src={avocado} alt="avocado" loading="lazy" />
       <Title>Well done</Title>
       <Calories>
         Calories: <span>{calories}</span>

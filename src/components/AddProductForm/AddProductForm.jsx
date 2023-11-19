@@ -75,7 +75,7 @@ const AddProductForm = ({ id, title, calories, onClick }) => {
   const handleSubmit = (values, actions) => {
     dispatch(postDiaryMealsThunk(values));
     actions.resetForm();
-    setCalculatedCalories(0);
+    // setCalculatedCalories(0);
   };
 
   const handleCloseClick = () => {
