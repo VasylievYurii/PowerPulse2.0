@@ -1,3 +1,9 @@
+import sprite from '../../assets/sprite.svg';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { logOutUser, updateAvatar } from '../../redux/auth/operations';
+import Loader from '../Loader';
+import { getTarget } from '../../redux/userProfile/userProfileOperations';
 import {
   IconWrapper,
   WrapperIndicators,
@@ -22,33 +28,19 @@ import {
   Img,
   Input,
 } from './UserCard.styled';
-import sprite from '../../assets/sprite.svg';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { logOutUser, updateAvatar } from '../../redux/auth/operations';
-import Loader from '../Loader';
-import { Link } from 'react-router-dom';
-import { getTarget } from '../../redux/userProfile/userProfileOperations';
 
 const UserCard = () => {
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
   const { target } = useSelector((state) => state.profile);
   const [imageURL, setImageURL] = useState();
-  // const [colories, setColories] = useState(target.targetBmr ?? '0');
-  // const [physical, setPhysical] = useState(target.targetTime ?? '0');
   const [user, setUser] = useState('Hello user!');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (userData) {
       setUser(userData.name);
-      // setColories(target.targetBmr);
-      // setPhysical(target.targetTime);
     }
-    // if (userData.avatarURL) {
-    //   setImageURL();
-    // }
   }, [userData]);
 
   useEffect(() => {
@@ -82,7 +74,6 @@ const UserCard = () => {
   return (
     <WrapperUseCard>
       <Input id="file-loader" type="file" onChange={uploadPhoto} />
-
       <WrapperUserDiv>
         <WrapperUser>
           {imageURL ? (
