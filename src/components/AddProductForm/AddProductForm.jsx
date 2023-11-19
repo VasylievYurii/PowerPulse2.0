@@ -17,11 +17,25 @@ import {
   WeightInputLabel,
   // WeightInputLabel,
 } from './AddProductForm.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { postDiaryMealsThunk } from '../../redux/meals/mealsOperations';
+import { selectNewMeal } from '../../redux/selectors';
+import AddProductSuccess from '../AddProductSuccess/AddProductSuccess';
+import BasicModalWindow from '../BasicModalWindow/BasicModalWindow';
 
 const AddProductForm = ({ id, title, calories, onClick }) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
+  const newMeal = useSelector(selectNewMeal);
+  const [showModal, setShowModal] = useState(false);
+
+  const closeAllModal = () => {
+    onClick()
+  };
+
+  const toggleModal = () => {
+    console.log('toggleModal');
+    setShowModal((prevState) => !prevState);
+  };
 
   const dispatch = useDispatch();
 
@@ -54,18 +68,30 @@ const AddProductForm = ({ id, title, calories, onClick }) => {
 
   const handleSubmit = (values, actions) => {
     console.log(values);
-    delete values.calories;
-    console.log(values);
+    
     dispatch(postDiaryMealsThunk(values));
-
+    openSuccess();
     // handleCloseClick();
   };
+
+  const openSuccess = () => {
+    if (newMeal.length === 0) {
+      alert('Error');
+    } else {
+      console.log('Close window');
+      toggleModal()
+    }
+  }
 
   const handleCloseClick = () => {
     onClick();
   };
 
   return (
+    <>
+    {showModal && <BasicModalWindow onClick={toggleModal} >
+        <AddProductSuccess closeAllModal={closeAllModal} calories={calculatedCalories} onClick={toggleModal} />
+      </BasicModalWindow>}
     <Formik
       initialValues={initialValues}
       validationSchema={schema}
@@ -92,12 +118,12 @@ const AddProductForm = ({ id, title, calories, onClick }) => {
                     name="amount"
                     type="text"
                     onChange={(e) => handleWeightChange(e, setFieldValue)}
-                    onKeyPress={(e) => {
-                      const onlyDigits = /^[0-9\b]+$/;
-                      if (!onlyDigits.test(e.key)) {
-                        e.preventDefault();
-                      }
-                    }}
+                    // onKeyPress={(e) => {
+                    //   const onlyDigits = /^[0-9\b]+$/;
+                    //   if (!onlyDigits.test(e.key)) {
+                    //     e.preventDefault();
+                    //   }
+                    // }}
                     value={values.weight}
                   />
                   <FieldLabel>grams</FieldLabel>
@@ -111,7 +137,9 @@ const AddProductForm = ({ id, title, calories, onClick }) => {
             </Calories>
 
             <ButtonsContainer>
-              <PFPrimaryBtn type="submit" onClick={handleSubmit}>
+                <PFPrimaryBtn type="submit"
+                  // onClick={handleSubmit}
+                >
                 Add to diary
               </PFPrimaryBtn>
               <PFOutlinedBtn type="button" onClick={handleCloseClick}>
@@ -121,7 +149,8 @@ const AddProductForm = ({ id, title, calories, onClick }) => {
           </Container>
         </Form>
       )}
-    </Formik>
+      </Formik>
+      </>
   );
 };
 
