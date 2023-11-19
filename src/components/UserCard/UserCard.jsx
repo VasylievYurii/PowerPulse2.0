@@ -40,6 +40,7 @@ const UserCard = () => {
   useEffect(() => {
     if (userData) {
       setUser(userData.name);
+      setImageURL(userData.avatarURL);
     }
   }, [userData]);
 
