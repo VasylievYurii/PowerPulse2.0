@@ -11,6 +11,8 @@ export const ProductForm = styled.div`
 export const ImgProduct = styled.img`
   width: 123px;
   height: 84px;
+  margin-top: 48px;
+
 `;
 
 export const Title = styled.h2`
