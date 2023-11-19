@@ -46,9 +46,9 @@ const UserCard = () => {
       // setColories(target.targetBmr);
       // setPhysical(target.targetTime);
     }
-    if (userData.avatarURL) {
-      setImageURL();
-    }
+    // if (userData.avatarURL) {
+    //   setImageURL();
+    // }
   }, [userData]);
 
   useEffect(() => {
@@ -85,7 +85,7 @@ const UserCard = () => {
 
       <WrapperUserDiv>
         <WrapperUser>
-          {imageURL || userData.avatarURL ? (
+          {imageURL ? (
             <Img
               src={
                 imageURL ||
