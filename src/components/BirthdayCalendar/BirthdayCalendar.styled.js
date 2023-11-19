@@ -211,6 +211,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
   font-family: Roboto;
   background-color: transparent;
   border: none;
+  border-radius: 5px;
   color: var(--color-text);
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -218,12 +219,16 @@ export const CalendarGlobalStyles = createGlobalStyle`
    background-image: none;
    cursor: pointer;
    color: #EFEDE8;
-  font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.32px;
+   transition: background-color 0.3s var(--timing-function);
+}
+
+.custom-select-style:hover{
+  background-color: var(--color-main-one);
 }
 
 select.custom-select-style option{
@@ -239,8 +244,6 @@ export const TitleWrapper = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-between !important;
-  /* gap: 8px; */
-  /* margin-right: 20px; */
   width: 100%;
   font-size: 16px;
   font-weight: 400;
@@ -250,9 +253,7 @@ export const TitleWrapper = styled.button`
 export const CalendarWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  /* justify-content: end !important; */
   align-items: center;
-
   border-radius: 12px;
   border-color: rgba(239, 237, 232, 0.3);
   background-color: #000;
@@ -274,6 +275,7 @@ export const IconWrapper = styled.svg`
   height: 16px;
   stroke: var(--color-text);
   fill: transparent;
+  transition: stroke 0.3s var(--timing-function);
   cursor: pointer;
   &:hover {
     stroke: var(--color-main-two);
@@ -300,6 +302,7 @@ export const IconWrapperHeader = styled.svg`
   stroke: var(--color-text);
   fill: transparent;
   cursor: pointer;
+  transition: stroke 0.3s var(--timing-function);
   &:hover {
     stroke: white;
   }
@@ -313,4 +316,15 @@ export const HeaderData = styled.p`
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.32px;
+`;
+
+export const CircleWrapper = styled.div`
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: background-color 0.3s var(--timing-function);
+  &:hover {
+    background-color: var(--color-main-one);
+  }
 `;

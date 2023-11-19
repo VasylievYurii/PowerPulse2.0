@@ -10,6 +10,7 @@ import {
   CustomHeaderWrapper,
   IconWrapperHeader,
   HeaderData,
+  CircleWrapper,
 } from './DaySwitch.styled';
 import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../assets/sprite.svg';
@@ -27,26 +28,36 @@ const DaySwitch = ({ onDateChange }) => {
           </IconCalendar>
         </TitleWrapper>
 
-        <IconWrapper onClick={() => setStartDate(subDays(startDate, 1))}>
+        <IconWrapper onClick={() => handleDateChange(subDays(startDate, 1))}>
           <use href={`${sprite}#icon-left`} />
         </IconWrapper>
-        <IconWrapper onClick={() => setStartDate(addDays(startDate, 1))}>
+        <IconWrapper onClick={() => handleDateChange(addDays(startDate, 1))}>
           <use href={`${sprite}#icon-right`} />
         </IconWrapper>
       </CalendarWrapper>
     );
   });
+  const handleDateChange = (newDate) => {
+    setStartDate(newDate);
+    if (onDateChange) {
+      onDateChange(newDate);
+    }
+  };
 
   const CustomHeader = ({ date, decreaseMonth, increaseMonth }) => {
     return (
       <CustomHeaderWrapper>
-        <IconWrapperHeader onClick={decreaseMonth}>
-          <use href={`${sprite}#icon-left`} />
-        </IconWrapperHeader>
+        <CircleWrapper>
+          <IconWrapperHeader onClick={decreaseMonth}>
+            <use href={`${sprite}#icon-left`} />
+          </IconWrapperHeader>
+        </CircleWrapper>
         <HeaderData>{format(date, 'MMMM yyyy')}</HeaderData>
-        <IconWrapperHeader onClick={increaseMonth}>
-          <use href={`${sprite}#icon-right`} />
-        </IconWrapperHeader>
+        <CircleWrapper>
+          <IconWrapperHeader onClick={increaseMonth}>
+            <use href={`${sprite}#icon-right`} />
+          </IconWrapperHeader>
+        </CircleWrapper>
       </CustomHeaderWrapper>
     );
   };
@@ -57,7 +68,7 @@ const DaySwitch = ({ onDateChange }) => {
         // minDate={new Date()}
         selected={startDate}
         onChange={(date) => {
-          setStartDate(date);
+          // setStartDate(date);
           onDateChange(date);
         }}
         customInput={<CustomInput />}
