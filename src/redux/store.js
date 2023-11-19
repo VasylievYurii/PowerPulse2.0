@@ -22,6 +22,7 @@ import { productsReducer } from './products/productsSlice_var2';
 import { indicatorsReducer } from './userIndicators/userIndicatorsSlice';
 // import { contactsReducer } from './contacts/contactsSlice';
 // import { filterReducer } from './contacts/filterSlice';
+import { statReducer } from './statistics/statisticsSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -40,6 +41,7 @@ const combinedReducers = combineReducers({
   workouts: workoutsReducer,
   meals: mealsReducer,
   auth: persistReducer(authPersistConfig, authReducer),
+  statistics: statReducer,
 });
 
 export const store = configureStore({

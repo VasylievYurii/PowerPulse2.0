@@ -29,7 +29,6 @@ const UserForm = () => {
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
   const { profile } = useSelector((state) => state.profile);
-  // const { birthday } = useSelector((state) => state.profile.birthday);
   const [birthdayState, setBirthdayState] = useState('2004-11-14');
 
   useEffect(() => {
@@ -89,8 +88,6 @@ const UserForm = () => {
           )}
           <InputUseForm onDateChange={onDateChange} />
           <RadioUseForm />
-
-          {/* <BirthdayCalendar onDateChange={onDateChange} /> */}
           <SubmitBtn type="submit">Save</SubmitBtn>
         </Form>
       )}

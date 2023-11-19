@@ -1,4 +1,5 @@
 import ExersiceFormList from './AddExersiceFormList/AddExersiceFormList';
+
 // import BasicModalWindow from '../BasicModalWindow/BasicModalWindow';
 // import AddExerciseSuccess from '../AddExerciseSuccess/AddExerciseSuccess';
 import {
@@ -9,6 +10,7 @@ import {
   Button,
   Title,
 } from './AddExerciseForm.styled';
+
 import Timer from '../Timer/Timer';
 import { getUserParams } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
@@ -18,12 +20,7 @@ import { addWorkout } from '../../redux/workouts/workoutsOperations';
 // import { selectOneWorkout } from '../../redux/selectors';
 // import { useSelector } from 'react-redux';
 
-// const formatDate = date => {
-//   const day = String(date.getDate()).padStart(2, '0');
-//   const month = String(date.getMonth() + 1).padStart(2, '0');
-//   const year = date.getFullYear();
-//   return `${day}/${month}/${year}`;
-// };
+
 
 export const AddExerciseForm = ({
   onClick,
@@ -57,19 +54,20 @@ export const AddExerciseForm = ({
 
   return (
     <Container>
+
       <Gif src={gifUrl} alt={name} />
+
       <Title>Time</Title>
 
       <TimerWrapper>
-        {/* <Timer
 
-            data={data}
-            setDinamicBurnCal={setDinamicBurnCal}
-            dinamicBurnCal={dinamicBurnCal}
-            setDinamicTime={setDinamicTime}
-            /> */}
+        <Timer
+        // data={data}
+        // setDinamicBurnCal={setDinamicBurnCal}
+        // dinamicBurnCal={dinamicBurnCal}
+        // setDinamicTime={setDinamicTime}
+        />
       </TimerWrapper>
-
       <div>
         <ExersiceFormList
           name={name}

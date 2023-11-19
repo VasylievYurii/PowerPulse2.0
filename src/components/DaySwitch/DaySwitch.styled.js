@@ -280,12 +280,14 @@ export const HeaderData = styled.p`
   letter-spacing: -0.32px;
 `;
 
-export const CircleWrapper = styled.div`
+export const CircleWrapper = styled.button`
   width: 18px;
   height: 18px;
   background-color: transparent;
+  border: none;
   border-radius: 50%;
   transition: background-color 0.3s var(--timing-function);
+  cursor: pointer;
   &:hover {
     background-color: var(--color-main-one);
   }

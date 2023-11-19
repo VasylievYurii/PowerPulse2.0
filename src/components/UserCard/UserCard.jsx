@@ -33,7 +33,7 @@ const UserCard = () => {
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
   const { target } = useSelector((state) => state.profile);
-  const [imageURL, setImageURL] = useState();
+  const [imageURL, setImageURL] = useState(userData.avatarURL ?? null);
   const [user, setUser] = useState('Hello user!');
   const [loading, setLoading] = useState(false);
 
@@ -58,14 +58,17 @@ const UserCard = () => {
     const file = e.target.files[0];
     fileReader.readAsDataURL(file);
     setLoading(true);
+
     try {
-      dispatch(updateAvatar(file));
+      await dispatch(updateAvatar(file));
+      // setImageURL(fileReader.result);
     } catch (error) {
       if (error.response && error.response.status === 404) {
         setImageURL(null);
       }
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const logout = () => {
@@ -77,24 +80,18 @@ const UserCard = () => {
       <Input id="file-loader" type="file" onChange={uploadPhoto} />
       <WrapperUserDiv>
         <WrapperUser>
-          {imageURL ? (
+          {imageURL && !loading ? (
             <Img
-              src={
-                imageURL ||
-                `https://powerpulse-t5-backend.onrender.com/${userData.avatarURL}`
-              }
+              src={`https://powerpulse-t5-backend.onrender.com/${imageURL}`}
               sizes="90px"
-              onError={() => {
-                setImageURL(null);
-                setLoading(false);
-              }}
               loading="lazy"
             />
-          ) : (
+          ) : null}
+          {imageURL && loading ? (
             <IconWrapperUser>
               <use href={`${sprite}#icon-user`} />
             </IconWrapperUser>
-          )}
+          ) : null}
         </WrapperUser>
         <ButtonUser htmlFor="file-loader">
           <IconPluse>

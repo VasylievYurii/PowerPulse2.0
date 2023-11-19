@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { format } from 'date-fns';
@@ -17,11 +17,32 @@ import {
   WeightInputLabel,
   // WeightInputLabel,
 } from './AddProductForm.styled';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { postDiaryMealsThunk } from '../../redux/meals/mealsOperations';
+import { selectIsMealAdd } from '../../redux/selectors';
+import AddProductSuccess from '../AddProductSuccess/AddProductSuccess';
+import BasicModalWindow from '../BasicModalWindow/BasicModalWindow';
+import { ToastContainer } from 'react-toastify';
+
 
 const AddProductForm = ({ id, title, calories, onClick }) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
+  const isMealAdd = useSelector(selectIsMealAdd);
+  const [showModal, setShowModal] = useState(false);
+
+    useEffect(() => {
+      if (isMealAdd) {
+            toggleModal();
+        }
+    }, [isMealAdd]);
+
+  const closeAllModal = () => {
+    onClick()
+  };
+
+  const toggleModal = () => {
+    setShowModal((prevState) => !prevState);
+  };
 
   const dispatch = useDispatch();
 
@@ -54,18 +75,23 @@ const AddProductForm = ({ id, title, calories, onClick }) => {
 
   const handleSubmit = (values, actions) => {
     console.log(values);
-    delete values.calories;
-    console.log(values);
-    dispatch(postDiaryMealsThunk(values));
 
-    // handleCloseClick();
+    dispatch(postDiaryMealsThunk(values));
+        actions.resetForm();
+    setCalculatedCalories(0);
   };
+
 
   const handleCloseClick = () => {
     onClick();
   };
 
   return (
+    <>
+            <ToastContainer />
+    {showModal && <BasicModalWindow onClick={toggleModal} >
+        <AddProductSuccess closeAllModal={closeAllModal} calories={calculatedCalories} onClick={toggleModal} />
+      </BasicModalWindow>}
     <Formik
       initialValues={initialValues}
       validationSchema={schema}
@@ -111,7 +137,9 @@ const AddProductForm = ({ id, title, calories, onClick }) => {
             </Calories>
 
             <ButtonsContainer>
-              <PFPrimaryBtn type="submit" onClick={handleSubmit}>
+                <PFPrimaryBtn type="submit"
+                  // onClick={handleSubmit}
+                >
                 Add to diary
               </PFPrimaryBtn>
               <PFOutlinedBtn type="button" onClick={handleCloseClick}>
@@ -121,7 +149,8 @@ const AddProductForm = ({ id, title, calories, onClick }) => {
           </Container>
         </Form>
       )}
-    </Formik>
+      </Formik>
+      </>
   );
 };
 

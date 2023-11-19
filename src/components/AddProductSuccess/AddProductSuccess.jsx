@@ -7,20 +7,18 @@ import {
   Next,
   ToTheDairy,
 } from './AddProductSuccess.styled';
+import avocado from '../../assets/avocado.png';
 
-const AddProductSuccess = ({ calories, onClick }) => {
-  const handleCloseClick = () => {
-    onClick();
-  };
+const AddProductSuccess = ({ closeAllModal, calories }) => {
 
   return (
     <ProductForm>
-      <ImgProduct src="" alt="" />
+      <ImgProduct src={avocado} alt="avocado" loading="lazy"/>
       <Title>Well done</Title>
       <Calories>
         Calories: <span>{calories}</span>
       </Calories>
-      <Next type="button" onClick={handleCloseClick}>
+      <Next type="button" onClick={() => closeAllModal()}>
         Next product
       </Next>
       <ToTheDairy to="/diary">
