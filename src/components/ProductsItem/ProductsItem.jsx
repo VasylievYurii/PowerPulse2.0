@@ -14,7 +14,7 @@ import {
   CategoryWrapper,
 } from './ProductsItem.styled';
 
-const ProductsItem = ({ title, calories, category, weight, recommended }) => {
+const ProductsItem = ({ id, title, calories, category, weight, recommended }) => {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
@@ -22,8 +22,10 @@ const ProductsItem = ({ title, calories, category, weight, recommended }) => {
   };
 
   return (
-    <ProductItemContainer>
-      {showModal && <BasicModalWindow onClick={toggleModal} ><AddProductForm calories={calories} onClick={toggleModal} /></BasicModalWindow>}
+    <ProductItemContainer key={id}>
+      {showModal && <BasicModalWindow onClick={toggleModal} >
+        <AddProductForm id={id} title={title} calories={calories} onClick={toggleModal} />
+      </BasicModalWindow>}
       <section>
         <TopLineWrapper>
           <LeftTopLabelWrapper>
