@@ -74,19 +74,21 @@ const UserForm = () => {
     >
       {({ errors, touched }) => (
         <Form autoComplete="off">
-          {errors.email && touched.email && (
-            <ErrorMess>{errors.email}</ErrorMess>
-          )}
-          {errors.height && touched.height && (
-            <ErrorMess>{errors.height}</ErrorMess>
-          )}
-          {errors.currentWeight && touched.currentWeight && (
-            <ErrorMess>{errors.currentWeight}</ErrorMess>
-          )}
-          {errors.desiredWeight && touched.desiredWeight && (
-            <ErrorMess>{errors.desiredWeight}</ErrorMess>
-          )}
           <InputUseForm onDateChange={onDateChange} />
+          <div style={{ display: 'flex', gap: '25px' }}>
+            {errors.email && touched.email && (
+              <ErrorMess>{errors.email}</ErrorMess>
+            )}
+            {errors.height && touched.height && (
+              <ErrorMess>{errors.height}</ErrorMess>
+            )}
+            {errors.currentWeight && touched.currentWeight && (
+              <ErrorMess>{errors.currentWeight}</ErrorMess>
+            )}
+            {errors.desiredWeight && touched.desiredWeight && (
+              <ErrorMess>{errors.desiredWeight}</ErrorMess>
+            )}
+          </div>
           <RadioUseForm />
           <SubmitBtn type="submit">Save</SubmitBtn>
         </Form>
