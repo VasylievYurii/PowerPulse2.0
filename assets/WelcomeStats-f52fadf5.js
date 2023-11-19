@@ -1,4 +1,4 @@
-import{j as i,ah as r,ai as s,s as e,c as n}from"./index-8040ae22.js";function v({children:t}){return i.jsx(r,{children:i.jsx(s,{children:t})})}const p=e.div`
+import{j as i,ai as r,aj as s,s as e,c as n}from"./index-7058c543.js";function v({children:t}){return i.jsx(r,{children:i.jsx(s,{children:t})})}const p=e.div`
   display: flex;
   flex-direction: column;
   height: 40%;
@@ -13,7 +13,7 @@ import{j as i,ah as r,ai as s,s as e,c as n}from"./index-8040ae22.js";function v
     gap: 20%;
     justify-content: start;
   }
-`,S=({children:t})=>i.jsx(p,{children:t}),h=e.div`
+`,S=({children:t})=>i.jsx(p,{children:t}),c=e.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -31,7 +31,7 @@ import{j as i,ah as r,ai as s,s as e,c as n}from"./index-8040ae22.js";function v
   @media (min-width: 1440) and (orientation: landscape) {
     transform: scale(1);
   } */
-`,y=({children:t})=>i.jsx(h,{children:t}),c=e.div`
+`,y=({children:t})=>i.jsx(c,{children:t}),h=e.div`
   display: flex;
   align-items: center;
   position: absolute;
@@ -155,4 +155,4 @@ import{j as i,ah as r,ai as s,s as e,c as n}from"./index-8040ae22.js";function v
   @media screen and (min-width: 1440px) {
     flex-direction: column;
   }
-`,j=({children:t})=>i.jsx(f,{children:t}),W=()=>i.jsx(j,{children:i.jsxs(u,{children:[i.jsxs(c,{children:[i.jsx(o,{children:i.jsx(a,{children:i.jsx("use",{href:`${n}#icon-play`})})}),i.jsxs("div",{children:[i.jsx(g,{children:"350+"}),i.jsx(d,{children:"Video tutorial"})]})]}),i.jsxs(x,{children:[i.jsx(l,{children:i.jsx(a,{children:i.jsx("use",{href:`${n}#icon-run`})})}),i.jsxs(m,{children:[i.jsx(w,{children:"500"}),i.jsx(d,{children:"cal"})]})]})]})});export{v as S,W,S as a,y as b};
+`,j=({children:t})=>i.jsx(f,{children:t}),W=()=>i.jsx(j,{children:i.jsxs(u,{children:[i.jsxs(h,{children:[i.jsx(o,{children:i.jsx(a,{children:i.jsx("use",{href:`${n}#icon-play`})})}),i.jsxs("div",{children:[i.jsx(g,{children:"350+"}),i.jsx(d,{children:"Video tutorial"})]})]}),i.jsxs(x,{children:[i.jsx(l,{children:i.jsx(a,{children:i.jsx("use",{href:`${n}#icon-run`})})}),i.jsxs(m,{children:[i.jsx(w,{children:"500"}),i.jsx(d,{children:"cal"})]})]})]})});export{v as S,W,S as a,y as b};
