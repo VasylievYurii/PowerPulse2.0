@@ -5,7 +5,7 @@ import { instance } from '../auth/operations';
 
 const options = {
   position: 'top-center',
-  autoClose: 4000,
+  autoClose: 3000,
   hideProgressBar: false,
   closeOnClick: true,
   pauseOnHover: true,
@@ -46,7 +46,6 @@ const delMeal = async (mealId, thunkAPI) => {
 const postMeal = async (currentProduct, thunkAPI) => {
   try {
     delete currentProduct.calories;
-    console.log(currentProduct);
     const response = await instance.post(`diaries/meals`, currentProduct);
     return response.data;
   } catch (e) {

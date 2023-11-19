@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { format } from 'date-fns';
@@ -19,21 +19,28 @@ import {
 } from './AddProductForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { postDiaryMealsThunk } from '../../redux/meals/mealsOperations';
-import { selectNewMeal } from '../../redux/selectors';
+import { selectIsMealAdd } from '../../redux/selectors';
 import AddProductSuccess from '../AddProductSuccess/AddProductSuccess';
 import BasicModalWindow from '../BasicModalWindow/BasicModalWindow';
+import { ToastContainer } from 'react-toastify';
+
 
 const AddProductForm = ({ id, title, calories, onClick }) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
-  const newMeal = useSelector(selectNewMeal);
+  const isMealAdd = useSelector(selectIsMealAdd);
   const [showModal, setShowModal] = useState(false);
+
+    useEffect(() => {
+      if (isMealAdd) {
+            toggleModal();
+        }
+    }, [isMealAdd]);
 
   const closeAllModal = () => {
     onClick()
   };
 
   const toggleModal = () => {
-    console.log('toggleModal');
     setShowModal((prevState) => !prevState);
   };
 
@@ -68,20 +75,12 @@ const AddProductForm = ({ id, title, calories, onClick }) => {
 
   const handleSubmit = (values, actions) => {
     console.log(values);
-    
+
     dispatch(postDiaryMealsThunk(values));
-    openSuccess();
-    // handleCloseClick();
+        actions.resetForm();
+    setCalculatedCalories(0);
   };
 
-  const openSuccess = () => {
-    if (newMeal.length === 0) {
-      alert('Error');
-    } else {
-      console.log('Close window');
-      toggleModal()
-    }
-  }
 
   const handleCloseClick = () => {
     onClick();
@@ -89,6 +88,7 @@ const AddProductForm = ({ id, title, calories, onClick }) => {
 
   return (
     <>
+            <ToastContainer />
     {showModal && <BasicModalWindow onClick={toggleModal} >
         <AddProductSuccess closeAllModal={closeAllModal} calories={calculatedCalories} onClick={toggleModal} />
       </BasicModalWindow>}
@@ -118,12 +118,12 @@ const AddProductForm = ({ id, title, calories, onClick }) => {
                     name="amount"
                     type="text"
                     onChange={(e) => handleWeightChange(e, setFieldValue)}
-                    // onKeyPress={(e) => {
-                    //   const onlyDigits = /^[0-9\b]+$/;
-                    //   if (!onlyDigits.test(e.key)) {
-                    //     e.preventDefault();
-                    //   }
-                    // }}
+                    onKeyPress={(e) => {
+                      const onlyDigits = /^[0-9\b]+$/;
+                      if (!onlyDigits.test(e.key)) {
+                        e.preventDefault();
+                      }
+                    }}
                     value={values.weight}
                   />
                   <FieldLabel>grams</FieldLabel>
