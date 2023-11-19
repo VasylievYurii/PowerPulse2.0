@@ -1,5 +1,5 @@
 import ExersiceFormList from './AddExersiceFormList/AddExersiceFormList';
-
+import BasicModalWindow from '../BasicModalWindow/BasicModalWindow';
 import {
   Container,
   Gif,
@@ -7,7 +7,7 @@ import {
   ButtonContainer,
   Button,
 } from './AddExerciseForm.styled';
-
+import AddExerciseSuccess from '../AddExerciseSuccess/AddExerciseSuccess';
 import Timer from '../Timer/Timer';
 import { getUserParams } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
@@ -24,21 +24,30 @@ import { useSelector } from 'react-redux';
 //   return `${day}/${month}/${year}`;
 // };
 
-export const AddExerciseForm = ({ onClick, closeModal }) => {
+export const AddExerciseForm = ({
+  onClick,
+  exeId,
+  gifUrl,
+  name,
+  bodyPart,
+  target,
+  equipment,
+}) => {
   const oneWorkout = useSelector(selectOneWorkout);
-  //  console.log(oneWorkout.exercise_id);
+  //  console.log(oneWorkout);
 
   const [dinamicBurnCal, setDinamicBurnCal] = useState(0);
   const [dinamicTime, setDinamicTime] = useState(0);
-
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
-  const handleAddToDiary = () => {
+  const handleOpenSuccessModal = () => {
+    setShowModal((prevState) => !prevState);
     dispatch(
       addWorkout({
         date: new Date(),
-        time: 2,
-        exercise_id: '64f2458d6f67bc34bae4f7f4',
+        time: 4,
+        exercise_id: exeId,
       }),
     );
     onClick();
@@ -46,10 +55,7 @@ export const AddExerciseForm = ({ onClick, closeModal }) => {
 
   return (
     <Container>
-      <Gif
-        src={oneWorkout?.exercise_id.gifUrl}
-        alt={oneWorkout?.exercise_id.name}
-      />
+      <Gif src={gifUrl} alt={name} />
       <TimerWrapper>
         {/* <Timer
             data={data}
@@ -61,16 +67,24 @@ export const AddExerciseForm = ({ onClick, closeModal }) => {
 
       <div>
         <ExersiceFormList
-          name={oneWorkout?.exercise_id.name}
-          bodypart={oneWorkout?.exercise_id.bodyPart}
-          target={oneWorkout?.exercise_id.target}
-          equipment={oneWorkout?.exercise_id.equipment}
+          name={name}
+          bodypart={bodyPart}
+          target={target}
+          equipment={equipment}
         />
         <ButtonContainer>
-          <Button type="button" onClick={handleAddToDiary}>
+          <Button type="button" onClick={handleOpenSuccessModal}>
             Add to diary
           </Button>
         </ButtonContainer>
+        {showModal && (
+          <BasicModalWindow>
+            <AddExerciseSuccess
+              exeId={exeId}
+              onClick={handleOpenSuccessModal}
+            />
+          </BasicModalWindow>
+        )}
       </div>
     </Container>
   );
