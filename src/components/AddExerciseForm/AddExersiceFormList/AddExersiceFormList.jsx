@@ -1,34 +1,32 @@
-// import { ExersiceFormlLink, ExersiceFormlLinkSub, ExersiceFormlLinkTitle, ExersiceList } from "./AddExersiceFormList.styled";
+import { ExersiceFormItem, ExersiceFormSub, ExersiceFormTitle, ExersiceList } from "./AddExersiceFormList.styled";
 
 const ExersiceFormList = ({ name, bodypart, target, equipment, time }) => {
-  const firstLetterToUppercase = (title) => {
-    return title.replace(title[0], title[0].toUpperCase());
-  };
-  
+ 
   return (
     <ExersiceList>
-      <ExersiceFormlLink>
-        <ExersiceFormlLinkSub >Name</ExersiceFormlLinkSub>
-        <ExersiceFormlLinkTitle >{firstLetterToUppercase(name)}</ExersiceFormlLinkTitle>
-      </ExersiceFormlLink>
-      <ExersiceFormlLink >
-        <ExersiceFormlLinkSub >Target</ExersiceFormlLinkSub>
-        <ExersiceFormlLinkTitle >{firstLetterToUppercase(target)}</ExersiceFormlLinkTitle>
-      </ExersiceFormlLink>
-      <ExersiceFormlLink >
-        <ExersiceFormlLinkSub >Body Part</ExersiceFormlLinkSub>
-        <ExersiceFormlLinkTitle >{firstLetterToUppercase(bodypart)}</ExersiceFormlLinkTitle>
-      </ExersiceFormlLink>
-      <ExersiceFormlLink >
-        <ExersiceFormlLinkSub >Equipment</ExersiceFormlLinkSub>
-        <ExersiceFormlLinkTitle>{firstLetterToUppercase(equipment)}</ExersiceFormlLinkTitle>
-      </ExersiceFormlLink>
-      <ExersiceFormlLink >
-        <ExersiceFormlLinkSub >Time</ExersiceFormlLinkSub>
-        <ExersiceFormlLinkTitle>{time} minutes</ExersiceFormlLinkTitle>
-      </ExersiceFormlLink>
+      <ExersiceFormItem>
+        <ExersiceFormSub >Name</ExersiceFormSub>
+        <ExersiceFormTitle >{name}</ExersiceFormTitle>
+      </ExersiceFormItem>
+      <ExersiceFormItem >
+        <ExersiceFormSub >Target</ExersiceFormSub>
+        <ExersiceFormTitle >{target}</ExersiceFormTitle>
+      </ExersiceFormItem>
+      <ExersiceFormItem >
+        <ExersiceFormSub >Body Part</ExersiceFormSub>
+        <ExersiceFormTitle >{bodypart}</ExersiceFormTitle>
+      </ExersiceFormItem>
+      <ExersiceFormItem >
+        <ExersiceFormSub >Equipment</ExersiceFormSub>
+        <ExersiceFormTitle>{equipment}</ExersiceFormTitle>
+      </ExersiceFormItem>
+      <ExersiceFormItem >
+        <ExersiceFormSub >Time</ExersiceFormSub>
+        <ExersiceFormTitle>{time} minutes</ExersiceFormTitle>
+      </ExersiceFormItem>
     </ExersiceList>
   );
 };
+
 
 export default ExersiceFormList;

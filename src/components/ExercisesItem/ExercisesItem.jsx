@@ -19,12 +19,25 @@ import {
 } from './ExercisesItem.styled.js';
 import sprite from '../../assets/sprite.svg';
 import AddExerciseForm from '../../components/AddExerciseForm/index';
+import BasicModalWindow from '../BasicModalWindow/BasicModalWindow.jsx';
+import { useDispatch } from 'react-redux';
+import { addWorkout } from '../../redux/workouts/workoutsOperations';
+
 
 const ExercisesItem = ({ calories, target, NameBodyPart, name }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
   const onClickStart = () => {
     // console.log('start');
     setIsModalOpen((prevState) => !prevState);
+    dispatch(
+      addWorkout({
+         date: new Date(),
+         time: 2,
+         exercise_id: '64f2458d6f67bc34bae4f7f4',
+        
+       }),
+     );
   };
   return (
     <>
