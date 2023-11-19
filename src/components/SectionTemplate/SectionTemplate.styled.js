@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import productsDesktop from '../../assets/backgroundImages/products-desktop.jpg';
 import productsDesktop2x from '../../assets/backgroundImages/products-desktop@2x.jpg';
+import welcomeDesktop from '../../assets/backgroundImages/welcome-png.png';
+import welcomeDesktop2x from '../../assets/backgroundImages/welcome-png@2x.png';
 
 export const Section = styled.section`
   margin: 0 auto;
@@ -9,13 +11,26 @@ export const Section = styled.section`
   @media screen and (min-width: 1440px) {
     background-repeat: no-repeat;
     background-position: right bottom;
+    background-position-y: calc(100% + 50px);
     background-size: contain;
     background-image: ${(props) =>
-      props.pathname === '/products' ? `url(${productsDesktop})` : 'none'};
+      props.pathname.includes('exercises/Equipment') ||
+      props.pathname.includes('/exercises/Muscles') ||
+      props.pathname.includes('exercises/Body')
+        ? `url(${welcomeDesktop})`
+        : props.pathname === '/products'
+        ? `url(${productsDesktop})`
+        : 'none'};
     @media only screen and (min-resolution: 192dpi),
       only screen and (min-resolution: 2dppx) {
       background-image: ${(props) =>
-        props.pathname === '/products' ? `url(${productsDesktop2x})` : 'none'};
+        props.pathname === '/products'
+          ? `url(${productsDesktop2x})`
+          : props.pathname.includes('exercises/Equipment') ||
+            props.pathname.includes('/exercises/Muscles') ||
+            props.pathname.includes('exercises/Body')
+          ? `url(${welcomeDesktop2x})`
+          : 'none'};
     }
   }
 `;
