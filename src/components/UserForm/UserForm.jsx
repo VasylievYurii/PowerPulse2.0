@@ -9,7 +9,7 @@ import {
 import userSchema from '../../schema/userProfileSchema';
 import RadioUseForm from './RadioUseForm/RadioUseForm';
 import InputUseForm from './InputUseForm/InputUseForm';
-import { ErrorMess, SubmitBtn } from './UserForm.styled';
+import { SubmitBtn } from './UserForm.styled';
 import format from 'date-fns/format';
 import BirthdayCalendar from '../BirthdayCalendar/BirthdayCalendar';
 
@@ -74,19 +74,11 @@ const UserForm = () => {
     >
       {({ errors, touched }) => (
         <Form autoComplete="off">
-          {errors.email && touched.email && (
-            <ErrorMess>{errors.email}</ErrorMess>
-          )}
-          {errors.height && touched.height && (
-            <ErrorMess>{errors.height}</ErrorMess>
-          )}
-          {errors.currentWeight && touched.currentWeight && (
-            <ErrorMess>{errors.currentWeight}</ErrorMess>
-          )}
-          {errors.desiredWeight && touched.desiredWeight && (
-            <ErrorMess>{errors.desiredWeight}</ErrorMess>
-          )}
-          <InputUseForm onDateChange={onDateChange} />
+          <InputUseForm
+            onDateChange={onDateChange}
+            errors={errors}
+            touched={touched}
+          />
           <RadioUseForm />
           <SubmitBtn type="submit">Save</SubmitBtn>
         </Form>
