@@ -35,3 +35,7 @@ export const selectUserProfileError = (state) => state.profile.Error;
 // =========== I N D I C A T O R S ==================
 
 export const selectIndicators = (state) => state.indicators.indicators;
+
+// =========== S T A T I S T I C S ==================
+
+export const selectStatistics = (state) => state.statistics.statistics;
