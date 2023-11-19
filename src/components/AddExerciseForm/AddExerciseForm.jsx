@@ -1,6 +1,12 @@
 import ExersiceFormList from './AddExersiceFormList/AddExersiceFormList';
 
-import {Container,  Gif,  TimerWrapper,  ButtonContainer, Button} from './AddExerciseForm.styled'
+import {
+  Container,
+  Gif,
+  TimerWrapper,
+  ButtonContainer,
+  Button,
+} from './AddExerciseForm.styled';
 
 import Timer from '../Timer/Timer';
 import { getUserParams } from '../../redux/auth/operations';
@@ -18,54 +24,52 @@ import { useSelector } from 'react-redux';
 //   return `${day}/${month}/${year}`;
 // };
 
- export const AddExerciseForm = ({ onClick, closeModal  }) => {
-
-   const oneWorkout = useSelector(selectOneWorkout);
+export const AddExerciseForm = ({ onClick, closeModal }) => {
+  const oneWorkout = useSelector(selectOneWorkout);
   //  console.log(oneWorkout.exercise_id);
 
   const [dinamicBurnCal, setDinamicBurnCal] = useState(0);
   const [dinamicTime, setDinamicTime] = useState(0);
 
   const dispatch = useDispatch();
-  
-   const handleAddToDiary = () => {
-     dispatch(
+
+  const handleAddToDiary = () => {
+    dispatch(
       addWorkout({
-         date: new Date(), 
-         time: 2,
-         exercise_id: '64f2458d6f67bc34bae4f7f4',
+        date: new Date(),
+        time: 2,
+        exercise_id: '64f2458d6f67bc34bae4f7f4',
+      }),
+    );
+    onClick();
+  };
 
-       }),
-     );
-     onClick();
-     
-    };
-
- 
   return (
     <Container>
-      
-        <Gif   src="https://ftp.goit.study/img/power-pulse/gifs/0003.gif" alt="name" /> 
-          <TimerWrapper>
-               {/* <Timer
+      <Gif
+        src={oneWorkout?.exercise_id.gifUrl}
+        alt={oneWorkout?.exercise_id.name}
+      />
+      <TimerWrapper>
+        {/* <Timer
             data={data}
             setDinamicBurnCal={setDinamicBurnCal}
             dinamicBurnCal={dinamicBurnCal}
             setDinamicTime={setDinamicTime}
             /> */}
-          </TimerWrapper>
-          
+      </TimerWrapper>
+
       <div>
         <ExersiceFormList
-         name={oneWorkout?.exercise_id.name}
-         bodypart={oneWorkout?.exercise_id.bodyPart}
-        target={oneWorkout?.exercise_id.target}
-        equipment={oneWorkout?.exercise_id.equipment}
+          name={oneWorkout?.exercise_id.name}
+          bodypart={oneWorkout?.exercise_id.bodyPart}
+          target={oneWorkout?.exercise_id.target}
+          equipment={oneWorkout?.exercise_id.equipment}
         />
         <ButtonContainer>
-           <Button type="button" onClick={handleAddToDiary}>
-            Add to diary 
-            </Button>
+          <Button type="button" onClick={handleAddToDiary}>
+            Add to diary
+          </Button>
         </ButtonContainer>
       </div>
     </Container>
