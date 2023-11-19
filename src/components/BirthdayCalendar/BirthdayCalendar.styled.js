@@ -225,10 +225,12 @@ export const CalendarGlobalStyles = createGlobalStyle`
   line-height: normal;
   letter-spacing: -0.32px;
    transition: background-color 0.3s var(--timing-function);
+   outline: none;
 }
 
 .custom-select-style:hover{
   background-color: var(--color-main-one);
+  outline: none;
 }
 
 select.custom-select-style option{
