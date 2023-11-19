@@ -1,13 +1,7 @@
 import ExersiceFormList from './AddExersiceFormList/AddExersiceFormList';
 import BasicModalWindow from '../BasicModalWindow/BasicModalWindow';
-import {
-  Container,
-  Gif,
-  TimerWrapper,
-  ButtonContainer,
-  Button,
-} from './AddExerciseForm.styled';
 import AddExerciseSuccess from '../AddExerciseSuccess/AddExerciseSuccess';
+import {Container,  Gif,  TimerWrapper,  ButtonContainer, Button, Title} from './AddExerciseForm.styled'
 import Timer from '../Timer/Timer';
 import { getUserParams } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
@@ -23,6 +17,7 @@ import { useSelector } from 'react-redux';
 //   const year = date.getFullYear();
 //   return `${day}/${month}/${year}`;
 // };
+
 
 export const AddExerciseForm = ({
   onClick,
@@ -56,8 +51,12 @@ export const AddExerciseForm = ({
   return (
     <Container>
       <Gif src={gifUrl} alt={name} />
+      <Title>Time</Title>
+
       <TimerWrapper>
-        {/* <Timer
+      
+               {/* <Timer
+
             data={data}
             setDinamicBurnCal={setDinamicBurnCal}
             dinamicBurnCal={dinamicBurnCal}
