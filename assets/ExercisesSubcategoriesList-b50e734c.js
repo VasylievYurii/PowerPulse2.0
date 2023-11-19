@@ -1,4 +1,4 @@
-import{s as r,j as e,ae as p}from"./index-70fd6197.js";const d=r.div`
+import{s as r,j as i,ab as p}from"./index-c7cc0105.js";const d=r.div`
   display: flex;
   gap: 8px;
   margin-top: 32px;
@@ -30,7 +30,7 @@ import{s as r,j as e,ae as p}from"./index-70fd6197.js";const d=r.div`
       transition: opacity 0.2s;
     }
   }
-`,b=({exePerPage:n,totalExe:a,paginate:i})=>{const o=[];for(let t=1;t<=Math.ceil(a/n);t++)o.push(t);return e.jsx("div",{style:{marginLeft:"auto",marginRight:"auto"},children:e.jsx(d,{children:o.map(t=>e.jsx("div",{children:e.jsx(x,{href:"#",onClick:()=>i(t)})},t))})})},c=r.div`
+`,w=({exePerPage:n,totalExe:a,paginate:t})=>{const o=[];for(let e=1;e<=Math.ceil(a/n);e++)o.push(e);return i.jsx("div",{style:{marginLeft:"auto",marginRight:"auto"},children:i.jsx(d,{children:o.map(e=>i.jsx("div",{children:i.jsx(x,{href:"#",onClick:()=>t(e)})},e))})})},c=r.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -86,4 +86,4 @@ import{s as r,j as e,ae as p}from"./index-70fd6197.js";const d=r.div`
   font-weight: 400;
   color: rgba(239, 237, 232, 0.4);
   text-align: center;
-`,f=({fig:n,nameImg:a,category:i})=>e.jsxs(g,{children:[e.jsx(h,{src:n}),e.jsxs(l,{children:[e.jsx(m,{children:a}),e.jsx(u,{children:i})]})]}),j=({arr:n})=>{const a=i=>i&&i[0].toUpperCase()+i.slice(1);return e.jsx(c,{children:n.map(({name:i,imgURL:o,_id:t,filter:s})=>e.jsx(p,{to:`/exercises/${s}/${i}`,children:e.jsx(f,{fig:o,nameImg:a(i),category:s})},t))})};export{j as E,b as P};
+`,f=({fig:n,nameImg:a,category:t})=>i.jsxs(g,{children:[i.jsx(h,{src:n}),i.jsxs(l,{children:[i.jsx(m,{children:a}),i.jsx(u,{children:t})]})]}),j=({arr:n})=>{const a=t=>t&&t[0].toUpperCase()+t.slice(1);return i.jsx(c,{children:n.map(({name:t,imgURL:o,_id:e,filter:s})=>i.jsx(p,{to:`/exercises/${s}/${t}`,children:i.jsx(f,{fig:o,nameImg:a(t),category:s})},e))})};export{j as E,w as P};
