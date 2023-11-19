@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Formik, Form, ErrorMessage } from 'formik';
+import { useState } from 'react';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { format } from 'date-fns';
 import {
@@ -15,9 +15,10 @@ import {
   WeightInput,
   FieldLabel,
   WeightInputLabel,
+  ErrorMessageStyled,
   // WeightInputLabel,
 } from './AddProductForm.styled';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { postDiaryMealsThunk } from '../../redux/meals/mealsOperations';
 import { ToastContainer } from 'react-toastify';
 
@@ -46,14 +47,17 @@ const AddProductForm = ({ id, title, calories, onClick, onClickSuccess }) => {
     product_id: id,
     date: format(new Date(), 'yyyy-MM-dd'),
     weight: '',
-    calories: 0,
+    // calories: 0,
   };
 
   const schema = Yup.object().shape({
-    product_id: Yup.string().required(),
-    date: Yup.string().required(),
-    weight: Yup.number().required().positive(),
-    calories: Yup.number().required(),
+    // product_id: Yup.string().required(),
+    // date: Yup.string().required(),
+    weight: Yup.number()
+      .max(700, 'Weight should be no more than 700 grams')
+      .required()
+      .positive(),
+    // calories: Yup.number().required(),
   });
 
   const calculateCalories = (amount) => {
@@ -106,9 +110,9 @@ const AddProductForm = ({ id, title, calories, onClick, onClickSuccess }) => {
                 </div>
 
                 <div>
-                  <WeightInputLabel htmlFor="amount">
+                  <WeightInputLabel htmlFor="weight">
                     <WeightInput
-                      name="amount"
+                      name="weight"
                       type="text"
                       onChange={(e) => handleWeightChange(e, setFieldValue)}
                       onKeyPress={(e) => {
@@ -120,7 +124,7 @@ const AddProductForm = ({ id, title, calories, onClick, onClickSuccess }) => {
                       value={values.weight}
                     />
                     <FieldLabel>grams</FieldLabel>
-                    <ErrorMessage name="weight" component="p" />
+                    <ErrorMessageStyled name="weight" component="p" />
                   </WeightInputLabel>
                 </div>
               </InputsContainer>
