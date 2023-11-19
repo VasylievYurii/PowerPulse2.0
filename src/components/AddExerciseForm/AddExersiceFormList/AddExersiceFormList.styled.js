@@ -16,7 +16,7 @@ export const ExersiceList = styled.ul`
   }
 `;
 
-export const ExersiceFormLink = styled.li`
+export const ExersiceFormItem = styled.li`
   display: flex;
   flex-direction: column;
   padding-top: 12px;
@@ -39,14 +39,14 @@ export const ExersiceFormLink = styled.li`
   }
 `;
 
-export const ExersiceFormLinkSub = styled.p`
+export const ExersiceFormSub = styled.p`
   color: rgba(239, 237, 232, 0.4);
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
 `;
 
-export const ExersiceFormLinkTitle = styled.p`
+export const ExersiceFormTitle = styled.p`
   color: var(--white-color);
   font-size: 16px;
   font-weight: 600;

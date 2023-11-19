@@ -1,14 +1,6 @@
 
 import styled from 'styled-components'
 
-/* export const RemainingTime {
-  color: index.$white-color;
-  font-size: 16px;
-  line-height: 1.5;
-  transform: rotate(180deg);
-}
-*/
-
  export const Container = styled.div`
   /* position: absolute;
   top: 50%;
@@ -31,22 +23,9 @@ import styled from 'styled-components'
   }  */
 `; 
 
-export const GifWrapper = styled.svg`
-width: 270px;
-  height: 226px; 
- border-radius: 12px;
-  border: 1px solid var(--color-text);
-  margin-bottom: 14px;
-  margin-top: 48px;
-
-  @media screen and (min-width: 768px) {
-    
-  }
-   
-`;
 
 export const Gif = styled.img`
-object-fit: cover; 
+object-fit: cover;  
 `;
 export const TimerWrapper = styled.div`
 display: flex;
