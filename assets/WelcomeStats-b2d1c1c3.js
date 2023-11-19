@@ -1,4 +1,4 @@
-import{j as e,a8 as r,a9 as s,s as i,c as n}from"./index-d41e6bf1.js";function v({children:t}){return e.jsx(r,{children:e.jsx(s,{children:t})})}const p=i.div`
+import{j as t,a8 as m,a9 as g,s as e,u,b as f,r as n,aa as w,c as o,d as j}from"./index-1278a2d3.js";function A({children:i}){return t.jsx(m,{children:t.jsx(g,{children:i})})}const b=e.div`
   display: flex;
   flex-direction: column;
   height: 40%;
@@ -13,7 +13,7 @@ import{j as e,a8 as r,a9 as s,s as i,c as n}from"./index-d41e6bf1.js";function v
     gap: 20%;
     justify-content: start;
   }
-`,S=({children:t})=>e.jsx(p,{children:t}),c=i.div`
+`,N=({children:i})=>t.jsx(b,{children:i}),S=e.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -31,7 +31,7 @@ import{j as e,a8 as r,a9 as s,s as i,c as n}from"./index-d41e6bf1.js";function v
   @media (min-width: 1440) and (orientation: landscape) {
     transform: scale(1);
   } */
-`,y=({children:t})=>e.jsx(c,{children:t}),h=i.div`
+`,V=({children:i})=>t.jsx(S,{children:i}),v=e.div`
   display: flex;
   align-items: center;
   position: absolute;
@@ -53,7 +53,7 @@ import{j as e,a8 as r,a9 as s,s as i,c as n}from"./index-d41e6bf1.js";function v
     width: 206px;
     height: 96px;
   }
-`,x=i.div`
+`,y=e.div`
   position: absolute;
   right: 0;
   bottom: 0;
@@ -71,7 +71,7 @@ import{j as e,a8 as r,a9 as s,s as i,c as n}from"./index-d41e6bf1.js";function v
     width: 180px;
     height: 110px;
   }
-`,o=i.div`
+`,c=e.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,13 +85,13 @@ import{j as e,a8 as r,a9 as s,s as i,c as n}from"./index-d41e6bf1.js";function v
     width: 40px;
     height: 40px;
   }
-`,l=i(o)`
+`,W=e(c)`
   margin-bottom: 4px;
   width: 20px;
   height: 20px;
   padding: 4px;
   background-color: var(--color-main-three);
-`,a=i.svg`
+`,r=e.svg`
   width: 12px;
   height: 12px;
   fill: #efede8;
@@ -100,11 +100,11 @@ import{j as e,a8 as r,a9 as s,s as i,c as n}from"./index-d41e6bf1.js";function v
     width: 20px;
     height: 20px;
   }
-`,m=i.div`
+`,C=e.div`
   display: flex;
   gap: 8px;
   align-items: flex-end;
-`,g=i.p`
+`,k=e.p`
   margin-bottom: 4px;
   font-size: 16px;
   font-weight: 700;
@@ -114,7 +114,7 @@ import{j as e,a8 as r,a9 as s,s as i,c as n}from"./index-d41e6bf1.js";function v
     font-size: 24px;
     line-height: 1;
   }
-`,w=i.p`
+`,T=e.p`
   margin-bottom: 0;
   font-size: 24px;
   font-weight: 700;
@@ -124,11 +124,11 @@ import{j as e,a8 as r,a9 as s,s as i,c as n}from"./index-d41e6bf1.js";function v
   @media screen and (min-width: 768px) {
     font-size: 48px;
   }
-`,d=i.p`
+`,p=e.p`
   font-size: 12px;
   margin-bottom: 0;
   color: rgba(239, 237, 232, 0.65);
-`,u=i.div`
+`,z=e.div`
   position: absolute;
   width: 212px;
   height: 230px;
@@ -146,7 +146,7 @@ import{j as e,a8 as r,a9 as s,s as i,c as n}from"./index-d41e6bf1.js";function v
     right: 0;
     bottom: 20%;
   }
-`,f=i.div`
+`,E=e.div`
   display: flex;
   justify-content: end;
   position: relative;
@@ -155,4 +155,4 @@ import{j as e,a8 as r,a9 as s,s as i,c as n}from"./index-d41e6bf1.js";function v
   @media screen and (min-width: 1440px) {
     flex-direction: column;
   }
-`,j=({children:t})=>e.jsx(f,{children:t}),W=()=>e.jsx(j,{children:e.jsxs(u,{children:[e.jsxs(h,{children:[e.jsx(o,{children:e.jsx(a,{children:e.jsx("use",{href:`${n}#icon-play`})})}),e.jsxs("div",{children:[e.jsx(g,{children:"350+"}),e.jsx(d,{children:"Video tutorial"})]})]}),e.jsxs(x,{children:[e.jsx(l,{children:e.jsx(a,{children:e.jsx("use",{href:`${n}#icon-run`})})}),e.jsxs(m,{children:[e.jsx(w,{children:"500"}),e.jsx(d,{children:"cal"})]})]})]})});export{v as S,W,S as a,y as b};
+`,L=({children:i})=>t.jsx(E,{children:i}),D=()=>{const i=u(),{statistics:a}=f(l=>l.statistics),[s,h]=n.useState({}),[x,d]=n.useState(!1);return n.useEffect(()=>{a&&h(a)},[a]),n.useEffect(()=>{d(!0),i(w()),d(!1)},[i]),t.jsxs(L,{children:[t.jsxs(z,{children:[t.jsxs(v,{children:[t.jsx(c,{children:t.jsx(r,{children:t.jsx("use",{href:`${o}#icon-play`})})}),t.jsxs("div",{children:[t.jsx(k,{children:s.videoCount}),t.jsx(p,{children:"Video tutorial"})]})]}),t.jsxs(y,{children:[t.jsx(W,{children:t.jsx(r,{children:t.jsx("use",{href:`${o}#icon-run`})})}),t.jsxs(C,{children:[t.jsx(T,{children:(Math.round(s.burnedCaloriesSum)/1e3).toFixed(1)??"0"}),t.jsx(p,{children:"kcal"})]})]})]}),x&&t.jsx(j,{})]})};export{A as S,D as W,N as a,V as b};
