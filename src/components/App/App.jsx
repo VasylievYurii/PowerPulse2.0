@@ -55,7 +55,6 @@ function App() {
       }
     }
   }
-  console.log(isFilled);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -66,13 +65,13 @@ function App() {
   }
 
   if (location.pathname === '/exercises') {
-    return <Navigate to="/exercises/bodyparts" />;
+    return <Navigate to="/exercises/body parts" />;
   }
 
   return isRefreshing ? (
     <Loader />
   ) : (
-    <AppWrapper> 
+    <AppWrapper>
       <ToastContainerStyled />
       <Routes location={location} key={location.pathname}>
         <Route
@@ -151,7 +150,7 @@ function App() {
               </Suspense>
             }
           >
-            <Route path="bodyparts" element={<BodyParts />}></Route>
+            <Route path="body parts" element={<BodyParts />}></Route>
             <Route path="muscles" element={<Muscles />}></Route>
             <Route path="equipment" element={<Equipment />}></Route>
           </Route>

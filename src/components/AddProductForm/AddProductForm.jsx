@@ -18,56 +18,58 @@ import {
   // WeightInputLabel,
 } from './AddProductForm.styled';
 import { useDispatch } from 'react-redux';
-import { setFormValues } from '../../redux/productForm/productFormSlice';
+import { postDiaryMealsThunk } from '../../redux/meals/mealsOperations';
 
-const AddProductForm = ({ onCloseModal, productData }) => {
+const AddProductForm = ({ id, title, calories, onClick }) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
 
   const dispatch = useDispatch();
 
-  const INITIAL_VALUES = {
-    product: productData._id,
-    date: format(new Date(), 'dd/MM/yyyy'),
-    amount: '',
+  const initialValues = {
+    product_id: id,
+    date: format(new Date(), 'yyyy-MM-dd'),
+    weight: '',
     calories: 0,
   };
 
   const schema = Yup.object().shape({
-    // product: Yup.string().required(),
+    product_id: Yup.string().required(),
     date: Yup.string().required(),
-    amount: Yup.number().required().positive(),
+    weight: Yup.number().required().positive(),
     calories: Yup.number().required(),
   });
 
-  const calculateCalories = (weight) => {
-    const calculated = (productData.calories * weight) / 100;
+  const calculateCalories = (amount) => {
+    const calculated = (calories * amount) / 100;
     return parseFloat(calculated);
   };
 
   const handleWeightChange = (event, setFieldValue) => {
-    const weight = event.target.value;
-    console.log(Number(weight));
-    const calories = calculateCalories(weight);
+    const amount = event.target.value;
+    const calories = calculateCalories(amount);
     setCalculatedCalories(calories);
-    setFieldValue('amount', Number(weight));
+    setFieldValue('weight', Number(amount));
     setFieldValue('calories', calories);
   };
 
-  const hendleSubmit = (values, actions) => {
-    dispatch(setFormValues(values));
+  const handleSubmit = (values, actions) => {
+    console.log(values);
+    delete values.calories;
+    console.log(values);
+    dispatch(postDiaryMealsThunk(values));
 
-    // onCloseModal();
+    // handleCloseClick();
   };
 
-  const handleCancel = () => {
-    onCloseModal();
+  const handleCloseClick = () => {
+    onClick();
   };
 
   return (
     <Formik
-      initialValues={INITIAL_VALUES}
+      initialValues={initialValues}
       validationSchema={schema}
-      onSubmit={hendleSubmit}
+      onSubmit={handleSubmit}
     >
       {({ values, setFieldValue }) => (
         <Form autoComplete="off">
@@ -78,7 +80,7 @@ const AddProductForm = ({ onCloseModal, productData }) => {
                   <ProductInput
                     name="product"
                     type="text"
-                    value={JSON.stringify(productData.title)}
+                    value={title}
                     readOnly
                   />
                 </label>
@@ -96,10 +98,10 @@ const AddProductForm = ({ onCloseModal, productData }) => {
                         e.preventDefault();
                       }
                     }}
-                    value={values.amount}
+                    value={values.weight}
                   />
                   <FieldLabel>grams</FieldLabel>
-                  <ErrorMessage name="amount" component="p" />
+                  <ErrorMessage name="weight" component="p" />
                 </WeightInputLabel>
               </div>
             </InputsContainer>
@@ -109,10 +111,10 @@ const AddProductForm = ({ onCloseModal, productData }) => {
             </Calories>
 
             <ButtonsContainer>
-              <PFPrimaryBtn type="submit" onClick={hendleSubmit}>
+              <PFPrimaryBtn type="submit" onClick={handleSubmit}>
                 Add to diary
               </PFPrimaryBtn>
-              <PFOutlinedBtn type="button" onClick={handleCancel}>
+              <PFOutlinedBtn type="button" onClick={handleCloseClick}>
                 Cancel
               </PFOutlinedBtn>
             </ButtonsContainer>

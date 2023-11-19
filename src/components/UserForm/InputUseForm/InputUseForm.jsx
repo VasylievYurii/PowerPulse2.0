@@ -7,8 +7,9 @@ import {
   HeighWeight,
   WhInput,
 } from './InputUseForm.styled';
+import BirthdayCalendar from '../../BirthdayCalendar/BirthdayCalendar';
 
-const InputUseForm = () => {
+const InputUseForm = ({ onDateChange }) => {
   return (
     <ContantUseForm>
       <TextInfo>Basic info</TextInfo>
@@ -44,8 +45,7 @@ const InputUseForm = () => {
           </label>
           <label>
             <TextInfo>Date of birth</TextInfo>
-
-            <WhInput type="text" name="birthday" />
+            <BirthdayCalendar name="birthday" onDateChange={onDateChange} />
           </label>
         </HeighWeight>
       </TabletInput>

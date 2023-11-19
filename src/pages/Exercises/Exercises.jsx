@@ -28,7 +28,7 @@ const Exercises = () => {
       <TitlePage>Exercises</TitlePage>
       <ChaptersWrapper>
         <li>
-          <LinkStyled to="bodyparts">
+          <LinkStyled to="body parts">
             <ChapterTemplate>Body parts</ChapterTemplate>
           </LinkStyled>
         </li>

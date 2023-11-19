@@ -3,15 +3,15 @@
 export const customStyles = {
   option: (defaultStyles, state) => ({
     ...defaultStyles,
+    padding: '8px 0',
     fontSize: '14px',
-    height: '52px',
     color: state.isSelected ? '#E6533C' : '#EFEDE8',
     backgroundColor: state.isSelected
       ? 'rgba(28, 28, 28, 1)'
       : state.isFocused
-      ? 'rgba(28, 28, 28, 1)'
+      ? 'rgba(239, 237, 232, 0.10)'
       : 'rgba(28, 28, 28, 1)', // Стилізація фона активної опції и ховера
-    padding: '14px 32px 14px 14px',
+    cursor: 'pointer',
   }),
 
   singleValue: (defaultStyles) => ({
@@ -22,6 +22,7 @@ export const customStyles = {
     ...defaultStyles,
     backgroundColor: 'rgba(28, 28, 28, 1)', //фон списку
     // overflowY: 'auto',
+    padding: '6px 5px 14px 14px',
   }),
   indicatorSeparator: (defaultStyles) => ({
     ...defaultStyles,
@@ -36,6 +37,9 @@ export const customStyles = {
     border: `1px solid ${
       state.isFocused ? '#E6533C' : 'rgba(239, 237, 232, 0.3)'
     }`,
+    '&:hover': {
+      border: '1px solid #E6533C', //колір рамки при ховері
+    },
     borderRadius: '12px',
     outline: 'none',
   }),
@@ -63,14 +67,10 @@ export const customStyles = {
 
 export const firstSelectStyles = {
   ...customStyles,
-  control: (defaultStyles, state) => ({
+  control: (defaultStyles) => ({
     ...defaultStyles,
+    cursor: 'pointer',
     background: 'transparent',
-    borderRadius: '12px',
-    border: `${state.isFocused ? '#E6533C' : 'rgba(239, 237, 232, 0.3)'}`, // колір рамки,
-    '&:hover': {
-      border: '1px solid #E6533C', //колір рамки при ховері
-    },
     appearance: 'none', // Removing default appearance
     WebkitAppearance: 'none',
     MozAppearance: 'none',
@@ -93,14 +93,10 @@ export const firstSelectStyles = {
 
 export const secondSelectStyles = {
   ...customStyles,
-  control: (defaultStyles, state) => ({
+  control: (defaultStyles) => ({
     ...defaultStyles,
+    cursor: 'pointer',
     background: 'transparent',
-    borderRadius: '12px',
-    border: `${state.isFocused ? '#E6533C' : 'rgba(239, 237, 232, 0.3)'}`, // колір рамки,
-    '&:hover': {
-      border: '1px solid #E6533C', //колір рамки при ховері
-    },
     appearance: 'none', // Removing default appearance
     WebkitAppearance: 'none',
     MozAppearance: 'none',

@@ -144,7 +144,6 @@ export const CalendarGlobalStyles = createGlobalStyle`
     background-color: black !important;
     color:#3e85f3;
     font-size: 14px;
-    transition: background-color 0.3s var(--timing-function) !important;
   }
 
   .react-datepicker__day--selected:hover {
@@ -208,28 +207,69 @@ export const CalendarGlobalStyles = createGlobalStyle`
   display: none !;
   }
 
+.custom-select-style{
+  font-family: Roboto;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  color: var(--color-text);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+   background-image: none;
+   cursor: pointer;
+   color: #EFEDE8;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.32px;
+   transition: background-color 0.3s var(--timing-function);
+   outline: none;
+}
+
+.custom-select-style:hover{
+  background-color: var(--color-main-one);
+  outline: none;
+}
+
+select.custom-select-style option{
+  background-color: var(--color-main-two);
+  
+}
 `;
 
 export const TitleWrapper = styled.button`
   color: var(--color-text);
-  font-family: Roboto;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 32px;
   background-color: transparent;
   border: none;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-right: 20px;
+  justify-content: space-between !important;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
 `;
 
 export const CalendarWrapper = styled.div`
   display: flex;
-  justify-content: end !important;
+  justify-content: space-between;
   align-items: center;
+  border-radius: 12px;
+  border-color: rgba(239, 237, 232, 0.3);
+  background-color: #000;
+  color: #efede8;
+  min-width: 140px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 14px;
+  height: 46px;
+  border: 2px solid rgba(239, 237, 232, 0.3);
+  @media screen and (min-width: 768px) {
+    min-width: 163px;
+    height: 52px;
+  }
 `;
 
 export const IconWrapper = styled.svg`
@@ -237,17 +277,17 @@ export const IconWrapper = styled.svg`
   height: 16px;
   stroke: var(--color-text);
   fill: transparent;
-  cursor: pointer;
   transition: stroke 0.3s var(--timing-function);
+  cursor: pointer;
   &:hover {
     stroke: var(--color-main-two);
   }
 `;
 
 export const IconCalendar = styled.svg`
-  width: 24px;
-  height: 24px;
-  stroke: var(--color-main-two);
+  width: 18px;
+  height: 18px;
+  stroke: var(--color-text);
   fill: transparent;
 `;
 

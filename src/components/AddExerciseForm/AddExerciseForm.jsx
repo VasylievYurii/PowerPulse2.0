@@ -1,7 +1,5 @@
 import ExersiceFormList from './AddExersiceFormList/AddExersiceFormList';
-
 import {Container,  Gif,  TimerWrapper,  ButtonContainer, Button, Title} from './AddExerciseForm.styled'
-
 import Timer from '../Timer/Timer';
 import { getUserParams } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
@@ -27,47 +25,46 @@ import { useSelector } from 'react-redux';
   const [dinamicTime, setDinamicTime] = useState(0);
 
   const dispatch = useDispatch();
-  
-   const handleAddToDiary = () => {
-     dispatch(
+
+  const handleAddToDiary = () => {
+    dispatch(
       addWorkout({
-         date: new Date(), 
-         time: 2,
-         exercise_id: '64f2458d6f67bc34bae4f7f4',
+        date: new Date(),
+        time: 2,
+        exercise_id: '64f2458d6f67bc34bae4f7f4',
+      }),
+    );
+    onClick();
+  };
 
-       }),
-     );
-     onClick();
-     
-    };
-
- 
   return (
     <Container>
+
       
       <Gif src="https://ftp.goit.study/img/power-pulse/gifs/0003.gif" alt="name" /> 
       <Title>Time</Title>
       <TimerWrapper>
       
                {/* <Timer
+
             data={data}
             setDinamicBurnCal={setDinamicBurnCal}
             dinamicBurnCal={dinamicBurnCal}
             setDinamicTime={setDinamicTime}
             /> */}
-          </TimerWrapper>
-          
+      </TimerWrapper>
+
       <div>
         <ExersiceFormList
-         name={oneWorkout?.exercise_id.name}
-         bodypart={oneWorkout?.exercise_id.bodyPart}
-        target={oneWorkout?.exercise_id.target}
-        equipment={oneWorkout?.exercise_id.equipment}
+          name={oneWorkout?.exercise_id.name}
+          bodypart={oneWorkout?.exercise_id.bodyPart}
+          target={oneWorkout?.exercise_id.target}
+          equipment={oneWorkout?.exercise_id.equipment}
         />
         <ButtonContainer>
-           <Button type="button" onClick={handleAddToDiary}>
-            Add to diary 
-            </Button>
+          <Button type="button" onClick={handleAddToDiary}>
+            Add to diary
+          </Button>
         </ButtonContainer>
       </div>
     </Container>

@@ -24,12 +24,11 @@ import {
 import ChapterTemplate from '../ChapterTemplate/ChapterTemplate';
 
 const ExercisesList = () => {
- 
   const dispatch = useDispatch();
   const location = useLocation();
   const backLinkLocation = useRef(location.state?.from ?? '/exercises');
   const backLinkBodyparts = useRef(
-    location.state?.from ?? '/exercises/bodyparts',
+    location.state?.from ?? '/exercises/body parts',
   );
   const backLinkMuscles = useRef(location.state?.from ?? '/exercises/muscles');
   const backLinkEquipment = useRef(
@@ -117,14 +116,12 @@ const ExercisesList = () => {
                 target={ucFirst(target)}
                 NameBodyPart={ucFirst(bodyPart)}
                 name={ucFirst(name)}
-               
+                exeId={_id}
               />
             );
           },
         )}
       </WrapperExercises>
-      
-     
     </SectionTemplate>
   );
 };
