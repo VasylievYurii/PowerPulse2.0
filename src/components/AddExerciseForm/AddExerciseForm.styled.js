@@ -52,27 +52,19 @@ align-items: center;
 }
 `;
 export const Title = styled.h2`
-color: var( --color-back-two);
+color: rgba(239, 237, 232, 0.3);
 font-size: 10px;
 line-height: 1.4;
 margin-bottom: 4px;
 ;`
 
 
-// export const CloseBtnWrapper = styled.svg`
+//  export const CloseBtnWrapper = styled.svg`
 
+//  @media screen and (min-width: 768px) {
+// };
+// `;
 
-
-//  /* @media screen and (min-width: 768px) {
-//  position: absolute;
-//   cursor: pointer;
-//   width: 22px;
-//   height: 22px;
-//   stroke: var(--color-text);
-//   top: 14px;
-//   right: 14px; */
-//  /* }; */
-// ;`
 
 export const ButtonContainer = styled.div`
   @media screen and (min-width: 768px) {

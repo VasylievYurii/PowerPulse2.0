@@ -1,5 +1,5 @@
 import ExersiceFormList from './AddExersiceFormList/AddExersiceFormList';
-import {Container,  Gif,  TimerWrapper,  ButtonContainer, Button, Title} from './AddExerciseForm.styled'
+import { Container, Gif, TimerWrapper, ButtonContainer, Button, Title } from './AddExerciseForm.styled'
 import Timer from '../Timer/Timer';
 import { getUserParams } from '../../redux/auth/operations';
 import { useDispatch } from 'react-redux';
@@ -9,20 +9,12 @@ import { addWorkout } from '../../redux/workouts/workoutsOperations';
 import { selectOneWorkout } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 
-// const formatDate = date => {
-//   const day = String(date.getDate()).padStart(2, '0');
-//   const month = String(date.getMonth() + 1).padStart(2, '0');
-//   const year = date.getFullYear();
-//   return `${day}/${month}/${year}`;
-// };
 
- export const AddExerciseForm = ({ onClick }) => {
 
-   const oneWorkout = useSelector(selectOneWorkout);
+export const AddExerciseForm = ({ onClick }) => {
+
+  const oneWorkout = useSelector(selectOneWorkout);
   //  console.log(oneWorkout.exercise_id);
-
-  const [dinamicBurnCal, setDinamicBurnCal] = useState(0);
-  const [dinamicTime, setDinamicTime] = useState(0);
 
   const dispatch = useDispatch();
 
@@ -39,21 +31,16 @@ import { useSelector } from 'react-redux';
 
   return (
     <Container>
-
-      
-      <Gif src="https://ftp.goit.study/img/power-pulse/gifs/0003.gif" alt="name" /> 
+      <Gif src={oneWorkout?.exercise_id.gifUrl} alt={oneWorkout?.exercise_id.name} />
       <Title>Time</Title>
       <TimerWrapper>
-      
-               {/* <Timer
-
-            data={data}
-            setDinamicBurnCal={setDinamicBurnCal}
-            dinamicBurnCal={dinamicBurnCal}
-            setDinamicTime={setDinamicTime}
-            /> */}
+        <Timer
+        // data={data}
+        // setDinamicBurnCal={setDinamicBurnCal}
+        // dinamicBurnCal={dinamicBurnCal}
+        // setDinamicTime={setDinamicTime}
+        />
       </TimerWrapper>
-
       <div>
         <ExersiceFormList
           name={oneWorkout?.exercise_id.name}

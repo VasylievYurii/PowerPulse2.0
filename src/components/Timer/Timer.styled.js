@@ -34,13 +34,13 @@ export const TimerBtn = styled.button`
 export const PlayIcon = styled.svg`
   width: 20px;
   height: 20px;
+  color: var(-color-text);
 `;
 
 export const TimerText = styled.p`
   color: rgba(239, 237, 232, 0.3);
   font-size: 12px;
   line-height: 1.28;
-
   margin-top: 8px;
 `;
 
