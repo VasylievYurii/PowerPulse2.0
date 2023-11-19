@@ -8,16 +8,20 @@ import {
   ToTheDairy,
 } from './AddProductSuccess.styled';
 import avocado from '../../assets/avocado.png';
+import { useSelector } from 'react-redux';
+import { selectIsMealAdd } from '../../redux/selectors';
 
-const AddProductSuccess = ({ closeAllModal, calories }) => {
+const AddProductSuccess = ({ onClick }) => {
+  const isMealAdd = useSelector(selectIsMealAdd);
+
   return (
     <ProductForm>
       <ImgProduct src={avocado} alt="avocado" loading="lazy" />
       <Title>Well done</Title>
       <Calories>
-        Calories: <span>{calories}</span>
+        Calories: <span>{isMealAdd?.calories}</span>
       </Calories>
-      <Next type="button" onClick={() => closeAllModal()}>
+      <Next type="button" onClick={() => onClick()}>
         Next product
       </Next>
       <ToTheDairy to="/diary">

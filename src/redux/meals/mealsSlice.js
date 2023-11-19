@@ -17,7 +17,7 @@ const onPending = (state) => {
 const onRejected = (state, { payload }) => {
     state.isLoading = false;
     state.error = payload;
-    state.isMealAdd = false;
+    state.isMealAdd = null;
 };
 
 const arrOfActs = [getDiaryMealsThunk, delDiaryMealsThunk, postDiaryMealsThunk];
@@ -43,7 +43,7 @@ export const diarySlice = createSlice({
             .addCase(postDiaryMealsThunk.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
                 state.error = null;
-                state.isMealAdd = true;
+                state.isMealAdd = payload;
             })
             .addMatcher(isAnyOf(...addStatusToActs('pending')), onPending)
             .addMatcher(isAnyOf(...addStatusToActs('rejected')), onRejected)
