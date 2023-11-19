@@ -20,10 +20,10 @@ const ExersiceFormList = ({ name, bodypart, target, equipment, time }) => {
         <ExersiceFormSub >Equipment</ExersiceFormSub>
         <ExersiceFormTitle>{equipment}</ExersiceFormTitle>
       </ExersiceFormItem>
-      <ExersiceFormItem >
+      {/* <ExersiceFormItem >
         <ExersiceFormSub >Time</ExersiceFormSub>
         <ExersiceFormTitle>{time} minutes</ExersiceFormTitle>
-      </ExersiceFormItem>
+      </ExersiceFormItem> */}
     </ExersiceList>
   );
 };
