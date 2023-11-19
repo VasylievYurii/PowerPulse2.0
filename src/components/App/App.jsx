@@ -55,7 +55,6 @@ function App() {
       }
     }
   }
-  console.log(isFilled);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -72,7 +71,7 @@ function App() {
   return isRefreshing ? (
     <Loader />
   ) : (
-    <AppWrapper> 
+    <AppWrapper>
       <ToastContainerStyled />
       <Routes location={location} key={location.pathname}>
         <Route
