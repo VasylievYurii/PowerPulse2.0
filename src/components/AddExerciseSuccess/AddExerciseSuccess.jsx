@@ -10,24 +10,14 @@ import {
 } from './AddExerciseSuccess.styled';
 import sprite from '../../assets/sprite.svg';
 import { selectOneWorkout } from '../../redux/selectors';
-// import { addWorkout } from '../../redux/workouts/workoutsOperations';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import imageThumbUp from '../../assets/thumb_up_color.png';
 
-const AddExerciseSuccess = ({ onClick, exeId }) => {
-  // const dispatch = useDispatch();
+const AddExerciseSuccess = ({ onClick }) => {
   const oneWorkout = useSelector(selectOneWorkout);
 
-  // const exerObject = {
-  //   exercise_id: exeId,
-  //   time: 2,
-  //   date: new Date(),
-  // };
-
   const handleCloseClick = () => {
-    // dispatch(addWorkout(exerObject));
-
     onClick();
   };
 
