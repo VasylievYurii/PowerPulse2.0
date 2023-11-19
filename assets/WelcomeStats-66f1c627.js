@@ -1,4 +1,4 @@
-import{j as i,ai as r,aj as s,s as e,c as n}from"./index-7058c543.js";function v({children:t}){return i.jsx(r,{children:i.jsx(s,{children:t})})}const p=e.div`
+import{j as i,ai as r,aj as s,s as e,c as n}from"./index-1d52e7d0.js";function v({children:t}){return i.jsx(r,{children:i.jsx(s,{children:t})})}const p=e.div`
   display: flex;
   flex-direction: column;
   height: 40%;
