@@ -24,20 +24,19 @@ import AddProductSuccess from '../AddProductSuccess/AddProductSuccess';
 import BasicModalWindow from '../BasicModalWindow/BasicModalWindow';
 import { ToastContainer } from 'react-toastify';
 
-
 const AddProductForm = ({ id, title, calories, onClick }) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
   const isMealAdd = useSelector(selectIsMealAdd);
   const [showModal, setShowModal] = useState(false);
 
-    useEffect(() => {
-      if (isMealAdd) {
-            toggleModal();
-        }
-    }, [isMealAdd]);
+  useEffect(() => {
+    if (isMealAdd) {
+      toggleModal();
+    }
+  }, [isMealAdd]);
 
   const closeAllModal = () => {
-    onClick()
+    onClick();
   };
 
   const toggleModal = () => {
@@ -74,13 +73,10 @@ const AddProductForm = ({ id, title, calories, onClick }) => {
   };
 
   const handleSubmit = (values, actions) => {
-    console.log(values);
-
     dispatch(postDiaryMealsThunk(values));
-        actions.resetForm();
+    actions.resetForm();
     setCalculatedCalories(0);
   };
-
 
   const handleCloseClick = () => {
     onClick();
@@ -88,69 +84,76 @@ const AddProductForm = ({ id, title, calories, onClick }) => {
 
   return (
     <>
-            <ToastContainer />
-    {showModal && <BasicModalWindow onClick={toggleModal} >
-        <AddProductSuccess closeAllModal={closeAllModal} calories={calculatedCalories} onClick={toggleModal} />
-      </BasicModalWindow>}
-    <Formik
-      initialValues={initialValues}
-      validationSchema={schema}
-      onSubmit={handleSubmit}
-    >
-      {({ values, setFieldValue }) => (
-        <Form autoComplete="off">
-          <Container>
-            <InputsContainer>
-              <div>
-                <label htmlFor="product">
-                  <ProductInput
-                    name="product"
-                    type="text"
-                    value={title}
-                    readOnly
-                  />
-                </label>
-              </div>
+      <ToastContainer />
+      {showModal && (
+        <BasicModalWindow onClick={toggleModal}>
+          <AddProductSuccess
+            closeAllModal={closeAllModal}
+            calories={calculatedCalories}
+            onClick={toggleModal}
+          />
+        </BasicModalWindow>
+      )}
+      <Formik
+        initialValues={initialValues}
+        validationSchema={schema}
+        onSubmit={handleSubmit}
+      >
+        {({ values, setFieldValue }) => (
+          <Form autoComplete="off">
+            <Container>
+              <InputsContainer>
+                <div>
+                  <label htmlFor="product">
+                    <ProductInput
+                      name="product"
+                      type="text"
+                      value={title}
+                      readOnly
+                    />
+                  </label>
+                </div>
 
-              <div>
-                <WeightInputLabel htmlFor="amount">
-                  <WeightInput
-                    name="amount"
-                    type="text"
-                    onChange={(e) => handleWeightChange(e, setFieldValue)}
-                    onKeyPress={(e) => {
-                      const onlyDigits = /^[0-9\b]+$/;
-                      if (!onlyDigits.test(e.key)) {
-                        e.preventDefault();
-                      }
-                    }}
-                    value={values.weight}
-                  />
-                  <FieldLabel>grams</FieldLabel>
-                  <ErrorMessage name="weight" component="p" />
-                </WeightInputLabel>
-              </div>
-            </InputsContainer>
+                <div>
+                  <WeightInputLabel htmlFor="amount">
+                    <WeightInput
+                      name="amount"
+                      type="text"
+                      onChange={(e) => handleWeightChange(e, setFieldValue)}
+                      onKeyPress={(e) => {
+                        const onlyDigits = /^[0-9\b]+$/;
+                        if (!onlyDigits.test(e.key)) {
+                          e.preventDefault();
+                        }
+                      }}
+                      value={values.weight}
+                    />
+                    <FieldLabel>grams</FieldLabel>
+                    <ErrorMessage name="weight" component="p" />
+                  </WeightInputLabel>
+                </div>
+              </InputsContainer>
 
-            <Calories>
-              Calories: <CaloriesValue>{calculatedCalories}</CaloriesValue>
-            </Calories>
+              <Calories>
+                Calories: <CaloriesValue>{calculatedCalories}</CaloriesValue>
+              </Calories>
 
-            <ButtonsContainer>
-                <PFPrimaryBtn type="submit"
+              <ButtonsContainer>
+                <PFPrimaryBtn
+                  type="submit"
                   // onClick={handleSubmit}
                 >
-                Add to diary
-              </PFPrimaryBtn>
-              <PFOutlinedBtn type="button" onClick={handleCloseClick}>
-                Cancel
-              </PFOutlinedBtn>
-            </ButtonsContainer>
-          </Container>
-        </Form>
-      )}
+                  Add to diary
+                </PFPrimaryBtn>
+                <PFOutlinedBtn type="button" onClick={handleCloseClick}>
+                  Cancel
+                </PFOutlinedBtn>
+              </ButtonsContainer>
+            </Container>
+          </Form>
+        )}
       </Formik>
-      </>
+    </>
   );
 };
 

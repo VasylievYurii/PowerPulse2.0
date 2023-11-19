@@ -71,8 +71,6 @@ const ProductsFilters = () => {
   const handleChange = (e) => {
     const { value } = e.target;
     setQuery(value);
-
-    console.log('setQuery.value', query);
   };
 
   const handleSubmit = (e) => {
