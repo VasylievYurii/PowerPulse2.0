@@ -207,6 +207,29 @@ export const CalendarGlobalStyles = createGlobalStyle`
   display: none !;
   }
 
+.custom-select-style{
+  font-family: Roboto;
+  background-color: transparent;
+  border: none;
+  color: var(--color-text);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+   background-image: none;
+   cursor: pointer;
+   color: #EFEDE8;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.32px;
+}
+
+select.custom-select-style option{
+  background-color: var(--color-main-two);
+  
+}
 `;
 
 export const TitleWrapper = styled.button`

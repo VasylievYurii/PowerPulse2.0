@@ -1,11 +1,10 @@
 import { useState, forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
-import { format, subDays, addDays } from 'date-fns';
+import { format, getMonth, getYear } from 'date-fns';
 import {
   CalendarGlobalStyles,
   TitleWrapper,
   CalendarWrapper,
-  IconWrapper,
   IconCalendar,
   CustomHeaderWrapper,
   IconWrapperHeader,
@@ -13,10 +12,25 @@ import {
 } from './BirthdayCalendar.styled';
 import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../assets/sprite.svg';
+import range from 'lodash/range';
 
 const BirthdayCalendar = ({ onDateChange }) => {
   const [startDate, setStartDate] = useState(new Date());
-
+  const years = range(1923, getYear(new Date()) + 0, 1);
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
       <CalendarWrapper>
@@ -30,13 +44,46 @@ const BirthdayCalendar = ({ onDateChange }) => {
     );
   });
 
-  const CustomHeader = ({ date, decreaseMonth, increaseMonth }) => {
+  const CustomHeader = ({
+    date,
+    decreaseMonth,
+    increaseMonth,
+    changeYear,
+    changeMonth,
+  }) => {
     return (
       <CustomHeaderWrapper>
         <IconWrapperHeader onClick={decreaseMonth}>
           <use href={`${sprite}#icon-left`} />
         </IconWrapperHeader>
-        <HeaderData>{format(date, 'MMMM yyyy')}</HeaderData>
+        <HeaderData>
+          <select
+            className="custom-select-style"
+            value={months[getMonth(date)]}
+            onChange={({ target: { value } }) =>
+              changeMonth(months.indexOf(value))
+            }
+          >
+            {months.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+          <select
+            className="custom-select-style"
+            value={getYear(date)}
+            onChange={({ target: { value } }) => changeYear(value)}
+          >
+            {years.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+
+          {/* {format(date, 'MMMM yyyy')} */}
+        </HeaderData>
         <IconWrapperHeader onClick={increaseMonth}>
           <use href={`${sprite}#icon-right`} />
         </IconWrapperHeader>
