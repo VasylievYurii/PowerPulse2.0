@@ -20,8 +20,8 @@ import {
 import sprite from '../../assets/sprite.svg';
 import AddExerciseForm from '../../components/AddExerciseForm/index';
 import BasicModalWindow from '../BasicModalWindow/BasicModalWindow.jsx';
-// import { useDispatch } from 'react-redux';
-// import { addWorkout } from '../../redux/workouts/workoutsOperations';
+
+import AddExerciseSuccess from '../AddExerciseSuccess/AddExerciseSuccess.jsx';
 
 const ExercisesItem = ({
   calories,
@@ -33,11 +33,16 @@ const ExercisesItem = ({
   gifUrl,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // const dispatch = useDispatch();
+  const [showModalSuccess, setShowModalSuccess] = useState(false);
+
   const onClickStart = () => {
-    // console.log('start');
     setIsModalOpen((prevState) => !prevState);
   };
+
+  const handleToggleSuccessModal = () => {
+    setShowModalSuccess((prevState) => !prevState);
+  };
+
   return (
     <>
       <WrapperExercisesItem>
@@ -81,6 +86,15 @@ const ExercisesItem = ({
             bodyPart={NameBodyPart}
             target={target}
             equipment={equipment}
+            onClickToggle={handleToggleSuccessModal}
+          />
+        </BasicModalWindow>
+      )}
+      {showModalSuccess && (
+        <BasicModalWindow>
+          <AddExerciseSuccess
+            exeId={exeId}
+            onClick={handleToggleSuccessModal}
           />
         </BasicModalWindow>
       )}
