@@ -2,7 +2,6 @@ import { Link, useParams } from 'react-router-dom';
 import SectionTemplateNoAuth from '../components/SectionTemplateNoAuth';
 import SignInForm from '../components/SignInForm/index';
 import WelcomeStats from '../components/WelcomeStats/WelcomeStats';
-import { ToastContainer } from 'react-toastify';
 
 import {
   TitleSignupStyled,
