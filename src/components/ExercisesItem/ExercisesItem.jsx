@@ -30,6 +30,7 @@ const ExercisesItem = ({
   name,
   exeId,
   equipment,
+  burnedCalories,
   gifUrl,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -86,6 +87,7 @@ const ExercisesItem = ({
             bodyPart={NameBodyPart}
             target={target}
             equipment={equipment}
+            burnedCalories={burnedCalories}
             onClickToggle={handleToggleSuccessModal}
           />
         </BasicModalWindow>

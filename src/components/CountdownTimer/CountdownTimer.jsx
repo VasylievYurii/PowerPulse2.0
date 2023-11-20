@@ -11,7 +11,7 @@ import {
   BurnedCalories,
 } from './CountdownTimer.styled';
 
-const CountdownTimer = ({ key = 1, timer = 3 }) => {
+const CountdownTimer = ({ key = 1, timer = 3, handleTime, dynamicBurnCal }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   const formatNumber = (number) => (number < 10 ? `0${number}` : number);
@@ -47,7 +47,8 @@ const CountdownTimer = ({ key = 1, timer = 3 }) => {
         strokeDashoffset={true}
         trailColor="#262625"
         onUpdate={(remainingTime) => {
-          console.log('Remaining time is ', remainingTime);
+          handleTime(remainingTime);
+          console.log('Only timer', remainingTime);
         }}
         onComplete={() => ({ shouldRepeat: true })}
       >
@@ -65,7 +66,7 @@ const CountdownTimer = ({ key = 1, timer = 3 }) => {
         )}
       </IconWrapper>
       <BurnedCalories>
-        Burned calories:<span></span>
+        Burned calories:&nbsp;<span>{dynamicBurnCal}</span>
       </BurnedCalories>
     </TimerWrapper>
   );

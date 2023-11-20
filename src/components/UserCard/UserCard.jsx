@@ -82,11 +82,7 @@ const UserCard = () => {
       <WrapperUserDiv>
         <WrapperUser>
           {imageURL && !loading ? (
-            <Img
-              src={`https://powerpulse-t5-backend.onrender.com/${imageURL}`}
-              sizes="90px"
-              loading="lazy"
-            />
+            <Img src={imageURL} sizes="90px" loading="lazy" />
           ) : null}
           {imageURL && loading ? (
             <IconWrapperUser>
