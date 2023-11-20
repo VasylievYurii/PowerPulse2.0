@@ -1,4 +1,4 @@
-import{j as t,ai as m,aj as g,s as e,u,c as f,r as n,ak as w,d as o,V as j}from"./index-8af81929.js";function V({children:i}){return t.jsx(m,{children:t.jsx(g,{children:i})})}const b=e.div`
+import{j as t,ai as m,aj as g,s as e,u,c as f,r as n,ak as w,d as o,V as j}from"./index-a736caeb.js";function V({children:i}){return t.jsx(m,{children:t.jsx(g,{children:i})})}const b=e.div`
   display: flex;
   flex-direction: column;
   height: 40%;
