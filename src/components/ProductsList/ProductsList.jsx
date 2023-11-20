@@ -1,6 +1,5 @@
-// import products from './products_15_pieces';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect } from 'react';
 import {
   selectProducts,
   selectProductsTotal,

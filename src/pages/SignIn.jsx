@@ -44,7 +44,6 @@ const toastSuccess = (text) => {
 
 const instance = axios.create({
   baseURL: 'https://powerpulse-t5-backend.onrender.com/api/',
-  // baseURL: 'http://localhost:3000/api/',
 });
 
 const verifyEmail = async (verifyToken) => {
@@ -56,13 +55,9 @@ const verifyEmail = async (verifyToken) => {
   }
 };
 
-/** Email verification block end */
-
 const SignIn = () => {
-  /** Email verification block start*/
   const { verificationToken } = useParams();
   if (verificationToken) verifyEmail(verificationToken);
-  /** Email verification block end */
   return (
     <SectionTemplateNoAuth>
       <SectionTemplateLeft>

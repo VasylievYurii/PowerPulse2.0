@@ -13,7 +13,6 @@ import {
 
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
-// import { userReducer } from './user/userSlice';
 import { profileReducer } from './userProfile/userProfileSlice';
 import { exeReducer } from './exercises/exeSlice';
 import { workoutsReducer } from './workouts/workoutsSlice';
@@ -21,8 +20,6 @@ import { mealsReducer } from './meals/mealsSlice';
 import { productsReducer } from './products/productsSlice';
 import { filtersReducer } from './products/filtersSlice';
 import { indicatorsReducer } from './userIndicators/userIndicatorsSlice';
-// import { contactsReducer } from './contacts/contactsSlice';
-// import { filterReducer } from './contacts/filterSlice';
 import { statReducer } from './statistics/statisticsSlice';
 
 const authPersistConfig = {
@@ -32,9 +29,6 @@ const authPersistConfig = {
 };
 
 const combinedReducers = combineReducers({
-  //   contacts: contactsReducer,
-  //   filter: filterReducer,
-  // users: userReducer,
   products: productsReducer,
   filters: filtersReducer,
   profile: profileReducer,

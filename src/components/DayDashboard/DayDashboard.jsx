@@ -41,11 +41,7 @@ const DayDashboard = () => {
     0,
   );
 
-  // Кількість калорій, що залишилось нажерти від добової норми =
-  // = калорії на добу - вже зіжрані калорії + спалені калорії під час воркауту
   const restCalories = dayCalories - consumedCalories + burnCalories;
-
-  // Скільки часу від денної норми залишилось потренуватись.
   const restWorkoutsTime = targetTime - totalWorkoutsTime;
 
   let borderColorRestCalories = 'rgba(239, 237, 232, 0.20)';
@@ -69,8 +65,13 @@ const DayDashboard = () => {
             </DashIconWrapper>
             Daily calorie intake
           </DashTitle>
-          {indicIsLoad ? <Loader color='var(--color-text)'/> :
-            (dayCalories !== 0 ? dayCalories : <Message>Please enter your details in the profile</Message>)}
+          {indicIsLoad ? (
+            <Loader color="var(--color-text)" />
+          ) : dayCalories !== 0 ? (
+            dayCalories
+          ) : (
+            <Message>Please enter your details in the profile</Message>
+          )}
         </DashIndicators>
         <DashIndicators color="var(--color-main-one)">
           <DashTitle color="rgba(239, 237, 232, 0.80)">
@@ -94,7 +95,7 @@ const DayDashboard = () => {
             </DashIconWrapper>
             Calories consumed
           </DashTitle>
-          {mealsIsLoad ? <Loader/> : consumedCalories}
+          {mealsIsLoad ? <Loader /> : consumedCalories}
         </DashIndicators>
         <DashIndicators>
           <DashTitle>
@@ -106,7 +107,7 @@ const DayDashboard = () => {
             </DashIconWrapper>
             Calories burned
           </DashTitle>
-          {workoutsIsLoad ? <Loader/> : burnCalories}
+          {workoutsIsLoad ? <Loader /> : burnCalories}
         </DashIndicators>
         <DashIndicators $border={borderColorRestCalories}>
           <DashTitle>
@@ -118,7 +119,7 @@ const DayDashboard = () => {
             </DashIconWrapper>
             The rest of the calories
           </DashTitle>
-          {(mealsIsLoad || workoutsIsLoad) ? <Loader/> : restCalories}
+          {mealsIsLoad || workoutsIsLoad ? <Loader /> : restCalories}
         </DashIndicators>
         <DashIndicators $border={borderColorRestWorkoutsTime}>
           <DashTitle>
@@ -130,7 +131,14 @@ const DayDashboard = () => {
             </DashIconWrapper>
             The rest of sports
           </DashTitle>
-          {workoutsIsLoad ? <Loader/> : (restCalories < 0 ? `+ ${restWorkoutsTime}` : restWorkoutsTime)} min
+          {workoutsIsLoad ? (
+            <Loader />
+          ) : restCalories < 0 ? (
+            `+ ${restWorkoutsTime}`
+          ) : (
+            restWorkoutsTime
+          )}{' '}
+          min
         </DashIndicators>
       </DashList>
       <WrapDashText>

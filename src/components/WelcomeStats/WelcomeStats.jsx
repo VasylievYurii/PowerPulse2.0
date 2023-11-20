@@ -20,22 +20,12 @@ import Loader from '../Loader';
 const WelcomeStats = () => {
   const dispatch = useDispatch();
   const { statistics } = useSelector((state) => state.statistics);
-  // const [workouts, setWorkouts] = useState();
-  // const [burnedCalories, setBurnedCalories] = useState();
-  // const [workoutsTime, setWorkoutsTime] = useState();
-  // const [userCount, setUserCount] = useState();
-  // const [videoCount, setVideoCount] = useState();
   const [stats, setStats] = useState({});
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (statistics) {
       setStats(statistics);
-      // setWorkouts(statistics.workouts);
-      // setBurnedCalories(statistics.burnedCalories);
-      // setWorkoutsTime(statistics.workoutsTime);
-      // setUserCount(statistics.userCount);
-      // setVideoCount(statistics.videoCount);
     }
   }, [statistics]);
 
@@ -44,18 +34,6 @@ const WelcomeStats = () => {
     dispatch(getStatistics());
     setLoading(false);
   }, [dispatch]);
-
-  // const uploadStatistics = async (e) => {
-  //   setLoading(true);
-  //   try {
-  //     dispatch(getStatistics());
-  //   } catch (error) {
-  //     if (error.response === 404) {
-  //       setStats(null);
-  //     }
-  //   }
-  //   setLoading(false);
-  // };
 
   return (
     <SectionTemplateRight>

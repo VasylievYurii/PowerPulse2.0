@@ -14,11 +14,9 @@ import {
 } from './DaySwitch.styled';
 import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../assets/sprite.svg';
-// import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 const DaySwitch = ({ onDateChange }) => {
   const [startDate, setStartDate] = useState(new Date());
-  // const { userData } = useSelector((state) => state.auth);
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (

@@ -69,8 +69,3 @@ export const HeighWeight = styled.div`
   margin-top: 14px;
   margin-bottom: 14px;
 `;
-
-// export const TextInfo = styled.p`
-//   margin: 0;
-//   padding: 0;
-// `;

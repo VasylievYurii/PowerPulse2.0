@@ -19,7 +19,6 @@ const productsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.products = action.payload.data;
-        // state.products.push(...action.payload.data);
         state.total = action.payload.total;
       })
       .addCase(getProducts.pending, (state) => {
@@ -33,9 +32,7 @@ const productsSlice = createSlice({
       .addCase(getProductsCategories.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        // Оновити поле categories у стані
         state.categories = action.payload;
-        // state.categories = action.payload[0].items;
       })
       .addCase(getProductsCategories.pending, (state) => {
         state.isLoading = true;

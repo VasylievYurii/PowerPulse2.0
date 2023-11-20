@@ -1,5 +1,3 @@
-// import { useMediaQuery } from 'react-responsive';
-
 export const customStyles = {
   option: (defaultStyles, state) => ({
     ...defaultStyles,

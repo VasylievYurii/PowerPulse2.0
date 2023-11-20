@@ -34,7 +34,6 @@ const Diary = () => {
 
   const handleDateChange = (date) => {
     const newDate = date.toISOString();
-    // const cutNewDate = newDate.split("", 10).join('');
     setSelectedDate(newDate);
   };
 
@@ -64,7 +63,6 @@ const Diary = () => {
         </DiaryWrapActivity>
         {points < 768 || <DayDashboard />}
       </DiaryWrapContent>
-      {/* <ToastContainer /> */}
     </SectionTemplate>
   );
 };
