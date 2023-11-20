@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import SectionTemplateNoAuth from '../components/SectionTemplateNoAuth';
 import SignInForm from '../components/SignInForm/index';
 import WelcomeStats from '../components/WelcomeStats/WelcomeStats';
@@ -14,7 +14,42 @@ import SectionTemplateLeft from '../components/SectionTemplateLeft';
 import Logo from '../components/Logo';
 import SecondWrapperTemplate from '../components/SecondWrapperTemplate';
 
+/** Email verification block start*/
+import axios from 'axios';
+import { toast } from 'react-toastify';
+const toastError = (text) => {
+  toast.error(text, {
+    position: 'top-center',
+    autoClose: 7000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: 'dark',
+  });
+};
+
+const instance = axios.create({
+  baseURL: 'https://powerpulse-t5-backend.onrender.com/api/',
+});
+
+const verifyEmail = async (verifyToken) => {
+  try {
+    const { data } = await instance.get(`verify/${verifyToken}`);
+    toastError(`All is OK! ${data}`);
+  } catch (error) {
+    toastError(`Oops! Something was wrong... ${error.response.data}`);
+  }
+};
+
+/** Email verification block end */
+
 const SignIn = () => {
+  /** Email verification block start*/
+  const { verificationToken } = useParams();
+  if (verificationToken) verifyEmail(verificationToken);
+  /** Email verification block end */
   return (
     <SectionTemplateNoAuth>
       <SectionTemplateLeft>
