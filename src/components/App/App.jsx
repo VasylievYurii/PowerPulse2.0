@@ -23,6 +23,10 @@ const SignIn = lazy(() => import('../../pages/SignIn'));
 import { AppWrapper, ToastContainerStyled } from './App.styled';
 import ExercisesList from '../ExercisesList';
 import { selectUserAuthenticated } from '../../redux/selectors.js';
+import { selectWorkoutsIsLoading } from '../../redux/selectors.js';
+import { selectUserProfileIsLoading } from '../../redux/selectors.js';
+import { selectProductsIsLoading } from '../../redux/selectors.js';
+import { selectMealsIsLoading } from '../../redux/selectors.js';
 
 function App() {
   const location = useLocation();
@@ -30,6 +34,10 @@ function App() {
   const { isRefreshing } = useAuth();
   const { profile } = useSelector((state) => state.profile);
   const auth = useSelector(selectUserAuthenticated);
+  const workoutIsLoading = useSelector(selectWorkoutsIsLoading);
+  const profileIsLoading = useSelector(selectUserProfileIsLoading);
+  const productIsLoading = useSelector(selectProductsIsLoading);
+  const mealsIsLoading = useSelector(selectMealsIsLoading);
 
   let isFilled = true;
 
@@ -68,7 +76,11 @@ function App() {
     return <Navigate to="/exercises/body parts" />;
   }
 
-  return isRefreshing ? (
+  return isRefreshing &&
+    workoutIsLoading &&
+    profileIsLoading &&
+    productIsLoading &&
+    mealsIsLoading ? (
     <Loader />
   ) : (
     <AppWrapper>
