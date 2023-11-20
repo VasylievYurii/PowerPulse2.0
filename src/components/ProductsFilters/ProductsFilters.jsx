@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
   selectCategoryFilter,
   selectRecommendedFilter,
 } from '../../redux/selectors';
-import { selectCategoriesProducts } from '../../redux/selectors';
+
 import Select from 'react-select';
 // import { useMediaQuery } from 'react-responsive';
 import sprite from '../../assets/sprite.svg';
