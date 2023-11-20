@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getUserParams } from '../../redux/auth/operations';
+// import { getUserParams } from '../../redux/auth/operations';
 import { addWorkout } from '../../redux/workouts/workoutsOperations';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import AddExerciseFormList from './AddExerciseFormList';
 import CountdownTimer from '../CountdownTimer';
 import {
