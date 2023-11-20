@@ -19,6 +19,8 @@ const productsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.products = action.payload.data;
+        // console.log('action.payload.data:', action.payload.data);
+        // state.products = state.products.concat(action.payload.data);
         // state.products.push(...action.payload.data);
         state.total = action.payload.total;
       })
