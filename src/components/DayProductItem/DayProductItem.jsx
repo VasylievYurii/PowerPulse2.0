@@ -20,7 +20,7 @@ const DayProductItem = ({ meal, points }) => {
     calories,
     weight
   } = meal;
-
+  
   const dispatch = useDispatch();
 
   const deleteProductItem = (productId) => {
