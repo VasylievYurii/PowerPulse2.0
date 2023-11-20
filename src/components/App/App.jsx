@@ -114,6 +114,20 @@ function App() {
             </Suspense>
           }
         />
+
+        <Route
+          path="/signin/:verificationToken"
+          element={
+            <Suspense fallback={<Loader />}>
+              {isFilled ? (
+                <RestrictedRoute redirectTo="/diary" component={<SignIn />} />
+              ) : (
+                <RestrictedRoute redirectTo="/profile" component={<SignIn />} />
+              )}
+            </Suspense>
+          }
+        />
+
         <Route path="/" element={<SharedLayout />}>
           <Route
             path="/profile"
