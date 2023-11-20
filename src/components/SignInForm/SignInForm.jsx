@@ -49,66 +49,87 @@ const SignInForm = () => {
       validationSchema={signinSchema}
       onSubmit={handleSubmit}
     >
-      {({ errors, touched }) => (
-        <Form autoComplete="off">
-          <WrapFormStyled>
-            <div>
-              <LabelWrapStyled>
-                <InputStyled
-                  border={errors.email && touched.email && "1px solid #D80027" || !errors.email && touched.email && "1px solid #3CBF61"}
-                  type="text"
-                  name="email"
-                  validate={validateEmail}
-                  placeholder="Email"
-                />
-              </LabelWrapStyled>
+      {({ errors, touched }) => {
+        const borderEmailColor =
+          errors.email && touched.email
+            ? '1px solid #D80027'
+            : '1px solid #3CBF61';
 
-              {errors.email && touched.email || !errors.email && touched.email ? (
-                <WrapperErrorStyled>
-                  <SvgIconCheckBoxStyled
-                    fill={!errors.email && touched.email ? "#3CBF61" : null}
-                  >
-                    <use href={`${sprite}#icon-checkbox`} />
-                  </SvgIconCheckBoxStyled>
-                  <ErrorDivStyled
-                    color={!errors.email && touched.email ? "#3CBF61" : null}
-                  >{errors.email ? errors.email : "Success email"}</ErrorDivStyled>
-                </WrapperErrorStyled>
-              ) : null}
-            </div>
+        const borderPasswordColor =
+          errors.password && touched.password
+            ? '1px solid #D80027'
+            : '1px solid #3CBF61';
+        return (
+          <Form autoComplete="off">
+            <WrapFormStyled>
+              <div>
+                <LabelWrapStyled>
+                  <InputStyled
+                    border={borderEmailColor}
+                    type="text"
+                    name="email"
+                    validate={validateEmail}
+                    placeholder="Email"
+                  />
+                </LabelWrapStyled>
 
-            <div>
-              <LabelWrapStyled>
-                <InputStyled
-                  border={errors.password && touched.password && "1px solid #D80027" || !errors.password && touched.password && "1px solid #3CBF61"}
-                  type={type}
-                  name="password"
-                  placeholder="Password"
-                />
-                <IconWrappedStyled>
-                  <SvgIconEyeStyled onClick={togglePassInput}>
-                    <use href={toggleIcon} />
-                  </SvgIconEyeStyled>
-                </IconWrappedStyled>
-              </LabelWrapStyled>
-              {errors.password && touched.password || !errors.password && touched.password ? (
-                <WrapperErrorStyled>
-                  <SvgIconCheckBoxStyled
-                    fill={!errors.password && touched.password ? "#3CBF61" : null}
-                  >
-                    <use href={`${sprite}#icon-checkbox`} />
-                  </SvgIconCheckBoxStyled>
-                  <ErrorDivStyled
-                    color={!errors.password && touched.password ? "#3CBF61" : null}
-                  >{errors.password ? errors.password : "Success password"}</ErrorDivStyled>
-                </WrapperErrorStyled>
-              ) : null}
-            </div>
-          </WrapFormStyled>
+                {(errors.email && touched.email) ||
+                (!errors.email && touched.email) ? (
+                  <WrapperErrorStyled>
+                    <SvgIconCheckBoxStyled
+                      fill={!errors.email && touched.email ? '#3CBF61' : null}
+                    >
+                      <use href={`${sprite}#icon-checkbox`} />
+                    </SvgIconCheckBoxStyled>
+                    <ErrorDivStyled
+                      color={!errors.email && touched.email ? '#3CBF61' : null}
+                    >
+                      {errors.email ? errors.email : 'Success email'}
+                    </ErrorDivStyled>
+                  </WrapperErrorStyled>
+                ) : null}
+              </div>
 
-          <ButtonSubmitStyled type="submit">Sign In</ButtonSubmitStyled>
-        </Form>
-      )}
+              <div>
+                <LabelWrapStyled>
+                  <InputStyled
+                    border={borderPasswordColor}
+                    type={type}
+                    name="password"
+                    placeholder="Password"
+                  />
+                  <IconWrappedStyled>
+                    <SvgIconEyeStyled onClick={togglePassInput}>
+                      <use href={toggleIcon} />
+                    </SvgIconEyeStyled>
+                  </IconWrappedStyled>
+                </LabelWrapStyled>
+                {(errors.password && touched.password) ||
+                (!errors.password && touched.password) ? (
+                  <WrapperErrorStyled>
+                    <SvgIconCheckBoxStyled
+                      fill={
+                        !errors.password && touched.password ? '#3CBF61' : null
+                      }
+                    >
+                      <use href={`${sprite}#icon-checkbox`} />
+                    </SvgIconCheckBoxStyled>
+                    <ErrorDivStyled
+                      color={
+                        !errors.password && touched.password ? '#3CBF61' : null
+                      }
+                    >
+                      {errors.password ? errors.password : 'Success password'}
+                    </ErrorDivStyled>
+                  </WrapperErrorStyled>
+                ) : null}
+              </div>
+            </WrapFormStyled>
+
+            <ButtonSubmitStyled type="submit">Sign In</ButtonSubmitStyled>
+          </Form>
+        );
+      }}
     </Formik>
   );
 };
