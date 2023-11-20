@@ -31,7 +31,7 @@ const UserBar = () => {
               </IconUser>
             )}
             <Img
-              src={`https://powerpulse-t5-backend.onrender.com/${imageURL}`}
+              src={imageURL}
               sizes="90px"
               onError={() => {
                 setImageURL(null);

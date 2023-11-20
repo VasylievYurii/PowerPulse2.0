@@ -23,10 +23,13 @@ const ProductsList = () => {
   const dispatch = useDispatch();
 
   const query = useSelector(selectQueryFilter);
+  console.log('query:', query);
   const category = useSelector(selectCategoryFilter);
+  console.log('category:', category);
   const recommended = useSelector(selectRecommendedFilter);
+  console.log('recommended:', recommended);
   const blood = useSelector(selectUserBlood);
-console.log('blood', blood);
+  console.log('blood', blood);
   const products = useSelector(selectProducts);
   const total = useSelector(selectProductsTotal);
 

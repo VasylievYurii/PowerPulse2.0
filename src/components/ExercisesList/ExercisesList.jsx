@@ -126,6 +126,7 @@ const ExercisesList = () => {
                 name={ucFirst(name)}
                 equipment={equipment}
                 gifUrl={gifUrl}
+                burnedCalories={burnedCalories}
                 exeId={_id}
               />
             );
