@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import sprite from '../../assets/sprite.svg';
 
 export const Heading = styled.h1`
   /* width: 335px; */
