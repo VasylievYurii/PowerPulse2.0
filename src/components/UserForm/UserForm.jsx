@@ -9,7 +9,7 @@ import {
 import userSchema from '../../schema/userProfileSchema';
 import RadioUseForm from './RadioUseForm/RadioUseForm';
 import InputUseForm from './InputUseForm/InputUseForm';
-import { SubmitBtn } from './UserForm.styled';
+import { SubmitBtn, SuccessText } from './UserForm.styled';
 import format from 'date-fns/format';
 import BirthdayCalendar from '../BirthdayCalendar/BirthdayCalendar';
 
@@ -30,6 +30,7 @@ const UserForm = () => {
   const { userData } = useSelector((state) => state.auth);
   const { profile } = useSelector((state) => state.profile);
   const [birthdayState, setBirthdayState] = useState('2004-11-14');
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   useEffect(() => {
     dispatch(getUserProfile());
@@ -52,12 +53,14 @@ const UserForm = () => {
     }
   }, [userData, profile, birthdayState]);
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values, actions) => {
     const { name, email, birthday, ...rest } = values;
     const nameEmailObject = { name };
     const restObject = { birthday: birthdayState, ...rest };
     dispatch(updateUser(nameEmailObject));
     dispatch(updateUserProfile(restObject));
+    setIsFormSubmitted(true);
+    // actions.resetForm();
   };
 
   const onDateChange = (date) => {
@@ -81,6 +84,9 @@ const UserForm = () => {
           />
           <RadioUseForm />
           <SubmitBtn type="submit">Save</SubmitBtn>
+          {isFormSubmitted && (
+            <SuccessText>The form has been submitted successfully!</SuccessText>
+          )}
         </Form>
       )}
     </Formik>

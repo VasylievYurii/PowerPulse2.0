@@ -5,6 +5,8 @@ import welcomeTablet from '../../assets/backgroundImages/welcome-tablet.jpg';
 import welcomeTablet2x from '../../assets/backgroundImages/welcome-tablet@2x.jpg';
 import welcomeMobile from '../../assets/backgroundImages/welcome-mobile.jpg';
 import welcomeMobile2x from '../../assets/backgroundImages/welcome-mobile@2x.jpg';
+import signMobile from '../../assets/backgroundImages/sign-mobile.jpg';
+import signMobile2x from '../../assets/backgroundImages/sign-mobile@2x.jpg';
 
 export const SectionNoAuth = styled.section`
   margin: 0 auto;
@@ -12,14 +14,26 @@ export const SectionNoAuth = styled.section`
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: contain;
-  background-image: url(${welcomeMobile});
   height: 100vh;
+  background-image: ${(props) =>
+    props.pathname.includes('/welcome')
+      ? `url(${welcomeMobile})`
+      : props.pathname.includes('/signup') || props.pathname.includes('/signin')
+      ? `url(${signMobile})`
+      : 'none'};
+
   @media (orientation: portrait) {
     background-size: 80%;
   }
   @media only screen and (min-resolution: 192dpi),
     only screen and (min-resolution: 2dppx) {
-    background-image: url(${welcomeMobile2x});
+    background-image: ${(props) =>
+      props.pathname.includes('/welcome')
+        ? `url(${welcomeMobile2x}`
+        : props.pathname.includes('/signup') ||
+          props.pathname.includes('/signin')
+        ? `url(${signMobile2x})`
+        : 'none'};
   }
 
   @media screen and (min-width: 768px) {
