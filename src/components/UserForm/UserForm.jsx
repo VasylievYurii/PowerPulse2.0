@@ -60,7 +60,6 @@ const UserForm = () => {
     dispatch(updateUser(nameEmailObject));
     dispatch(updateUserProfile(restObject));
     setIsFormSubmitted(true);
-    // actions.resetForm();
   };
 
   const onDateChange = (date) => {

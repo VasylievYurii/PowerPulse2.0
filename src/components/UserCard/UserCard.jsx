@@ -2,7 +2,6 @@ import sprite from '../../assets/sprite.svg';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOutUser, updateAvatar } from '../../redux/auth/operations';
-import Loader from '../Loader';
 import { getTarget } from '../../redux/userProfile/userProfileOperations';
 import {
   IconWrapper,
@@ -62,7 +61,6 @@ const UserCard = () => {
 
     try {
       await dispatch(updateAvatar(file));
-      // setImageURL(fileReader.result);
     } catch (error) {
       if (error.response && error.response.status === 404) {
         setImageURL(null);

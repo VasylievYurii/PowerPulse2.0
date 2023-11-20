@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addWorkout } from '../../redux/workouts/workoutsOperations';
-// import { toast } from 'react-toastify';
 import AddExerciseFormList from './AddExerciseFormList';
 import CountdownTimer from '../CountdownTimer';
 import {

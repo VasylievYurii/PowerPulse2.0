@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { instance, token } from '../auth/operations';
-// import axios from 'axios';
 
 const options = {
   position: 'top-center',
@@ -18,23 +17,6 @@ const options = {
 const toastError = (text) => {
   toast.error(text, options);
 };
-
-// const toastSuccess = (text) => {
-//   toast.success(text, options);
-// };
-
-// export const instance = axios.create({
-//   baseURL: 'https://powerpulse-t5-backend.onrender.com/api/',
-// });
-
-// export const token = {
-//   set: (token) => {
-//     instance.defaults.headers['Authorization'] = `Bearer ${token}`;
-//   },
-//   clear: () => {
-//     instance.defaults.headers['Authorization'] = '';
-//   },
-// };
 
 export const getExercises = createAsyncThunk(
   'exercises/getExercises',

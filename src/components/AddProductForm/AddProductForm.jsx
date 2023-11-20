@@ -5,7 +5,6 @@ import { format } from 'date-fns';
 import {
   Container,
   InputsContainer,
-  // InputEl,
   Calories,
   CaloriesValue,
   ButtonsContainer,
@@ -16,7 +15,6 @@ import {
   FieldLabel,
   WeightInputLabel,
   ErrorMessageStyled,
-  // WeightInputLabel,
 } from './AddProductForm.styled';
 import { useDispatch } from 'react-redux';
 import { postDiaryMealsThunk } from '../../redux/meals/mealsOperations';
@@ -24,40 +22,19 @@ import { ToastContainer } from 'react-toastify';
 
 const AddProductForm = ({ id, title, calories, onClick, onClickSuccess }) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
-
-  // const [showModal, setShowModal] = useState(false);
-
-  // useEffect(() => {
-  //   if (isMealAdd) {
-  //     toggleModal();
-  //   }
-  // }, [isMealAdd]);
-
-  // const closeAllModal = () => {
-  //   onClick();
-  // };
-
-  // const toggleModal = () => {
-  //   setShowModal((prevState) => !prevState);
-  // };
-
   const dispatch = useDispatch();
 
   const initialValues = {
     product_id: id,
     date: format(new Date(), 'yyyy-MM-dd'),
     weight: '',
-    // calories: 0,
   };
 
   const schema = Yup.object().shape({
-    // product_id: Yup.string().required(),
-    // date: Yup.string().required(),
     weight: Yup.number()
       .max(700, 'Weight should not exceed 700 grams')
       .required('Weight is required')
       .positive('Weight must be above zero'),
-    // calories: Yup.number().required(),
   });
 
   const calculateCalories = (amount) => {
@@ -137,12 +114,7 @@ const AddProductForm = ({ id, title, calories, onClick, onClickSuccess }) => {
               </Calories>
 
               <ButtonsContainer>
-                <PFPrimaryBtn
-                  type="submit"
-                  // onClick={handleSubmit}
-                >
-                  Add to diary
-                </PFPrimaryBtn>
+                <PFPrimaryBtn type="submit">Add to diary</PFPrimaryBtn>
                 <PFOutlinedBtn type="button" onClick={handleCloseClick}>
                   Cancel
                 </PFOutlinedBtn>
