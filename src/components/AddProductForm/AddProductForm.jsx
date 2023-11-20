@@ -54,9 +54,9 @@ const AddProductForm = ({ id, title, calories, onClick, onClickSuccess }) => {
     // product_id: Yup.string().required(),
     // date: Yup.string().required(),
     weight: Yup.number()
-      .max(700, 'Weight should be no more than 700 grams')
-      .required()
-      .positive(),
+      .max(700, 'Weight should not exceed 700 grams')
+      .required('Weight is required')
+      .positive('Weight must be above zero'),
     // calories: Yup.number().required(),
   });
 
@@ -94,7 +94,7 @@ const AddProductForm = ({ id, title, calories, onClick, onClickSuccess }) => {
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        {({ values, setFieldValue }) => (
+        {({ values, errors, touched, setFieldValue }) => (
           <Form autoComplete="off">
             <Container>
               <InputsContainer>
@@ -122,10 +122,13 @@ const AddProductForm = ({ id, title, calories, onClick, onClickSuccess }) => {
                         }
                       }}
                       value={values.weight}
+                      border={
+                        errors.weight && touched.weight && '1px solid #D80027'
+                      }
                     />
                     <FieldLabel>grams</FieldLabel>
-                    <ErrorMessageStyled name="weight" component="p" />
                   </WeightInputLabel>
+                  <ErrorMessageStyled name="weight" component="p" />
                 </div>
               </InputsContainer>
 

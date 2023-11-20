@@ -5,19 +5,19 @@ const mealInitialState = {
     isLoading: false,
     error: null,
     meals: [],
-    isMealAdd: false,
+    isMealAdd: null,
 };
 
 const onPending = (state) => {
     state.isLoading = true;
     state.error = null;
-    state.isMealAdd = false;
+    // state.isMealAdd = false;
 };
 
 const onRejected = (state, { payload }) => {
     state.isLoading = false;
     state.error = payload;
-    state.isMealAdd = null;
+    // state.isMealAdd = false;
 };
 
 const arrOfActs = [getDiaryMealsThunk, delDiaryMealsThunk, postDiaryMealsThunk];

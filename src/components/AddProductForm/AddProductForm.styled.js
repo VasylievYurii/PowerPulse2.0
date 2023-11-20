@@ -61,10 +61,13 @@ export const WeightInputLabel = styled.label`
 `;
 
 export const WeightInput = styled(InputEl)`
+border: ${props => props.border || '1px solid var(--color-main-one)'};
   @media screen and (min-width: 768px) {
     width: 155px;
   }
 `;
+
+
 
 export const FieldLabel = styled.span`
   position: absolute;
@@ -73,6 +76,8 @@ export const FieldLabel = styled.span`
   color: rgba(239, 237, 232, 0.4);
   transform: translate(0, -50%);
   /* color:; */
+  display: flex;
+  align-items: center;
 `;
 
 export const Calories = styled.p`
@@ -144,4 +149,9 @@ color: var(--color-wrong-one);
 margin-top: 4px;
 line-height: 1.5;
 letter-spacing: 0.12px;
+@media screen and (min-width: 768px) {
+width: 155px;
+}
+
 `
+
