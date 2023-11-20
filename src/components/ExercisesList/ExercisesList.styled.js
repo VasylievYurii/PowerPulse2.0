@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 export const WrapperExercises = styled.ul`
   width: 335px;
   max-height: 726px;
+  height: 100vh;
+  overflow-y: auto;
   display: flex;
   gap: 16px;
   flex-wrap: wrap;

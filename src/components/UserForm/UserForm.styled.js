@@ -17,4 +17,12 @@ export const SubmitBtn = styled.button`
   border-radius: 12px;
   color: #efede8;
   border-width: 0;
+
+  &:hover {
+    background-color: var(--color-main-two);
+  }
+`;
+
+export const SuccessText = styled.div`
+  margin-top: 15px;
 `;
