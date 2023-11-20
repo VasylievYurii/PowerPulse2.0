@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const LoaderStyled = styled.div`
-   color: rgba(230, 83, 60, 1);
+   color: ${(props) => props.color || 'rgba(230, 83, 60, 1)'};
   font-size: 8px;
   margin: 5px auto;
   width: 1em;
@@ -17,7 +17,8 @@ export const LoaderStyled = styled.div`
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
-}
+
+
 @-webkit-keyframes load4 {
   0%,
   100% {

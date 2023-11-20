@@ -41,6 +41,7 @@ export const selectUserBlood = (state) => state.profile.profile.blood;
 // =========== I N D I C A T O R S ==================
 
 export const selectIndicators = (state) => state.indicators.indicators;
+export const selectIndicIsLoading = (state) => state.indicators.isLoading;
 
 // =========== S T A T I S T I C S ==================
 
