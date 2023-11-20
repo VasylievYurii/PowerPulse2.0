@@ -54,7 +54,7 @@ const DayProductItem = ({ meal, points }) => {
           <DiarySupTitle>Recommend</DiarySupTitle>
           <ValueBox $maxwidth='76px' display='flex' width={(points < 1440 && points >= 768) ? '80px' : ((points >= 1440) ? '110px' : '100%')}>
             <Circle color={`${groupBloodNotAllowed[blood]}`} />
-            {groupBloodNotAllowed[blood] ? 'Yes' : 'No'}
+            {groupBloodNotAllowed[blood] ? 'No' : 'Yes'}
           </ValueBox>
         </DescriptionItem>
         <DiaryTrashButton

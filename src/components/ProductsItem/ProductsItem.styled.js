@@ -42,7 +42,7 @@ export const RightTopBlockWrapper = styled.div`
 
   > div {
     background-color: ${(props) =>
-      Boolean(props.isrecommended)
+      (props.color === 'true')
         ? 'var(--color-approved-two)'
         : 'var(--color-wrong-two)'};
     display: block;

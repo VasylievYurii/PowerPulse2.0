@@ -25,7 +25,7 @@ const ProductsItem = ({
 }) => {
   const [showModal, setShowModal] = useState(false);
   const [showModalSuccess, setShowModalSuccess] = useState(false);
-
+console.log('recommended', recommended);
   const toggleModal = () => {
     setShowModal((prevState) => !prevState);
   };
@@ -57,8 +57,7 @@ const ProductsItem = ({
           <LeftTopLabelWrapper>
             <p>DIET</p>
           </LeftTopLabelWrapper>
-          <RightTopBlockWrapper>
-            {/* <RightTopBlockWrapper isrecommended={`${recommended}`}> */}
+            <RightTopBlockWrapper color={`${recommended}`}>
             <div></div>
             <p>{recommended ? `Recommended` : `Not recommended`}</p>
             <AddButton type="button" onClick={toggleModal}>
