@@ -23,7 +23,7 @@ const UserBar = () => {
         <use href={`${sprite}#icon-settings`} />
       </IconSettings>
       <UserWrapper>
-        {imageURL ? (
+        {userData?.avatarURL ? (
           <>
             {loading ?? (
               <IconUser>
@@ -31,7 +31,7 @@ const UserBar = () => {
               </IconUser>
             )}
             <Img
-              src={imageURL}
+              src={userData.avatarURL}
               sizes="90px"
               onError={() => {
                 setImageURL(null);
