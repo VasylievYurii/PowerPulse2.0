@@ -1,4 +1,4 @@
-import{j as t,ak as m,al as g,s as e,u,c as f,r as n,am as w,d as o,V as j}from"./index-ab09653e.js";function V({children:i}){return t.jsx(m,{children:t.jsx(g,{children:i})})}const b=e.div`
+import{j as t,ak as m,al as g,s as e,u,c as f,r as n,am as w,d,V as j}from"./index-97000af7.js";function V({children:i}){return t.jsx(m,{pathname:location.pathname,children:t.jsx(g,{children:i})})}const b=e.div`
   display: flex;
   flex-direction: column;
   height: 40%;
@@ -155,4 +155,4 @@ import{j as t,ak as m,al as g,s as e,u,c as f,r as n,am as w,d as o,V as j}from"
   @media screen and (min-width: 1440px) {
     flex-direction: column;
   }
-`,L=({children:i})=>t.jsx(E,{children:i}),D=()=>{const i=u(),{statistics:a}=f(l=>l.statistics),[s,h]=n.useState({}),[x,d]=n.useState(!1);return n.useEffect(()=>{a&&h(a)},[a]),n.useEffect(()=>{d(!0),i(w()),d(!1)},[i]),t.jsxs(L,{children:[t.jsxs(z,{children:[t.jsxs(v,{children:[t.jsx(c,{children:t.jsx(r,{children:t.jsx("use",{href:`${o}#icon-play`})})}),t.jsxs("div",{children:[t.jsx(C,{children:s.videoCount}),t.jsx(p,{children:"Video tutorial"})]})]}),t.jsxs(y,{children:[t.jsx(W,{children:t.jsx(r,{children:t.jsx("use",{href:`${o}#icon-run`})})}),t.jsxs(k,{children:[t.jsx(T,{children:(Math.round(s.burnedCaloriesSum)/1e3).toFixed(1)??"0"}),t.jsx(p,{children:"kcal"})]})]})]}),x&&t.jsx(j,{})]})};export{V as S,D as W,A as a,N as b};
+`,L=({children:i})=>t.jsx(E,{children:i}),D=()=>{const i=u(),{statistics:a}=f(l=>l.statistics),[s,h]=n.useState({}),[x,o]=n.useState(!1);return n.useEffect(()=>{a&&h(a)},[a]),n.useEffect(()=>{o(!0),i(w()),o(!1)},[i]),t.jsxs(L,{children:[t.jsxs(z,{children:[t.jsxs(v,{children:[t.jsx(c,{children:t.jsx(r,{children:t.jsx("use",{href:`${d}#icon-play`})})}),t.jsxs("div",{children:[t.jsx(C,{children:s.videoCount}),t.jsx(p,{children:"Video tutorial"})]})]}),t.jsxs(y,{children:[t.jsx(W,{children:t.jsx(r,{children:t.jsx("use",{href:`${d}#icon-run`})})}),t.jsxs(k,{children:[t.jsx(T,{children:(Math.round(s.burnedCaloriesSum)/1e3).toFixed(1)??"0"}),t.jsx(p,{children:"kcal"})]})]})]}),x&&t.jsx(j,{})]})};export{V as S,D as W,A as a,N as b};
