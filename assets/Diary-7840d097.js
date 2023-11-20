@@ -1,4 +1,4 @@
-import{f as V,s as r,r as p,j as e,d,u as C,W as X,c as D,X as S,a as I,Y as Z,Z as M,$ as J,a0 as K,a1 as Q,a2 as U,S as ee}from"./index-9cbfb845.js";import{T as te}from"./TitlePage-2566bec2.js";import{b as ie,c as re,t as ne}from"./react-datepicker-21826a0a.js";import{f as $}from"./createClass-83489b1d.js";const oe=V`
+import{f as V,s as r,r as p,j as e,d,u as C,W as X,c as D,X as S,a as I,Y as Z,Z as M,$ as J,a0 as K,a1 as Q,a2 as U,S as ee}from"./index-ab09653e.js";import{T as te}from"./TitlePage-e3470620.js";import{b as ie,c as re,t as ne}from"./react-datepicker-f955f5c2.js";import{f as $}from"./createClass-364626fd.js";const oe=V`
 
   .react-datepicker__wrapper {
     position: relative;
@@ -329,6 +329,10 @@ import{f as V,s as r,r as p,j as e,d,u as C,W as X,c as D,X as S,a as I,Y as Z,Z
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+    @media screen and (min-width: 1440px) {
+    margin-right: 8px;
+  }
 `,L=r.h3`
   color: rgba(239, 237, 232, 0.5);
   margin: 0;
@@ -381,7 +385,7 @@ import{f as V,s as r,r as p,j as e,d,u as C,W as X,c as D,X as S,a as I,Y as Z,Z
   white-space: nowrap;
   text-overflow: ellipsis;
 `,q=r.ul`
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -405,7 +409,9 @@ import{f as V,s as r,r as p,j as e,d,u as C,W as X,c as D,X as S,a as I,Y as Z,Z
 
   @media screen and (min-width: 1440px) {
     margin-left: 16px;
-    padding-right: 16px;
+    padding-right: 0px;
+
+    /* padding-right: 16px; */
   }
 `,A=r.li`
   display: flex;
