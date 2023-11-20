@@ -1,4 +1,4 @@
-import{s as o,ag as e}from"./index-1c746243.js";import{F as r}from"./index.esm-ce11b3c9.js";const p=o(r)`
+import{s as o,ag as e}from"./index-56ec3233.js";import{F as r}from"./index.esm-c33ed7a7.js";const p=o(r)`
   font-size: 14px;
   line-height: 18px;
   max-width: 335px;
@@ -19,6 +19,7 @@ import{s as o,ag as e}from"./index-1c746243.js";import{F as r}from"./index.esm-c
   &:hover,
   &:focus {
     border: 1px solid var(--color-main-one);
+    outline: none;
   }
 
   @media screen and (min-width: 768px) {
@@ -27,13 +28,13 @@ import{s as o,ag as e}from"./index-1c746243.js";import{F as r}from"./index.esm-c
     max-width: 364px;
     height: 52px;
   }
-`,d=o.div`
+`,l=o.div`
   color: ${i=>i.color||"var(--color-wrong-one)"};
   margin-top: 4px;
   /* margin-left: 4px; */
   line-height: 1.5;
   letter-spacing: 0.12px;
-`,l=o.div`
+`,d=o.div`
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -125,4 +126,4 @@ import{s as o,ag as e}from"./index-1c746243.js";import{F as r}from"./index.esm-c
     margin-left: 10px;
     /* margin-bottom: ${i=>i.$margin?"135px":"39px"}; */
   }
-`;export{h as B,d as E,p as I,g as L,u as N,f as P,x as S,b as T,l as W,c as a,m as b,s as c,w as d,v};
+`;export{h as B,l as E,p as I,g as L,u as N,f as P,x as S,b as T,d as W,c as a,m as b,s as c,w as d,v};
