@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-  import {
+import {
   selectCategoriesProducts,
   selectCategoryFilter,
   selectRecommendedFilter,
@@ -40,14 +40,11 @@ const ProductsFilters = () => {
     dispatch(getProductsCategories());
   }, [dispatch]);
 
-  // Перетворюємо рядок так, щоб перший символ був у верхньому регістрі,
-  // а решта рядка лишалася незмінною
   const capitalizeString = (string) => {
     return `${string[0].toUpperCase()}${string.slice(1)}`;
   };
 
   const categories = useSelector(selectCategoriesProducts);
-  // console.log('categories', categories);
 
   const categoriesList = [
     { value: 'all', label: 'All categories' },
@@ -57,17 +54,14 @@ const ProductsFilters = () => {
     })),
   ];
 
-  // Відповідає за оновлення стану
   const handleChange = (e) => {
     const { value } = e.target;
     setInputQuery(value);
-    console.log('inputQuery.value', inputQuery);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchValue = e.target.elements[0].value;
-    // setQuery(searchValue);
     dispatch(updateQueryFilter(searchValue));
   };
 
@@ -76,26 +70,24 @@ const ProductsFilters = () => {
   };
 
   const handleCategoriesChange = (e) => {
-    // setCategory(e);
     dispatch(updateCategoryFilter(e));
   };
 
   const handleRecomendedChange = (e) => {
-    // setRecommended(e);
     dispatch(updateRecommendedFilter(e));
   };
 
   return (
     <>
       <ProductsFiltersWrapper>
-         <form onSubmit={handleSubmit}>
-            <LabelEl>
-              <InputEl
-                type="text"
-                name="productsSearch"
-                placeholder="Search"
-                value={inputQuery}
-                onChange={handleChange}
+        <form onSubmit={handleSubmit}>
+          <LabelEl>
+            <InputEl
+              type="text"
+              name="productsSearch"
+              placeholder="Search"
+              value={inputQuery}
+              onChange={handleChange}
             />
             {inputQuery && (
               <SearchBtnClose type="button" onClick={resetForm}>

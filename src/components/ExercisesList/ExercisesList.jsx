@@ -39,10 +39,6 @@ const ExercisesList = () => {
   const params = useParams();
   const current = params.id;
 
-  // const category = params.filter;
-
-  // console.log(current, category, exeFilter);
-
   useEffect(() => {
     const paramsExe = {
       filter: params.filter,
@@ -52,25 +48,6 @@ const ExercisesList = () => {
       dispatch(getExercisesFilter(paramsExe));
     }
   }, [dispatch]);
-
-  // useEffect(() => {
-  //   if (data) {
-  //     const exePart = exePartFilter(data, current, category);
-  //     setArrFilter(exePart);
-  //   }
-  // }, [data, current, category]);
-  // function exePartFilter(arr, text, filter) {
-  //   let key = 'equipment';
-  //   if (filter === 'Muscles') {
-  //     key = 'target';
-  //   }
-  //   if (filter === 'Body parts') {
-  //     key === 'bodyPart';
-  //   }
-  //   const arrayExe = arr.filter((item) => item[key] === text);
-  //   console.log(arrayExe);
-  //   return arrayExe;
-  // }
 
   const ucFirst = (str) => {
     if (!str) return str;

@@ -48,7 +48,6 @@ const CountdownTimer = ({ key = 1, timer = 3, handleTime, dynamicBurnCal }) => {
         trailColor="#262625"
         onUpdate={(remainingTime) => {
           handleTime(remainingTime);
-          console.log('Only timer', remainingTime);
         }}
         onComplete={() => ({ shouldRepeat: true })}
       >

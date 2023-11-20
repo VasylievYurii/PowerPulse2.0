@@ -29,7 +29,6 @@ export const AddExerciseForm = ({
 }) => {
   const dispatch = useDispatch();
   const [dynamicBurnCal, setDynamicBurnCal] = useState(0);
-  console.log('dynamicBurnCal:', dynamicBurnCal);
   const [dynamicTime, setDynamicTime] = useState(0);
 
   useEffect(() => {
@@ -53,7 +52,6 @@ export const AddExerciseForm = ({
 
   const handleTime = (time) => {
     setDynamicTime(time);
-    console.log('dynamicTime:', time);
   };
 
   return (
