@@ -1,4 +1,4 @@
-import{j as t,a9 as m,aa as g,s as e,u,c as f,r as n,ab as w,d as o,K as j}from"./index-30b45571.js";function A({children:i}){return t.jsx(m,{children:t.jsx(g,{children:i})})}const b=e.div`
+import{j as t,ai as m,aj as g,s as e,u,c as f,r as n,ak as w,d as o,V as j}from"./index-8af81929.js";function V({children:i}){return t.jsx(m,{children:t.jsx(g,{children:i})})}const b=e.div`
   display: flex;
   flex-direction: column;
   height: 40%;
@@ -13,7 +13,7 @@ import{j as t,a9 as m,aa as g,s as e,u,c as f,r as n,ab as w,d as o,K as j}from"
     gap: 20%;
     justify-content: start;
   }
-`,N=({children:i})=>t.jsx(b,{children:i}),S=e.div`
+`,A=({children:i})=>t.jsx(b,{children:i}),S=e.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -31,7 +31,7 @@ import{j as t,a9 as m,aa as g,s as e,u,c as f,r as n,ab as w,d as o,K as j}from"
   @media (min-width: 1440) and (orientation: landscape) {
     transform: scale(1);
   } */
-`,V=({children:i})=>t.jsx(S,{children:i}),v=e.div`
+`,N=({children:i})=>t.jsx(S,{children:i}),v=e.div`
   display: flex;
   align-items: center;
   position: absolute;
@@ -100,11 +100,11 @@ import{j as t,a9 as m,aa as g,s as e,u,c as f,r as n,ab as w,d as o,K as j}from"
     width: 20px;
     height: 20px;
   }
-`,C=e.div`
+`,k=e.div`
   display: flex;
   gap: 8px;
   align-items: flex-end;
-`,k=e.p`
+`,C=e.p`
   margin-bottom: 4px;
   font-size: 16px;
   font-weight: 700;
@@ -155,4 +155,4 @@ import{j as t,a9 as m,aa as g,s as e,u,c as f,r as n,ab as w,d as o,K as j}from"
   @media screen and (min-width: 1440px) {
     flex-direction: column;
   }
-`,L=({children:i})=>t.jsx(E,{children:i}),D=()=>{const i=u(),{statistics:a}=f(l=>l.statistics),[s,h]=n.useState({}),[x,d]=n.useState(!1);return n.useEffect(()=>{a&&h(a)},[a]),n.useEffect(()=>{d(!0),i(w()),d(!1)},[i]),t.jsxs(L,{children:[t.jsxs(z,{children:[t.jsxs(v,{children:[t.jsx(c,{children:t.jsx(r,{children:t.jsx("use",{href:`${o}#icon-play`})})}),t.jsxs("div",{children:[t.jsx(k,{children:s.videoCount}),t.jsx(p,{children:"Video tutorial"})]})]}),t.jsxs(y,{children:[t.jsx(W,{children:t.jsx(r,{children:t.jsx("use",{href:`${o}#icon-run`})})}),t.jsxs(C,{children:[t.jsx(T,{children:(Math.round(s.burnedCaloriesSum)/1e3).toFixed(1)??"0"}),t.jsx(p,{children:"kcal"})]})]})]}),x&&t.jsx(j,{})]})};export{A as S,D as W,N as a,V as b};
+`,L=({children:i})=>t.jsx(E,{children:i}),D=()=>{const i=u(),{statistics:a}=f(l=>l.statistics),[s,h]=n.useState({}),[x,d]=n.useState(!1);return n.useEffect(()=>{a&&h(a)},[a]),n.useEffect(()=>{d(!0),i(w()),d(!1)},[i]),t.jsxs(L,{children:[t.jsxs(z,{children:[t.jsxs(v,{children:[t.jsx(c,{children:t.jsx(r,{children:t.jsx("use",{href:`${o}#icon-play`})})}),t.jsxs("div",{children:[t.jsx(C,{children:s.videoCount}),t.jsx(p,{children:"Video tutorial"})]})]}),t.jsxs(y,{children:[t.jsx(W,{children:t.jsx(r,{children:t.jsx("use",{href:`${o}#icon-run`})})}),t.jsxs(k,{children:[t.jsx(T,{children:(Math.round(s.burnedCaloriesSum)/1e3).toFixed(1)??"0"}),t.jsx(p,{children:"kcal"})]})]})]}),x&&t.jsx(j,{})]})};export{V as S,D as W,A as a,N as b};
