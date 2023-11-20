@@ -1,6 +1,6 @@
-import{s as n,j as o,L as r,a as e}from"./index-97000af7.js";import{S as t,a as s,b as a,W as p}from"./WelcomeStats-54da7974.js";const d=n.h1`
+import{s as n,j as o,L as r,a as e}from"./index-826ad499.js";import{S as t,a as s,b as a,W as p}from"./WelcomeStats-c15a883a.js";const d=n.h1`
   /* width: 335px; */
-  /* margin-bottom: 40px; */
+  margin-bottom: 40px;
   font-size: 38px;
   font-weight: 500;
   line-height: 1.05; /* 105.263% */

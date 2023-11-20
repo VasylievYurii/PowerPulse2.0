@@ -1,7 +1,7 @@
-import{j as t,ak as m,al as g,s as e,u,c as f,r as n,am as w,d,V as j}from"./index-97000af7.js";function V({children:i}){return t.jsx(m,{pathname:location.pathname,children:t.jsx(g,{children:i})})}const b=e.div`
+import{j as t,ak as m,al as g,s as e,u,c as f,r as n,am as w,d as o,V as j}from"./index-826ad499.js";function V({children:i}){return t.jsx(m,{pathname:location.pathname,children:t.jsx(g,{children:i})})}const b=e.div`
   display: flex;
   flex-direction: column;
-  height: 40%;
+  /* min-height: 40%; */
   justify-content: space-between;
   width: 100%;
 
@@ -9,14 +9,23 @@ import{j as t,ak as m,al as g,s as e,u,c as f,r as n,am as w,d,V as j}from"./ind
     width: 598px;
   }
   @media screen and (min-width: 1440px) {
-    height: auto;
-    gap: 20%;
+    /* height: auto;
+    gap: 20%; */
     justify-content: start;
   }
 `,A=({children:i})=>t.jsx(b,{children:i}),S=e.div`
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  padding-top: 90px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 140px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding-top: 151px;
+  }
+
+  /* gap: 40px; */
   /* @media (orientation: landscape) {
     transform: scale(0.7);
   }
@@ -36,7 +45,7 @@ import{j as t,ak as m,al as g,s as e,u,c as f,r as n,am as w,d,V as j}from"./ind
   align-items: center;
   position: absolute;
   left: 0;
-  top: 0;
+  top: 15px;
   gap: 8px;
   width: 146px;
   height: 66px;
@@ -91,7 +100,7 @@ import{j as t,ak as m,al as g,s as e,u,c as f,r as n,am as w,d,V as j}from"./ind
   height: 20px;
   padding: 4px;
   background-color: var(--color-main-three);
-`,r=e.svg`
+`,p=e.svg`
   width: 12px;
   height: 12px;
   fill: #efede8;
@@ -124,7 +133,7 @@ import{j as t,ak as m,al as g,s as e,u,c as f,r as n,am as w,d,V as j}from"./ind
   @media screen and (min-width: 768px) {
     font-size: 48px;
   }
-`,p=e.p`
+`,r=e.p`
   font-size: 12px;
   margin-bottom: 0;
   color: rgba(239, 237, 232, 0.65);
@@ -155,4 +164,4 @@ import{j as t,ak as m,al as g,s as e,u,c as f,r as n,am as w,d,V as j}from"./ind
   @media screen and (min-width: 1440px) {
     flex-direction: column;
   }
-`,L=({children:i})=>t.jsx(E,{children:i}),D=()=>{const i=u(),{statistics:a}=f(l=>l.statistics),[s,h]=n.useState({}),[x,o]=n.useState(!1);return n.useEffect(()=>{a&&h(a)},[a]),n.useEffect(()=>{o(!0),i(w()),o(!1)},[i]),t.jsxs(L,{children:[t.jsxs(z,{children:[t.jsxs(v,{children:[t.jsx(c,{children:t.jsx(r,{children:t.jsx("use",{href:`${d}#icon-play`})})}),t.jsxs("div",{children:[t.jsx(C,{children:s.videoCount}),t.jsx(p,{children:"Video tutorial"})]})]}),t.jsxs(y,{children:[t.jsx(W,{children:t.jsx(r,{children:t.jsx("use",{href:`${d}#icon-run`})})}),t.jsxs(k,{children:[t.jsx(T,{children:(Math.round(s.burnedCaloriesSum)/1e3).toFixed(1)??"0"}),t.jsx(p,{children:"kcal"})]})]})]}),x&&t.jsx(j,{})]})};export{V as S,D as W,A as a,N as b};
+`,L=({children:i})=>t.jsx(E,{children:i}),D=()=>{const i=u(),{statistics:a}=f(l=>l.statistics),[s,x]=n.useState({}),[h,d]=n.useState(!1);return n.useEffect(()=>{a&&x(a)},[a]),n.useEffect(()=>{d(!0),i(w()),d(!1)},[i]),t.jsxs(L,{children:[t.jsxs(z,{children:[t.jsxs(v,{children:[t.jsx(c,{children:t.jsx(p,{children:t.jsx("use",{href:`${o}#icon-play`})})}),t.jsxs("div",{children:[t.jsx(C,{children:s.videoCount}),t.jsx(r,{children:"Video tutorial"})]})]}),t.jsxs(y,{children:[t.jsx(W,{children:t.jsx(p,{children:t.jsx("use",{href:`${o}#icon-run`})})}),t.jsxs(k,{children:[t.jsx(T,{children:(Math.round(s.burnedCaloriesSum)/1e3).toFixed(1)??"0"}),t.jsx(r,{children:"kcal"})]})]})]}),h&&t.jsx(j,{})]})};export{V as S,D as W,A as a,N as b};
