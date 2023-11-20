@@ -1,4 +1,4 @@
-import{s as i,a as ee,b as te,u as Y,c as S,r as p,g as re,j as e,d as g,e as ie,l as ne,f as ae,h as k,i as oe,k as se,m as de,n as ce,S as le}from"./index-e00e1147.js";import{c as pe,a as C,b as y,d as xe,F as T,e as he,f as me}from"./index.esm-8b125ec8.js";import{s as ge,g as F,t as ue,a as fe}from"./react-datepicker-7762d2a7.js";import{f as J}from"./createClass-4b870abe.js";import{T as be}from"./TitlePage-8100a5ce.js";const ye=i.div`
+import{s as i,a as ee,b as te,u as Y,c as S,r as p,g as re,j as e,d as g,e as ie,l as ne,f as ae,h as k,i as oe,k as se,m as de,n as ce,S as le}from"./index-5ecb6ea0.js";import{c as pe,a as C,b as y,d as xe,F as T,e as he,f as me}from"./index.esm-42faf9b2.js";import{s as ge,g as F,t as ue,a as fe}from"./react-datepicker-de06c447.js";import{f as J}from"./createClass-75791b68.js";import{T as be}from"./TitlePage-efd12c5e.js";const ye=i.div`
   display: flex;
   gap: 14px;
   justify-content: center;
@@ -668,6 +668,7 @@ select.custom-select-style option{
   font-size: 10px;
   color: #e6533c;
   margin-top: 4px;
+  max-width: 146px;
 `,qr=i.button`
   display: flex;
   align-items: center;
