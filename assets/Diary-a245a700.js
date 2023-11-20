@@ -1,4 +1,4 @@
-import{f as K,s as r,r as p,j as e,d,u as C,W as Q,c as u,X as R,a as P,Y as U,Z as B,$ as ee,a0 as te,a1 as ie,a2 as re,V as $,a3 as ne,a4 as oe,a5 as ae,S as se}from"./index-5ecb6ea0.js";import{T as de}from"./TitlePage-efd12c5e.js";import{b as ce,c as le,t as pe}from"./react-datepicker-de06c447.js";import{f as W}from"./createClass-75791b68.js";const xe=K`
+import{f as K,s as r,r as p,j as e,a as d,u as C,W as Q,d as u,X as R,b as P,Y as U,Z as B,$ as ee,a0 as te,a1 as ie,a2 as re,V as $,a3 as ne,a4 as oe,a5 as ae,S as se}from"./index-63ef9b5a.js";import{T as de}from"./TitlePage-74f3e254.js";import{b as ce,c as le,t as pe}from"./react-datepicker-681a87a4.js";import{f as W}from"./createClass-bc58ac69.js";const xe=K`
 
   .react-datepicker__wrapper {
     position: relative;
@@ -282,7 +282,7 @@ import{f as K,s as r,r as p,j as e,d,u as C,W as Q,c as u,X as R,a as P,Y as U,Z
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;
   }
-`,ye=r.div`
+`,be=r.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -291,7 +291,7 @@ import{f as K,s as r,r as p,j as e,d,u as C,W as Q,c as u,X as R,a as P,Y as U,Z
   @media screen and (min-width: 768px) {
     gap: 32px;
   }
-`,be=r.div`
+`,ye=r.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -547,7 +547,7 @@ import{f as K,s as r,r as p,j as e,d,u as C,W as Q,c as u,X as R,a as P,Y as U,Z
     flex-direction: row;
     gap: 16px;
   }
-`,y=r.li`
+`,b=r.li`
 position: relative;
   width: 159px;
   flex-basis: calc((100% - 1*13px) / 2);
@@ -572,7 +572,7 @@ position: relative;
     font-size: 24px;
     line-height: 1.33;
   }
-`,b=r.h3`
+`,y=r.h3`
   display: flex;
   gap: 8px;
   align-items: center;
@@ -628,4 +628,4 @@ position: relative;
   display: block;
   width: 24px;
   height: 24px;
-`,M=()=>{const i=u(ee),t=u(te),a=u(ie),{targetBmr:s,targetTime:o}=u(re),w=u(R),n=u(B),c=Math.round(s),l=Math.round(w.reduce((_,D)=>_+D.calories,0)),j=Math.round(n.reduce((_,D)=>_+D.burnedCalories,0)),v=n.reduce((_,D)=>_+D.time,0),f=c-l+j,T=o-v;let z="rgba(239, 237, 232, 0.20)",I="rgba(239, 237, 232, 0.20)";return f<0&&(z="var(--color-wrong-two)",I="var(--color-approved-one)"),e.jsxs(We,{children:[e.jsxs(Ce,{children:[e.jsxs(y,{color:"var(--color-main-one)",children:[e.jsxs(b,{color:"rgba(239, 237, 232, 0.80)",children:[e.jsx(k,{fill:"var(--color-main-two)",stroke:"var(--color-main-two)",children:e.jsx("use",{href:`${d}#icon-food`})}),"Daily calorie intake"]}),i?e.jsx($,{color:"var(--color-text)"}):c!==0?c:e.jsx(Te,{children:"Please enter your details in the profile"})]}),e.jsxs(y,{color:"var(--color-main-one)",children:[e.jsxs(b,{color:"rgba(239, 237, 232, 0.80)",children:[e.jsx(k,{fill:"var(--color-main-two)",stroke:"var(--color-main-two)",children:e.jsx("use",{href:`${d}#icon-dumbbell`})}),"Daily norm of sports"]}),o," min"]}),e.jsxs(y,{children:[e.jsxs(b,{children:[e.jsx(k,{fill:"var(--color-main-two)",stroke:"var(--color-main-two)",children:e.jsx("use",{href:`${d}#icon-apple`})}),"Calories consumed"]}),t?e.jsx($,{}):l]}),e.jsxs(y,{children:[e.jsxs(b,{children:[e.jsx(k,{fill:"var(--color-main-two)",stroke:"var(--color-main-two)",children:e.jsx("use",{href:`${d}#icon-calories`})}),"Calories burned"]}),a?e.jsx($,{}):j]}),e.jsxs(y,{$border:z,children:[e.jsxs(b,{children:[e.jsx(k,{fill:"var(--color-main-two)",stroke:"var(--color-main-two)",children:e.jsx("use",{href:`${d}#icon-bubble`})}),"The rest of the calories"]}),t||a?e.jsx($,{}):f]}),e.jsxs(y,{$border:I,children:[e.jsxs(b,{children:[e.jsx(k,{fill:"var(--color-main-two)",stroke:"var(--color-main-two)",children:e.jsx("use",{href:`${d}#icon-run`})}),"The rest of sports"]}),a?e.jsx($,{}):f<0?`+ ${T}`:T," min"]})]}),e.jsxs(ze,{children:[e.jsx(Ee,{children:e.jsx(Ie,{children:e.jsx("use",{href:`${d}#icon-exclamation`})})}),"Record all your meals in a calorie diary every day. This will help me be aware of my nutrition and make me responsible for my choices."]})]})},Pe=()=>{const i=C(),[t,a]=p.useState(window.innerWidth),s=()=>a(window.innerWidth);p.useEffect(()=>(window.addEventListener("resize",s),()=>window.removeEventListener("resize",s)),[]);const[o,w]=p.useState(W(new Date,"yyyy-MM-dd")),n=c=>{const l=c.toISOString();w(l)};return p.useEffect(()=>{i(ne(o))},[o]),p.useEffect(()=>{i(oe(o))},[o]),p.useEffect(()=>{i(ae())},[]),e.jsxs(se,{children:[e.jsxs(je,{children:[e.jsx(de,{children:"Diary"}),e.jsx(fe,{onDateChange:n})]}),t>=768||e.jsx(M,{}),e.jsxs(be,{children:[e.jsxs(ye,{children:[e.jsx(_e,{}),e.jsx($e,{})]}),t<768||e.jsx(M,{})]})]})};export{Pe as default};
+`,M=()=>{const i=u(ee),t=u(te),a=u(ie),{targetBmr:s,targetTime:o}=u(re),w=u(R),n=u(B),c=Math.round(s),l=Math.round(w.reduce((_,D)=>_+D.calories,0)),j=Math.round(n.reduce((_,D)=>_+D.burnedCalories,0)),v=n.reduce((_,D)=>_+D.time,0),f=c-l+j,T=o-v;let z="rgba(239, 237, 232, 0.20)",I="rgba(239, 237, 232, 0.20)";return f<0&&(z="var(--color-wrong-two)",I="var(--color-approved-one)"),e.jsxs(We,{children:[e.jsxs(Ce,{children:[e.jsxs(b,{color:"var(--color-main-one)",children:[e.jsxs(y,{color:"rgba(239, 237, 232, 0.80)",children:[e.jsx(k,{fill:"var(--color-main-two)",stroke:"var(--color-main-two)",children:e.jsx("use",{href:`${d}#icon-food`})}),"Daily calorie intake"]}),i?e.jsx($,{color:"var(--color-text)"}):c!==0?c:e.jsx(Te,{children:"Please enter your details in the profile"})]}),e.jsxs(b,{color:"var(--color-main-one)",children:[e.jsxs(y,{color:"rgba(239, 237, 232, 0.80)",children:[e.jsx(k,{fill:"var(--color-main-two)",stroke:"var(--color-main-two)",children:e.jsx("use",{href:`${d}#icon-dumbbell`})}),"Daily norm of sports"]}),o," min"]}),e.jsxs(b,{children:[e.jsxs(y,{children:[e.jsx(k,{fill:"var(--color-main-two)",stroke:"var(--color-main-two)",children:e.jsx("use",{href:`${d}#icon-apple`})}),"Calories consumed"]}),t?e.jsx($,{}):l]}),e.jsxs(b,{children:[e.jsxs(y,{children:[e.jsx(k,{fill:"var(--color-main-two)",stroke:"var(--color-main-two)",children:e.jsx("use",{href:`${d}#icon-calories`})}),"Calories burned"]}),a?e.jsx($,{}):j]}),e.jsxs(b,{$border:z,children:[e.jsxs(y,{children:[e.jsx(k,{fill:"var(--color-main-two)",stroke:"var(--color-main-two)",children:e.jsx("use",{href:`${d}#icon-bubble`})}),"The rest of the calories"]}),t||a?e.jsx($,{}):f]}),e.jsxs(b,{$border:I,children:[e.jsxs(y,{children:[e.jsx(k,{fill:"var(--color-main-two)",stroke:"var(--color-main-two)",children:e.jsx("use",{href:`${d}#icon-run`})}),"The rest of sports"]}),a?e.jsx($,{}):f<0?`+ ${T}`:T," min"]})]}),e.jsxs(ze,{children:[e.jsx(Ee,{children:e.jsx(Ie,{children:e.jsx("use",{href:`${d}#icon-exclamation`})})}),"Record all your meals in a calorie diary every day. This will help me be aware of my nutrition and make me responsible for my choices."]})]})},Pe=()=>{const i=C(),[t,a]=p.useState(window.innerWidth),s=()=>a(window.innerWidth);p.useEffect(()=>(window.addEventListener("resize",s),()=>window.removeEventListener("resize",s)),[]);const[o,w]=p.useState(W(new Date,"yyyy-MM-dd")),n=c=>{const l=c.toISOString();w(l)};return p.useEffect(()=>{i(ne(o))},[o]),p.useEffect(()=>{i(oe(o))},[o]),p.useEffect(()=>{i(ae())},[]),e.jsxs(se,{children:[e.jsxs(je,{children:[e.jsx(de,{children:"Diary"}),e.jsx(fe,{onDateChange:n})]}),t>=768||e.jsx(M,{}),e.jsxs(ye,{children:[e.jsxs(be,{children:[e.jsx(_e,{}),e.jsx($e,{})]}),t<768||e.jsx(M,{})]})]})};export{Pe as default};
