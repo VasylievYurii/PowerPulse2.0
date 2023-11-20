@@ -22,15 +22,20 @@ export const selectMealsError = (state) => state.meals.error;
 // =========== P R O D U C T S ==================
 
 export const selectProducts = (state) => state.products.products;
+export const selectProductsTotal = (state) => state.products.total;
 export const selectCategoriesProducts = (state) => state.products.categories;
 export const selectProductsIsLoading = (state) => state.products.isLoading;
 export const selectProductsError = (state) => state.products.error;
+export const selectQueryFilter = (state) => state.filters.query;
+export const selectCategoryFilter = (state) => state.filters.category;
+export const selectRecommendedFilter = (state) => state.filters.recommended;
 
 // =========== U S E R  P R O F I L E ============
 
 export const selectUserProfile = (state) => state.profile.userProfile;
 export const selectUserProfileIsLoading = (state) => state.profile.isLoading;
 export const selectUserProfileError = (state) => state.profile.Error;
+export const selectUserBlood = (state) => state.profile.profile.blood;
 
 // =========== I N D I C A T O R S ==================
 

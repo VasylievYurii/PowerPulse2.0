@@ -23,7 +23,11 @@ const ProductsItem = ({ title, calories, category, weight, recommended }) => {
 
   return (
     <ProductItemContainer>
-      {showModal && <BasicModalWindow onClick={toggleModal} ><AddProductForm calories={calories} onClick={toggleModal} /></BasicModalWindow>}
+      {showModal && (
+        <BasicModalWindow onClick={toggleModal}>
+          <AddProductForm calories={calories} onClick={toggleModal} />
+        </BasicModalWindow>
+      )}
       <section>
         <TopLineWrapper>
           <LeftTopLabelWrapper>
@@ -36,7 +40,7 @@ const ProductsItem = ({ title, calories, category, weight, recommended }) => {
             <AddButton type="button" onClick={toggleModal}>
               <span>Add</span>
               <svg>
-                <use href={`${sprite}#icon-next`} />
+                <use href={`${sprite}#icon-arrow`} />
               </svg>
             </AddButton>
           </RightTopBlockWrapper>

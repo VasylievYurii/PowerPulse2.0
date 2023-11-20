@@ -28,7 +28,8 @@ export const getProducts = createAsyncThunk(
 
       const { data } = await instance.get(url);
       console.log('data', data.data);
-      return data.data;
+      console.log('total', data.total);
+      return data;
     } catch (e) {
       console.log(e.message);
       return thunkAPI.rejectWithValue(e.message);

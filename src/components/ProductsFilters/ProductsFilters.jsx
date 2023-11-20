@@ -1,15 +1,22 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectCategoriesProducts } from '../../redux/selectors';
+import {
+  selectCategoriesProducts,
+  selectCategoryFilter,
+  selectRecommendedFilter,
+} from '../../redux/selectors';
 // import { selectProduct } from '../../redux/selectors';
 import Select from 'react-select';
 import { useMediaQuery } from 'react-responsive';
 import sprite from '../../assets/sprite.svg';
 // import { productReducer } from '../../redux/products/productsSlice';
+import { getProductsCategories } from '../../redux/products/productsOperations';
 import {
-  getProductsCategories,
-  getProducts,
-} from '../../redux/products/productsOperations';
+  updateQueryFilter,
+  updateCategoryFilter,
+  updateRecommendedFilter,
+} from '../../redux/products/filtersSlice';
+import { options } from '../../redux/products/filtersConstants';
 
 import {
   ProductsFiltersList,
@@ -22,31 +29,13 @@ import {
   SelectContainer,
 } from './ProductsFilters.styled';
 
-const options = [
-  { value: 'all', label: 'All' },
-  { value: 'true', label: 'Recommended ' },
-  { value: 'false', label: 'Not recommended' },
-];
-
 const ProductsFilters = () => {
-  const [query, setQuery] = useState('');
-  const [category, setCategory] = useState({
-    value: 'all',
-    label: 'All categories',
-  });
-  const [recommended, setRecommended] = useState(options[0]);
+  const [inputQuery, setInputQuery] = useState('');
+
+  const category = useSelector(selectCategoryFilter);
+  const recommended = useSelector(selectRecommendedFilter);
 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(
-      getProducts({
-        recommended: recommended.value,
-        category: category.value,
-        query,
-      }),
-    );
-  }, [recommended, category, query, dispatch]);
 
   useEffect(() => {
     dispatch(getProductsCategories());
@@ -72,27 +61,30 @@ const ProductsFilters = () => {
   // Відповідає за оновлення стану
   const handleChange = (e) => {
     const { value } = e.target;
-    setQuery(value);
+    setInputQuery(value);
 
-    console.log('setQuery.value', query);
+    console.log('inputQuery.value', inputQuery);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const searchValue = e.target.elements[0].value;
-    setQuery(searchValue);
+    // setQuery(searchValue);
+    dispatch(updateQueryFilter(searchValue));
   };
 
   const resetForm = () => {
-    setQuery('');
+    setInputQuery('');
   };
 
   const handleCategoriesChange = (e) => {
-    setCategory(e);
+    // setCategory(e);
+    dispatch(updateCategoryFilter(e));
   };
 
   const handleRecomendedChange = (e) => {
-    setRecommended(e);
+    // setRecommended(e);
+    dispatch(updateRecommendedFilter(e));
   };
 
   const isMobile = useMediaQuery({ minWidth: 375 });
@@ -175,10 +167,10 @@ const ProductsFilters = () => {
                 type="text"
                 name="productsSearch"
                 placeholder="Search"
-                value={query}
+                value={inputQuery}
                 onChange={handleChange}
               />
-              {query && (
+              {inputQuery && (
                 <SearchBtnClose type="button" onClick={resetForm}>
                   <SearchSvgClose>
                     <use href={sprite + '#icon-cross'}></use>
