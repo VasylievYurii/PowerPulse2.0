@@ -64,6 +64,10 @@ export const SectionsWrapTitle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+    @media screen and (min-width: 1440px) {
+    margin-right: 8px;
+  }
 `;
 
 export const DiaryTitle = styled.h3`
@@ -128,7 +132,7 @@ export const DiarySupTitleTablet = styled.li`
 `;
 
 export const DiaryLists = styled.ul`
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -152,7 +156,9 @@ export const DiaryLists = styled.ul`
 
   @media screen and (min-width: 1440px) {
     margin-left: 16px;
-    padding-right: 16px;
+    padding-right: 0px;
+
+    /* padding-right: 16px; */
   }
 `;
 
