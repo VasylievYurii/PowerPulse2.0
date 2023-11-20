@@ -38,6 +38,7 @@ export const SectionNoAuth = styled.section`
 
   @media screen and (min-width: 768px) {
     background-image: url(${welcomeTablet});
+    background-size: 55%;
 
     @media only screen and (min-resolution: 192dpi),
       only screen and (min-resolution: 2dppx) {
@@ -48,6 +49,7 @@ export const SectionNoAuth = styled.section`
   @media screen and (min-width: 1440px) {
     background-image: url(${welcomeDesktop});
     height: 100vh;
+    background-size: 47%;
     @media only screen and (min-resolution: 192dpi),
       only screen and (min-resolution: 2dppx) {
       background-image: url(${welcomeDesktop2x});

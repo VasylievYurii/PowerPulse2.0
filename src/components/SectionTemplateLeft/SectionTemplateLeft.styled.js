@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const LeftSectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 40%;
+  /* min-height: 40%; */
   justify-content: space-between;
   width: 100%;
 
@@ -11,8 +11,8 @@ export const LeftSectionWrapper = styled.div`
     width: 598px;
   }
   @media screen and (min-width: 1440px) {
-    height: auto;
-    gap: 20%;
+    /* height: auto;
+    gap: 20%; */
     justify-content: start;
   }
 `;
