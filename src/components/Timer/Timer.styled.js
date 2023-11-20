@@ -1,17 +1,21 @@
 import styled from 'styled-components';
 
 export const TimerWrapper = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  > div {
+    width: 124px;
+    height: auto;
+  } */
 `;
 export const TimerTitle = styled.h1`
-  color: rgba(239, 237, 232, 0.4);
+  /* color: rgba(239, 237, 232, 0.4);
   font-size: 10px;
   line-height: 1.4;
   margin-top: 14px;
-  margin-bottom: 8px;
+  margin-bottom: 8px; */
 `;
 
 export const FormattedTitle = styled.p`

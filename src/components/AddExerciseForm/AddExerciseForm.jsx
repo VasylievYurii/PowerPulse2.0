@@ -1,26 +1,17 @@
-import ExersiceFormList from './AddExersiceFormList/AddExersiceFormList';
-
-// import BasicModalWindow from '../BasicModalWindow/BasicModalWindow';
-// import AddExerciseSuccess from '../AddExerciseSuccess/AddExerciseSuccess';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { getUserParams } from '../../redux/auth/operations';
+import { addWorkout } from '../../redux/workouts/workoutsOperations';
+import { toast } from 'react-toastify';
+import AddExerciseFormList from './AddExerciseFormList';
+import CountdownTimer from '../CountdownTimer';
 import {
   Container,
   Gif,
-  TimerWrapper,
-  ButtonContainer,
   Button,
-  Title,
+  ExerciseWrapper,
+  ListWrapper,
 } from './AddExerciseForm.styled';
-
-import Timer from '../Timer/Timer';
-import { getUserParams } from '../../redux/auth/operations';
-import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
-import { addWorkout } from '../../redux/workouts/workoutsOperations';
-// import { selectOneWorkout } from '../../redux/selectors';
-// import { useSelector } from 'react-redux';
-
-
 
 export const AddExerciseForm = ({
   onClick,
@@ -32,9 +23,6 @@ export const AddExerciseForm = ({
   equipment,
   onClickToggle,
 }) => {
-  // const oneWorkout = useSelector(selectOneWorkout);
-  //  console.log(oneWorkout);
-
   const [dinamicBurnCal, setDinamicBurnCal] = useState(0);
   const [dinamicTime, setDinamicTime] = useState(0);
 
@@ -54,33 +42,23 @@ export const AddExerciseForm = ({
 
   return (
     <Container>
+      <ExerciseWrapper>
+        <Gif src={gifUrl} alt={name} />
+        <CountdownTimer />
+      </ExerciseWrapper>
 
-      <Gif src={gifUrl} alt={name} />
-
-      <Title>Time</Title>
-
-      <TimerWrapper>
-
-        <Timer
-        // data={data}
-        // setDinamicBurnCal={setDinamicBurnCal}
-        // dinamicBurnCal={dinamicBurnCal}
-        // setDinamicTime={setDinamicTime}
-        />
-      </TimerWrapper>
-      <div>
-        <ExersiceFormList
+      <ListWrapper>
+        <AddExerciseFormList
           name={name}
           bodypart={bodyPart}
           target={target}
           equipment={equipment}
         />
-        <ButtonContainer>
-          <Button type="button" onClick={handleOpenSuccessModal}>
-            Add to diary
-          </Button>
-        </ButtonContainer>
-      </div>
+
+        <Button type="button" onClick={handleOpenSuccessModal}>
+          Add to diary
+        </Button>
+      </ListWrapper>
     </Container>
   );
 };
