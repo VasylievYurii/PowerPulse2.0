@@ -29,17 +29,30 @@ const toastError = (text) => {
     theme: 'dark',
   });
 };
+const toastSuccess = (text) => {
+  toast.success(text, {
+    position: 'top-center',
+    autoClose: 7000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: 'dark',
+  });
+};
 
 const instance = axios.create({
   baseURL: 'https://powerpulse-t5-backend.onrender.com/api/',
+  // baseURL: 'http://localhost:3000/api/',
 });
 
 const verifyEmail = async (verifyToken) => {
   try {
-    const { data } = await instance.get(`verify/${verifyToken}`);
-    toastError(`All is OK! ${data}`);
+    const { data } = await instance.get(`auth/verify/${verifyToken}`);
+    toastSuccess(`${data.message}! Use your credentials to login`);
   } catch (error) {
-    toastError(`Oops! Something was wrong... ${error.response.data}`);
+    toastError(`Error when verifyin email: ${error.response.data}`);
   }
 };
 
