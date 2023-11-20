@@ -64,7 +64,7 @@ const ProductsItem = ({
             <AddButton type="button" onClick={toggleModal}>
               <span>Add</span>
               <svg>
-                <use href={`${sprite}#icon-next`} />
+                <use href={`${sprite}#icon-arrow`} />
               </svg>
             </AddButton>
           </RightTopBlockWrapper>
