@@ -27,6 +27,7 @@ import {
   WrapperUseCard,
   Img,
   Input,
+  LoaderAvatarStyled,
 } from './UserCard.styled';
 
 const UserCard = () => {
@@ -92,6 +93,7 @@ const UserCard = () => {
               <use href={`${sprite}#icon-user`} />
             </IconWrapperUser>
           ) : null}
+          {loading && <LoaderAvatarStyled></LoaderAvatarStyled>}
         </WrapperUser>
         <ButtonUser htmlFor="file-loader">
           <IconPluse>
@@ -139,8 +141,6 @@ const UserCard = () => {
           <use href={`${sprite}#icon-logout`} />
         </IconLogout>
       </WrapperLogout>
-
-      {loading && <Loader />}
     </WrapperUseCard>
   );
 };

@@ -1,5 +1,6 @@
 import { Field } from 'formik';
 import styled from 'styled-components';
+import { ErrorMessage } from 'formik';
 
 export const Container = styled.div`
   padding: 38px 22px;
@@ -137,3 +138,10 @@ export const PFOutlinedBtn = styled(PFButton)`
     width: 142px;
   }
 `;
+
+export const ErrorMessageStyled = styled(ErrorMessage)`
+color: var(--color-wrong-one);
+margin-top: 4px;
+line-height: 1.5;
+letter-spacing: 0.12px;
+`

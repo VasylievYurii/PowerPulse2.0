@@ -91,11 +91,8 @@ const ExercisesItem = ({
         </BasicModalWindow>
       )}
       {showModalSuccess && (
-        <BasicModalWindow>
-          <AddExerciseSuccess
-            exeId={exeId}
-            onClick={handleToggleSuccessModal}
-          />
+        <BasicModalWindow onClick={handleToggleSuccessModal}>
+          <AddExerciseSuccess onClick={handleToggleSuccessModal} />
         </BasicModalWindow>
       )}
     </>

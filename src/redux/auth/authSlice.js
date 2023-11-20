@@ -73,7 +73,7 @@ const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = null;
       })
-      .addCase(refreshUser.pending, (state, action) => {
+      .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;
       })
       .addMatcher(

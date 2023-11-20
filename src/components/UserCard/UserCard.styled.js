@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { LoaderStyled } from '../Loader/Loader.styled';
 
 export const WrapperTwoIndicators = styled.div`
   display: flex;
@@ -233,3 +234,5 @@ export const WrapperProfile = styled.div`
     flex-direction: row-reverse;
   }
 `;
+
+export const LoaderAvatarStyled = styled(LoaderStyled)``;

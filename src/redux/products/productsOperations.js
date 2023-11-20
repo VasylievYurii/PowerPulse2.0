@@ -26,7 +26,10 @@ export const getProducts = createAsyncThunk(
       const url = `products?${queryString}&page=1&limit=20`;
 
       const { data } = await instance.get(url);
-      return data.data;
+      console.log('data', data.data);
+      console.log('total', data.total);
+      return data;
+
     } catch (e) {
       console.log(e.message);
       return thunkAPI.rejectWithValue(e.message);

@@ -6,9 +6,10 @@ const initialProductsState = {
   categories: [],
   isLoading: false,
   error: null,
+  total: 0,
 };
 
-const productsFilterSlice = createSlice({
+const productsSlice = createSlice({
   name: 'products',
   initialState: initialProductsState,
 
@@ -17,7 +18,9 @@ const productsFilterSlice = createSlice({
       .addCase(getProducts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.products = action.payload;
+        state.products = action.payload.data;
+        // state.products.push(...action.payload.data);
+        state.total = action.payload.total;
       })
       .addCase(getProducts.pending, (state) => {
         state.isLoading = true;
@@ -45,5 +48,4 @@ const productsFilterSlice = createSlice({
   },
 });
 
-export const productsReducer = productsFilterSlice.reducer;
-export const filterReducer = productsFilterSlice.actions;
+export const productsReducer = productsSlice.reducer;
