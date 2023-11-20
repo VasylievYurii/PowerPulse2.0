@@ -38,6 +38,7 @@ export const DashList = styled.ul`
 `;
 
 export const DashIndicators = styled.li`
+position: relative;
   width: 159px;
   flex-basis: calc((100% - 1*13px) / 2);
   height: 96px;
