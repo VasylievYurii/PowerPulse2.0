@@ -3,7 +3,16 @@ import styled from 'styled-components';
 export const SecondWrapperTemplateStyled = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  padding-top: 90px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 140px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding-top: 151px;
+  }
+
+  /* gap: 40px; */
   /* @media (orientation: landscape) {
     transform: scale(0.7);
   }

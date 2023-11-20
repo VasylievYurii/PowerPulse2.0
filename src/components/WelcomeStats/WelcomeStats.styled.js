@@ -5,7 +5,7 @@ export const VideoStats = styled.div`
   align-items: center;
   position: absolute;
   left: 0;
-  top: 0;
+  top: 15px;
   gap: 8px;
   width: 146px;
   height: 66px;

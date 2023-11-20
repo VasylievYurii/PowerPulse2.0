@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import sprite from '../../assets/sprite.svg';
 
 export const Heading = styled.h1`
   /* width: 335px; */
-  /* margin-bottom: 40px; */
+  margin-bottom: 40px;
   font-size: 38px;
   font-weight: 500;
   line-height: 1.05; /* 105.263% */
