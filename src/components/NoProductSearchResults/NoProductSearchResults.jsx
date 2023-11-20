@@ -5,7 +5,7 @@ import {
   Wrapper,
 } from './NoProductSearchResults.styled';
 
-export const NoProductSearchResult = () => {
+const NoProductSearchResult = () => {
   return (
     <Wrapper>
       <Text>
@@ -18,3 +18,5 @@ export const NoProductSearchResult = () => {
     </Wrapper>
   );
 };
+
+export default NoProductSearchResult;
