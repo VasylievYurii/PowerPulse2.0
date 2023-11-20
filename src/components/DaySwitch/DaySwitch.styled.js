@@ -144,6 +144,7 @@ export const CalendarGlobalStyles = createGlobalStyle`
     background-color: black !important;
     color:#3e85f3;
     font-size: 14px;
+    transition: background-color 0.3s var(--timing-function) !important;
   }
 
   .react-datepicker__day--selected:hover {
@@ -237,6 +238,7 @@ export const IconWrapper = styled.svg`
   stroke: var(--color-text);
   fill: transparent;
   cursor: pointer;
+  transition: stroke 0.3s var(--timing-function);
   &:hover {
     stroke: var(--color-main-two);
   }
@@ -262,6 +264,7 @@ export const IconWrapperHeader = styled.svg`
   stroke: var(--color-text);
   fill: transparent;
   cursor: pointer;
+  transition: stroke 0.3s var(--timing-function);
   &:hover {
     stroke: white;
   }
@@ -275,4 +278,17 @@ export const HeaderData = styled.p`
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.32px;
+`;
+
+export const CircleWrapper = styled.button`
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  transition: background-color 0.3s var(--timing-function);
+  cursor: pointer;
+  &:hover {
+    background-color: var(--color-main-one);
+  }
 `;

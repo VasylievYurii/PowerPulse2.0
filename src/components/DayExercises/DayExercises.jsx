@@ -44,22 +44,22 @@ const DayExercises = () => {
       {workouts.length !== 0 ? (
         <>
           <WrapTitlesTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '206px' : '212px'}>
+            <DiarySupTitleTablet width={points < 1440 ? '90px' : '115px'}>
               Body Part
             </DiarySupTitleTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '130px' : '166px'}>
+            <DiarySupTitleTablet width={points < 1440 ? '132px' : '157px'}>
               Equipment
             </DiarySupTitleTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '130px' : '166px'}>
+            <DiarySupTitleTablet width={points < 1440 ? '128px' : '131px'}>
               Name
             </DiarySupTitleTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '92px' : '105px'}>
+            <DiarySupTitleTablet width={points < 1440 ? '84px' : '106px'}>
               Target
             </DiarySupTitleTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '92px' : '105px'}>
+            <DiarySupTitleTablet width={points < 1440 ? '78px' : '91px'}>
               Burned Calories
             </DiarySupTitleTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '82px' : '110px'}>
+            <DiarySupTitleTablet width={points < 1440 ? '72px' : '82px'}>
               Time
             </DiarySupTitleTablet>
           </WrapTitlesTablet>

@@ -47,34 +47,4 @@ export const addWorkout = createAsyncThunk(
   },
 );
 
-export const addExercise = createAsyncThunk(
-  'addExercise',
-  async (exercise, thunkAPI) => {
-    console.log('exercise', exercise);
-    const {
-      date,
-      bodyPart,
-      target,
-      time,
-      exerciseId,
-      equipment,
-      name,
-      burnedCalories,
-    } = exercise;
-    try {
-      const response = await axios.post('/diary/addexercise', {
-        date,
-        bodyPart,
-        target,
-        time,
-        exerciseId,
-        equipment,
-        name,
-        burnedCalories,
-      });
-      return response.data;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  },
-);
+

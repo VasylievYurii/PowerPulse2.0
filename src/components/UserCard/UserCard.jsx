@@ -1,3 +1,9 @@
+import sprite from '../../assets/sprite.svg';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { logOutUser, updateAvatar } from '../../redux/auth/operations';
+import Loader from '../Loader';
+import { getTarget } from '../../redux/userProfile/userProfileOperations';
 import {
   IconWrapper,
   WrapperIndicators,
@@ -21,20 +27,14 @@ import {
   WrapperUseCard,
   Img,
   Input,
+  LoaderAvatarStyled,
 } from './UserCard.styled';
-import sprite from '../../assets/sprite.svg';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { logOutUser, updateAvatar } from '../../redux/auth/operations';
-import Loader from '../Loader';
-import { Link } from 'react-router-dom';
 
 const UserCard = () => {
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
-  const [imageURL, setImageURL] = useState();
-  const [colories, setColories] = useState('0');
-  const [physical, setPhysical] = useState('0');
+  const { target } = useSelector((state) => state.profile);
+  const [imageURL, setImageURL] = useState(userData.avatarURL ?? null);
   const [user, setUser] = useState('Hello user!');
   const [loading, setLoading] = useState(false);
 
@@ -44,6 +44,10 @@ const UserCard = () => {
       setImageURL(userData.avatarURL);
     }
   }, [userData]);
+
+  useEffect(() => {
+    dispatch(getTarget());
+  }, [dispatch]);
 
   const fileReader = new FileReader();
   fileReader.onloadend = () => {
@@ -55,14 +59,17 @@ const UserCard = () => {
     const file = e.target.files[0];
     fileReader.readAsDataURL(file);
     setLoading(true);
+
     try {
-      dispatch(updateAvatar(file));
+      await dispatch(updateAvatar(file));
+      // setImageURL(fileReader.result);
     } catch (error) {
       if (error.response && error.response.status === 404) {
         setImageURL(null);
       }
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const logout = () => {
@@ -72,24 +79,21 @@ const UserCard = () => {
   return (
     <WrapperUseCard>
       <Input id="file-loader" type="file" onChange={uploadPhoto} />
-
       <WrapperUserDiv>
         <WrapperUser>
-          {imageURL ? (
+          {imageURL && !loading ? (
             <Img
               src={`https://powerpulse-t5-backend.onrender.com/${imageURL}`}
               sizes="90px"
-              onError={() => {
-                setImageURL(null);
-                setLoading(false);
-              }}
               loading="lazy"
             />
-          ) : (
+          ) : null}
+          {imageURL && loading ? (
             <IconWrapperUser>
               <use href={`${sprite}#icon-user`} />
             </IconWrapperUser>
-          )}
+          ) : null}
+          {loading && <LoaderAvatarStyled></LoaderAvatarStyled>}
         </WrapperUser>
         <ButtonUser htmlFor="file-loader">
           <IconPluse>
@@ -109,7 +113,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily calorie intake</p>
           </WrapperText>
-          <TextSpan>{colories}</TextSpan>
+          <TextSpan>{Math.round(target.targetBmr) ?? '0'}</TextSpan>
         </WrapperIndicators>
         <WrapperIndicators>
           <WrapperText>
@@ -118,7 +122,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily physical activity</p>
           </WrapperText>
-          <TextSpan>{physical} min</TextSpan>
+          <TextSpan>{target.targetTime ?? '0'} min</TextSpan>
         </WrapperIndicators>
       </WrapperTwoIndicators>
       <WrapperExclamation>
@@ -131,16 +135,12 @@ const UserCard = () => {
         </TextExclamation>
       </WrapperExclamation>
 
-      <WrapperLogout onClick={logout}>
-        <Link to="/welcome">
-          <TextLogout>Logout</TextLogout>
-        </Link>
-        <IconLogout onClick={logout}>
+      <WrapperLogout to="/welcome" onClick={logout}>
+        <TextLogout>Logout</TextLogout>
+        <IconLogout>
           <use href={`${sprite}#icon-logout`} />
         </IconLogout>
       </WrapperLogout>
-
-      {loading && <Loader />}
     </WrapperUseCard>
   );
 };

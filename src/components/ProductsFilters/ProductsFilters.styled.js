@@ -4,7 +4,7 @@ export const LabelEl = styled.label`
   position: relative;
 `;
 
-export const ProductsFiltersList = styled.ul`
+export const ProductsFiltersWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -24,8 +24,10 @@ export const ProductsFiltersList = styled.ul`
   }
 
   @media screen and (min-width: 1440px) {
-    display: flex;
-    flex-direction: row;
+    position: absolute;
+    top: -6px;
+    right: 0;
+
     align-items: center;
     justify-content: flex-end;
     margin-bottom: 28px;
@@ -56,7 +58,7 @@ export const InputEl = styled.input`
     background-color: transparent;
     color: var(--color-text);
     font-size: 14px;
-    line-height: 18px;
+    line-height: 1.28;
     border-radius: 12px;
     border: 1px solid rgba(239, 237, 232, 0.3);
   }
@@ -64,11 +66,11 @@ export const InputEl = styled.input`
   @media screen and (min-width: 768px) {
     width: 236px;
     height: 52px;
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   @media screen and (min-width: 1440px) {
-    font-size: 16px;
-    line-height: 24px;
   }
 
   &:hover,
@@ -95,6 +97,7 @@ export const SearchBtnSearch = styled.button`
 
 export const SearchSvgSearch = styled.svg`
   stroke: var(--color-text);
+  fill: transparent;
   width: 18px;
   height: 18px;
   transition: stroke 0.3s var(--timing-function);
@@ -122,14 +125,7 @@ export const SearchSvgClose = styled.svg`
   height: 18px;
 `;
 
-export const SelectContainer = styled.div`
-  @media screen and (min-width: 375px) {
-    width: 173px;
-  }
-  @media screen and (min-width: 768px) {
-    width: 204px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 192px;
-  }
+export const SelectWrapper = styled.div`
+  display: flex;
+  gap: 16px;
 `;

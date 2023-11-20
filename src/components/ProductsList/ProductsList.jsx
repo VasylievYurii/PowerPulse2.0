@@ -45,6 +45,7 @@ const ProductsList = () => {
       {products.map((product) => (
         <ProductsItem
           key={product._id}
+          id={product._id}
           title={product.title}
           calories={product.calories}
           category={capitalizeString(product.category.name)}

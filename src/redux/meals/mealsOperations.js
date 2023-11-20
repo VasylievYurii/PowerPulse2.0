@@ -4,8 +4,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { instance } from '../auth/operations';
 
 const options = {
-  position: 'top-right',
-  autoClose: 4000,
+  position: 'top-center',
+  autoClose: 3000,
   hideProgressBar: false,
   closeOnClick: true,
   pauseOnHover: true,
@@ -43,5 +43,18 @@ const delMeal = async (mealId, thunkAPI) => {
   }
 };
 
+const postMeal = async (currentProduct, thunkAPI) => {
+  try {
+    delete currentProduct.calories;
+    const response = await instance.post(`diaries/meals`, currentProduct);
+    return response.data;
+  } catch (e) {
+    toastError(`Oops! Something was wrong.... ${e.message}`);
+    return thunkAPI.rejectWithValue(e.message);
+  }
+};
+
 export const getDiaryMealsThunk = createAsyncThunk('meals/getMeals', getMeals);
 export const delDiaryMealsThunk = createAsyncThunk('meals/delMeal', delMeal);
+export const postDiaryMealsThunk = createAsyncThunk('meals/postMeal', postMeal);
+

@@ -8,6 +8,7 @@ import {
   WrapDashText,
   DashIconExclamationWrapper,
   IconWrapper,
+  Message,
 } from './DayDashboard.styled';
 import { useSelector } from 'react-redux';
 import {
@@ -60,7 +61,7 @@ const DayDashboard = () => {
             </DashIconWrapper>
             Daily calorie intake
           </DashTitle>
-          {dayCalories}
+          {dayCalories !== 0 ? dayCalories : <Message>Please enter your details in the profile</Message>}
         </DashIndicators>
         <DashIndicators color="var(--color-main-one)">
           <DashTitle color="rgba(239, 237, 232, 0.80)">
@@ -98,7 +99,7 @@ const DayDashboard = () => {
           </DashTitle>
           {burnCalories}
         </DashIndicators>
-        <DashIndicators $borderColor={borderColorRestCalories}>
+        <DashIndicators $border={borderColorRestCalories}>
           <DashTitle>
             <DashIconWrapper
               fill="var(--color-main-two)"
@@ -110,7 +111,7 @@ const DayDashboard = () => {
           </DashTitle>
           {restCalories}
         </DashIndicators>
-        <DashIndicators $borderColor={borderColorRestWorkoutsTime}>
+        <DashIndicators $border={borderColorRestWorkoutsTime}>
           <DashTitle>
             <DashIconWrapper
               fill="var(--color-main-two)"

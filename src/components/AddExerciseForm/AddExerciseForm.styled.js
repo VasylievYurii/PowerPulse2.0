@@ -1,52 +1,41 @@
 
 import styled from 'styled-components'
 
-/* export const RemainingTime {
-  color: index.$white-color;
-  font-size: 16px;
-  line-height: 1.5;
-  transform: rotate(180deg);
-}
-*/
-
  export const Container = styled.div`
-  /* position: absolute;
+   /* position: absolute;
   top: 50%;
   left: 50%; 
-  transform: translate(-50%, -50%); */
-  /* padding: 10px; */
-  /* min-width: 335px;
-  min-height: 788px; */
-  /* background-color: var(--color-back-one);
-  border: 1px solid #efede833; */
-  /* border-radius: 12px; */
-  /* display: flex;
+  transform: translate(-50%, -50%); 
+   padding: 10px; 
+   min-width: 335px;
+  min-height: 788px; 
+   background-color: var(--color-back-one);
+  border: 1px solid #efede833; 
+   border-radius: 12px; 
+   display: flex;
   flex-direction: column;
   justify-content: space-between; 
-  align-items: center;  */
-/* 
+  align-items: center;   */
+ 
    @media screen and (min-width: 768px) {
     min-width: 694px;
   min-height: 550px;
-  }  */
+   };
 `; 
 
-export const GifWrapper = styled.svg`
-width: 270px;
-  height: 226px; 
- border-radius: 12px;
-  border: 1px solid var(--color-text);
-  margin-bottom: 14px;
-  margin-top: 48px;
-
-  @media screen and (min-width: 768px) {
-    
-  }
-   
-`;
 
 export const Gif = styled.img`
-object-fit: cover; 
+object-fit: cover;
+margin-bottom: 14px;
+margin-top: 30px;
+margin-left: auto;
+  margin-right: auto;
+width: 270px;
+height: 226px;
+border-radius: 12px;
+border: 1px solid var(--color-main-one);
+
+
 `;
 export const TimerWrapper = styled.div`
 display: flex;
@@ -62,18 +51,20 @@ align-items: center;
   margin-right: none;
 }
 `;
-
-
-
-export const CloseBtnWrapper = styled.svg`
- position: absolute;
-  cursor: pointer;
-  width: 22px;
-  height: 22px;
-  stroke: var(--color-text);
-  top: 14px;
-  right: 14px;
+export const Title = styled.h2`
+color: rgba(239, 237, 232, 0.3);
+font-size: 10px;
+line-height: 1.4;
+margin-bottom: 4px;
 ;`
+
+
+//  export const CloseBtnWrapper = styled.svg`
+
+//  @media screen and (min-width: 768px) {
+// };
+// `;
+
 
 export const ButtonContainer = styled.div`
   @media screen and (min-width: 768px) {

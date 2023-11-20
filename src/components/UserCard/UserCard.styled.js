@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { LoaderStyled } from '../Loader/Loader.styled';
 
 export const WrapperTwoIndicators = styled.div`
   display: flex;
@@ -184,7 +186,7 @@ export const IconLogout = styled.svg`
   stroke: var(--color-main-one);
 `;
 
-export const WrapperLogout = styled.div`
+export const WrapperLogout = styled(Link)`
   display: flex;
   gap: 4px;
   height: 21px;
@@ -232,3 +234,5 @@ export const WrapperProfile = styled.div`
     flex-direction: row-reverse;
   }
 `;
+
+export const LoaderAvatarStyled = styled(LoaderStyled)``;

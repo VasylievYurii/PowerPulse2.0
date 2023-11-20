@@ -2,6 +2,7 @@ import { useState } from 'react';
 import sprite from '../../assets/sprite.svg';
 import BasicModalWindow from '../BasicModalWindow/BasicModalWindow';
 import AddProductForm from '../AddProductForm/AddProductForm';
+import AddProductSuccess from '../AddProductSuccess/AddProductSuccess';
 import {
   ProductItemContainer,
   TopLineWrapper,
@@ -14,18 +15,41 @@ import {
   CategoryWrapper,
 } from './ProductsItem.styled';
 
-const ProductsItem = ({ title, calories, category, weight, recommended }) => {
+const ProductsItem = ({
+  id,
+  title,
+  calories,
+  category,
+  weight,
+  recommended,
+}) => {
   const [showModal, setShowModal] = useState(false);
+  const [showModalSuccess, setShowModalSuccess] = useState(false);
 
   const toggleModal = () => {
     setShowModal((prevState) => !prevState);
   };
 
+  const handleToggleSuccessModal = () => {
+    setShowModalSuccess((prevState) => !prevState);
+  };
+
   return (
-    <ProductItemContainer>
+    <ProductItemContainer key={id}>
       {showModal && (
         <BasicModalWindow onClick={toggleModal}>
-          <AddProductForm calories={calories} onClick={toggleModal} />
+          <AddProductForm
+            id={id}
+            title={title}
+            calories={calories}
+            onClick={toggleModal}
+            onClickSuccess={handleToggleSuccessModal}
+          />
+        </BasicModalWindow>
+      )}
+      {showModalSuccess && (
+        <BasicModalWindow onClick={handleToggleSuccessModal}>
+          <AddProductSuccess onClick={handleToggleSuccessModal} />
         </BasicModalWindow>
       )}
       <section>

@@ -1,6 +1,6 @@
 import { useState, forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
-import { format, subDays, addDays } from 'date-fns';
+import { format, subDays, addDays, parseISO } from 'date-fns';
 import {
   CalendarGlobalStyles,
   TitleWrapper,
@@ -10,12 +10,15 @@ import {
   CustomHeaderWrapper,
   IconWrapperHeader,
   HeaderData,
+  CircleWrapper,
 } from './DaySwitch.styled';
 import 'react-datepicker/dist/react-datepicker.css';
 import sprite from '../../assets/sprite.svg';
+// import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 const DaySwitch = ({ onDateChange }) => {
   const [startDate, setStartDate] = useState(new Date());
+  // const { userData } = useSelector((state) => state.auth);
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => {
     return (
@@ -27,26 +30,37 @@ const DaySwitch = ({ onDateChange }) => {
           </IconCalendar>
         </TitleWrapper>
 
-        <IconWrapper onClick={() => setStartDate(subDays(startDate, 1))}>
+        <IconWrapper onClick={() => handleDateChange(subDays(startDate, 1))}>
           <use href={`${sprite}#icon-left`} />
         </IconWrapper>
-        <IconWrapper onClick={() => setStartDate(addDays(startDate, 1))}>
+        <IconWrapper onClick={() => handleDateChange(addDays(startDate, 1))}>
           <use href={`${sprite}#icon-right`} />
         </IconWrapper>
       </CalendarWrapper>
     );
   });
 
+  const handleDateChange = (newDate) => {
+    setStartDate(newDate);
+    if (onDateChange) {
+      onDateChange(newDate);
+    }
+  };
+
   const CustomHeader = ({ date, decreaseMonth, increaseMonth }) => {
     return (
       <CustomHeaderWrapper>
-        <IconWrapperHeader onClick={decreaseMonth}>
-          <use href={`${sprite}#icon-left`} />
-        </IconWrapperHeader>
+        <CircleWrapper onClick={decreaseMonth}>
+          <IconWrapperHeader>
+            <use href={`${sprite}#icon-left`} />
+          </IconWrapperHeader>
+        </CircleWrapper>
         <HeaderData>{format(date, 'MMMM yyyy')}</HeaderData>
-        <IconWrapperHeader onClick={increaseMonth}>
-          <use href={`${sprite}#icon-right`} />
-        </IconWrapperHeader>
+        <CircleWrapper onClick={increaseMonth}>
+          <IconWrapperHeader>
+            <use href={`${sprite}#icon-right`} />
+          </IconWrapperHeader>
+        </CircleWrapper>
       </CustomHeaderWrapper>
     );
   };
@@ -54,7 +68,8 @@ const DaySwitch = ({ onDateChange }) => {
   return (
     <>
       <DatePicker
-        // minDate={new Date()}
+        // minDate={userData.createdAt}
+        maxDate={new Date()}
         selected={startDate}
         onChange={(date) => {
           setStartDate(date);

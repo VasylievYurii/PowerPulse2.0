@@ -8,7 +8,7 @@ const getIndicators = async (_, thunkApi) => {
     const response = await instance.get(`profiles/targets`);
     return response.data;
   } catch (e) {
-    toastError(`Oops! Something was wrong.... ${e.message}`);
+    toastError(`Oops! Something went wrong.... ${e.message}`);
     return thunkApi.rejectWithValue(e.message);
   }
 };

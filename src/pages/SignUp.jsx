@@ -30,7 +30,6 @@ const SignUp = () => {
             information.
           </ParagrStyled>
           <SignUpForm />
-          <ToastContainer />
           <TextRedirectStyled>
             Already have an account?{' '}
             <NavLinkStyled to="/signin">Sign In</NavLinkStyled>

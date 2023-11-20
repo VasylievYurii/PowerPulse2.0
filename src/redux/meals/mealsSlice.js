@@ -1,23 +1,26 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit'
-import { delDiaryMealsThunk, getDiaryMealsThunk } from './mealsOperations';
+import { delDiaryMealsThunk, getDiaryMealsThunk, postDiaryMealsThunk } from './mealsOperations';
 
 const mealInitialState = {
     isLoading: false,
     error: null,
     meals: [],
+    isMealAdd: false,
 };
 
 const onPending = (state) => {
     state.isLoading = true;
     state.error = null;
+    state.isMealAdd = false;
 };
 
 const onRejected = (state, { payload }) => {
     state.isLoading = false;
     state.error = payload;
+    state.isMealAdd = null;
 };
 
-const arrOfActs = [getDiaryMealsThunk, delDiaryMealsThunk];
+const arrOfActs = [getDiaryMealsThunk, delDiaryMealsThunk, postDiaryMealsThunk];
 
 const addStatusToActs = status =>
     arrOfActs.map((el) => el[status]);
@@ -34,8 +37,13 @@ export const diarySlice = createSlice({
             })
             .addCase(delDiaryMealsThunk.fulfilled, (state, { payload }) => {
                 state.isLoading = false;
-                state.meals = state.meals.filter(meal => meal._id !== payload._id)
+                state.meals = state.meals.filter(meal => meal._id !== payload._id);
                 state.error = null;
+            })
+            .addCase(postDiaryMealsThunk.fulfilled, (state, { payload }) => {
+                state.isLoading = false;
+                state.error = null;
+                state.isMealAdd = payload;
             })
             .addMatcher(isAnyOf(...addStatusToActs('pending')), onPending)
             .addMatcher(isAnyOf(...addStatusToActs('rejected')), onRejected)

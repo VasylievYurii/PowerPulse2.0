@@ -18,6 +18,7 @@ export const selectOneWorkout = (state) => state.workouts.oneWorkout;
 export const selectMeals = (state) => state.meals.meals;
 export const selectMealsIsLoading = (state) => state.meals.isLoading;
 export const selectMealsError = (state) => state.meals.error;
+export const selectIsMealAdd = (state) => state.meals.isMealAdd;
 
 // =========== P R O D U C T S ==================
 
@@ -40,3 +41,7 @@ export const selectUserBlood = (state) => state.profile.profile.blood;
 // =========== I N D I C A T O R S ==================
 
 export const selectIndicators = (state) => state.indicators.indicators;
+
+// =========== S T A T I S T I C S ==================
+
+export const selectStatistics = (state) => state.statistics.statistics;

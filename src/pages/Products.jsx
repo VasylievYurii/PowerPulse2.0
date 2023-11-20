@@ -8,6 +8,11 @@ import {
   selectProductsIsLoading,
   selectProductsError,
 } from '../redux/selectors';
+import {
+  ProductWrapTitle,
+  ProductWrapper,
+  Span,
+} from './Products/Products.styled';
 
 const Products = () => {
   const isLoading = useSelector(selectProductsIsLoading);
@@ -15,10 +20,15 @@ const Products = () => {
 
   return (
     <SectionTemplate>
-      <TitlePage>Products</TitlePage>
-      <ProductsFilters />
-      {isLoading && !error && <Loader />}
-      <ProductsList />
+      <ProductWrapper>
+        <Span>Filters</Span>
+        <ProductWrapTitle>
+          <TitlePage>Products</TitlePage>
+        </ProductWrapTitle>
+        <ProductsFilters />
+        {isLoading && !error && <Loader />}
+        <ProductsList />
+      </ProductWrapper>
     </SectionTemplate>
   );
 };
