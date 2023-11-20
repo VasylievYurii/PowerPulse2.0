@@ -8,7 +8,7 @@ export const InputStyled = styled(Field)`
   width: 100%;
   height: 46px;
   border-radius: 12px;
-  border: ${props => props.border || '1px solid rgba(239, 237, 232, 0.3)'};
+  border: ${(props) => props.border || '1px solid rgba(239, 237, 232, 0.3)'};
   padding-top: 14px;
   padding-bottom: 14px;
   padding-left: 14px;
@@ -22,6 +22,7 @@ export const InputStyled = styled(Field)`
   &:hover,
   &:focus {
     border: 1px solid var(--color-main-one);
+    outline: none;
   }
 
   @media screen and (min-width: 768px) {
@@ -32,7 +33,7 @@ export const InputStyled = styled(Field)`
   }
 `;
 export const ErrorDivStyled = styled.div`
-  color: ${props => props.color || 'var(--color-wrong-one)'};
+  color: ${(props) => props.color || 'var(--color-wrong-one)'};
   margin-top: 4px;
   /* margin-left: 4px; */
   line-height: 1.5;
@@ -59,7 +60,7 @@ export const SvgIconCheckBoxStyled = styled.svg`
   width: 16px;
   height: 16px;
   margin-top: 4px;
-  fill: ${props => props.fill || 'var(--color-wrong-one)'};
+  fill: ${(props) => props.fill || 'var(--color-wrong-one)'};
 `;
 
 export const WrapperErrorStyled = styled.div`
