@@ -15,6 +15,26 @@ export const Heading = styled.h1`
     line-height: 1.11; /* 111.429% */
     letter-spacing: 0.7px;
   }
+  > span {
+    position: relative;
+    z-index: 1;
+  }
+`;
+
+export const CircleStyled = styled.svg`
+  position: absolute;
+  width: 98px;
+  height: 98px;
+  left: 0;
+  top: 0;
+  transform: translate(0%, -26%);
+  fill: transparent;
+  stroke: var(--color-main-one);
+  z-index: -1;
+  @media screen and (min-width: 768px) {
+    width: 185px;
+    height: 185px;
+  }
 `;
 
 export const Buttons = styled.div`
