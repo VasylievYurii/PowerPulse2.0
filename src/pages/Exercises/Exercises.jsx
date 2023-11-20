@@ -1,28 +1,19 @@
-import { useState, useEffect, Suspense } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState, Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import SectionTemplate from '../../components/SectionTemplate';
 import TitlePage from '../../components/TitlePage';
 import ChapterTemplate from '../../components/ChapterTemplate';
-import { getExercises } from '../../redux/exercises/exeOperation';
 import AddExerciseSuccess from '../../components/AddExerciseSuccess/index';
 import BasicModalWindow from '../../components/BasicModalWindow';
 import { ChaptersWrapper, LinkStyled } from './Exercises.styled';
 
-
 const Exercises = () => {
-  // const dispatch = useDispatch();
-  // const { array } = useSelector((state) => state.exercises);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpen((prevState) => !prevState);
   };
 
-  // useEffect(() => {
-  //   dispatch(getExercises());
-  // }, [dispatch]);
-  // console.log('all', array);
   return (
     <SectionTemplate>
       <TitlePage>Exercises</TitlePage>
@@ -44,7 +35,6 @@ const Exercises = () => {
         </li>
       </ChaptersWrapper>
       <Suspense fallback={<p>Loader</p>}>
-        {/* <button onClick={toggleModal}>Add to diary</button> */}
         {isModalOpen && (
           <BasicModalWindow onClick={toggleModal}>
             <AddExerciseSuccess onClick={toggleModal} />

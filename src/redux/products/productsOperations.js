@@ -1,8 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import axios from 'axios';
 import { instance } from '../auth/operations';
-
-// axios.defaults.baseURL = 'https://powerpulse-t5-backend.onrender.com/api';
 
 export const getProducts = createAsyncThunk(
   'products/getProducts',
@@ -26,10 +23,7 @@ export const getProducts = createAsyncThunk(
       const url = `products?${queryString}&page=1&limit=20`;
 
       const { data } = await instance.get(url);
-      console.log('data', data.data);
-      console.log('total', data.total);
       return data;
-
     } catch (e) {
       console.log(e.message);
       return thunkAPI.rejectWithValue(e.message);

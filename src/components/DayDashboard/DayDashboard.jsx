@@ -12,12 +12,20 @@ import {
 } from './DayDashboard.styled';
 import { useSelector } from 'react-redux';
 import {
+  selectIndicIsLoading,
   selectIndicators,
   selectMeals,
+  selectMealsIsLoading,
   selectWorkouts,
+  selectWorkoutsIsLoading,
 } from '../../redux/selectors';
+import Loader from '../Loader/Loader';
+import { pureFinalPropsSelectorFactory } from 'react-redux/es/connect/selectorFactory';
 
 const DayDashboard = () => {
+  const indicIsLoad = useSelector(selectIndicIsLoading);
+  const mealsIsLoad = useSelector(selectMealsIsLoading);
+  const workoutsIsLoad = useSelector(selectWorkoutsIsLoading);
   const { targetBmr, targetTime } = useSelector(selectIndicators);
   const meals = useSelector(selectMeals);
   const workouts = useSelector(selectWorkouts);
@@ -61,7 +69,8 @@ const DayDashboard = () => {
             </DashIconWrapper>
             Daily calorie intake
           </DashTitle>
-          {dayCalories !== 0 ? dayCalories : <Message>Please enter your details in the profile</Message>}
+          {indicIsLoad ? <Loader color='var(--color-text)'/> :
+            (dayCalories !== 0 ? dayCalories : <Message>Please enter your details in the profile</Message>)}
         </DashIndicators>
         <DashIndicators color="var(--color-main-one)">
           <DashTitle color="rgba(239, 237, 232, 0.80)">
@@ -85,7 +94,7 @@ const DayDashboard = () => {
             </DashIconWrapper>
             Calories consumed
           </DashTitle>
-          {consumedCalories}
+          {mealsIsLoad ? <Loader/> : consumedCalories}
         </DashIndicators>
         <DashIndicators>
           <DashTitle>
@@ -97,7 +106,7 @@ const DayDashboard = () => {
             </DashIconWrapper>
             Calories burned
           </DashTitle>
-          {burnCalories}
+          {workoutsIsLoad ? <Loader/> : burnCalories}
         </DashIndicators>
         <DashIndicators $border={borderColorRestCalories}>
           <DashTitle>
@@ -109,7 +118,7 @@ const DayDashboard = () => {
             </DashIconWrapper>
             The rest of the calories
           </DashTitle>
-          {restCalories}
+          {(mealsIsLoad || workoutsIsLoad) ? <Loader/> : restCalories}
         </DashIndicators>
         <DashIndicators $border={borderColorRestWorkoutsTime}>
           <DashTitle>
@@ -121,7 +130,7 @@ const DayDashboard = () => {
             </DashIconWrapper>
             The rest of sports
           </DashTitle>
-          {restCalories < 0 ? `+ ${restWorkoutsTime}` : restWorkoutsTime} min
+          {workoutsIsLoad ? <Loader/> : (restCalories < 0 ? `+ ${restWorkoutsTime}` : restWorkoutsTime)} min
         </DashIndicators>
       </DashList>
       <WrapDashText>

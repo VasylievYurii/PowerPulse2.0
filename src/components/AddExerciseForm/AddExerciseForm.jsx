@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { getUserParams } from '../../redux/auth/operations';
 import { addWorkout } from '../../redux/workouts/workoutsOperations';
 // import { toast } from 'react-toastify';
 import AddExerciseFormList from './AddExerciseFormList';
@@ -13,6 +12,10 @@ import {
   ListWrapper,
 } from './AddExerciseForm.styled';
 
+function secondsToMinutes(seconds) {
+  let minutes = seconds / 60;
+  return minutes.toFixed(2);
+}
 export const AddExerciseForm = ({
   onClick,
   exeId,
@@ -20,31 +23,45 @@ export const AddExerciseForm = ({
   name,
   bodyPart,
   target,
+  burnedCalories,
   equipment,
   onClickToggle,
 }) => {
-  const [dinamicBurnCal, setDinamicBurnCal] = useState(0);
-  const [dinamicTime, setDinamicTime] = useState(0);
-
   const dispatch = useDispatch();
+  const [dynamicBurnCal, setDynamicBurnCal] = useState(0);
+  const [dynamicTime, setDynamicTime] = useState(0);
+
+  useEffect(() => {
+    let updatedCalories = Math.round(
+      (secondsToMinutes(dynamicTime) * burnedCalories) / 3,
+    );
+    setDynamicBurnCal(updatedCalories);
+  }, [dynamicTime, burnedCalories]);
 
   const handleOpenSuccessModal = () => {
     onClickToggle();
     dispatch(
       addWorkout({
-        date: new Date(),
-        time: 4,
         exercise_id: exeId,
+        date: Date.now(),
+        time: 180 - dynamicTime,
       }),
     );
     onClick();
+  };
+
+  const handleTime = (time) => {
+    setDynamicTime(time);
   };
 
   return (
     <Container>
       <ExerciseWrapper>
         <Gif src={gifUrl} alt={name} />
-        <CountdownTimer />
+        <CountdownTimer
+          handleTime={handleTime}
+          dynamicBurnCal={dynamicBurnCal}
+        />
       </ExerciseWrapper>
 
       <ListWrapper>

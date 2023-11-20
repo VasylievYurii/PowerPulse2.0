@@ -28,7 +28,7 @@ const ProductsList = () => {
   const category = useSelector(selectCategoryFilter);
   const recommended = useSelector(selectRecommendedFilter);
   const blood = useSelector(selectUserBlood);
-  console.log('blood', blood);
+
   const products = useSelector(selectProducts);
   const total = useSelector(selectProductsTotal);
   const isLoadingProducts = useSelector(selectProductsIsLoading);

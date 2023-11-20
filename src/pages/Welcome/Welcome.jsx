@@ -9,7 +9,9 @@ import {
   Heading,
   WelcomeOutlinedBtn,
   WelcomePrimaryBtn,
+  CircleStyled,
 } from './Welcome.styled.js';
+import sprite from '../../assets/sprite.svg';
 
 const Welcome = () => {
   return (
@@ -17,7 +19,16 @@ const Welcome = () => {
       <SectionTemplateLeft>
         <Logo />
         <SecondWrapperTemplate>
-          <Heading>Transforming your body shape with Power Pulse</Heading>
+          <Heading>
+            Transforming your
+            <span>
+              &nbsp;body&nbsp;
+              <CircleStyled>
+                <use href={`${sprite}#icon-line`} />
+              </CircleStyled>
+            </span>
+            shape with Power Pulse
+          </Heading>
           <Buttons>
             <Link to="/signup">
               <WelcomePrimaryBtn>Sign Up</WelcomePrimaryBtn>
