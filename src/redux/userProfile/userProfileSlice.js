@@ -6,7 +6,9 @@ import {
 } from './userProfileOperations';
 
 const initialState = {
-  profile: null,
+  profile: {
+    blood: null
+  },
   isLoading: false,
   error: null,
   target: {},
