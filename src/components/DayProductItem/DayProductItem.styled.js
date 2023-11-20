@@ -6,5 +6,5 @@ export const Circle = styled.div`
   height: 14px;
   border-radius: 10px;
   background: ${(props) =>
-  props.color === 'true' ? 'var(--color-approved-two)': 'var(--color-wrong-two)'|| 'var(--color-back-two)'};
+  props.color === 'false' ? 'var(--color-approved-two)': 'var(--color-wrong-two)'|| 'var(--color-back-two)'};
 `;
