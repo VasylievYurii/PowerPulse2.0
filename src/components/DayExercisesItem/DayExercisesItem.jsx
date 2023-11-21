@@ -12,12 +12,19 @@ import {
     DiaryTrashButton,
 } from '../../pages/Diary/Diary.styled';
 
-const DayExercisesItem = ({ workout, points }) => {
+const DayExercisesItem = ({ workout }) => {
     let { _id,
         burnedCalories,
         time,
         exercise_id: { bodyPart, equipment, name, target }
     } = workout;
+  const [points, setPoints] = useState(window.innerWidth);
+  const handleResize = () => setPoints(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const dispatch = useDispatch();
 

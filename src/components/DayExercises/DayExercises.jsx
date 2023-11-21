@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
   DiarySections,
-  DiaryWrapTitle,
   DiaryTitle,
   DiaryLink,
   NextIconWrapper,
@@ -16,6 +15,7 @@ import sprite from '../../assets/sprite.svg';
 import { selectWorkouts } from '../../redux/selectors';
 import { useSelector } from 'react-redux';
 import DayExercisesItem from '../DayExercisesItem';
+import MediaQuery from 'react-responsive'
 
 const DayExercises = () => {
   const workouts = useSelector(selectWorkouts);
@@ -43,34 +43,54 @@ const DayExercises = () => {
 
       {workouts.length !== 0 ? (
         <>
-          <WrapTitlesTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '90px' : '115px'}>
-              Body Part
-            </DiarySupTitleTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '132px' : '157px'}>
-              Equipment
-            </DiarySupTitleTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '128px' : '131px'}>
-              Name
-            </DiarySupTitleTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '84px' : '106px'}>
-              Target
-            </DiarySupTitleTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '78px' : '91px'}>
-              Burned Calories
-            </DiarySupTitleTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '72px' : '82px'}>
-              Time
-            </DiarySupTitleTablet>
-          </WrapTitlesTablet>
+          <MediaQuery minWidth={768} maxWidth={1439}>
+            <WrapTitlesTablet>
+              <DiarySupTitleTablet width='90px'>
+                Body Part
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='132px'>
+                Equipment
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='128px'>
+                Name
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='84px'>
+                Target
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='78px'>
+                Burned Calories
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='72px'>
+                Time
+              </DiarySupTitleTablet>
+            </WrapTitlesTablet>
+          </MediaQuery>
+          <MediaQuery minWidth={1440}>
+            <WrapTitlesTablet>
+              <DiarySupTitleTablet width='115px'>
+                Body Part
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='157px'>
+                Equipment
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='131px'>
+                Name
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='106px'>
+                Target
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='91px'>
+                Burned Calories
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='82px'>
+                Time
+              </DiarySupTitleTablet>
+            </WrapTitlesTablet>
+          </MediaQuery>
           <DiaryLists>
             {' '}
             {workouts.map((workout) => (
-              <DayExercisesItem
-                workout={workout}
-                points={points}
-                key={workout._id}
-              />
+              <DayExercisesItem workout={workout} key={workout._id} />
             ))}{' '}
           </DiaryLists>
         </>
