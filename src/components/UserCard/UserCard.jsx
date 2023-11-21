@@ -35,8 +35,8 @@ const UserCard = () => {
   const { target, profile } = useSelector((state) => state.profile);
   const [imageURL, setImageURL] = useState(userData.avatarURL ?? null);
   const [user, setUser] = useState('Hello user!');
-  const [bmr, setBmr] = useState(0);
-  const [time, setTime] = useState(0);
+  const [bmr, setBmr] = useState('0');
+  const [time, setTime] = useState('0');
   const [loading, setLoading] = useState(false);
   console.log('targ', target);
 
@@ -49,7 +49,7 @@ const UserCard = () => {
 
   useEffect(() => {
     dispatch(getTarget());
-    if (target) {
+    if (target && profile) {
       setBmr(Math.round(target.targetBmr));
       setTime(target.targetTime);
     }
