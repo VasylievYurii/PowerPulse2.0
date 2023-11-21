@@ -51,14 +51,12 @@ const SignInForm = () => {
     >
       {({ errors, touched }) => {
         const borderEmailColor =
-          errors.email && touched.email
-            ? '1px solid #D80027'
-            : '1px solid #3CBF61';
-
+          (errors.email && touched.email && '1px solid #D80027') ||
+          (!errors.email && touched.email && '1px solid #3CBF61');
         const borderPasswordColor =
-          errors.password && touched.password
-            ? '1px solid #D80027'
-            : '1px solid #3CBF61';
+          (errors.password && touched.password && '1px solid #D80027') ||
+          (!errors.password && touched.password && '1px solid #3CBF61');
+
         return (
           <Form autoComplete="off">
             <WrapFormStyled>
