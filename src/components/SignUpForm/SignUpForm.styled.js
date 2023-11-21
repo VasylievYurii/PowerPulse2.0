@@ -21,7 +21,7 @@ export const InputStyled = styled(Field)`
 } */
   &:hover,
   &:focus {
-    border: 1px solid var(--color-main-one);
+    /* border: 1px solid var(--color-main-one); */
     outline: none;
   }
 

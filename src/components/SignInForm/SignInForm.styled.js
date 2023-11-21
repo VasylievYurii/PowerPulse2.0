@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const ButtonSubmitStyled = styled.button`
   display: block;
   padding: 12px 40px;
@@ -16,12 +15,13 @@ export const ButtonSubmitStyled = styled.button`
   cursor: pointer;
   transition: border 0.3s var(--timing-function);
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: var(--color-main-two);
     border: 1px solid var(--color-main-two);
   }
 
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     font-size: 20px;
     line-height: 1.2;
     padding: 16px 60px;
