@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getExercisesEquipment } from '../../redux/exercises/exeOperation';
 import Pagination from '../../components/Pagination/Pagination';
 import ExercisesSubcategoriesList from '../../components/ExercisesSubcategoriesList/ExercisesSubcategoriesList';
+import Loader from '../../components/Loader/Loader';
 
 const Equipment = () => {
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
-  const { equipment } = useSelector((state) => state.exercises);
+  const { equipment, isLoading } = useSelector((state) => state.exercises);
 
   useEffect(() => {
     dispatch(getExercisesEquipment());
@@ -34,6 +35,7 @@ const Equipment = () => {
 
   return (
     <>
+      {isLoading && <Loader />}
       <ExercisesSubcategoriesList arr={arrayPerPage()} />
       <Pagination
         exePerPage={perPage()}

@@ -4,9 +4,10 @@ import { getExercisesBodyparts } from '../../redux/exercises/exeOperation';
 import Pagination from '../../components/Pagination/Pagination';
 import ExercisesSubcategoriesList from '../../components/ExercisesSubcategoriesList/ExercisesSubcategoriesList';
 import { WrapperPagination } from './BodyParts.styled';
+import Loader from '../../components/Loader/Loader';
 const BodyParts = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const { bodyparts } = useSelector((state) => state.exercises);
+  const { bodyparts, isLoading } = useSelector((state) => state.exercises);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -37,6 +38,7 @@ const BodyParts = () => {
 
   return (
     <>
+      {isLoading && <Loader />}
       <ExercisesSubcategoriesList arr={arrayPerPage()} />
       <WrapperPagination>
         {allExersise !== perPage() && (

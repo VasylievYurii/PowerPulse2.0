@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ExercisesItem from '../ExercisesItem/ExercisesItem';
@@ -14,8 +14,7 @@ import {
 } from './ExercisesList.styled';
 import SectionTemplate from '../SectionTemplate';
 import sprite from '../../assets/sprite.svg';
-import AddExerciseSuccess from '../../components/AddExerciseSuccess/index';
-import BasicModalWindow from '../../components/BasicModalWindow';
+import Loader from '../Loader/Loader';
 
 import {
   ChaptersWrapper,
@@ -34,7 +33,7 @@ const ExercisesList = () => {
   const backLinkEquipment = useRef(
     location.state?.from ?? '/exercises/equipment',
   );
-  const { exeFilter } = useSelector((state) => state.exercises);
+  const { exeFilter, isLoading } = useSelector((state) => state.exercises);
 
   const params = useParams();
   const current = params.id;
@@ -63,7 +62,9 @@ const ExercisesList = () => {
         <LinkBtn to={backLinkLocation.current}>Back</LinkBtn>
       </ButtonGoBack>
       <WrapperNav>
+        {isLoading && <Loader />}
         <NameExercises>{ucFirst(current)}</NameExercises>
+
         <ChaptersWrapper>
           <li>
             <LinkStyled to={backLinkBodyparts.current}>
