@@ -8,7 +8,7 @@ import welcomeMobile2x from '../../assets/backgroundImages/welcome-mobile@2x.jpg
 import signMobile from '../../assets/backgroundImages/sign-mobile.jpg';
 import signMobile2x from '../../assets/backgroundImages/sign-mobile@2x.jpg';
 
-const getBackgroundImage = (pathname, highResolution = false) => {
+const getBackgroundImage = (pathname="", highResolution = false) => {
   if (pathname.includes('/welcome')) {
     return `url(${highResolution ? welcomeMobile2x : welcomeMobile})`;
   } else if (pathname.includes('/signup') || pathname.includes('/signin')) {

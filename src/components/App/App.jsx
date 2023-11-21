@@ -31,38 +31,38 @@ import { selectMealsIsLoading } from '../../redux/selectors.js';
 function App() {
   const location = useLocation();
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing, isLoggedIn } = useAuth();
   const { profile } = useSelector((state) => state.profile);
-  const auth = useSelector(selectUserAuthenticated);
+  // const auth = useSelector(selectUserAuthenticated);
   const workoutIsLoading = useSelector(selectWorkoutsIsLoading);
   const profileIsLoading = useSelector(selectUserProfileIsLoading);
   const productIsLoading = useSelector(selectProductsIsLoading);
   const mealsIsLoading = useSelector(selectMealsIsLoading);
 
-  let isFilled = true;
+  let isFilled = isLoggedIn && profile ? true : false;
 
-  if (auth) {
-    const profileArray = profile
-      ? [
-          profile.height,
-          profile.currentWeight,
-          profile.desiredWeight,
-          profile.blood,
-          profile.sex,
-          profile.levelActivity,
-          profile.birthday,
-        ]
-      : [];
+  // if (isLoggedIn && profile) {
+  //   const profileArray = profile
+  //     ? [
+  //         profile.height,
+  //         profile.currentWeight,
+  //         profile.desiredWeight,
+  //         profile.blood,
+  //         profile.sex,
+  //         profile.levelActivity,
+  //         profile.birthday,
+  //       ]
+  //     : [];
 
-    for (let item of profileArray) {
-      if (item) {
-        isFilled = true;
-      } else {
-        isFilled = false;
-        break;
-      }
-    }
-  }
+  //   for (let item of profileArray) {
+  //     if (item) {
+  //       isFilled = true;
+  //     } else {
+  //       isFilled = false;
+  //       break;
+  //     }
+  //   }
+  // }
 
   useEffect(() => {
     dispatch(refreshUser());
