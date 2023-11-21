@@ -10,8 +10,6 @@ import userSchema from '../../schema/userProfileSchema';
 import RadioUseForm from './RadioUseForm/RadioUseForm';
 import InputUseForm from './InputUseForm/InputUseForm';
 import { SubmitBtn, SuccessText } from './UserForm.styled';
-import format from 'date-fns/format';
-import BirthdayCalendar from '../BirthdayCalendar/BirthdayCalendar';
 import { toast } from 'react-toastify';
 
 const toastInfo = (text) => {
@@ -28,6 +26,7 @@ const toastInfo = (text) => {
   });
 };
 
+
 const initialValues = {
   name: '',
   email: '',
@@ -40,13 +39,12 @@ const initialValues = {
   birthday: '2004-11-14',
 };
 
-const UserForm = () => {
+const UserForm = ({ onClick }) => {
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
   const { profile } = useSelector((state) => state.profile);
   const [birthdayState, setBirthdayState] = useState('2004-11-14');
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-  console.log('prof', profile);
 
   useEffect(() => {
     dispatch(getUserProfile());
@@ -76,8 +74,6 @@ const UserForm = () => {
   }, [isFormSubmitted]);
 
   const handleSubmit = (values, actions) => {
-    console.log('val', values);
-
     const { name, email, birthday, ...rest } = values;
     const nameEmailObject = { name };
     const restObject = { birthday: birthdayState, ...rest };
@@ -87,8 +83,8 @@ const UserForm = () => {
   };
 
   const onDateChange = (date) => {
-    let formDat = format(date, 'yyyy-dd-MM');
-    setBirthdayState(formDat);
+    const newDate = date.toISOString();
+    setBirthdayState(newDate);
   };
 
   return (
@@ -106,7 +102,9 @@ const UserForm = () => {
             touched={touched}
           />
           <RadioUseForm />
-          <SubmitBtn type="submit">Save</SubmitBtn>
+
+          <SubmitBtn type="submit" onClick={onClick}>Save</SubmitBtn>
+
         </Form>
       )}
     </Formik>
