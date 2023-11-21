@@ -12,6 +12,21 @@ import InputUseForm from './InputUseForm/InputUseForm';
 import { SubmitBtn, SuccessText } from './UserForm.styled';
 import format from 'date-fns/format';
 import BirthdayCalendar from '../BirthdayCalendar/BirthdayCalendar';
+import { toast } from 'react-toastify';
+
+const toastInfo = (text) => {
+  toast.info(text, {
+    position: 'top-center',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    type: 'success',
+    theme: 'dark',
+  });
+};
 
 const initialValues = {
   name: '',
@@ -54,6 +69,12 @@ const UserForm = () => {
     }
   }, [userData, profile, birthdayState]);
 
+  useEffect(() => {
+    if (isFormSubmitted) {
+      toastInfo('The form has been submitted successfully!');
+    }
+  }, [isFormSubmitted]);
+
   const handleSubmit = (values, actions) => {
     console.log('val', values);
 
@@ -86,9 +107,6 @@ const UserForm = () => {
           />
           <RadioUseForm />
           <SubmitBtn type="submit">Save</SubmitBtn>
-          {isFormSubmitted && (
-            <SuccessText>The form has been submitted successfully!</SuccessText>
-          )}
         </Form>
       )}
     </Formik>
