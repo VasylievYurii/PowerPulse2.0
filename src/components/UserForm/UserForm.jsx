@@ -10,6 +10,22 @@ import userSchema from '../../schema/userProfileSchema';
 import RadioUseForm from './RadioUseForm/RadioUseForm';
 import InputUseForm from './InputUseForm/InputUseForm';
 import { SubmitBtn, SuccessText } from './UserForm.styled';
+import { toast } from 'react-toastify';
+
+const toastInfo = (text) => {
+  toast.info(text, {
+    position: 'top-center',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    type: 'success',
+    theme: 'dark',
+  });
+};
+
 
 const initialValues = {
   name: '',
@@ -51,6 +67,12 @@ const UserForm = ({ onClick }) => {
     }
   }, [userData, profile, birthdayState]);
 
+  useEffect(() => {
+    if (isFormSubmitted) {
+      toastInfo('The form has been submitted successfully!');
+    }
+  }, [isFormSubmitted]);
+
   const handleSubmit = (values, actions) => {
     const { name, email, birthday, ...rest } = values;
     const nameEmailObject = { name };
@@ -80,12 +102,9 @@ const UserForm = ({ onClick }) => {
             touched={touched}
           />
           <RadioUseForm />
-          <SubmitBtn type="submit" onClick={onClick}>
-            Save
-          </SubmitBtn>
-          {isFormSubmitted && (
-            <SuccessText>The form has been submitted successfully!</SuccessText>
-          )}
+
+          <SubmitBtn type="submit" onClick={onClick}>Save</SubmitBtn>
+
         </Form>
       )}
     </Formik>

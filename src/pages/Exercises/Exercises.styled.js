@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const ChaptersWrapper = styled.ul`
   display: flex;
   gap: 28px;
+  padding-top: 14px;
   @media screen and (min-width: 768px) {
     padding-top: 14px;
   }
@@ -12,6 +13,12 @@ export const ChaptersWrapper = styled.ul`
   }
 `;
 
+export const DesctopWrapper = styled.div`
+  @media screen and (min-width: 1440px) {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
 export const LinkStyled = styled(NavLink)`
   position: relative;
   display: block;

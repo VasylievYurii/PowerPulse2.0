@@ -51,12 +51,15 @@ const exeSlice = createSlice({
       })
       .addCase(getExercisesMuscles.fulfilled, (state, action) => {
         state.muscles = action.payload;
+        state.isLoading = false;
       })
       .addCase(getExercisesEquipment.fulfilled, (state, action) => {
         state.equipment = action.payload;
+        state.isLoading = false;
       })
       .addCase(getExercisesBodyparts.fulfilled, (state, action) => {
         state.bodyparts = action.payload;
+        state.isLoading = false;
       })
       .addMatcher(isAnyOf(...addStatusToActs('pending')), onPending)
       .addMatcher(isAnyOf(...addStatusToActs('rejected')), onRejected),
