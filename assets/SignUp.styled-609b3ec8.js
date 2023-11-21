@@ -1,4 +1,4 @@
-import{s as o,ag as e}from"./index-6b3631c6.js";import{F as r}from"./index.esm-69181b66.js";const p=o(r)`
+import{s as o,ag as e}from"./index-9e9c266c.js";import{F as r}from"./index.esm-14946a10.js";const p=o(r)`
   font-size: 14px;
   line-height: 18px;
   max-width: 335px;
@@ -18,7 +18,7 @@ import{s as o,ag as e}from"./index-6b3631c6.js";import{F as r}from"./index.esm-6
 } */
   &:hover,
   &:focus {
-    border: 1px solid var(--color-main-one);
+    /* border: 1px solid var(--color-main-one); */
     outline: none;
   }
 
@@ -78,12 +78,13 @@ import{s as o,ag as e}from"./index-6b3631c6.js";import{F as r}from"./index.esm-6
   cursor: pointer;
   transition: border 0.3s var(--timing-function);
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: var(--color-main-two);
     border: 1px solid var(--color-main-two);
   }
 
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     font-size: 20px;
     line-height: 1.2;
     padding: 16px 60px;
