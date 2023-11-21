@@ -7,22 +7,21 @@ import welcomeMobile from '../../assets/backgroundImages/welcome-mobile.jpg';
 import welcomeMobile2x from '../../assets/backgroundImages/welcome-mobile@2x.jpg';
 import signMobile from '../../assets/backgroundImages/sign-mobile.jpg';
 import signMobile2x from '../../assets/backgroundImages/sign-mobile@2x.jpg';
-const backgroundImagePath = (props) => {
-  if (props.pathname.includes('/welcome')) {
-    return `url(${welcomeMobile})`;
-  } else if (
-    props.pathname.includes('/signup') ||
-    props.pathname.includes('/signin')
-  ) {
-    return `url(${signMobile})`;
+
+const getBackgroundImage = (pathname, highResolution = false) => {
+  if (pathname.includes('/welcome')) {
+    return `url(${highResolution ? welcomeMobile2x : welcomeMobile})`;
+  } else if (pathname.includes('/signup') || pathname.includes('/signin')) {
+    return `url(${highResolution ? signMobile2x : signMobile})`;
   } else {
     return 'none';
   }
 };
+
 export const SectionNoAuth = styled.section`
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  position: relative;
   margin: 0 auto;
   width: 100%;
   background-repeat: no-repeat;
@@ -33,30 +32,26 @@ export const SectionNoAuth = styled.section`
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 40px;
-  background-image: ${(props) =>
-    props.pathname.includes('/welcome')
-      ? `url(${welcomeMobile})`
-      : props.pathname.includes('/signup') || props.pathname.includes('/signin')
-      ? `url(${signMobile})`
-      : 'none'};
+  background-image: ${(props) => getBackgroundImage(props.pathname)};
 
   @media (orientation: portrait) {
+    background-repeat: no-repeat;
     background-size: 80%;
   }
+
   @media only screen and (min-resolution: 192dpi),
     only screen and (min-resolution: 2dppx) {
-    background-image: ${(props) =>
-      props.pathname.includes('/welcome')
-        ? `url(${welcomeMobile2x}`
-        : props.pathname.includes('/signup') ||
-          props.pathname.includes('/signin')
-        ? `url(${signMobile2x})`
-        : 'none'};
+    background-repeat: no-repeat;
+    background-image: ${(props) => getBackgroundImage(props.pathname, true)};
   }
 
   @media screen and (min-width: 768px) {
+    background-repeat: no-repeat;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-top: 0;
     background-image: url(${welcomeTablet});
-    background-size: 55%;
 
     @media only screen and (min-resolution: 192dpi),
       only screen and (min-resolution: 2dppx) {
@@ -65,9 +60,10 @@ export const SectionNoAuth = styled.section`
   }
 
   @media screen and (min-width: 1440px) {
+    background-repeat: no-repeat;
     background-image: url(${welcomeDesktop});
     height: 100vh;
-    background-size: 47%;
+
     @media only screen and (min-resolution: 192dpi),
       only screen and (min-resolution: 2dppx) {
       background-image: url(${welcomeDesktop2x});
@@ -77,7 +73,8 @@ export const SectionNoAuth = styled.section`
 
 export const ContainerNoAuth = styled.div`
   height: 100vh;
-  /* display: flex;
+
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   max-width: 375px;
@@ -103,5 +100,5 @@ export const ContainerNoAuth = styled.div`
     padding-left: 96px;
     flex-direction: row;
     height: 100vh;
-  } */
+  }
 `;

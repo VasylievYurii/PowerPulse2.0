@@ -110,17 +110,19 @@ export const CalCount = styled.p`
 `;
 
 export const Descr = styled.p`
-  font-size: 12px;
+  font-size: 16px;
   margin-bottom: 0;
   color: rgba(239, 237, 232, 0.65);
 `;
 
 export const StatsWrapper = styled.div`
   position: absolute;
-  width: 212px;
+  bottom: 5%;
+  right: 5%;
+  width: 230px;
   height: 230px;
   @media screen and (orientation: portrait) {
-    position: relative;
+    /* position: relative; */
   }
   @media screen and (min-width: 768px) {
     width: 405px;
@@ -130,7 +132,7 @@ export const StatsWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     width: 638px;
     height: 245px;
-    right: 0;
+    right: 2%;
     bottom: 20%;
   }
 `;

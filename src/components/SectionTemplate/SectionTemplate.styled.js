@@ -4,33 +4,49 @@ import productsDesktop2x from '../../assets/backgroundImages/products-desktop@2x
 import welcomeDesktop from '../../assets/backgroundImages/welcome-png.png';
 import welcomeDesktop2x from '../../assets/backgroundImages/welcome-png@2x.png';
 
+const getBackgroundImage = (pathname) => {
+  if (
+    pathname.includes('exercises/Equipment') ||
+    pathname.includes('/exercises/Muscles') ||
+    pathname.includes('exercises/Body')
+  ) {
+    return `url(${welcomeDesktop})`;
+  } else if (pathname === '/products') {
+    return `url(${productsDesktop})`;
+  } else {
+    return 'none';
+  }
+};
+
+const getHighResBackgroundImage = (pathname) => {
+  if (pathname === '/products') {
+    return `url(${productsDesktop2x})`;
+  } else if (
+    pathname.includes('exercises/Equipment') ||
+    pathname.includes('/exercises/Muscles') ||
+    pathname.includes('exercises/Body')
+  ) {
+    return `url(${welcomeDesktop2x})`;
+  } else {
+    return 'none';
+  }
+};
+
 export const Section = styled.section`
   margin: 0 auto;
   width: 100%;
   height: 100vh;
+
   @media screen and (min-width: 1440px) {
     background-repeat: no-repeat;
     background-position: right bottom;
-    background-position-y: calc(100% + 50px);
+    /* background-position-y: calc(100% + 50px); */
     background-size: contain;
-    background-image: ${(props) =>
-      props.pathname.includes('exercises/Equipment') ||
-      props.pathname.includes('/exercises/Muscles') ||
-      props.pathname.includes('exercises/Body')
-        ? `url(${welcomeDesktop})`
-        : props.pathname === '/products'
-        ? `url(${productsDesktop})`
-        : 'none'};
+    background-image: ${(props) => getBackgroundImage(props.pathname)};
+
     @media only screen and (min-resolution: 192dpi),
       only screen and (min-resolution: 2dppx) {
-      background-image: ${(props) =>
-        props.pathname === '/products'
-          ? `url(${productsDesktop2x})`
-          : props.pathname.includes('exercises/Equipment') ||
-            props.pathname.includes('/exercises/Muscles') ||
-            props.pathname.includes('exercises/Body')
-          ? `url(${welcomeDesktop2x})`
-          : 'none'};
+      background-image: ${(props) => getHighResBackgroundImage(props.pathname)};
     }
   }
 `;

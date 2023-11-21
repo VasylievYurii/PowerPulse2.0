@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Heading = styled.h1`
-  /* width: 335px; */
+  width: 335px;
   margin-bottom: 40px;
   font-size: 38px;
   font-weight: 500;
@@ -9,7 +9,7 @@ export const Heading = styled.h1`
   letter-spacing: 0.38px;
 
   @media screen and (min-width: 768px) {
-    /* width: 598px; */
+    width: 598px;
     margin-bottom: 64px;
     font-size: 70px;
     line-height: 1.11; /* 111.429% */
@@ -27,7 +27,7 @@ export const CircleStyled = styled.svg`
   height: 98px;
   left: 0;
   top: 0;
-  transform: translate(0%, -26%);
+  transform: translate(-5%, -26%);
   fill: transparent;
   stroke: var(--color-main-one);
   z-index: -1;

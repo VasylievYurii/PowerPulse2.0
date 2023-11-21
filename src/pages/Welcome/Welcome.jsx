@@ -20,12 +20,13 @@ const Welcome = () => {
         <Logo />
         <SecondWrapperTemplate>
           <Heading>
-            Transforming your
+            Transforming your{' '}
             <span>
-              &nbsp;body&nbsp;
+              body
               <CircleStyled>
                 <use href={`${sprite}#icon-line`} />
               </CircleStyled>
+              &nbsp;
             </span>
             shape with Power Pulse
           </Heading>
