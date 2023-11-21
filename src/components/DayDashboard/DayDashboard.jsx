@@ -20,7 +20,6 @@ import {
   selectWorkoutsIsLoading,
 } from '../../redux/selectors';
 import Loader from '../Loader/Loader';
-import { pureFinalPropsSelectorFactory } from 'react-redux/es/connect/selectorFactory';
 
 const DayDashboard = () => {
   const indicIsLoad = useSelector(selectIndicIsLoading);

@@ -29,16 +29,12 @@ import {
   LoaderAvatarStyled,
 } from './UserCard.styled';
 
-const UserCard = () => {
+const UserCard = ({ bmr, time }) => {
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
-  const { target, profile } = useSelector((state) => state.profile);
   const [imageURL, setImageURL] = useState(userData.avatarURL ?? null);
   const [user, setUser] = useState('Hello user!');
-  const [bmr, setBmr] = useState('0');
-  const [time, setTime] = useState('0');
   const [loading, setLoading] = useState(false);
-  console.log('targ', target);
 
   useEffect(() => {
     if (userData) {
@@ -49,12 +45,7 @@ const UserCard = () => {
 
   useEffect(() => {
     dispatch(getTarget());
-
-    if (profile) {
-      setBmr(Math.round(profile.bmr));
-      setTime(target.targetTime);
-    }
-  }, [dispatch, profile]);
+  }, [dispatch]);
 
   const fileReader = new FileReader();
   fileReader.onloadend = () => {
@@ -115,7 +106,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily calorie intake</p>
           </WrapperText>
-          <TextSpan>{bmr}</TextSpan>
+          <TextSpan>{Math.round(bmr)}</TextSpan>
         </WrapperIndicators>
         <WrapperIndicators>
           <WrapperText>
