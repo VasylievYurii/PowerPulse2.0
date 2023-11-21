@@ -55,11 +55,9 @@ const UserForm = ({ onClick }) => {
     const { name, email, birthday, ...rest } = values;
     const nameEmailObject = { name };
     const restObject = { birthday: birthdayState, ...rest };
-    console.log('restObject:', restObject);
     dispatch(updateUser(nameEmailObject));
     dispatch(updateUserProfile(restObject));
     setIsFormSubmitted(true);
-    console.log('restObject after:', restObject);
   };
 
   const onDateChange = (date) => {
