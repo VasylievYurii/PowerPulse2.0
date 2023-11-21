@@ -1,5 +1,5 @@
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import sprite from '../../assets/sprite.svg';
 import {
   StartBtn,
@@ -11,8 +11,17 @@ import {
   BurnedCalories,
 } from './CountdownTimer.styled';
 
-const CountdownTimer = ({ key = 1, timer = 3, handleTime, dynamicBurnCal }) => {
+const CountdownTimer = ({ key = 1, timer = 3, isPlayTimer, handleTime, dynamicBurnCal }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isFirstRender, setIsFirstRender] = useState(true);
+
+  useEffect(() => {
+    if (isFirstRender) {
+      setIsFirstRender(false);
+      return;
+    };
+    isPlayTimer(isPlaying)
+  }, [isPlaying]);
 
   const formatNumber = (number) => (number < 10 ? `0${number}` : number);
 

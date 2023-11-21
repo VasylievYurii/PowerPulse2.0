@@ -29,6 +29,11 @@ export const AddExerciseForm = ({
   const dispatch = useDispatch();
   const [dynamicBurnCal, setDynamicBurnCal] = useState(0);
   const [dynamicTime, setDynamicTime] = useState(0);
+  const [isDisabled, setIsDisabled] = useState(true);
+
+  const isPlayTimer = (isPlay) => {
+    setIsDisabled(isPlay);
+  };
 
   useEffect(() => {
     let updatedCalories = Math.round(
@@ -60,6 +65,7 @@ export const AddExerciseForm = ({
       <ExerciseWrapper>
         <Gif src={gifUrl} alt={name} />
         <CountdownTimer
+          isPlayTimer={isPlayTimer}
           handleTime={handleTime}
           dynamicBurnCal={dynamicBurnCal}
         />
@@ -73,7 +79,13 @@ export const AddExerciseForm = ({
           equipment={equipment}
         />
 
-        <Button type="button" onClick={handleOpenSuccessModal}>
+        <Button
+          type="button"
+          disabled={isDisabled}
+          $hoverColor={isDisabled ? 'rgb(241, 153, 139, 0.8)' : 'var(--color-main-two)'}
+          color={isDisabled ? 'rgb(241, 153, 139, 0.8)' : 'var(--color-main-one)'}
+          cursor={isDisabled ? 'not-allowed' : 'pointer'}
+          onClick={handleOpenSuccessModal}>
           Add to diary
         </Button>
       </ListWrapper>
