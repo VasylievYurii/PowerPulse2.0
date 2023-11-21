@@ -32,10 +32,13 @@ import {
 const UserCard = () => {
   const dispatch = useDispatch();
   const { userData } = useSelector((state) => state.auth);
-  const { target } = useSelector((state) => state.profile);
+  const { target, profile } = useSelector((state) => state.profile);
   const [imageURL, setImageURL] = useState(userData.avatarURL ?? null);
   const [user, setUser] = useState('Hello user!');
+  const [bmr, setBmr] = useState(0);
+  const [time, setTime] = useState(0);
   const [loading, setLoading] = useState(false);
+  console.log('targ', target);
 
   useEffect(() => {
     if (userData) {
@@ -46,7 +49,11 @@ const UserCard = () => {
 
   useEffect(() => {
     dispatch(getTarget());
-  }, [dispatch]);
+    if (target) {
+      setBmr(Math.round(target.targetBmr));
+      setTime(target.targetTime);
+    }
+  }, [dispatch, profile]);
 
   const fileReader = new FileReader();
   fileReader.onloadend = () => {
@@ -107,7 +114,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily calorie intake</p>
           </WrapperText>
-          <TextSpan>{Math.round(target.targetBmr) ?? '0'}</TextSpan>
+          <TextSpan>{bmr}</TextSpan>
         </WrapperIndicators>
         <WrapperIndicators>
           <WrapperText>
@@ -116,7 +123,7 @@ const UserCard = () => {
             </IconWrapper>
             <p>Daily physical activity</p>
           </WrapperText>
-          <TextSpan>{target.targetTime ?? '0'} min</TextSpan>
+          <TextSpan>{time} min</TextSpan>
         </WrapperIndicators>
       </WrapperTwoIndicators>
       <WrapperExclamation>

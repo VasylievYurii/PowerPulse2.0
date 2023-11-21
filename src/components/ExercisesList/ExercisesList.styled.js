@@ -10,10 +10,12 @@ export const WrapperExercises = styled.ul`
   gap: 16px;
   flex-wrap: wrap;
   margin-top: 32px;
+  margin-bottom: 10px;
 
   @media screen and (min-width: 768px) {
     width: 710px;
     overflow-y: scroll;
+    max-height: 487px;
     &::-webkit-scrollbar {
       width: 8px;
       height: 2px;
@@ -29,6 +31,7 @@ export const WrapperExercises = styled.ul`
   }
   @media screen and (min-width: 1440px) {
     width: 850px;
+    margin-bottom: 10px;
   }
 `;
 
