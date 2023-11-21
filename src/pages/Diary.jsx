@@ -15,19 +15,12 @@ import {
   DiaryWrapTitle,
 } from './Diary/Diary.styled';
 import { getIndicatorsThunk } from '../redux/userIndicators/userIndicOperations';
-import { ToastContainer } from 'react-toastify';
+import MediaQuery from 'react-responsive'
+
 
 const Diary = () => {
   const dispatch = useDispatch();
-  const [points, setPoints] = useState(window.innerWidth);
-
-  const handleResize = () => setPoints(window.innerWidth);
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
+  
   const [selectedDate, setSelectedDate] = useState(
     format(new Date(), 'yyyy-MM-dd'),
   );
@@ -55,13 +48,17 @@ const Diary = () => {
         <TitlePage>Diary</TitlePage>
         <DaySwitch onDateChange={handleDateChange} />
       </DiaryWrapTitle>
-      {points >= 768 || <DayDashboard />}
+      <MediaQuery maxWidth={765}>
+        <DayDashboard />
+      </MediaQuery>
       <DiaryWrapContent>
         <DiaryWrapActivity>
           <DayProducts />
           <DayExercises />
         </DiaryWrapActivity>
-        {points < 768 || <DayDashboard />}
+        <MediaQuery minWidth={768}>
+          <DayDashboard />
+        </MediaQuery>
       </DiaryWrapContent>
     </SectionTemplate>
   );

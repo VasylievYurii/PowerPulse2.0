@@ -108,15 +108,12 @@ export const NextIconWrapper = styled.svg`
 `;
 
 export const WrapTitlesTablet = styled.ul`
-  display: none;
-
-  @media screen and (min-width: 768px) {
     display: flex;
     gap: 8px;
     line-height: 1.5;
     margin-bottom: -8px;
     color: var(--color-main-two);
-  }
+ 
   @media screen and (min-width: 1440px) {
     margin-right: 16px;
     margin-left: 16px;

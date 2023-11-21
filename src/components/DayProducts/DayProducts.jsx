@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import sprite from '../../assets/sprite.svg';
 import DayProductItem from '../DayProductItem';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectMeals } from '../../redux/selectors';
 import {
   DiarySections,
@@ -15,16 +15,11 @@ import {
   SectionsWrapTitle,
   EmptyText,
 } from '../../pages/Diary/Diary.styled';
+import MediaQuery from 'react-responsive'
+
 
 const DayProducts = () => {
   const meals = useSelector(selectMeals);
-  const [points, setPoints] = useState(window.innerWidth);
-  const handleResize = () => setPoints(window.innerWidth);
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   return (
     <DiarySections>
@@ -42,27 +37,48 @@ const DayProducts = () => {
 
       {meals.length !== 0 ? (
         <>
-          <WrapTitlesTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '206px' : '212px'}>
-              Title
-            </DiarySupTitleTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '130px' : '166px'}>
-              Category
-            </DiarySupTitleTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '92px' : '105px'}>
-              Calories
-            </DiarySupTitleTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '92px' : '105px'}>
-              Weight
-            </DiarySupTitleTablet>
-            <DiarySupTitleTablet width={points < 1440 ? '82px' : '110px'}>
-              Recommend
-            </DiarySupTitleTablet>
-          </WrapTitlesTablet>
+          <MediaQuery minWidth={768} maxWidth={1439}>
+            <WrapTitlesTablet>
+              <DiarySupTitleTablet width='206px'>
+                Title
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='130px'>
+                Category
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='92px'>
+                Calories
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='92px'>
+                Weight
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='82px'>
+                Recommend
+              </DiarySupTitleTablet>
+            </WrapTitlesTablet>
+          </MediaQuery>
+          <MediaQuery minWidth={1440}>
+            <WrapTitlesTablet>
+              <DiarySupTitleTablet width='212px'>
+                Title
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='166px'>
+                Category
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='105px'>
+                Calories
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='105px'>
+                Weight
+              </DiarySupTitleTablet>
+              <DiarySupTitleTablet width='110px'>
+                Recommend
+              </DiarySupTitleTablet>
+            </WrapTitlesTablet>
+          </MediaQuery>
           <DiaryLists>
             {' '}
             {meals.map((meal) => (
-              <DayProductItem meal={meal} points={points} key={meal._id} />
+              <DayProductItem meal={meal} key={meal._id} />
             ))}{' '}
           </DiaryLists>
         </>

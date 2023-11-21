@@ -13,13 +13,20 @@ import {
 import { Circle } from './DayProductItem.styled';
 import { delDiaryMealsThunk } from '../../redux/meals/mealsOperations';
 
-const DayProductItem = ({ meal, points }) => {
+const DayProductItem = ({ meal }) => {
   let { _id,
     product: { title, category:{ name }, groupBloodNotAllowed },
     profile: { blood },
     calories,
     weight
   } = meal;
+  const [points, setPoints] = useState(window.innerWidth);
+  const handleResize = () => setPoints(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   
   const dispatch = useDispatch();
 
