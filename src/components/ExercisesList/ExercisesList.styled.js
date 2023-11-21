@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 export const WrapperExercises = styled.ul`
   width: 335px;
   max-height: 726px;
-  height: 100vh;
-  overflow-y: auto;
+
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
@@ -72,7 +71,7 @@ export const WrapperNav = styled.div`
   gap: 20px;
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    gap: 252px;
+    justify-content: space-between;
     align-items: center;
   }
   @media screen and (min-width: 1440px) {

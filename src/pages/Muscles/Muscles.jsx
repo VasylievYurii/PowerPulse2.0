@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getExercisesMuscles } from '../../redux/exercises/exeOperation';
 import Pagination from '../../components/Pagination/Pagination';
 import ExercisesSubcategoriesList from '../../components/ExercisesSubcategoriesList/ExercisesSubcategoriesList';
+import Loader from '../../components/Loader/Loader';
 
 const Muscles = () => {
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
-  const { muscles } = useSelector((state) => state.exercises);
+  const { muscles, isLoading } = useSelector((state) => state.exercises);
 
   useEffect(() => {
     dispatch(getExercisesMuscles());
@@ -34,6 +35,7 @@ const Muscles = () => {
 
   return (
     <>
+      {isLoading && <Loader />}
       <ExercisesSubcategoriesList arr={arrayPerPage()} />
       <Pagination
         exePerPage={perPage()}
