@@ -18,7 +18,7 @@ import {
 } from './AddProductForm.styled';
 import { useDispatch } from 'react-redux';
 import { postDiaryMealsThunk } from '../../redux/meals/mealsOperations';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 
 const AddProductForm = ({ id, title, calories, onClick, onClickSuccess }) => {
   const [calculatedCalories, setCalculatedCalories] = useState(0);
@@ -64,7 +64,7 @@ const AddProductForm = ({ id, title, calories, onClick, onClickSuccess }) => {
 
   return (
     <>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
 
       <Formik
         initialValues={initialValues}

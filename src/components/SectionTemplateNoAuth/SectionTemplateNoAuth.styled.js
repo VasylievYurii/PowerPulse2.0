@@ -28,10 +28,10 @@ export const SectionNoAuth = styled.section`
   background-position: right bottom;
   background-size: contain;
   height: 100vh;
-  padding-top: 24px;
+  /* padding-top: 24px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 40px;
+  padding-bottom: 40px; */
   background-image: ${(props) => getBackgroundImage(props.pathname)};
 
   @media (orientation: portrait) {
