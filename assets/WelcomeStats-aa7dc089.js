@@ -1,4 +1,4 @@
-import{j as t,am as m,an as g,s as e,u,d as f,r as n,ao as w,a as o,a1 as j}from"./index-89f20c3e.js";function A({children:i}){return t.jsx(m,{pathname:location.pathname,children:t.jsx(g,{children:i})})}const b=e.div`
+import{j as t,am as m,an as g,s as e,u,d as f,r as n,ao as w,a as o,a1 as j}from"./index-8fd060c2.js";function A({children:i}){return t.jsx(m,{pathname:location.pathname,children:t.jsx(g,{children:i})})}const b=e.div`
   display: flex;
   flex-direction: column;
   /* min-height: 40%; */
@@ -134,15 +134,17 @@ import{j as t,am as m,an as g,s as e,u,d as f,r as n,ao as w,a as o,a1 as j}from
     font-size: 48px;
   }
 `,r=e.p`
-  font-size: 12px;
+  font-size: 16px;
   margin-bottom: 0;
   color: rgba(239, 237, 232, 0.65);
 `,z=e.div`
   position: absolute;
-  width: 212px;
+  bottom: 5%;
+  right: 5%;
+  width: 230px;
   height: 230px;
   @media screen and (orientation: portrait) {
-    position: relative;
+    /* position: relative; */
   }
   @media screen and (min-width: 768px) {
     width: 405px;
@@ -152,13 +154,12 @@ import{j as t,am as m,an as g,s as e,u,d as f,r as n,ao as w,a as o,a1 as j}from
   @media screen and (min-width: 1440px) {
     width: 638px;
     height: 245px;
-    right: 0;
+    right: 2%;
     bottom: 20%;
   }
 `,E=e.div`
   display: flex;
   justify-content: end;
-  position: relative;
   @media screen and (min-width: 768px) {
   }
   @media screen and (min-width: 1440px) {

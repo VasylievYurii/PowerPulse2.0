@@ -1,5 +1,5 @@
-import{s as e,j as o,L as t,a as r,b as n}from"./index-89f20c3e.js";import{S as s,a,b as p,W as d}from"./WelcomeStats-715ccaee.js";const l=e.h1`
-  /* width: 335px; */
+import{s as e,j as o,L as t,a as r,b as n}from"./index-8fd060c2.js";import{S as s,a,b as p,W as d}from"./WelcomeStats-aa7dc089.js";const l=e.h1`
+  width: 335px;
   margin-bottom: 40px;
   font-size: 38px;
   font-weight: 500;
@@ -7,7 +7,7 @@ import{s as e,j as o,L as t,a as r,b as n}from"./index-89f20c3e.js";import{S as 
   letter-spacing: 0.38px;
 
   @media screen and (min-width: 768px) {
-    /* width: 598px; */
+    width: 598px;
     margin-bottom: 64px;
     font-size: 70px;
     line-height: 1.11; /* 111.429% */
@@ -23,7 +23,7 @@ import{s as e,j as o,L as t,a as r,b as n}from"./index-89f20c3e.js";import{S as 
   height: 98px;
   left: 0;
   top: 0;
-  transform: translate(0%, -26%);
+  transform: translate(-5%, -26%);
   fill: transparent;
   stroke: var(--color-main-one);
   z-index: -1;
@@ -72,4 +72,4 @@ import{s as e,j as o,L as t,a as r,b as n}from"./index-89f20c3e.js";import{S as 
   &:focus {
     border: 1px solid var(--color-main-one);
   }
-`,b=()=>o.jsxs(s,{children:[o.jsxs(a,{children:[o.jsx(t,{}),o.jsxs(p,{children:[o.jsxs(l,{children:["Transforming your",o.jsxs("span",{children:[" body ",o.jsx(c,{children:o.jsx("use",{href:`${r}#icon-line`})})]}),"shape with Power Pulse"]}),o.jsxs(x,{children:[o.jsx(n,{to:"/signup",children:o.jsx(m,{children:"Sign Up"})}),o.jsx(n,{to:"/signin",children:o.jsx(h,{children:"Sign In"})})]})]})]}),o.jsx(d,{})]});export{b as default};
+`,b=()=>o.jsxs(s,{children:[o.jsxs(a,{children:[o.jsx(t,{}),o.jsxs(p,{children:[o.jsxs(l,{children:["Transforming your"," ",o.jsxs("span",{children:["body",o.jsx(c,{children:o.jsx("use",{href:`${r}#icon-line`})})," "]}),"shape with Power Pulse"]}),o.jsxs(x,{children:[o.jsx(n,{to:"/signup",children:o.jsx(m,{children:"Sign Up"})}),o.jsx(n,{to:"/signin",children:o.jsx(h,{children:"Sign In"})})]})]})]}),o.jsx(d,{})]});export{b as default};
