@@ -1,12 +1,26 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const ExercisesWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+`;
+
 export const ChaptersWrapper = styled.ul`
   display: flex;
   gap: 28px;
+  margin-top: 20px;
+
   @media screen and (min-width: 768px) {
-    padding-top: 14px;
   }
+
   @media screen and (min-width: 1440px) {
     justify-content: end;
   }
