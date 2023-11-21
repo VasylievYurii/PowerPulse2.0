@@ -49,8 +49,9 @@ const UserCard = () => {
 
   useEffect(() => {
     dispatch(getTarget());
-    if (target && profile) {
-      setBmr(Math.round(target.targetBmr));
+
+    if (profile) {
+      setBmr(Math.round(profile.bmr));
       setTime(target.targetTime);
     }
   }, [dispatch, profile]);
