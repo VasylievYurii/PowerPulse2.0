@@ -39,11 +39,13 @@ export const AddExerciseForm = ({
 
   const handleOpenSuccessModal = () => {
     onClickToggle();
+    const workoutTime = secondsToMinutes(180 - dynamicTime);
+    
     dispatch(
       addWorkout({
         exercise_id: exeId,
         date: Date.now(),
-        time: 180 - dynamicTime,
+        time: workoutTime,
       }),
     );
     onClick();
