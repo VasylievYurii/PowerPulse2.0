@@ -86,6 +86,7 @@ export const refreshUser = createAsyncThunk(
 
       const userToken = state.auth.token;
       token.set(userToken);
+      console.log('refresh started');
       const { data } = await instance.get('auth/current');
       return data;
     } catch (error) {

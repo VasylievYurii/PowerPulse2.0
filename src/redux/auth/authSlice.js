@@ -41,15 +41,16 @@ const authSlice = createSlice({
         state.error = null;
       })
       // ---------------Log Out------------------
-      .addCase(logOutUser.pending, (state) => {
-        state.isLoggedIn = false;
-        state.isLoading = true;
-        state.authenticated = false;
-        state.userData = null;
-        state.token = null;
-        state.error = null;
-      })
+      // .addCase(logOutUser.pending, (state) => {
+      //   state.isLoggedIn = false;
+      //   state.isLoading = true;
+      //   state.authenticated = false;
+      //   state.userData = null;
+      //   state.token = null;
+      //   state.error = null;
+      // })
       .addCase(logOutUser.fulfilled, (state) => {
+        console.log('logout finished');
         state.isLoggedIn = false;
         state.isLoading = false;
         state.authenticated = false;
@@ -82,18 +83,20 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(refreshUser.pending, (state) => {
+        console.log('refresh user pending');
         state.isRefreshing = true;
       })
       .addMatcher(
-        (action) => action.type.endsWith('/pending'),
+        (action) =>
+          action.type.endsWith('pending') && action.type.startsWith('auth'),
         (state) => {
           state.isLoading = true;
-
           state.error = null;
         },
       )
       .addMatcher(
-        (action) => action.type.endsWith('/rejected'),
+        (action) =>
+          action.type.endsWith('rejected') && action.type.startsWith('auth'),
         (state, action) => {
           state.isLoading = false;
           state.isRefreshing = false;

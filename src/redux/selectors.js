@@ -46,3 +46,4 @@ export const selectIndicIsLoading = (state) => state.indicators.isLoading;
 // =========== S T A T I S T I C S ==================
 
 export const selectStatistics = (state) => state.statistics.statistics;
+export const selectStatisticsIsLoading = (state) => state.statistics.isLoading;

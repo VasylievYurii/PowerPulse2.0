@@ -27,6 +27,9 @@ import { selectWorkoutsIsLoading } from '../../redux/selectors.js';
 import { selectUserProfileIsLoading } from '../../redux/selectors.js';
 import { selectProductsIsLoading } from '../../redux/selectors.js';
 import { selectMealsIsLoading } from '../../redux/selectors.js';
+import { selectUserIsLoading } from '../../redux/selectors.js';
+
+;
 
 function App() {
   const location = useLocation();
@@ -38,6 +41,7 @@ function App() {
   const profileIsLoading = useSelector(selectUserProfileIsLoading);
   const productIsLoading = useSelector(selectProductsIsLoading);
   const mealsIsLoading = useSelector(selectMealsIsLoading);
+  const userIsLoading = useSelector(selectUserIsLoading);
 
   let isFilled = isLoggedIn && profile ? true : false;
 
@@ -76,11 +80,13 @@ function App() {
     return <Navigate to="/exercises/body parts" />;
   }
 
-  return isRefreshing &&
-    workoutIsLoading &&
-    profileIsLoading &&
-    productIsLoading &&
-    mealsIsLoading ? (
+  return isRefreshing
+    || userIsLoading 
+    // workoutIsLoading ||
+    // profileIsLoading ||
+    // productIsLoading ||
+    // mealsIsLoading
+    ? (
     <Loader />
   ) : (
     <AppWrapper>
