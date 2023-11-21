@@ -31,6 +31,7 @@ const UserForm = () => {
   const { profile } = useSelector((state) => state.profile);
   const [birthdayState, setBirthdayState] = useState('2004-11-14');
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+  console.log('prof', profile);
 
   useEffect(() => {
     dispatch(getUserProfile());
@@ -54,6 +55,8 @@ const UserForm = () => {
   }, [userData, profile, birthdayState]);
 
   const handleSubmit = (values, actions) => {
+    console.log('val', values);
+
     const { name, email, birthday, ...rest } = values;
     const nameEmailObject = { name };
     const restObject = { birthday: birthdayState, ...rest };
