@@ -27,7 +27,7 @@ export const SectionNoAuth = styled.section`
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size: contain;
-  height: 100vh;
+  height: 812px;
   /* padding-top: 24px;
   padding-left: 20px;
   padding-right: 20px;
@@ -52,6 +52,7 @@ export const SectionNoAuth = styled.section`
     padding-bottom: 0;
     padding-top: 0;
     background-image: url(${welcomeTablet});
+    height: 1024px;
 
     @media only screen and (min-resolution: 192dpi),
       only screen and (min-resolution: 2dppx) {

@@ -25,7 +25,7 @@ const initialValues = {
 const SignInForm = () => {
   const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye-off`);
   const [type, setType] = useState('password');
-  const [validColor, setValidColor] = useState('');
+  // const [validColor, setValidColor] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
