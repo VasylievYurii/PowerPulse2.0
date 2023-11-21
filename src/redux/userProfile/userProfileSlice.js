@@ -7,7 +7,7 @@ import {
 
 const initialState = {
   profile: {
-    blood: null
+    blood: null,
   },
   isLoading: false,
   error: null,
