@@ -53,7 +53,7 @@ export const Button = styled.button`
   font-weight: 500;
   line-height: 1.12;
   text-align: left;
-  background-color: var(--color-main-one);
+  background-color: ${(props) => props.color || 'var(--color-main-one)'};
   border-radius: 12px;
   border: 1px solid var(--color-main-one);
   cursor: pointer;
@@ -62,7 +62,7 @@ export const Button = styled.button`
 
   &:hover,
   &:focus {
-    background-color: var(--color-main-two);
+    background-color: ${(props) => props.$hoverColor ||'var(--color-main-two)'};
     border: 1px solid var(--color-main-two);
   }
 

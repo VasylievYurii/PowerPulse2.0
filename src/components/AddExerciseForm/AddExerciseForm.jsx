@@ -79,7 +79,13 @@ export const AddExerciseForm = ({
           equipment={equipment}
         />
 
-        <Button type="button" disabled={isDisabled} onClick={handleOpenSuccessModal}>
+        <Button
+          type="button"
+          disabled={isDisabled}
+          $hoverColor={isDisabled ? 'rgb(241, 153, 139, 0.8)' : 'var(--color-main-two)'}
+          color={isDisabled ? 'rgb(241, 153, 139, 0.8)' : 'var(--color-main-one)'}
+          cursor={isDisabled ? 'not-allowed' : 'pointer'}
+          onClick={handleOpenSuccessModal}>
           Add to diary
         </Button>
       </ListWrapper>
