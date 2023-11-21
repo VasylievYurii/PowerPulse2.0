@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { IconSettings, UserWrapper, IconUser, Img } from './UserBar.styled';
-import Loader from '../Loader';
 import sprite from '../../assets/sprite.svg';
 
 const UserBar = () => {

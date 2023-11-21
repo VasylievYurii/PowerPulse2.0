@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import SectionTemplateNoAuth from '../components/SectionTemplateNoAuth';
-import SignInForm from '../components/SignInForm/index';
+import SignInForm from '../components/SignInForm';
 import WelcomeStats from '../components/WelcomeStats/WelcomeStats';
 
 import {
@@ -73,8 +73,6 @@ const SignIn = () => {
             Don&apos;t have an account?{' '}
             <NavLinkStyled to="/signup"> Sign Up</NavLinkStyled>
           </TextRedirectStyled>
-
-          {/* <ToastContainer /> */}
         </SecondWrapperTemplate>
       </SectionTemplateLeft>
 
