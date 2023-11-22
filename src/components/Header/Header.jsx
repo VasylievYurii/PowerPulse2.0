@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import { Link } from 'react-router-dom';
 import sprite from '../../assets/sprite.svg';
@@ -26,6 +26,8 @@ const Header = () => {
     setIsMenuOpen((prevState) => !prevState);
   };
 
+  const { targetBmr } = useSelector((state) => state.indicators.indicators);
+
   const handleLogOut = () => {
     dispatch(logOutUser());
   };
@@ -38,11 +40,16 @@ const Header = () => {
         </Link>
         <SecondNavWrapper>
           <MediaQuery minWidth={1440}>
-            <NavWrapper>
-              <StyledLink to="/diary">Diary</StyledLink>
-              <StyledLink to="/products">Products</StyledLink>
-              <StyledLink to="/exercises">Exercises</StyledLink>
-            </NavWrapper>
+            {targetBmr === 0 ? (
+              (console.log('NavWrapper not rendered: NaN'), null)
+            ) : (
+              <NavWrapper>
+                <StyledLink to="/diary">Diary</StyledLink>
+                <StyledLink to="/products">Products</StyledLink>
+                <StyledLink to="/exercises">Exercises</StyledLink>
+                {console.log('NavWrapper rendered')}
+              </NavWrapper>
+            )}
           </MediaQuery>
           <StyledLinkSettings to="/profile">
             <UserBar />

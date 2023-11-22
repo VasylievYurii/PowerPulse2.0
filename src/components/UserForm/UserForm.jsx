@@ -9,7 +9,7 @@ import {
 import userSchema from '../../schema/userProfileSchema';
 import RadioUseForm from './RadioUseForm/RadioUseForm';
 import InputUseForm from './InputUseForm/InputUseForm';
-import { SubmitBtn, SuccessText } from './UserForm.styled';
+import { SubmitBtn } from './UserForm.styled';
 import { toast } from 'react-toastify';
 
 const toastInfo = (text) => {
@@ -25,7 +25,6 @@ const toastInfo = (text) => {
     theme: 'dark',
   });
 };
-
 
 const initialValues = {
   name: '',
@@ -103,8 +102,9 @@ const UserForm = ({ onClick }) => {
           />
           <RadioUseForm />
 
-          <SubmitBtn type="submit" onClick={onClick}>Save</SubmitBtn>
-
+          <SubmitBtn type="submit" onClick={onClick}>
+            Save
+          </SubmitBtn>
         </Form>
       )}
     </Formik>
