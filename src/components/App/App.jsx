@@ -22,47 +22,32 @@ const SignUp = lazy(() => import('../../pages/SignUp'));
 const SignIn = lazy(() => import('../../pages/SignIn'));
 import { AppWrapper, ToastContainerStyled } from './App.styled';
 import ExercisesList from '../ExercisesList';
-import { selectUserAuthenticated } from '../../redux/selectors.js';
 import { selectWorkoutsIsLoading } from '../../redux/selectors.js';
 import { selectUserProfileIsLoading } from '../../redux/selectors.js';
 import { selectProductsIsLoading } from '../../redux/selectors.js';
 import { selectMealsIsLoading } from '../../redux/selectors.js';
+import { getUserProfile } from '../../redux/userProfile/userProfileOperations.js';
+// import { getUserProfile } from '../redux/userProfile/userProfileOperations';
 
 function App() {
   const location = useLocation();
   const dispatch = useDispatch();
   const { isRefreshing, isLoggedIn } = useAuth();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await dispatch(getUserProfile());
+    };
+    fetchData();
+  }, [dispatch]);
+
   const { profile } = useSelector((state) => state.profile);
-  // const auth = useSelector(selectUserAuthenticated);
   const workoutIsLoading = useSelector(selectWorkoutsIsLoading);
   const profileIsLoading = useSelector(selectUserProfileIsLoading);
   const productIsLoading = useSelector(selectProductsIsLoading);
   const mealsIsLoading = useSelector(selectMealsIsLoading);
 
   let isFilled = isLoggedIn && profile ? true : false;
-
-  // if (isLoggedIn && profile) {
-  //   const profileArray = profile
-  //     ? [
-  //         profile.height,
-  //         profile.currentWeight,
-  //         profile.desiredWeight,
-  //         profile.blood,
-  //         profile.sex,
-  //         profile.levelActivity,
-  //         profile.birthday,
-  //       ]
-  //     : [];
-
-  //   for (let item of profileArray) {
-  //     if (item) {
-  //       isFilled = true;
-  //     } else {
-  //       isFilled = false;
-  //       break;
-  //     }
-  //   }
-  // }
 
   useEffect(() => {
     dispatch(refreshUser());

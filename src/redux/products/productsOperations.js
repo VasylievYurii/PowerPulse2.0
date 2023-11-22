@@ -20,7 +20,7 @@ export const getProducts = createAsyncThunk(
       }
 
       const queryString = queryParams.join('&');
-      const url = `products?${queryString}&page=1&limit=20`;
+      const url = `products?${queryString}&page=1&limit=60`;
 
       const { data } = await instance.get(url);
       return data;

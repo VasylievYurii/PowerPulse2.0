@@ -21,11 +21,10 @@ import { getUserProfile } from '../redux/userProfile/userProfileOperations';
 const Diary = () => {
   const dispatch = useDispatch();
   const { indicators } = useSelector((state) => state.indicators);
-  // console.log('indicators:', indicators);
   const [selectedDate, setSelectedDate] = useState(
     format(new Date(), 'yyyy-MM-dd'),
   );
-  // const { indicators } = useSelector((state) => state.indicators);
+
   const handleDateChange = (date) => {
     const newDate = date.toISOString();
     setSelectedDate(newDate);
@@ -36,32 +35,9 @@ const Diary = () => {
       await dispatch(getUserProfile());
       dispatch(getDiaryMealsThunk(selectedDate));
       dispatch(getDiaryWorkoutThunk(selectedDate));
-      // if (indicators.targetBmr === 0) {
-      //   dispatch(getIndicatorsThunk());
-      // }
     };
     fetchData();
   }, [dispatch, selectedDate]);
-
-  //  useEffect(() => {
-  //    const fetchData = async () => {
-  //      await dispatch(getUserProfile());
-  //      dispatch(getDiaryMealsThunk(selectedDate));
-  //      dispatch(getDiaryWorkoutThunk(selectedDate));
-  //      if (indicators.targetBmr !== 0) {
-  //        dispatch(getIndicatorsThunk());
-  //      }
-  //    };
-  //    fetchData();
-  //  }, [dispatch, selectedDate]);
-
-  // useEffect(() => {
-  //   dispatch(getDiaryMealsThunk(selectedDate));
-  // }, [selectedDate]);
-
-  // useEffect(() => {
-  //   dispatch(getDiaryWorkoutThunk(selectedDate));
-  // }, [selectedDate]);
 
   useEffect(() => {
     dispatch(getIndicatorsThunk());
