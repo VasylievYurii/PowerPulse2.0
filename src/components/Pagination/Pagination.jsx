@@ -14,7 +14,7 @@ const Pagination = ({ exePerPage, totalExe, paginate, currentPage }) => {
             <SpanPagination
               href="#"
               onClick={() => paginate(number)}
-              isActive={number === currentPage}
+              isactive={number === currentPage ? 1 : 0}
             />
           </div>
         ))}
