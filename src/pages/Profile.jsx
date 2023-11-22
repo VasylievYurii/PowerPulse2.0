@@ -9,7 +9,7 @@ import { getTarget } from '../redux/userProfile/userProfileOperations';
 
 const Profile = () => {
   const dispatch = useDispatch();
-  const { targetBmr, targetTime } = useSelector(
+  const { targetBmr = 0, targetTime = 110 } = useSelector(
     (state) => state.profile.target,
   );
   const [isLoading, setIsLoading] = useState(false);
