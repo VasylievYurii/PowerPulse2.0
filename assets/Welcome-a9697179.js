@@ -1,4 +1,4 @@
-import{s as e,j as o,L as t,a as r,b as n}from"./index-a12dfad8.js";import{S as s,a,b as p,W as d}from"./WelcomeStats-75ab19b5.js";const l=e.h1`
+import{s as e,j as o,S as t,L as r,a as s,b as n}from"./index-8bf03836.js";import{S as a,a as p,W as d}from"./WelcomeStats-a5770fdd.js";const l=e.h1`
   width: 335px;
   margin-bottom: 40px;
   font-size: 38px;
@@ -72,4 +72,4 @@ import{s as e,j as o,L as t,a as r,b as n}from"./index-a12dfad8.js";import{S as 
   &:focus {
     border: 1px solid var(--color-main-one);
   }
-`,b=()=>o.jsxs(s,{children:[o.jsxs(a,{children:[o.jsx(t,{}),o.jsxs(p,{children:[o.jsxs(l,{children:["Transforming your"," ",o.jsxs("span",{children:["body",o.jsx(c,{children:o.jsx("use",{href:`${r}#icon-line`})})," "]}),"shape with Power Pulse"]}),o.jsxs(x,{children:[o.jsx(n,{to:"/signup",children:o.jsx(m,{children:"Sign Up"})}),o.jsx(n,{to:"/signin",children:o.jsx(h,{children:"Sign In"})})]})]})]}),o.jsx(d,{})]});export{b as default};
+`,b=()=>o.jsxs(t,{children:[o.jsxs(a,{children:[o.jsx(r,{}),o.jsxs(p,{children:[o.jsxs(l,{children:["Transforming your"," ",o.jsxs("span",{children:["body",o.jsx(c,{children:o.jsx("use",{href:`${s}#icon-line`})})," "]}),"shape with Power Pulse"]}),o.jsxs(x,{children:[o.jsx(n,{to:"/signup",children:o.jsx(m,{children:"Sign Up"})}),o.jsx(n,{to:"/signin",children:o.jsx(h,{children:"Sign In"})})]})]})]}),o.jsx(d,{})]});export{b as default};

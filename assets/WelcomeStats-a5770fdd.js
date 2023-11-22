@@ -1,4 +1,4 @@
-import{j as t,an as m,ao as g,s as e,u,d as f,r as n,ap as w,a as o,a2 as j}from"./index-a12dfad8.js";function A({children:i}){return t.jsx(m,{pathname:location.pathname,children:t.jsx(g,{children:i})})}const b=e.div`
+import{s as e,j as t,u as m,d as g,r as n,ao as u,a as o,a3 as w}from"./index-8bf03836.js";const f=e.div`
   display: flex;
   flex-direction: column;
   /* min-height: 40%; */
@@ -13,7 +13,7 @@ import{j as t,an as m,ao as g,s as e,u,d as f,r as n,ap as w,a as o,a2 as j}from
     gap: 20%; */
     justify-content: start;
   }
-`,N=({children:i})=>t.jsx(b,{children:i}),S=e.div`
+`,L=({children:i})=>t.jsx(f,{children:i}),j=e.div`
   display: flex;
   flex-direction: column;
   padding-top: 90px;
@@ -40,7 +40,7 @@ import{j as t,an as m,ao as g,s as e,u,d as f,r as n,ap as w,a as o,a2 as j}from
   @media (min-width: 1440) and (orientation: landscape) {
     transform: scale(1);
   } */
-`,V=({children:i})=>t.jsx(S,{children:i}),v=e.div`
+`,R=({children:i})=>t.jsx(j,{children:i}),b=e.div`
   display: flex;
   align-items: center;
   position: absolute;
@@ -62,7 +62,7 @@ import{j as t,an as m,ao as g,s as e,u,d as f,r as n,ap as w,a as o,a2 as j}from
     width: 206px;
     height: 96px;
   }
-`,y=e.div`
+`,S=e.div`
   position: absolute;
   right: 0;
   bottom: 0;
@@ -94,7 +94,7 @@ import{j as t,an as m,ao as g,s as e,u,d as f,r as n,ap as w,a as o,a2 as j}from
     width: 40px;
     height: 40px;
   }
-`,W=e(c)`
+`,v=e(c)`
   margin-bottom: 4px;
   width: 20px;
   height: 20px;
@@ -109,11 +109,11 @@ import{j as t,an as m,ao as g,s as e,u,d as f,r as n,ap as w,a as o,a2 as j}from
     width: 20px;
     height: 20px;
   }
-`,C=e.div`
+`,y=e.div`
   display: flex;
   gap: 8px;
   align-items: flex-end;
-`,k=e.p`
+`,W=e.p`
   margin-bottom: 4px;
   font-size: 16px;
   font-weight: 700;
@@ -123,7 +123,7 @@ import{j as t,an as m,ao as g,s as e,u,d as f,r as n,ap as w,a as o,a2 as j}from
     font-size: 24px;
     line-height: 1;
   }
-`,T=e.p`
+`,k=e.p`
   margin-bottom: 0;
   font-size: 24px;
   font-weight: 700;
@@ -137,7 +137,7 @@ import{j as t,an as m,ao as g,s as e,u,d as f,r as n,ap as w,a as o,a2 as j}from
   font-size: 16px;
   margin-bottom: 0;
   color: rgba(239, 237, 232, 0.65);
-`,z=e.div`
+`,C=e.div`
   position: absolute;
   bottom: 5%;
   right: 5%;
@@ -157,7 +157,7 @@ import{j as t,an as m,ao as g,s as e,u,d as f,r as n,ap as w,a as o,a2 as j}from
     right: 2%;
     bottom: 20%;
   }
-`,E=e.div`
+`,z=e.div`
   display: flex;
   justify-content: end;
   @media screen and (min-width: 768px) {
@@ -165,4 +165,4 @@ import{j as t,an as m,ao as g,s as e,u,d as f,r as n,ap as w,a as o,a2 as j}from
   @media screen and (min-width: 1440px) {
     flex-direction: column;
   }
-`,L=({children:i})=>t.jsx(E,{children:i}),D=()=>{const i=u(),{statistics:a}=f(l=>l.statistics),[s,x]=n.useState({}),[h,d]=n.useState(!1);return n.useEffect(()=>{a&&x(a)},[a]),n.useEffect(()=>{d(!0),i(w()),d(!1)},[i]),t.jsxs(L,{children:[t.jsxs(z,{children:[t.jsxs(v,{children:[t.jsx(c,{children:t.jsx(p,{children:t.jsx("use",{href:`${o}#icon-play`})})}),t.jsxs("div",{children:[t.jsx(k,{children:s.videoCount}),t.jsx(r,{children:"Video tutorial"})]})]}),t.jsxs(y,{children:[t.jsx(W,{children:t.jsx(p,{children:t.jsx("use",{href:`${o}#icon-run`})})}),t.jsxs(C,{children:[t.jsx(T,{children:(Math.round(s.burnedCaloriesSum)/1e3).toFixed(1)??"0"}),t.jsx(r,{children:"kcal"})]})]})]}),h&&t.jsx(j,{})]})};export{A as S,D as W,N as a,V as b};
+`,T=({children:i})=>t.jsx(z,{children:i}),V=()=>{const i=m(),{statistics:a}=g(l=>l.statistics),[s,x]=n.useState({}),[h,d]=n.useState(!1);return n.useEffect(()=>{a&&x(a)},[a]),n.useEffect(()=>{d(!0),i(u()),d(!1)},[i]),t.jsxs(T,{children:[t.jsxs(C,{children:[t.jsxs(b,{children:[t.jsx(c,{children:t.jsx(p,{children:t.jsx("use",{href:`${o}#icon-play`})})}),t.jsxs("div",{children:[t.jsx(W,{children:s.videoCount}),t.jsx(r,{children:"Video tutorial"})]})]}),t.jsxs(S,{children:[t.jsx(v,{children:t.jsx(p,{children:t.jsx("use",{href:`${o}#icon-run`})})}),t.jsxs(y,{children:[t.jsx(k,{children:(Math.round(s.burnedCaloriesSum)/1e3).toFixed(1)??"0"}),t.jsx(r,{children:"kcal"})]})]})]}),h&&t.jsx(w,{})]})};export{L as S,V as W,R as a};
