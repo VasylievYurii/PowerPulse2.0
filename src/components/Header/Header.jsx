@@ -26,7 +26,7 @@ const Header = () => {
     setIsMenuOpen((prevState) => !prevState);
   };
 
-  const { targetBmr } = useSelector((state) => state.indicators.indicators);
+  const { profile } = useSelector((state) => state.profile);
 
   const handleLogOut = () => {
     dispatch(logOutUser());
@@ -40,14 +40,11 @@ const Header = () => {
         </Link>
         <SecondNavWrapper>
           <MediaQuery minWidth={1440}>
-            {targetBmr === 0 ? (
-              (console.log('NavWrapper not rendered: NaN'), null)
-            ) : (
+            {profile === null ? null : (
               <NavWrapper>
                 <StyledLink to="/diary">Diary</StyledLink>
                 <StyledLink to="/products">Products</StyledLink>
                 <StyledLink to="/exercises">Exercises</StyledLink>
-                {console.log('NavWrapper rendered')}
               </NavWrapper>
             )}
           </MediaQuery>
