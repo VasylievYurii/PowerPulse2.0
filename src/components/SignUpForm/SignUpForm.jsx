@@ -110,7 +110,7 @@ const SignUpForm = () => {
                     ? errors.email
                       ? '1px solid #D80027'
                       : '1px solid #3CBF61'
-                    : '1px solid #efede8'
+                    : '1px solid #EFEDE84D'
                 }
                 type="text"
                 name="email"
@@ -142,7 +142,7 @@ const SignUpForm = () => {
                       ? errors.password
                         ? '1px solid #D80027'
                         : '1px solid #3CBF61'
-                      : '1px solid #efede8'
+                      : '1px solid #EFEDE84D'
                   }
                   type={type}
                   name="password"
