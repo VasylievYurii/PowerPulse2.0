@@ -46,6 +46,7 @@ const BodyParts = () => {
             exePerPage={perPage()}
             paginate={paginate}
             totalExe={bodyparts.length}
+            currentPage={currentPage}
           />
         )}
       </WrapperPagination>

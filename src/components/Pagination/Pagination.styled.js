@@ -3,16 +3,25 @@ import styled from 'styled-components';
 export const WrapperPaginate = styled.div`
   display: flex;
   gap: 8px;
-  margin-top: 32px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
   width: 6em;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 32px;
+    padding-bottom: 40px;
+  }
 `;
+
 export const SpanPagination = styled.a`
   cursor: pointer;
   width: 12px;
   height: 12px;
-  background: rgba(239, 237, 232, 0.1);
+  background: ${(props) =>
+    props.isActive ? '#E6533C' : 'rgba(239, 237, 232, 0.1)'};
+
   border-radius: 50%;
   display: flex;
   position: relative;
