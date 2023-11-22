@@ -50,12 +50,20 @@ const SignInForm = () => {
       onSubmit={handleSubmit}
     >
       {({ errors, touched }) => {
-        const borderEmailColor =
-          (errors.email && touched.email && '1px solid #D80027') ||
-          (!errors.email && touched.email && '1px solid #3CBF61');
-        const borderPasswordColor =
-          (errors.password && touched.password && '1px solid #D80027') ||
-          (!errors.password && touched.password && '1px solid #3CBF61');
+        const borderEmailColor = touched.email
+          ? errors.email
+            ? '1px solid #D80027'
+            : '1px solid #3CBF61'
+          : '1px solid #efede8';
+          // (errors.email && touched.email && '1px solid #D80027') ||
+          // (!errors.email && touched.email && '1px solid #3CBF61');
+        const borderPasswordColor = touched.password
+          ? errors.password
+            ? '1px solid #D80027'
+            : '1px solid #3CBF61'
+          : '1px solid #efede8';
+          // (errors.password && touched.password && '1px solid #D80027') ||
+          // (!errors.password && touched.password && '1px solid #3CBF61');
 
         return (
           <Form autoComplete="off">

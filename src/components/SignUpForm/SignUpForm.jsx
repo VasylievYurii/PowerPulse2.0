@@ -75,8 +75,11 @@ const SignUpForm = () => {
             <div>
               <InputStyled
                 border={
-                  (errors.name && touched.name && '1px solid #D80027') ||
-                  (!errors.name && touched.name && '1px solid #3CBF61')
+                  touched.name
+                    ? errors.name
+                      ? '1px solid #D80027'
+                      : '1px solid #3CBF61'
+                    : '1px solid #efede8'
                 }
                 type="text"
                 name="name"
@@ -103,8 +106,11 @@ const SignUpForm = () => {
             <div>
               <InputStyled
                 border={
-                  (errors.email && touched.email && '1px solid #D80027') ||
-                  (!errors.email && touched.email && '1px solid #3CBF61')
+                  touched.email
+                    ? errors.email
+                      ? '1px solid #D80027'
+                      : '1px solid #3CBF61'
+                    : '1px solid #efede8'
                 }
                 type="text"
                 name="email"
@@ -132,12 +138,11 @@ const SignUpForm = () => {
               <LabelWrapStyled>
                 <InputStyled
                   border={
-                    (errors.password &&
-                      touched.password &&
-                      '1px solid #D80027') ||
-                    (!errors.password &&
-                      touched.password &&
-                      '1px solid #3CBF61')
+                    touched.password
+                      ? errors.password
+                        ? '1px solid #D80027'
+                        : '1px solid #3CBF61'
+                      : '1px solid #efede8'
                   }
                   type={type}
                   name="password"
