@@ -27,7 +27,6 @@ import { selectUserProfileIsLoading } from '../../redux/selectors.js';
 import { selectProductsIsLoading } from '../../redux/selectors.js';
 import { selectMealsIsLoading } from '../../redux/selectors.js';
 import { getUserProfile } from '../../redux/userProfile/userProfileOperations.js';
-// import { getUserProfile } from '../redux/userProfile/userProfileOperations';
 
 function App() {
   const location = useLocation();
@@ -39,6 +38,7 @@ function App() {
       await dispatch(getUserProfile());
     };
     fetchData();
+    dispatch(refreshUser());
   }, [dispatch]);
 
   const { profile } = useSelector((state) => state.profile);
@@ -49,9 +49,9 @@ function App() {
 
   let isFilled = isLoggedIn && profile ? true : false;
 
-  useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(refreshUser());
+  // }, [dispatch]);
 
   if (location.pathname === '/') {
     return <Navigate to="/welcome" />;
