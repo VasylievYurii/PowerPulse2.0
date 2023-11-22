@@ -28,6 +28,7 @@ const Header = () => {
 
   const { targetBmr } = useSelector((state) => state.indicators.indicators);
   console.log('t', targetBmr);
+  console.log('isNaN(targetBmr):', targetBmr === 0);
 
   const handleLogOut = () => {
     dispatch(logOutUser());
@@ -41,13 +42,16 @@ const Header = () => {
         </Link>
         <SecondNavWrapper>
           <MediaQuery minWidth={1440}>
-            {!isNaN(targetBmr) ? (
+            {targetBmr === 0 ? (
+              (console.log('NavWrapper not rendered: NaN'), null)
+            ) : (
               <NavWrapper>
                 <StyledLink to="/diary">Diary</StyledLink>
                 <StyledLink to="/products">Products</StyledLink>
                 <StyledLink to="/exercises">Exercises</StyledLink>
+                {console.log('NavWrapper rendered')}
               </NavWrapper>
-            ) : null}
+            )}
           </MediaQuery>
           <StyledLinkSettings to="/profile">
             <UserBar />
