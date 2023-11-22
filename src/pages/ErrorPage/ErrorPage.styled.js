@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { SectionNoAuth } from '../../components/SectionTemplateNoAuth/SectionTemplateNoAuth.styled';
+import SectionTemplateNoAuth from '../../components/SectionTemplateNoAuth';
 import {
   IconWrapper,
   SecondaryIconWrapper,
 } from '../../components/Logo/Logo.styled';
 
-export const Section404 = styled(SectionNoAuth)``;
+export const Section404 = styled(SectionTemplateNoAuth)``;
 
 export const Container = styled.div`
   position: fixed;
