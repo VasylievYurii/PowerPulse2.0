@@ -31,7 +31,6 @@ export const AddExerciseForm = ({
   const [dynamicTime, setDynamicTime] = useState(0);
   const [isDisabled, setIsDisabled] = useState(true);
 
-  console.log('dynamicTime', dynamicTime);
   const isPlayTimer = (isPlay) => {
     setIsDisabled(isPlay);
   };
