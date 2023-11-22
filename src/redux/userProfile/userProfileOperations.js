@@ -38,7 +38,6 @@ export const getUserProfile = createAsyncThunk(
       if (userToken) {
         token.set(userToken);
         const { data } = await instance.get('profiles');
-        console.log('data:', data);
         return data;
       }
       return;
