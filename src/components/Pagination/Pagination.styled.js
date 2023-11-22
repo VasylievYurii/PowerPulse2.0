@@ -19,12 +19,30 @@ export const SpanPagination = styled.a`
   cursor: pointer;
   width: 12px;
   height: 12px;
-  background: ${(props) =>
-    props.isActive ? '#E6533C' : 'rgba(239, 237, 232, 0.1)'};
+
+  background: rgba(239, 237, 232, 0.1);
+  border: ${(props) =>
+    props.isactive ? '1px solid rgba(230, 83, 60, 1)' : ''};
 
   border-radius: 50%;
   display: flex;
   position: relative;
+
+  &::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: ${(props) =>
+      props.isactive ? '#E6533C' : '1px solid rgba(230, 83, 60, 1)'};
+
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: opacity 0.2s;
+  }
 
   &:hover {
     border: 1px solid rgba(230, 83, 60, 1);
