@@ -15,12 +15,12 @@ import {
   DiaryWrapTitle,
 } from './Diary/Diary.styled';
 import { getIndicatorsThunk } from '../redux/userIndicators/userIndicOperations';
-import MediaQuery from 'react-responsive'
-
+import MediaQuery from 'react-responsive';
+import { getUserProfile } from '../redux/userProfile/userProfileOperations';
 
 const Diary = () => {
   const dispatch = useDispatch();
-  
+
   const [selectedDate, setSelectedDate] = useState(
     format(new Date(), 'yyyy-MM-dd'),
   );
@@ -29,6 +29,10 @@ const Diary = () => {
     const newDate = date.toISOString();
     setSelectedDate(newDate);
   };
+
+  useEffect(() => {
+    dispatch(getUserProfile());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getDiaryMealsThunk(selectedDate));
@@ -40,7 +44,7 @@ const Diary = () => {
 
   useEffect(() => {
     dispatch(getIndicatorsThunk());
-  }, []);
+  }, [dispatch]);
 
   return (
     <SectionTemplate>
