@@ -27,8 +27,6 @@ const Header = () => {
   };
 
   const { targetBmr } = useSelector((state) => state.indicators.indicators);
-  console.log('t', targetBmr);
-  console.log('isNaN(targetBmr):', targetBmr === 0);
 
   const handleLogOut = () => {
     dispatch(logOutUser());

@@ -41,7 +41,6 @@ const initialValues = {
 const SignUpForm = () => {
   const [toggleIcon, setToggleIcon] = useState(`${sprite}#icon-eye-off`);
   const [type, setType] = useState('password');
-  // const [validColor, setValidColor] = useState('red');
 
   const dispatch = useDispatch();
 
