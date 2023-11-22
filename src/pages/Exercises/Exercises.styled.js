@@ -4,9 +4,10 @@ import styled from 'styled-components';
 export const ChaptersWrapper = styled.ul`
   display: flex;
   gap: 28px;
-  padding-top: 14px;
+  margin-top: 20px;
+
   @media screen and (min-width: 768px) {
-    padding-top: 14px;
+    margin-top: 0;
   }
   @media screen and (min-width: 1440px) {
     justify-content: end;
@@ -14,9 +15,14 @@ export const ChaptersWrapper = styled.ul`
 `;
 
 export const DesctopWrapper = styled.div`
-  @media screen and (min-width: 1440px) {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 `;
 export const LinkStyled = styled(NavLink)`

@@ -41,6 +41,7 @@ const Muscles = () => {
         exePerPage={perPage()}
         totalExe={muscles.length}
         paginate={paginate}
+        currentPage={currentPage}
       />
     </>
   );

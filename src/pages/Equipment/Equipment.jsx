@@ -41,6 +41,7 @@ const Equipment = () => {
         exePerPage={perPage()}
         totalExe={equipment.length}
         paginate={paginate}
+        currentPage={currentPage}
       />
     </>
   );
