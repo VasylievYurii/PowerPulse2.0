@@ -11,7 +11,13 @@ import {
   BurnedCalories,
 } from './CountdownTimer.styled';
 
-const CountdownTimer = ({ key = 1, timer = 3, isPlayTimer, handleTime, dynamicBurnCal }) => {
+const CountdownTimer = ({
+  key = 1,
+  timer = 3,
+  isPlayTimer,
+  handleTime,
+  dynamicBurnCal,
+}) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isFirstRender, setIsFirstRender] = useState(true);
 
@@ -19,8 +25,8 @@ const CountdownTimer = ({ key = 1, timer = 3, isPlayTimer, handleTime, dynamicBu
     if (isFirstRender) {
       setIsFirstRender(false);
       return;
-    };
-    isPlayTimer(isPlaying)
+    }
+    isPlayTimer(isPlaying);
   }, [isPlaying]);
 
   const formatNumber = (number) => (number < 10 ? `0${number}` : number);

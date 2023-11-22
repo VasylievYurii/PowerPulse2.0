@@ -44,8 +44,8 @@ export const AddExerciseForm = ({
 
   const handleOpenSuccessModal = () => {
     onClickToggle();
-    const workoutTime = secondsToMinutes(180 - dynamicTime);
-    
+    const workoutTime = secondsToMinutes(dynamicTime);
+
     dispatch(
       addWorkout({
         exercise_id: exeId,
@@ -57,7 +57,8 @@ export const AddExerciseForm = ({
   };
 
   const handleTime = (time) => {
-    setDynamicTime(time);
+    const newTime = 180 - time;
+    setDynamicTime(newTime);
   };
 
   return (
@@ -82,10 +83,15 @@ export const AddExerciseForm = ({
         <Button
           type="button"
           disabled={isDisabled}
-          $hoverColor={isDisabled ? 'rgb(241, 153, 139, 0.8)' : 'var(--color-main-two)'}
-          color={isDisabled ? 'rgb(241, 153, 139, 0.8)' : 'var(--color-main-one)'}
+          $hoverColor={
+            isDisabled ? 'rgb(241, 153, 139, 0.8)' : 'var(--color-main-two)'
+          }
+          color={
+            isDisabled ? 'rgb(241, 153, 139, 0.8)' : 'var(--color-main-one)'
+          }
           cursor={isDisabled ? 'not-allowed' : 'pointer'}
-          onClick={handleOpenSuccessModal}>
+          onClick={handleOpenSuccessModal}
+        >
           Add to diary
         </Button>
       </ListWrapper>
