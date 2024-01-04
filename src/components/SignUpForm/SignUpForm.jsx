@@ -22,7 +22,7 @@ import validateName from '../../js/validateName';
 const toastInfo = (text) => {
   toast.info(text, {
     position: 'top-center',
-    autoClose: 5000,
+    autoClose: 7000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -48,7 +48,7 @@ const SignUpForm = () => {
     dispatch(registerUser(values));
     actions.resetForm();
     toastInfo(
-      'You have been sent a verification email. Follow the instructions in the email.',
+      'You have been successfully registered! Press Sign in button and enter your email and password, please.',
     );
   };
 
